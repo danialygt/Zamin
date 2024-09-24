@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamin.Utilities.SerilogRegistration", "Zamin.Utilities.SerilogRegistration\Zamin.Utilities.SerilogRegistration.csproj", "{AB29ADB3-848E-4808-A0D1-4A8034166747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zamin.Utilities.SerilogRegistration.Sample", "Zamin.Utilities.SerilogRegistration.Sample\Zamin.Utilities.SerilogRegistration.Sample.csproj", "{C0528AC0-A2A9-4242-AAFB-DD303CC15B65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamin.Utilities.SerilogRegistration.Sample", "Zamin.Utilities.SerilogRegistration.Sample\Zamin.Utilities.SerilogRegistration.Sample.csproj", "{C0528AC0-A2A9-4242-AAFB-DD303CC15B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zamin.Utilities.SerilogRegistration.Sample.WorkerService", "Zamin.Utilities.SerilogRegistration.Sample.WorkerService\Zamin.Utilities.SerilogRegistration.Sample.WorkerService.csproj", "{00B195A0-AE74-43A7-9E82-A3EEED71EC01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C0528AC0-A2A9-4242-AAFB-DD303CC15B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0528AC0-A2A9-4242-AAFB-DD303CC15B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0528AC0-A2A9-4242-AAFB-DD303CC15B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B195A0-AE74-43A7-9E82-A3EEED71EC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B195A0-AE74-43A7-9E82-A3EEED71EC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B195A0-AE74-43A7-9E82-A3EEED71EC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B195A0-AE74-43A7-9E82-A3EEED71EC01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
