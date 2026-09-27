@@ -1,0 +1,166 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.ValueObjects",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "BaseValueObject<TValueObject>",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/ValueObjects/BaseValueObject.cs",
+      "base_types": [
+        "IEquatable<TValueObject>"
+      ],
+      "generic_constraints": "where TValueObject : BaseValueObject<TValueObject>",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// کلاس پایه برای همه ValueObjectها\n/// توضحیات کاملی در مورد دلایل وجود ValueObjectها را در لینک زیر مشاهده می‌کند\n/// https://martinfowler.com/bliki/ValueObject.html\n/// </summary>\n/// <typeparam name=\"TValueObject\"></typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public bool Equals(TValueObject other)",
+          "xml_doc": "",
+          "body_summary": "=> this == other;",
+          "attributes": []
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public override bool Equals(object obj)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (obj is TValueObject otherObject)\r\n        {\r\n            return GetEqualityComponents().SequenceEqual(otherObject.GetEqualityComponents());\r\n        }\r\n        return false;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetHashCode",
+          "kind": "method",
+          "signature": "public override int GetHashCode()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return GetEqualityComponents()\r\n            .Select(x => x != null ? x.GetHashCode() : 0)\r\n            .Aggregate((x, y) => x ^ y);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected abstract IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "==",
+          "kind": "operator",
+          "signature": "public static bool operator ==(BaseValueObject<TValueObject> right, BaseValueObject<TValueObject> left)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (right is null && left is null)\r\n            return true;\r\n        if (right is null || left is null)\r\n            return false;\r\n        return right.Equals(left);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "!=",
+          "kind": "operator",
+          "signature": "public static bool operator !=(BaseValueObject<TValueObject> right, BaseValueObject<TValueObject> left)",
+          "xml_doc": "",
+          "body_summary": "=> !(right == left);",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "BusinessId",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/ValueObjects/‌BusinessId.cs",
+      "base_types": [
+        "BaseValueObject<BusinessId>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string value"
+      ],
+      "members": [
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static BusinessId FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": []
+        },
+        {
+          "name": "FromGuid",
+          "kind": "method",
+          "signature": "public static BusinessId FromGuid(Guid value)",
+          "xml_doc": "",
+          "body_summary": "=> new() { Value = value };",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BusinessId(string value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(value))\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorIsRequire\", nameof(BusinessId));\r\n        }\r\n        if (Guid.TryParse(value, out Guid tempValue))\r\n        {\r\n            Value = tempValue;\r\n        }\r\n        else\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorInvalidValue\", nameof(BusinessId));\r\n        }\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public Guid Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return Value.ToString();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n     }",
+          "attributes": []
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(BusinessId title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value.ToString()",
+          "attributes": []
+        },
+        {
+          "name": "BusinessId",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator BusinessId(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": []
+        },
+        {
+          "name": "Guid",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator Guid(BusinessId title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": []
+        },
+        {
+          "name": "BusinessId",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator BusinessId(Guid value)",
+          "xml_doc": "",
+          "body_summary": "=> new() { Value = value }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

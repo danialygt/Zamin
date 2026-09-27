@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IQueryDispatcher",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Queries/IQueryDispatcher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف ساختار الگوی Mediator جهت اتصال ساده کوئری‌ها به هندلر‌ها\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Execute",
+          "kind": "method",
+          "signature": "Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query) where TQuery : class, IQuery<TData>",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Execute» در IQueryDispatcher. کوئری/عملیات را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- query (TQuery): کوئری ورودی برای اجرا.\r\n\r\nمقدار بازگشتی: `Task<QueryResult<TData>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Execute' on IQueryDispatcher. Routes the query/operation to the matching handler and executes it.\r\nParameters:\r\n- query (TQuery): Incoming query to execute.\r\n\r\nReturns: `Task<QueryResult<TData>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "تعریف ساختار الگوی Mediator جهت اتصال ساده کوئری‌ها به هندلر‌ها",
+        "en": "Author XML for interface 'IQueryDispatcher': تعریف ساختار الگوی Mediator جهت اتصال ساده کوئری‌ها به هندلر‌ها"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IQueryHandler<TQuery, TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Queries/IQueryHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TQuery : class, IQuery<TData>",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف ساختار مورد نیاز جهت پردازش یک کورئری\n/// </summary>\n/// <typeparam name=\"TQuery\">نوع کوئری و پارامتر‌های ورودی را تعیین می‌کند</typeparam>\n/// <typeparam name=\"TData\">نوع داده‌های بازگشتی را تعیین می‌کند</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task<QueryResult<TData>> Handle(TQuery request)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Handle» در IQueryHandler<TQuery, TData>. منطق اصلی پردازش درخواست/رویداد را اجرا می‌کند.\r\nپارامترها:\r\n- request (TQuery): ورودی از نوع TQuery.\r\n\r\nمقدار بازگشتی: `Task<QueryResult<TData>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Handle' on IQueryHandler<TQuery, TData>. Runs the core handling logic for the request/event.\r\nParameters:\r\n- request (TQuery): Input of type TQuery.\r\n\r\nReturns: `Task<QueryResult<TData>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "تعریف ساختار مورد نیاز جهت پردازش یک کورئری",
+        "en": "Author XML for interface 'IQueryHandler<TQuery, TData>': تعریف ساختار مورد نیاز جهت پردازش یک کورئری"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

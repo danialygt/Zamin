@@ -1,0 +1,48 @@
+﻿{
+  "namespace": "Zamin.Extensions.ChangeDataLog.Sql",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DapperEntityChangeInterceptorItemRepository",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Sql/DapperEntityChangeInterceptorItemRepository.cs",
+      "base_types": [
+        "IEntityChageInterceptorItemRepository"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<ChangeDataLogSqlOptions> options",
+        "ILogger<DapperEntityChangeInterceptorItemRepository> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public DapperEntityChangeInterceptorItemRepository(IOptions<ChangeDataLogSqlOptions> options,\r\n                                                       ILogger<DapperEntityChangeInterceptorItemRepository> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _options = options?.Value ?? throw new ArgumentNullException(nameof(options));\r\n\r\n        _logger = logger ?? throw new ArgumentNullException(nameof(logger));\r\n\r\n        // Validate configuration\r\n        if (string.IsNullOrWhiteSpace(_options.ConnectionString))\r\n            throw new ArgumentException(\"Connection string cannot be null or empty.\", nameof(_options.ConnectionString));\r\n\r\n        if (string.IsNullOrWhiteSpace(_options.SchemaName))\r\n            throw new ArgumentException(\"Schema name cannot be null or empty.\", nameof(_options.SchemaName));\r\n\r\n        if (string.IsNullOrWhiteSpace(_options.EntityTableName))\r\n            throw new ArgumentException(\"Entity table name cannot be null or empty.\", nameof(_options.EntityTableName));\r\n\r\n        if (string.IsNullOrWhiteSpace(_options.PropertyTableName))\r\n            throw new ArgumentException(\"Property table name cannot be null or empty.\", nameof(_options.PropertyTableName));\r\n\r\n        // Initialize SQL commands with proper formatting\r\n        _insertEntityChangeInterceptorItemCommand = $@\"\r\n            INSERT INTO [{_options.SchemaName}].[{_options.EntityTableName}] \r\n                ([Id], [ContextName], [EntityType], [EntityId], [UserId], [IP], [TransactionId], [DateOfOccurrence], [ChangeType]) \r\n            VALUES \r\n                (@Id, @ContextName, @EntityType, @EntityId, @UserId, @IP, @TransactionId, @DateOfOccurrence, @ChangeType)\";\r\n\r\n        _insertPropertyChangeLogItemCommand = $@\"\r\n            INSERT INTO [{_options.SchemaName}].[{_options.PropertyTableName}] \r\n                ([Id], [ChangeInterceptorItemId], [PropertyName], [Value]) \r\n            VALUES \r\n                (@Id, @ChangeInterceptorItemId, @PropertyName, @Value)\";\r\n\r\n        if (_options.AutoCreateSqlTable)\r\n        {\r\n            using var connection = CreateDbConnection();\r\n            connection.Open();\r\n            CreateEntityChangeInterceptorItemTableIfNeeded(connection);\r\n            CreatePropertyChangeLogItemTableIfNeeded(connection);\r\n        }\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Save",
+          "kind": "method",
+          "signature": "public void Save(List<EntityChageInterceptorItem> entityChangeInterceptorItems, IDbTransaction transaction = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (entityChangeInterceptorItems == null) throw new ArgumentNullException(nameof(entityChangeInterceptorItems));\r\n        if (entityChangeInterceptorItems.Count == 0) return;\r\n\r\n        bool externalTransactionProvided = transaction != null;\r\n        DbConnection connection = externalTransactionProvided ? (DbConnection)transaction.Connection : CreateDbConnection();\r\n        DbTransaction localTransaction = null;\r\n\r\n        try\r\n        {\r\n            if (!externalTransactionProvided)\r\n            {\r\n                connection.Open();\r\n                localTransaction = connection.BeginTransaction();\r\n            }\r\n\r\n            foreach (var item in entityChangeInterceptorItems)\r\n            {\r\n                connection.Execute(_insertEntityChangeInterceptorItemCommand, new\r\n                {\r\n                    item.Id,\r\n                    item.ContextName,\r\n                    item.EntityType,\r\n                    item.EntityId,\r\n                    item.UserId,\r\n                    item.Ip,\r\n                    item.TransactionId,\r\n                    item.DateOfOccurrence,\r\n                    item.ChangeType\r\n                }, externalTransactionProvided ? transaction : localTransaction);\r\n\r\n                if (item.PropertyChangeLogItems != null && item.PropertyChangeLogItems.Count > 0)\r\n                {\r\n                    foreach (var prop in item.PropertyChangeLogItems)\r\n                    {\r\n                        connection.Execute(_insertPropertyChangeLogItemCommand, new\r\n                        {\r\n                            prop.Id,\r\n                            ChangeInterceptorItemId = item.Id,\r\n                            prop.PropertyName,\r\n                            prop.Value\r\n                        }, externalTransactionProvided ? transaction : localTransaction);\r\n                    }\r\n                }\r\n            }\r\n\r\n            if (!externalTransactionProvided)\r\n            {\r\n                localTransaction.Commit();\r\n            }\r\n        }\r\n        catch (Exception ex)\r\n        {\r\n            if (!externalTransactionProvided && localTransaction != null)\r\n            {\r\n                localTransaction.Rollback();\r\n            }\r\n\r\n            _logger.LogError(ex, \"An error occurred while saving entity change interceptor items.\");\r\n\r\n            throw; // Rethrow the exception to let the caller handle it\r\n        }\r\n        finally\r\n        {\r\n            if (!externalTransactionProvided)\r\n            {\r\n                connection.Close();\r\n                localTransaction?.Dispose();\r\n            }\r\n        }\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "SaveAsync",
+          "kind": "method",
+          "signature": "public async Task SaveAsync(List<EntityChageInterceptorItem> entityChangeInterceptorItems, IDbTransaction transaction = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (entityChangeInterceptorItems == null) throw new ArgumentNullException(nameof(entityChangeInterceptorItems));\r\n        if (entityChangeInterceptorItems.Count == 0) return;\r\n\r\n        bool externalTransactionProvided = transaction != null;\r\n        DbConnection connection = externalTransactionProvided ? (DbConnection)transaction.Connection : CreateDbConnection();\r\n        DbTransaction localTransaction = null;\r\n\r\n        try\r\n        {\r\n            if (!externalTransactionProvided)\r\n            {\r\n                await connection.OpenAsync();\r\n                localTransaction = connection.BeginTransaction();\r\n            }\r\n\r\n            foreach (var item in entityChangeInterceptorItems)\r\n            {\r\n                await connection.ExecuteAsync(_insertEntityChangeInterceptorItemCommand, new\r\n                {\r\n                    item.Id,\r\n                    item.ContextName,\r\n                    item.EntityType,\r\n                    item.EntityId,\r\n                    item.UserId,\r\n                    item.Ip,\r\n                    item.TransactionId,\r\n                    item.DateOfOccurrence,\r\n                    item.ChangeType\r\n                }, externalTransactionProvided ? transaction : localTransaction);\r\n\r\n                if (item.PropertyChangeLogItems != null && item.PropertyChangeLogItems.Count > 0)\r\n                {\r\n                    foreach (var prop in item.PropertyChangeLogItems)\r\n                    {\r\n                        await connection.ExecuteAsync(_insertPropertyChangeLogItemCommand, new\r\n                        {\r\n                            prop.Id,\r\n                            ChangeInterceptorItemId = item.Id,\r\n                            prop.PropertyName,\r\n                            prop.Value\r\n                        }, externalTransactionProvided ? transaction : localTransaction);\r\n                    }\r\n                }\r\n            }\r\n\r\n            if (!externalTransactionProvided)\r\n            {\r\n                localTransaction.Commit();\r\n            }\r\n        }\r\n        catch (Exception ex)\r\n        {\r\n            if (!externalTransactionProvided && localTransaction != null)\r\n            {\r\n                localTransaction.Rollback();\r\n            }\r\n\r\n            _logger.LogError(ex, \"An error occurred while saving entity change interceptor items.\");\r\n\r\n            throw; // Rethrow the exception to let the caller handle it\r\n        }\r\n        finally\r\n        {\r\n            if (!externalTransactionProvided)\r\n            {\r\n                connection.Close();\r\n                localTransaction?.Dispose();\r\n            }\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

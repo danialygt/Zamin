@@ -1,0 +1,109 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IObjectMapper",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Services/IObjectMapper.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "TDestination Map<TDestination>(object source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MapCollection",
+          "kind": "method",
+          "signature": "IEnumerable<TDestination> MapCollection<TSource, TDestination>(IEnumerable<TSource> source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RegisterMap",
+          "kind": "method",
+          "signature": "void RegisterMap<TSource, TDestination>(Action<TypeAdapterSetter<TSource, TDestination>> configAction)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "Mapster",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Services/Mapster.cs",
+      "base_types": [
+        "Abstractions.IMapperAdapter",
+        "IObjectMapper"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<Mapster> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public Mapster(ILogger<Mapster> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _config = TypeAdapterConfig.GlobalSettings;\r\n        _logger.LogInformation(\"Mapster Adapter Start working\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "public TDestination Map<TDestination>(object source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n            typeof(object),\r\n            typeof(TDestination),\r\n            source);\r\n        return source.Adapt<TDestination>(_config);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "public TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n            typeof(TSource),\r\n            typeof(TDestination),\r\n            source);\r\n        return source.Adapt<TSource, TDestination>(_config);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "MapCollection",
+          "kind": "method",
+          "signature": "public IEnumerable<TDestination> MapCollection<TSource, TDestination>(IEnumerable<TSource> source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n            typeof(TSource),\r\n            typeof(TDestination),\r\n            source);\r\n        return source.Adapt<IEnumerable<TDestination>>(_config);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "RegisterMap",
+          "kind": "method",
+          "signature": "public void RegisterMap<TSource, TDestination>(Action<TypeAdapterSetter<TSource, TDestination>> configAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"RegisterMap Adapter Map {source} To {destination}\",\r\n            typeof(TSource),\r\n            typeof(TDestination));\r\n        var setter = _config.NewConfig<TSource, TDestination>();\r\n        configAction(setter);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

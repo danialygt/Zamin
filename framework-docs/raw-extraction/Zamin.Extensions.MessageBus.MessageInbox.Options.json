@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "MessageInboxOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Options",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox/Options/MessageInboxOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Configs",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "OutBoxEventItemConfig",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Configs",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.Outbox/Zamin.Extensions.Events.Outbox.Dal.EF/Configs/OutBoxEventItemConfig.cs",
+      "base_types": [
+        "IEntityTypeConfiguration<OutBoxEventItem>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Configure",
+          "kind": "method",
+          "signature": "public void Configure(EntityTypeBuilder<OutBoxEventItem> builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        builder.Property(c => c.AccuredByUserId).HasMaxLength(255);\r\n        builder.Property(c => c.EventName).HasMaxLength(255);\r\n        builder.Property(c => c.AggregateName).HasMaxLength(255);\r\n        builder.Property(c => c.EventTypeName).HasMaxLength(500);\r\n        builder.Property(c => c.AggregateTypeName).HasMaxLength(500);\r\n        builder.Property(c => c.TraceId).HasMaxLength(100);\r\n        builder.Property(c => c.SpanId).HasMaxLength(100);\r\n        builder.ToTable(\"OutBoxEventItems\",\"zamin\");\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

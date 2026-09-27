@@ -1,0 +1,128 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IExcelSerializer",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Serializers.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Serializers.Abstractions/IExcelSerializer.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ListToExcelByteArray",
+          "kind": "method",
+          "signature": "byte[] ListToExcelByteArray<T>(List<T> list, string sheetName = \"Result\")",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ListToExcelByteArray» در IExcelSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- list (List<T>): ورودی از نوع List<T>.\r\n- sheetName (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `byte[]`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ListToExcelByteArray' on IExcelSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- list (List<T>): Input of type List<T>.\r\n- sheetName (string): Optional string input (has default).\r\n\r\nReturns: `byte[]`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExcelToDataTable",
+          "kind": "method",
+          "signature": "DataTable ExcelToDataTable(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExcelToDataTable» در IExcelSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `DataTable`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ExcelToDataTable' on IExcelSerializer. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `DataTable`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExcelToList",
+          "kind": "method",
+          "signature": "List<T> ExcelToList<T>(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExcelToList» در IExcelSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `List<T>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ExcelToList' on IExcelSerializer. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `List<T>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IExcelSerializer» در namespace Zamin.Extensions.Serializers.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IExcelSerializer' in namespace Zamin.Extensions.Serializers.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IJsonSerializer",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Serializers.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Serializers.Abstractions/IJsonSerializer.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Serialize",
+          "kind": "method",
+          "signature": "string Serialize<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Serialize» در IJsonSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (TInput): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Serialize' on IJsonSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (TInput): Value under validation or input.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "TOutput Deserialize<TOutput>(string input)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Deserialize» در IJsonSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `TOutput`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Deserialize' on IJsonSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n\r\nReturns: `TOutput`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "object Deserialize(string input, Type type)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Deserialize» در IJsonSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- type (Type): ورودی از نوع Type.\r\n\r\nمقدار بازگشتی: `object`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Deserialize' on IJsonSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- type (Type): Input of type Type.\r\n\r\nReturns: `object`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IJsonSerializer» در namespace Zamin.Extensions.Serializers.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IJsonSerializer' in namespace Zamin.Extensions.Serializers.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

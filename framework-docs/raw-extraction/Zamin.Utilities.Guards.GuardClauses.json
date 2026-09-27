@@ -1,0 +1,438 @@
+﻿{
+  "namespace": "Zamin.Utilities.Guards.GuardClauses",
+  "type_count": 16,
+  "types": [
+    {
+      "type_name": "EmptyGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/EmptyGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Empty",
+          "kind": "method",
+          "signature": "public static void Empty<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value == null)\r\n            return;\r\n\r\n        if (value is ICollection collectionValue && collectionValue.Count == 0)\r\n            return;\r\n\r\n        if (value is IEnumerable enumerableValue && !enumerableValue.GetEnumerator().MoveNext())\r\n            return;\r\n\r\n        if (value is string strValue && string.IsNullOrWhiteSpace(strValue))\r\n            return;\r\n\r\n        if (!Equals(value, default(T)))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Empty",
+          "kind": "method",
+          "signature": "public static void Empty<T>(this Guard guard, T value, IEqualityComparer<T> equalityComparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!equalityComparer.Equals(value, default))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/EqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Equal",
+          "kind": "method",
+          "signature": "public static void Equal<T>(this Guard guard, T value, T targetValue, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!Equals(value, targetValue))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Equal",
+          "kind": "method",
+          "signature": "public static void Equal<T>(this Guard guard, T value, T targetValue, IEqualityComparer<T> equalityComparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!equalityComparer.Equals(value, targetValue))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ExclusiveBetweenGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/ExclusiveBetweenGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ExclusiveBetween",
+          "kind": "method",
+          "signature": "public static void ExclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int minimumValueComparerResult = comparer.Compare(value, minimumValue);\r\n        int maximumValueComparerResult = comparer.Compare(value, maximumValue);\r\n\r\n        if (minimumValueComparerResult != 1)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (maximumValueComparerResult != -1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ExclusiveBetween",
+          "kind": "method",
+          "signature": "public static void ExclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.ExclusiveBetween(value, minimumValue, maximumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "GreaterThanGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/GreaterThanGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GreaterThan",
+          "kind": "method",
+          "signature": "public static void GreaterThan<T>(this Guard guard, T value, T minimumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int maximumValueComparerResult = comparer.Compare(value, minimumValue);\r\n\r\n        if (maximumValueComparerResult != 1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GreaterThan",
+          "kind": "method",
+          "signature": "public static void GreaterThan<T>(this Guard guard, T value, T minimumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.GreaterThan(value, minimumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "GreaterThanOrEqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/GreaterThanOrEqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GreaterThanOrEqual",
+          "kind": "method",
+          "signature": "public static void GreaterThanOrEqual<T>(this Guard guard, T value, T minimumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int comparerResult = comparer.Compare(value, minimumValue);\r\n\r\n        if (comparerResult < 0)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GreaterThanOrEqual",
+          "kind": "method",
+          "signature": "public static void GreaterThanOrEqual<T>(this Guard guard, T value, T minimumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.GreaterThanOrEqual(value, minimumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "InclusiveBetweenGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/InclusiveBetweenGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "InclusiveBetween",
+          "kind": "method",
+          "signature": "public static void InclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int minimumValueComparerResult = comparer.Compare(value, minimumValue);\r\n        int maximumValueComparerResult = comparer.Compare(value, maximumValue);\r\n\r\n        if (minimumValueComparerResult == -1)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (maximumValueComparerResult == 1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "InclusiveBetween",
+          "kind": "method",
+          "signature": "public static void InclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.InclusiveBetween(value, minimumValue, maximumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "LengthGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/LengthGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Length",
+          "kind": "method",
+          "signature": "public static void Length(this Guard guard, string value, int length, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Length != length)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Length",
+          "kind": "method",
+          "signature": "public static void Length(this Guard guard, ICollection value, int length, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Count != length)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "LessThanGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/LessThanGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "LessThan",
+          "kind": "method",
+          "signature": "public static void LessThan<T>(this Guard guard, T value, T maximumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int comparerResult = comparer.Compare(value, maximumValue);\r\n\r\n        if (comparerResult > -1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "LessThan",
+          "kind": "method",
+          "signature": "public static void LessThan<T>(this Guard guard, T value, T maximumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.LessThan(value, maximumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "LessThanOrEqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/LessThanOrEqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "LessThanOrEqual",
+          "kind": "method",
+          "signature": "public static void LessThanOrEqual<T>(this Guard guard, T value, T minimumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int comparerResult = comparer.Compare(value, minimumValue);\r\n\r\n        if (comparerResult > 0)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "LessThanOrEqual",
+          "kind": "method",
+          "signature": "public static void LessThanOrEqual<T>(this Guard guard, T value, T minimumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.LessThanOrEqual(value, minimumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "MatchGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/MatchGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Match",
+          "kind": "method",
+          "signature": "public static void Match(this Guard guard, string value, string pattern, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!Regex.IsMatch(value, pattern))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "MaximumLengthGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/MaximumLengthGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MaximumLength",
+          "kind": "method",
+          "signature": "public static void MaximumLength(this Guard guard, string value, int maximumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Length > maximumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "MaximumLength",
+          "kind": "method",
+          "signature": "public static void MaximumLength(this Guard guard, ICollection value, int maximumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Count > maximumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "MinimumLengthGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/MinimumLengthGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MinimumLength",
+          "kind": "method",
+          "signature": "public static void MinimumLength(this Guard guard, string value, int minimumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Length < minimumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "MinimumLength",
+          "kind": "method",
+          "signature": "public static void MinimumLength<T>(this Guard guard, ICollection value, int minimumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Count < minimumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "NotEmptyGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NotEmptyGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "NotEmpty",
+          "kind": "method",
+          "signature": "public static void NotEmpty<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value == null)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (value is ICollection collectionValue && collectionValue.Count == 0)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (value is IEnumerable enumerableValue && !enumerableValue.GetEnumerator().MoveNext())\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (value is string strValue && string.IsNullOrWhiteSpace(strValue))\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (EqualityComparer<T>.Default.Equals(value, default))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "NotEmpty",
+          "kind": "method",
+          "signature": "public static void NotEmpty<T>(this Guard guard, T value, IEqualityComparer<T> equalityComparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (equalityComparer.Equals(value, default))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "NotEqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NotEqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "NotEqual",
+          "kind": "method",
+          "signature": "public static void NotEqual<T>(this Guard guard, T value, T targetValue, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (Equals(value, targetValue))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "NotNullGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NotNullGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Null",
+          "kind": "method",
+          "signature": "public static void Null<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value == null)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "NullGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NullGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Null",
+          "kind": "method",
+          "signature": "public static void Null<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value != null)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

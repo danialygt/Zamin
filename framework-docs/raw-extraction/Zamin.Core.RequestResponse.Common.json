@@ -1,0 +1,151 @@
+﻿{
+  "namespace": "Zamin.Core.RequestResponse.Common",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "ApplicationServiceResult",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Common",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Common/ApplicationServiceResult.cs",
+      "base_types": [
+        "IApplicationServiceResult"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_messages",
+          "kind": "field",
+          "signature": "protected readonly List<string> _messages = new();",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Messages",
+          "kind": "property",
+          "signature": "public IEnumerable<string> Messages => ...",
+          "xml_doc": "",
+          "body_summary": "=> _messages;",
+          "attributes": []
+        },
+        {
+          "name": "Status",
+          "kind": "property",
+          "signature": "public ApplicationServiceStatus Status { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "public void AddMessage(string error)",
+          "xml_doc": "",
+          "body_summary": "=> _messages.Add(error);",
+          "attributes": []
+        },
+        {
+          "name": "AddMessages",
+          "kind": "method",
+          "signature": "public void AddMessages(IEnumerable<string> errors)",
+          "xml_doc": "",
+          "body_summary": "=> _messages.AddRange(errors);",
+          "attributes": []
+        },
+        {
+          "name": "ClearMessages",
+          "kind": "method",
+          "signature": "public void ClearMessages()",
+          "xml_doc": "",
+          "body_summary": "=> _messages.Clear();",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ApplicationServiceStatus",
+      "kind": "enum",
+      "namespace": "Zamin.Core.RequestResponse.Common",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Common/ApplicationServiceStatus.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Ok",
+          "kind": "enum_member",
+          "signature": "Ok = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "NotFound",
+          "kind": "enum_member",
+          "signature": "NotFound = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ValidationError",
+          "kind": "enum_member",
+          "signature": "ValidationError = 3",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "InvalidDomainState",
+          "kind": "enum_member",
+          "signature": "InvalidDomainState = 4",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Exception",
+          "kind": "enum_member",
+          "signature": "Exception = 5",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IApplicationServiceResult",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Common",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Common/IApplicationServiceResult.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Messages",
+          "kind": "property",
+          "signature": "IEnumerable<string> Messages { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Status",
+          "kind": "property",
+          "signature": "ApplicationServiceStatus Status { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

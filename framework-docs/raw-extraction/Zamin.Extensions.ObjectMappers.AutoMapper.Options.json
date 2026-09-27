@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "AutoMapperOption",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Options",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.AutoMapper/Zamin.Extensions.ObjectMappers.AutoMapper/Options/AutoMapperOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AssmblyNamesForLoadProfiles",
+          "kind": "property",
+          "signature": "public string AssmblyNamesForLoadProfiles { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

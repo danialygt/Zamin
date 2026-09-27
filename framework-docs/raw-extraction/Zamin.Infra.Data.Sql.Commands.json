@@ -1,0 +1,403 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "BaseCommandDbContext",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseCommandDbContext.cs",
+      "base_types": [
+        "DbContext"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "DbContextOptions options"
+      ],
+      "members": [
+        {
+          "name": "_transaction",
+          "kind": "field",
+          "signature": "protected IDbContextTransaction _transaction;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseCommandDbContext(DbContextOptions options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected BaseCommandDbContext()",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "public void BeginTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _transaction = Database.BeginTransaction();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "public void RollbackTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (_transaction == null)\r\n        {\r\n            throw new NullReferenceException(\"Please call `BeginTransaction()` method first.\");\r\n        }\r\n        _transaction.Rollback();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "public void CommitTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (_transaction == null)\r\n        {\r\n            throw new NullReferenceException(\"Please call `BeginTransaction()` method first.\");\r\n        }\r\n        _transaction.Commit();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetShadowPropertyValue",
+          "kind": "method",
+          "signature": "public T GetShadowPropertyValue<T>(object entity, string propertyName) where T : IConvertible",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var value = Entry(entity).Property(propertyName).CurrentValue;\r\n        return value != null\r\n            ? (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture)\r\n            : default;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetShadowPropertyValue",
+          "kind": "method",
+          "signature": "public object GetShadowPropertyValue(object entity, string propertyName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return Entry(entity).Property(propertyName).CurrentValue;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "OnModelCreating",
+          "kind": "method",
+          "signature": "protected override void OnModelCreating(ModelBuilder builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.OnModelCreating(builder);\r\n        builder.AddAuditableShadowProperties();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ConfigureConventions",
+          "kind": "method",
+          "signature": "protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.ConfigureConventions(configurationBuilder);\r\n        configurationBuilder.Properties<Description>().HaveConversion<DescriptionConversion>();\r\n        configurationBuilder.Properties<Title>().HaveConversion<TitleConversion>();\r\n        configurationBuilder.Properties<BusinessId>().HaveConversion<BusinessIdConversion>();\r\n        configurationBuilder.Properties<LegalNationalId>().HaveConversion<LegalNationalId>();\r\n        configurationBuilder.Properties<NationalCode>().HaveConversion<NationalCodeConversion>();\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetIncludePaths",
+          "kind": "method",
+          "signature": "public IEnumerable<string> GetIncludePaths(Type clrEntityType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var entityType = Model.FindEntityType(clrEntityType);\r\n        var includedNavigations = new HashSet<INavigation>();\r\n        var stack = new Stack<IEnumerator<INavigation>>();\r\n        while (true)\r\n        {\r\n            var entityNavigations = new List<INavigation>();\r\n            foreach (var navigation in entityType.GetNavigations())\r\n            {\r\n                if (includedNavigations.Add(navigation))\r\n                    entityNavigations.Add(navigation);\r\n            }\r\n            if (entityNavigations.Count == 0)\r\n            {\r\n                if (stack.Count > 0)\r\n                    yield return string.Join(\".\", stack.Reverse().Select(e => e.Current.Name));\r\n            }\r\n            else\r\n            {\r\n                foreach (var navigation in entityNavigations)\r\n                {\r\n                    var inverseNavigation = navigation.Inverse;\r\n                    if (inverseNavigation != null)\r\n                        includedNavigations.Add(inverseNavigation);\r\n                }\r\n                stack.Push(entityNavigations.GetEnumerator());\r\n            }\r\n            while (stack.Count > 0 && !stack.Peek().MoveNext())\r\n                stack.Pop();\r\n            if (stack.Count == 0) break;\r\n            entityType = stack.Peek().Current.TargetEntityType;\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "BaseCommandRepository<TEntity, TDbContext, TId>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseCommandRepository.cs",
+      "base_types": [
+        "ICommandRepository<TEntity, TId>",
+        "IUnitOfWork"
+      ],
+      "generic_constraints": "where TEntity : AggregateRoot<TId> where TDbContext : BaseCommandDbContext where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": "_dbContext",
+          "kind": "field",
+          "signature": "protected readonly TDbContext _dbContext;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseCommandRepository(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext = dbContext;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "public void Delete(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var entity = _dbContext.Set<TEntity>().Find(id);\r\n        _dbContext.Set<TEntity>().Remove(entity);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "public void Delete(TEntity entity)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.Set<TEntity>().Remove(entity);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "DeleteGraph",
+          "kind": "method",
+          "signature": "public void DeleteGraph(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var entity = GetGraph(id);\r\n        if (entity is not null && !entity.Id.Equals(default))\r\n            _dbContext.Set<TEntity>().Remove(entity);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Insert",
+          "kind": "method",
+          "signature": "public void Insert(TEntity entity)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.Set<TEntity>().Add(entity);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "InsertAsync",
+          "kind": "method",
+          "signature": "public async Task InsertAsync(TEntity entity)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        await _dbContext.Set<TEntity>().AddAsync(entity);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TEntity Get(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.Set<TEntity>().Find(id);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TEntity Get(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.Set<TEntity>().FirstOrDefault(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return await _dbContext.Set<TEntity>().FindAsync(id);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "public TEntity GetGraph(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        var temp = graphPath.ToList();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return query.FirstOrDefault(c => c.Id.Equals(id));\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "public TEntity GetGraph(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        var temp = graphPath.ToList();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return query.FirstOrDefault(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetGraphAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return await query.FirstOrDefaultAsync(c => c.Id.Equals(id));\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetGraphAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return await query.FirstOrDefaultAsync(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Exists",
+          "kind": "method",
+          "signature": "public bool Exists(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.Set<TEntity>().Any(expression);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ExistsAsync",
+          "kind": "method",
+          "signature": "public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return await _dbContext.Set<TEntity>().AnyAsync(expression);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Commit",
+          "kind": "method",
+          "signature": "public int Commit()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.SaveChanges();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "CommitAsync",
+          "kind": "method",
+          "signature": "public Task<int> CommitAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.SaveChangesAsync();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "public void BeginTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.BeginTransaction();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "public void CommitTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.CommitTransaction();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "public void RollbackTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.RollbackTransaction();\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "BaseCommandRepository<TEntity, TDbContext>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseCommandRepository.cs",
+      "base_types": [
+        "BaseCommandRepository<TEntity, TDbContext, long>"
+      ],
+      "generic_constraints": "where TEntity : AggregateRoot where TDbContext : BaseCommandDbContext",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseCommandRepository(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "BaseEntityFrameworkUnitOfWork<TDbContext>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseEntityFrameworkUnitOfWork.cs",
+      "base_types": [
+        "IUnitOfWork"
+      ],
+      "generic_constraints": "where TDbContext : BaseCommandDbContext",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": "_dbContext",
+          "kind": "field",
+          "signature": "protected readonly TDbContext _dbContext;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseEntityFrameworkUnitOfWork(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext = dbContext;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "public void BeginTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.BeginTransaction();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Commit",
+          "kind": "method",
+          "signature": "public int Commit()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = _dbContext.SaveChanges();\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "CommitAsync",
+          "kind": "method",
+          "signature": "public async Task<int> CommitAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = await _dbContext.SaveChangesAsync();\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "public void CommitTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.CommitTransaction();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "public void RollbackTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.RollbackTransaction();\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

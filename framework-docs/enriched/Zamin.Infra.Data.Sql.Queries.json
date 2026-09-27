@@ -1,0 +1,211 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Queries",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "BaseQueryDbContext",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Queries/BaseQueryDbContext.cs",
+      "base_types": [
+        "DbContext"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "DbContextOptions options"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseQueryDbContext(DbContextOptions options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseQueryDbContext. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- options (DbContextOptions): ورودی از نوع DbContextOptions.",
+            "en": "Constructor for BaseQueryDbContext. Creates an instance with the provided initial values. Parameters:\r\n- options (DbContextOptions): Input of type DbContextOptions."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OnConfiguring",
+          "kind": "method",
+          "signature": "protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            base.OnConfiguring(optionsBuilder);\r\n            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnConfiguring» در BaseQueryDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- optionsBuilder (DbContextOptionsBuilder): ورودی از نوع DbContextOptionsBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'OnConfiguring' on BaseQueryDbContext. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- optionsBuilder (DbContextOptionsBuilder): Input of type DbContextOptionsBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OnModelCreating",
+          "kind": "method",
+          "signature": "protected override void OnModelCreating(ModelBuilder modelBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            base.OnModelCreating(modelBuilder);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnModelCreating» در BaseQueryDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- modelBuilder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'OnModelCreating' on BaseQueryDbContext. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- modelBuilder (ModelBuilder): Input of type ModelBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SaveChanges",
+          "kind": "method",
+          "signature": "public override int SaveChanges()",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SaveChanges» در BaseQueryDbContext. وضعیت را به‌روز یا ذخیره می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `int`.\r\nاستثناها (قابل تشخیص از کد):\r\n- NotSupportedException (throw new)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'SaveChanges' on BaseQueryDbContext. Updates or persists state.\r\nNo input parameters.\r\nReturns: `int`.\r\nExceptions (detectable from code):\r\n- NotSupportedException (throw new)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SaveChanges",
+          "kind": "method",
+          "signature": "public override int SaveChanges(bool acceptAllChangesOnSuccess)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SaveChanges» در BaseQueryDbContext. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- acceptAllChangesOnSuccess (bool): ورودی از نوع bool.\r\n\r\nمقدار بازگشتی: `int`.\r\nاستثناها (قابل تشخیص از کد):\r\n- NotSupportedException (throw new)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'SaveChanges' on BaseQueryDbContext. Updates or persists state.\r\nParameters:\r\n- acceptAllChangesOnSuccess (bool): Input of type bool.\r\n\r\nReturns: `int`.\r\nExceptions (detectable from code):\r\n- NotSupportedException (throw new)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SaveChangesAsync",
+          "kind": "method",
+          "signature": "public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SaveChangesAsync» در BaseQueryDbContext. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- acceptAllChangesOnSuccess (bool): ورودی از نوع bool.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `Task<int>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- NotSupportedException (throw new)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'SaveChangesAsync' on BaseQueryDbContext. Updates or persists state.\r\nParameters:\r\n- acceptAllChangesOnSuccess (bool): Input of type bool.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `Task<int>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- NotSupportedException (throw new)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SaveChangesAsync",
+          "kind": "method",
+          "signature": "public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SaveChangesAsync» در BaseQueryDbContext. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `Task<int>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- NotSupportedException (throw new)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'SaveChangesAsync' on BaseQueryDbContext. Updates or persists state.\r\nParameters:\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `Task<int>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- NotSupportedException (throw new)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseQueryDbContext» در namespace Zamin.Infra.Data.Sql.Queries. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: DbContext. وابستگی‌های سازنده (DI): DbContextOptions options. مرتبط: DbContext | DI: DbContextOptions options.",
+        "en": "Class 'BaseQueryDbContext' in namespace Zamin.Infra.Data.Sql.Queries. Public/protected class definition in the Zamin framework layer. Base/implemented types: DbContext. Constructor-injected dependencies: DbContextOptions options. Related: DbContext | DI: DbContextOptions options."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "BaseQueryRepository<TDbContext>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Queries/BaseQueryRepository.cs",
+      "base_types": [
+        "IQueryRepository"
+      ],
+      "generic_constraints": "where TDbContext : BaseQueryDbContext",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": "_dbContext",
+          "kind": "field",
+          "signature": "protected readonly TDbContext _dbContext;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_dbContext» در BaseQueryRepository<TDbContext> با امضای `protected readonly TDbContext _dbContext;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_dbContext' on BaseQueryRepository<TDbContext> with signature `protected readonly TDbContext _dbContext;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseQueryRepository(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext = dbContext;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseQueryRepository<TDbContext>. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- dbContext (TDbContext): ورودی از نوع TDbContext.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for BaseQueryRepository<TDbContext>. Creates an instance with the provided initial values. Parameters:\r\n- dbContext (TDbContext): Input of type TDbContext.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseQueryRepository<TDbContext>» در namespace Zamin.Infra.Data.Sql.Queries. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IQueryRepository. قیود جنریک: where TDbContext : BaseQueryDbContext. وابستگی‌های سازنده (DI): TDbContext dbContext. مرتبط: IQueryRepository | DI: TDbContext dbContext.",
+        "en": "Class 'BaseQueryRepository<TDbContext>' in namespace Zamin.Infra.Data.Sql.Queries. Public/protected class definition in the Zamin framework layer. Base/implemented types: IQueryRepository. Generic constraints: where TDbContext : BaseQueryDbContext. Constructor-injected dependencies: TDbContext dbContext. Related: IQueryRepository | DI: TDbContext dbContext."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "QueryRepositoryExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Queries/QueryRepositoryExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToPagedData",
+          "kind": "method",
+          "signature": "public static async Task<PagedData<TResult>> ToPagedData<TEntity, TQuery, TResult>(this IQueryable<TEntity> entities, PageQuery<PagedData<TQuery>> query, Func<TEntity, TResult> selectFunc)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = new PagedData<TResult>\r\n        {\r\n            PageNumber = query.PageNumber,\r\n            PageSize = query.PageSize\r\n        };\r\n        if (query.NeedTotalCount)\r\n            result.TotalCount = await entities.CountAsync();\r\n\r\n        if (!string.IsNullOrWhiteSpace(query.SortBy))\r\n            entities = entities.OrderByField(query.SortBy, query.SortAscending);\r\n        entities = entities.Skip(query.SkipCount).Take(query.PageSize);\r\n\r\n        result.QueryResult = await entities.Select(\r\n               c => selectFunc(c)).ToListAsync();\r\n        return result;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToPagedData» در QueryRepositoryExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- entities (IQueryable<TEntity>): کوئری ورودی برای اجرا.\r\n- query (PageQuery<PagedData<TQuery>>): کوئری ورودی برای اجرا.\r\n- selectFunc (Func<TEntity, TResult>): ورودی از نوع Func<TEntity, TResult>.\r\n\r\nمقدار بازگشتی: `Task<PagedData<TResult>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToPagedData' on QueryRepositoryExtensions. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nParameters:\r\n- entities (IQueryable<TEntity>): Incoming query to execute.\r\n- query (PageQuery<PagedData<TQuery>>): Incoming query to execute.\r\n- selectFunc (Func<TEntity, TResult>): Input of type Func<TEntity, TResult>.\r\n\r\nReturns: `Task<PagedData<TResult>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «QueryRepositoryExtensions» در namespace Zamin.Infra.Data.Sql.Queries. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'QueryRepositoryExtensions' in namespace Zamin.Infra.Data.Sql.Queries. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

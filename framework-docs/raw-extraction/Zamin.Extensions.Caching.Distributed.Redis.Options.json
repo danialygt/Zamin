@@ -1,0 +1,35 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DistributedRedisCacheOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Options",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Redis/Zamin.Extensions.Caching.Distributed.Redis/Options/DistributedRedisCacheOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Configuration",
+          "kind": "property",
+          "signature": "public string Configuration { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "InstanceName",
+          "kind": "property",
+          "signature": "public string InstanceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

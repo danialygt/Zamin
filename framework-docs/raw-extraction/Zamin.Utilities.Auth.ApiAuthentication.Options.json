@@ -1,0 +1,549 @@
+﻿{
+  "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+  "type_count": 11,
+  "types": [
+    {
+      "type_name": "ApiAuthenticationOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/ApiAuthenticationOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Providers",
+          "kind": "property",
+          "signature": "public List<ProviderOption> Providers { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EnabledProviders",
+          "kind": "property",
+          "signature": "public IReadOnlyList<ProviderOption> EnabledProviders => ...",
+          "xml_doc": "",
+          "body_summary": "=> [.. Providers.Where(c => c.Enabled).OrderBy(c => c.Priority)];",
+          "attributes": []
+        },
+        {
+          "name": "DefualtProvider",
+          "kind": "property",
+          "signature": "public ProviderOption? DefualtProvider => ...",
+          "xml_doc": "",
+          "body_summary": "=> EnabledProviders.FirstOrDefault();",
+          "attributes": []
+        },
+        {
+          "name": "Active",
+          "kind": "property",
+          "signature": "public bool Active => ...",
+          "xml_doc": "",
+          "body_summary": "=> Enabled && EnabledProviders.Any();",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CacheExpirationType",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/CacheExpirationType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Absolute",
+          "kind": "enum_member",
+          "signature": "Absolute = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Sliding",
+          "kind": "enum_member",
+          "signature": "Sliding = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CacheKeyFormat",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/CacheKeyFormat.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Base64",
+          "kind": "enum_member",
+          "signature": "Base64 = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PlainText",
+          "kind": "enum_member",
+          "signature": "PlainText = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EndpointsPathOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/EndpointsPathOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AuthorizeEndpoint",
+          "kind": "property",
+          "signature": "public string AuthorizeEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TokenEndpoint",
+          "kind": "property",
+          "signature": "public string TokenEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserInfoEndpoint",
+          "kind": "property",
+          "signature": "public string UserInfoEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IntrospectionEndpoint",
+          "kind": "property",
+          "signature": "public string IntrospectionEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "JwtTokenConfigOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/JwtTokenConfigOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Audience",
+          "kind": "property",
+          "signature": "public string? Audience { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RequireHttpsMetadata",
+          "kind": "property",
+          "signature": "public bool RequireHttpsMetadata { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ValidateAudience",
+          "kind": "property",
+          "signature": "public bool ValidateAudience { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ValidateIssuer",
+          "kind": "property",
+          "signature": "public bool ValidateIssuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ValidateIssuerSigningKey",
+          "kind": "property",
+          "signature": "public bool ValidateIssuerSigningKey { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ProviderOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/ProviderOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IgnoreSSL",
+          "kind": "property",
+          "signature": "public bool IgnoreSSL { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Scheme",
+          "kind": "property",
+          "signature": "public string Scheme { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Authority",
+          "kind": "property",
+          "signature": "public string Authority { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "HttpClientFactoryName",
+          "kind": "property",
+          "signature": "public string? HttpClientFactoryName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TokenTypeSupport",
+          "kind": "property",
+          "signature": "public TokenType TokenTypeSupport { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "JwtTokenConfig",
+          "kind": "property",
+          "signature": "public JwtTokenConfigOption JwtTokenConfig { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RefrenceTokenConfig",
+          "kind": "property",
+          "signature": "public RefrenceTokenConfigOption RefrenceTokenConfig { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserIdentifierClaimType",
+          "kind": "property",
+          "signature": "public string UserIdentifierClaimType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RegisterUserInfoClaims",
+          "kind": "property",
+          "signature": "public RegisterUserInfoClaimsOption RegisterUserInfoClaims { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserClaimRules",
+          "kind": "property",
+          "signature": "public List<UserClaimRuleOption> UserClaimRules { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserClaimAddons",
+          "kind": "property",
+          "signature": "public List<UserClaimAddonOption> UserClaimAddons { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EndpointsPath",
+          "kind": "property",
+          "signature": "public EndpointsPathOption? EndpointsPath { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Priority",
+          "kind": "property",
+          "signature": "public int Priority { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "RefrenceTokenConfigOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/RefrenceTokenConfigOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ClientId",
+          "kind": "property",
+          "signature": "public string ClientId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ClientSecret",
+          "kind": "property",
+          "signature": "public string ClientSecret { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "RegisterUserInfoClaimsOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/RegisterUserInfoClaimsOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CachingData",
+          "kind": "property",
+          "signature": "public bool CachingData { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CacheKeyPrefix",
+          "kind": "property",
+          "signature": "public string CacheKeyPrefix { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CacheKeyFormat",
+          "kind": "property",
+          "signature": "public CacheKeyFormat CacheKeyFormat { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CacheExpirationType",
+          "kind": "property",
+          "signature": "public CacheExpirationType CacheExpirationType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CacheExpirationInSeconds",
+          "kind": "property",
+          "signature": "public int CacheExpirationInSeconds { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "TokenType",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/TokenType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Jwt",
+          "kind": "enum_member",
+          "signature": "Jwt = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Reference",
+          "kind": "enum_member",
+          "signature": "Reference = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "UserClaimAddonOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/UserClaimAddonOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Type",
+          "kind": "property",
+          "signature": "public string Type { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ValueType",
+          "kind": "property",
+          "signature": "public string? ValueType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Issuer",
+          "kind": "property",
+          "signature": "public string? Issuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "OriginalIssuer",
+          "kind": "property",
+          "signature": "public string? OriginalIssuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "UserClaimRuleOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/UserClaimRuleOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Source",
+          "kind": "property",
+          "signature": "public string Source { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Destination",
+          "kind": "property",
+          "signature": "public string Destination { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RemoveSource",
+          "kind": "property",
+          "signature": "public bool RemoveSource { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

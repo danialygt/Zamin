@@ -1,0 +1,42 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.PollingPublisher",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "PoolingPublisherBackgroundService",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.PollingPublisher",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher/PoolingPublisherBackgroundService.cs",
+      "base_types": [
+        "BackgroundService"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOutBoxEventItemRepository outBoxEventItemRepository",
+        "IOptions<PollingPublisherOptions> options",
+        "ILogger<PoolingPublisherBackgroundService> logger",
+        "IServiceProvider serviceProvider"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public PoolingPublisherBackgroundService( IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger,IServiceProvider serviceProvider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var scope = serviceProvider.CreateScope();\r\n\r\n            _options = options.Value;\r\n            _sendMessageBus = scope.ServiceProvider.GetRequiredService<ISendMessageBus>();\r\n            _outBoxEventItemRepository = outBoxEventItemRepository;\r\n            _logger = logger;\r\n            _logger.LogInformation(\"PoolingPublisherBackgroundService start working for {ApplicationName} at {DateTime}\", _options.ApplicationName, DateTime.Now);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "ExecuteAsync",
+          "kind": "method",
+          "signature": "protected override async Task ExecuteAsync(CancellationToken stoppingToken)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            while (!stoppingToken.IsCancellationRequested)\r\n            {\r\n                try\r\n                {\r\n                    var outboxItems = _outBoxEventItemRepository.GetOutBoxEventItemsForPublishe(_options.SendCount);\r\n                    foreach (var item in outboxItems)\r\n                    {\r\n                        using Activity trace = StartChildActivity(item);\r\n                        _sendMessageBus.Send(new Parcel\r\n                        {\r\n                            CorrelationId = item.AggregateId,\r\n                            MessageBody = item.EventPayload,\r\n                            MessageId = item.EventId.ToString(),\r\n                            MessageName = item.EventName,\r\n                            Route = $\"{_options.ApplicationName}.event.{item.EventName}\",\r\n                            Headers = new Dictionary<string, object>\r\n                            {\r\n                                [\"AccuredByUserId\"] = item.AccuredByUserId,\r\n                                [\"AccuredOn\"] = item.AccuredOn.ToString(),\r\n                                [\"AggregateName\"] = item.AggregateName,\r\n                                [\"AggregateTypeName\"] = item.AggregateTypeName,\r\n                                [\"EventTypeName\"] = item.EventTypeName,\r\n                            }\r\n                        });\r\n                        item.IsProcessed = true;\r\n                        _logger.LogDebug(\"event {eventName} with {EventId} sent from {ApplicaotinName} at {DateTime}\", item.EventName, item.EventId, _options.ApplicationName, DateTime.Now);\r\n                    }\r\n                    _outBoxEventItemRepository.MarkAsRead(outboxItems);\r\n                    if (outboxItems.Any())\r\n                    {\r\n                        _logger.LogInformation(\"{Count} events {ApplicaotinName} at {DateTime} with id {Ids}\", outboxItems.Count, _options.ApplicationName, DateTime.Now, string.Join(',', outboxItems.Select(c => c.EventId)));\r\n                    }\r\n                    await Task.Delay(_options.SendInterval, stoppingToken);\r\n                }\r\n                catch (Exception ex)\r\n                {\r\n                    _logger.LogError(ex, \"Exception acquired in PoolingPublisherBackgroundService for application {ApplicaitonName}\", _options.ApplicationName);\r\n                    await Task.Delay(_options.ExceptionInterval, stoppingToken);\r\n\r\n                }\r\n\r\n            }\r\n            _logger.LogInformation(\"PoolingPublisherBackgroundService stop working for {ApplicationName} at {DateTime}\", _options.ApplicationName, DateTime.Now);\r\n        }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

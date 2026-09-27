@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.Core.RequestResponse.Endpoints",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "IWebRequest",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Endpoints",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Endpoints/IWebRequest.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Path",
+          "kind": "property",
+          "signature": "string Path { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Path» از نوع `string` در IWebRequest. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. فقط‌خواندنی است.",
+            "en": "Property 'Path' of type `string` on IWebRequest. Exposes related state or configuration for this member. Read-only."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IWebRequest» در namespace Zamin.Core.RequestResponse.Endpoints. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IWebRequest' in namespace Zamin.Core.RequestResponse.Endpoints. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

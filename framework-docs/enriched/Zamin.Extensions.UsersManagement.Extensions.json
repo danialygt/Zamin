@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Extensions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ClaimExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Extensions",
+      "source_file": "Extentsions/UsersManagement/Zamin.Extensions.UsersManagement/Zamin.Extensions.UsersManagement/Extensions/ClaimExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public static string GetClaim(this ClaimsPrincipal userClaimsPrincipal, string claimType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return userClaimsPrincipal.Claims.FirstOrDefault((Claim x) => x.Type == claimType)?.Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetClaim» در ClaimExtensions. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- userClaimsPrincipal (ClaimsPrincipal): ورودی از نوع ClaimsPrincipal.\r\n- claimType (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetClaim' on ClaimExtensions. Retrieves related data or state.\r\nParameters:\r\n- userClaimsPrincipal (ClaimsPrincipal): Input of type ClaimsPrincipal.\r\n- claimType (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ClaimExtensions» در namespace Zamin.Extensions.UsersManagement.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ClaimExtensions' in namespace Zamin.Extensions.UsersManagement.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

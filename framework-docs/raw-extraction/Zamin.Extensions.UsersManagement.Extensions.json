@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Extensions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ClaimExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Extensions",
+      "source_file": "Extentsions/UsersManagement/Zamin.Extensions.UsersManagement/Zamin.Extensions.UsersManagement/Extensions/ClaimExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public static string GetClaim(this ClaimsPrincipal userClaimsPrincipal, string claimType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return userClaimsPrincipal.Claims.FirstOrDefault((Claim x) => x.Type == claimType)?.Value;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

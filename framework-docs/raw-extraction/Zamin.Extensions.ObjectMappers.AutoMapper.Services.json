@@ -1,0 +1,40 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "AutoMapperAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Services",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.AutoMapper/Zamin.Extensions.ObjectMappers.AutoMapper/Services/AutoMapperAdapter.cs",
+      "base_types": [
+        "IMapperAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IMapper mapper",
+        "ILogger<AutoMapperAdapter> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public AutoMapperAdapter(IMapper mapper, ILogger<AutoMapperAdapter> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _mapper = mapper;\r\n        _logger = logger;\r\n        _logger.LogInformation(\"AutoMapper Adapter Start working\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "public TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n                         typeof(TSource),\r\n                         typeof(TDestination),\r\n                         source);\r\n\r\n        return _mapper.Map<TDestination>(source);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

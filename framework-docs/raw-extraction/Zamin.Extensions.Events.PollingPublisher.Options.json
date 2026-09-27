@@ -1,0 +1,51 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.PollingPublisher.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "PollingPublisherOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Options",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher/Options/PollingPublisherOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SendInterval",
+          "kind": "property",
+          "signature": "public int SendInterval { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ExceptionInterval",
+          "kind": "property",
+          "signature": "public int ExceptionInterval { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SendCount",
+          "kind": "property",
+          "signature": "public int SendCount { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

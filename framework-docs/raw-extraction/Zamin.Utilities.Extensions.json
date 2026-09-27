@@ -1,0 +1,502 @@
+﻿{
+  "namespace": "Zamin.Utilities.Extensions",
+  "type_count": 8,
+  "types": [
+    {
+      "type_name": "DateTimeExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/DateTimeExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long ToUnixTimeMillisecond(this DateTime dateTime, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> TimeZoneInfo.ConvertTime(new DateTimeOffset(dateTime), timeZoneInfo).ToUnixTimeMilliseconds();",
+          "attributes": []
+        },
+        {
+          "name": "ToUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long? ToUnixTimeMillisecond(this DateTime? dateTime, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime is not null ? TimeZoneInfo.ConvertTime(new DateTimeOffset(dateTime.Value), timeZoneInfo).ToUnixTimeMilliseconds() : null;",
+          "attributes": []
+        },
+        {
+          "name": "ToDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToDateTime(this long unixTimeMilliseconds, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> TimeZoneInfo.ConvertTime(DateTimeOffset.FromUnixTimeMilliseconds(unixTimeMilliseconds), timeZoneInfo).DateTime;",
+          "attributes": []
+        },
+        {
+          "name": "ToDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToDateTime(this long? unixTimeMilliseconds, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds is not null ? TimeZoneInfo.ConvertTime(DateTimeOffset.FromUnixTimeMilliseconds(unixTimeMilliseconds.Value), timeZoneInfo).DateTime : null;",
+          "attributes": []
+        },
+        {
+          "name": "ToLocalUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long ToLocalUnixTimeMillisecond(this DateTime dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Local);",
+          "attributes": []
+        },
+        {
+          "name": "ToLocalUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long? ToLocalUnixTimeMillisecond(this DateTime? dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Local);",
+          "attributes": []
+        },
+        {
+          "name": "ToLocalDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToLocalDateTime(this long unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Local);",
+          "attributes": []
+        },
+        {
+          "name": "ToLocalDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToLocalDateTime(this long? unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Local);",
+          "attributes": []
+        },
+        {
+          "name": "ToUtcUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long ToUtcUnixTimeMillisecond(this DateTime dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Utc);",
+          "attributes": []
+        },
+        {
+          "name": "ToUtcUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long? ToUtcUnixTimeMillisecond(this DateTime? dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Utc);",
+          "attributes": []
+        },
+        {
+          "name": "ToUtcDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToUtcDateTime(this long unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Utc);",
+          "attributes": []
+        },
+        {
+          "name": "ToUtcDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToUtcDateTime(this long? unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Utc);",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EnumExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/EnumExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetEnumDescription",
+          "kind": "method",
+          "signature": "public static string GetEnumDescription(this Enum enumValue)",
+          "xml_doc": "/// <summary>\n    /// برای دریافت توضیحات یک ویژگی از enum اگر [Description] داشته باشد از این متد استفاده می‌شود.\n    /// </summary>\n    /// <param name=\"enumValue\">مقداری که قرار است توضحیات آن دریافت شود</param>\n    /// <returns>متن داخل [Description] در صورتی که وجود داشته باشد و در غیراین صورت عنوان enums ارسال شده</returns>",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "GuidExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/GuidExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsNullOrEmpty",
+          "kind": "method",
+          "signature": "public static bool IsNullOrEmpty(this Guid? guid)",
+          "xml_doc": "",
+          "body_summary": "=> guid == null || guid == default;",
+          "attributes": []
+        },
+        {
+          "name": "IsEmpty",
+          "kind": "method",
+          "signature": "public static bool IsEmpty(this Guid guid)",
+          "xml_doc": "",
+          "body_summary": "=> guid == default;",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "LinqExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/LinqExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OrderByField",
+          "kind": "method",
+          "signature": "public static IQueryable<T> OrderByField<T>(this IQueryable<T> q, string SortField, bool Ascending)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var param = Expression.Parameter(typeof(T), \"p\");\r\n        var prop = Expression.Property(param, SortField);\r\n        var exp = Expression.Lambda(prop, param);\r\n        string method = Ascending ? \"OrderBy\" : \"OrderByDescending\";\r\n        Type[] types = new Type[] { q.ElementType, exp.Body.Type };\r\n        var mce = Expression.Call(typeof(Queryable), method, types, q.Expression, exp);\r\n        return q.Provider.CreateQuery<T>(mce);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToDataTable",
+          "kind": "method",
+          "signature": "public static DataTable ToDataTable<T>(this List<T> list)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        DataTable dataTable = new(typeof(T).Name);\r\n\r\n        PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);\r\n\r\n        foreach (PropertyInfo prop in Props)\r\n        {\r\n            dataTable.Columns.Add(prop.Name);\r\n        }\r\n\r\n        foreach (T item in list)\r\n        {\r\n            var values = new object[Props.Length];\r\n            for (int i = 0; i < Props.Length; i++)\r\n            {\r\n                values[i] = Props[i].GetValue(item, null);\r\n            }\r\n            dataTable.Rows.Add(values);\r\n        }\r\n        return dataTable;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToList",
+          "kind": "method",
+          "signature": "public static List<T> ToList<T>(this DataTable dt)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        List<T> data = new();\r\n        foreach (DataRow row in dt.Rows)\r\n        {\r\n            T item = GetItem<T>(row);\r\n            data.Add(item);\r\n        }\r\n        return data;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "WhereIf",
+          "kind": "method",
+          "signature": "public static IQueryable<T> WhereIf<T>(this IQueryable<T> query, bool condition, Expression<Func<T, bool>> predicate)",
+          "xml_doc": "/// <summary>\n    /// Filters a <see cref=\"IQueryable{T}\"/> by given predicate if given condition is true.\n    /// </summary>\n    /// <param name=\"query\">Queryable to apply filtering</param>\n    /// <param name=\"condition\">A boolean value</param>\n    /// <param name=\"predicate\">Predicate to filter the query</param>\n    /// <returns>Filtered or not filtered query based on <paramref name=\"condition\"/></returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "WhereIf",
+          "kind": "method",
+          "signature": "public static IQueryable<T> WhereIf<T>(this IQueryable<T> query, bool condition, Expression<Func<T, int, bool>> predicate)",
+          "xml_doc": "/// <summary>\n    /// Filters a <see cref=\"IQueryable{T}\"/> by given predicate if given condition is true.\n    /// </summary>\n    /// <param name=\"query\">Queryable to apply filtering</param>\n    /// <param name=\"condition\">A boolean value</param>\n    /// <param name=\"predicate\">Predicate to filter the query</param>\n    /// <returns>Filtered or not filtered query based on <paramref name=\"condition\"/></returns>",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ObjectExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/ObjectExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToQueryString",
+          "kind": "method",
+          "signature": "public static string ToQueryString(this object obj)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (obj is null) throw new ArgumentNullException(\"Object\");\r\n\r\n        var properties = obj.GetType().GetProperties()\r\n            .Where(x => x.CanWrite)\r\n            .Where(x => x.GetValue(obj, null) is not null)\r\n            .Select(x => KeyValuePair.Create(x.Name, x.GetValue(obj, null))).ToList();\r\n\r\n        var propertyNames = properties\r\n            .Where(x => x.Value is not string && x.Value is IEnumerable)\r\n            .Select(x => x.Key)\r\n            .ToList();\r\n\r\n        foreach (var key in propertyNames)\r\n        {\r\n            var valueType = properties.FirstOrDefault(x => x.Key == key).Value.GetType();\r\n\r\n            var valueElemType = valueType.IsGenericType\r\n                ? valueType.GetGenericArguments()[0]\r\n                : valueType.GetElementType();\r\n\r\n            if (valueElemType.IsPrimitive || valueElemType == typeof(string) || valueElemType == typeof(Guid))\r\n            {\r\n                var enumerable = properties.FirstOrDefault(c => c.Key == key).Value as IEnumerable;\r\n\r\n                properties.RemoveAll(x => x.Key == key);\r\n\r\n                foreach (var item in enumerable)\r\n                {\r\n                    properties.Add(KeyValuePair.Create(key, item));\r\n                }\r\n            }\r\n        }\r\n\r\n        return string.Join(\"&\", properties.Where(x => x.Value is not null)\r\n            .Select(x => string.Concat(\r\n                Uri.EscapeDataString(x.Key), \"=\",\r\n                Uri.EscapeDataString(x.Value.ToString()))));\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "StringExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/StringExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ArabicYeChar",
+          "kind": "field",
+          "signature": "public const char ArabicYeChar = (char)1610;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PersianYeChar",
+          "kind": "field",
+          "signature": "public const char PersianYeChar = (char)1740;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ArabicKeChar",
+          "kind": "field",
+          "signature": "public const char ArabicKeChar = (char)1603;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PersianKeChar",
+          "kind": "field",
+          "signature": "public const char PersianKeChar = (char)1705;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ApplyCorrectYeKe",
+          "kind": "method",
+          "signature": "public static string ApplyCorrectYeKe(this object data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return data == null ? null : ApplyCorrectYeKe(data.ToString());\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ApplyCorrectYeKe",
+          "kind": "method",
+          "signature": "public static string ApplyCorrectYeKe(this string data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return string.IsNullOrWhiteSpace(data) ?\r\n                    string.Empty :\r\n                    data.Replace(ArabicYeChar, PersianYeChar).Replace(ArabicKeChar, PersianKeChar).Trim()\r\n                        .Fa2En();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToSafeLong",
+          "kind": "method",
+          "signature": "public static long ToSafeLong(this string input, long replacement = long.MinValue)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n         long.TryParse(input, out long result) ? result : replacement;",
+          "attributes": []
+        },
+        {
+          "name": "ToSafeNullableLong",
+          "kind": "method",
+          "signature": "public static long? ToSafeNullableLong(this string input)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        long.TryParse(input, out long result) ? result : null;",
+          "attributes": []
+        },
+        {
+          "name": "ToSafeInt",
+          "kind": "method",
+          "signature": "public static int ToSafeInt(this string input, int replacement = int.MinValue)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n     int.TryParse(input, out int result) ? result : replacement;",
+          "attributes": []
+        },
+        {
+          "name": "ToSafeNullableInt",
+          "kind": "method",
+          "signature": "public static int? ToSafeNullableInt(this string input)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        int.TryParse(input, out int result) ? result : null;",
+          "attributes": []
+        },
+        {
+          "name": "ToStringOrEmpty",
+          "kind": "method",
+          "signature": "public static string ToStringOrEmpty(this string? input)",
+          "xml_doc": "",
+          "body_summary": "=> input ?? string.Empty;",
+          "attributes": []
+        },
+        {
+          "name": "ToUnderscoreCase",
+          "kind": "method",
+          "signature": "public static string ToUnderscoreCase(this string input)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        string.Concat(input.Select((x, i) => i > 0 && char.IsUpper(x) ? \"_\" + x.ToString() : x.ToString())).ToLower();",
+          "attributes": []
+        },
+        {
+          "name": "ToByteArray",
+          "kind": "method",
+          "signature": "public static byte[] ToByteArray(this string input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return System.Text.Encoding.UTF8.GetBytes(input);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "FromByteArray",
+          "kind": "method",
+          "signature": "public static string FromByteArray(this byte[] input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return System.Text.Encoding.UTF8.GetString(input);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToNumeric",
+          "kind": "method",
+          "signature": "public static string ToNumeric(this int value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return value.ToString(\"N0\"); //\"123,456\"\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToCurrency",
+          "kind": "method",
+          "signature": "public static string ToCurrency(this int value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        //fa-IR => current culture currency symbol => ریال\r\n        //123456 => \"123,123ریال\"\r\n        return value.ToString(\"C0\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "En2Fa",
+          "kind": "method",
+          "signature": "public static string En2Fa(this string str)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return str.Replace(\"0\", \"۰\")\r\n            .Replace(\"1\", \"۱\")\r\n            .Replace(\"2\", \"۲\")\r\n            .Replace(\"3\", \"۳\")\r\n            .Replace(\"4\", \"۴\")\r\n            .Replace(\"5\", \"۵\")\r\n            .Replace(\"6\", \"۶\")\r\n            .Replace(\"7\", \"۷\")\r\n            .Replace(\"8\", \"۸\")\r\n            .Replace(\"9\", \"۹\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Fa2En",
+          "kind": "method",
+          "signature": "public static string Fa2En(this string str)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return str.Replace(\"۰\", \"0\")\r\n            .Replace(\"۱\", \"1\")\r\n            .Replace(\"۲\", \"2\")\r\n            .Replace(\"۳\", \"3\")\r\n            .Replace(\"۴\", \"4\")\r\n            .Replace(\"۵\", \"5\")\r\n            .Replace(\"۶\", \"6\")\r\n            .Replace(\"۷\", \"7\")\r\n            .Replace(\"۸\", \"8\")\r\n            .Replace(\"۹\", \"9\")\r\n            //iphone numeric\r\n            .Replace(\"٠\", \"0\")\r\n            .Replace(\"١\", \"1\")\r\n            .Replace(\"٢\", \"2\")\r\n            .Replace(\"٣\", \"3\")\r\n            .Replace(\"٤\", \"4\")\r\n            .Replace(\"٥\", \"5\")\r\n            .Replace(\"٦\", \"6\")\r\n            .Replace(\"٧\", \"7\")\r\n            .Replace(\"٨\", \"8\")\r\n            .Replace(\"٩\", \"9\");\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "StringValidatorExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/StringValidatorExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsNationalCode",
+          "kind": "method",
+          "signature": "public static bool IsNationalCode(this string nationalCode)",
+          "xml_doc": "/// <summary>\n    /// صحت سنجی کد ملی\n    /// </summary>\n    /// <param name=\"input\">کد ملی</param>\n    /// <returns>درست یا غلط</returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IsLegalNationalIdValid",
+          "kind": "method",
+          "signature": "public static bool IsLegalNationalIdValid(this string nationalId)",
+          "xml_doc": "/// <summary>\n    /// صحت سنجی شناسه ملی شرکت‌ها\n    /// </summary>\n    /// <param name=\"nationalId\"></param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IsNumeric",
+          "kind": "method",
+          "signature": "public static bool IsNumeric(this string nationalCode)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var regex = new Regex(@\"\\d+\");\r\n        if (regex.IsMatch(nationalCode))\r\n            return true;\r\n        return false;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsLengthBetween",
+          "kind": "method",
+          "signature": "public static bool IsLengthBetween(this string input, int minLength, int maxLenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (input.Length <= maxLenght && input.Length >= minLength)\r\n            return true;\r\n        return false;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsLengthLessThan",
+          "kind": "method",
+          "signature": "public static bool IsLengthLessThan(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length < lenght;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsLengthLessThanOrEqual",
+          "kind": "method",
+          "signature": "public static bool IsLengthLessThanOrEqual(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length <= lenght;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsLengthGreaterThan",
+          "kind": "method",
+          "signature": "public static bool IsLengthGreaterThan(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length > lenght;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsLengthGreaterThanOrEqual",
+          "kind": "method",
+          "signature": "public static bool IsLengthGreaterThanOrEqual(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length >= lenght;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsLengthEqual",
+          "kind": "method",
+          "signature": "public static bool IsLengthEqual(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length == lenght;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "TypeExtentsions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/TypeExtentsions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsSubclassOfRawGeneric",
+          "kind": "method",
+          "signature": "public static bool IsSubclassOfRawGeneric(this Type toCheck, Type generic)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            while (toCheck != null && toCheck != typeof(object))\r\n            {\r\n                var cur = toCheck.IsGenericType ? toCheck.GetGenericTypeDefinition() : toCheck;\r\n                if (generic == cur)\r\n                {\r\n                    return true;\r\n                }\r\n                toCheck = toCheck.BaseType;\r\n            }\r\n            return false;\r\n        }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+﻿{
+  "namespace": "Zamin.Extensions.Logger.Abstractions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ZaminEventId",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Logger.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Logger.Abstractions/ZaminEventId.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [
+        "Obsolete(\"این بخش در نسخه 10 deprecated شده و ممکن است در Zamin 11 حذف یا بازطراحی شود.\")"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PerformanceMeasurement",
+          "kind": "field",
+          "signature": "public const int PerformanceMeasurement = 1001;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «PerformanceMeasurement» در ZaminEventId با امضای `public const int PerformanceMeasurement = 1001;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'PerformanceMeasurement' on ZaminEventId with signature `public const int PerformanceMeasurement = 1001;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DomainValidationException",
+          "kind": "field",
+          "signature": "public const int DomainValidationException = 1010;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «DomainValidationException» در ZaminEventId با امضای `public const int DomainValidationException = 1010;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'DomainValidationException' on ZaminEventId with signature `public const int DomainValidationException = 1010;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CommandValidation",
+          "kind": "field",
+          "signature": "public const int CommandValidation = 1011;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «CommandValidation» در ZaminEventId با امضای `public const int CommandValidation = 1011;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'CommandValidation' on ZaminEventId with signature `public const int CommandValidation = 1011;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "QueryValidation",
+          "kind": "field",
+          "signature": "public const int QueryValidation = 1012;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «QueryValidation» در ZaminEventId با امضای `public const int QueryValidation = 1012;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'QueryValidation' on ZaminEventId with signature `public const int QueryValidation = 1012;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EventValidation",
+          "kind": "field",
+          "signature": "public const int EventValidation = 1013;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «EventValidation» در ZaminEventId با امضای `public const int EventValidation = 1013;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'EventValidation' on ZaminEventId with signature `public const int EventValidation = 1013;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ZaminEventId» در namespace Zamin.Extensions.Logger.Abstractions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. اتریبیوت‌ها: Obsolete(\"این بخش در نسخه 10 deprecated شده و ممکن است در Zamin 11 حذف یا بازطراحی شود.\").",
+        "en": "Class 'ZaminEventId' in namespace Zamin.Extensions.Logger.Abstractions. Public/protected class definition in the Zamin framework layer. Attributes: Obsolete(\"این بخش در نسخه 10 deprecated شده و ممکن است در Zamin 11 حذف یا بازطراحی شود.\")."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

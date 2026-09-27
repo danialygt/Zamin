@@ -1,0 +1,367 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "AuditableShadowProperties",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/AuditableShadowProperties.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "EFPropertyCreatedByUserId",
+          "kind": "field",
+          "signature": "public static readonly Func<object, string> EFPropertyCreatedByUserId =\r\n                                    entity => EF.Property<string>(entity, CreatedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «EFPropertyCreatedByUserId» در AuditableShadowProperties با امضای `public static readonly Func<object, string> EFPropertyCreatedByUserId =\r\n                                    entity => EF.Property<string>(entity, CreatedByUserId);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'EFPropertyCreatedByUserId' on AuditableShadowProperties with signature `public static readonly Func<object, string> EFPropertyCreatedByUserId =\r\n                                    entity => EF.Property<string>(entity, CreatedByUserId);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CreatedByUserId",
+          "kind": "field",
+          "signature": "public static readonly string CreatedByUserId = nameof(CreatedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «CreatedByUserId» در AuditableShadowProperties با امضای `public static readonly string CreatedByUserId = nameof(CreatedByUserId);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'CreatedByUserId' on AuditableShadowProperties with signature `public static readonly string CreatedByUserId = nameof(CreatedByUserId);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EFPropertyModifiedByUserId",
+          "kind": "field",
+          "signature": "public static readonly Func<object, string> EFPropertyModifiedByUserId =\r\n                                    entity => EF.Property<string>(entity, ModifiedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «EFPropertyModifiedByUserId» در AuditableShadowProperties با امضای `public static readonly Func<object, string> EFPropertyModifiedByUserId =\r\n                                    entity => EF.Property<string>(entity, ModifiedByUserId);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'EFPropertyModifiedByUserId' on AuditableShadowProperties with signature `public static readonly Func<object, string> EFPropertyModifiedByUserId =\r\n                                    entity => EF.Property<string>(entity, ModifiedByUserId);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ModifiedByUserId",
+          "kind": "field",
+          "signature": "public static readonly string ModifiedByUserId = nameof(ModifiedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «ModifiedByUserId» در AuditableShadowProperties با امضای `public static readonly string ModifiedByUserId = nameof(ModifiedByUserId);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'ModifiedByUserId' on AuditableShadowProperties with signature `public static readonly string ModifiedByUserId = nameof(ModifiedByUserId);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EFPropertyCreatedDateTime",
+          "kind": "field",
+          "signature": "public static readonly Func<object, DateTime?> EFPropertyCreatedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, CreatedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «EFPropertyCreatedDateTime» در AuditableShadowProperties با امضای `public static readonly Func<object, DateTime?> EFPropertyCreatedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, CreatedDateTime);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'EFPropertyCreatedDateTime' on AuditableShadowProperties with signature `public static readonly Func<object, DateTime?> EFPropertyCreatedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, CreatedDateTime);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CreatedDateTime",
+          "kind": "field",
+          "signature": "public static readonly string CreatedDateTime = nameof(CreatedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «CreatedDateTime» در AuditableShadowProperties با امضای `public static readonly string CreatedDateTime = nameof(CreatedDateTime);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'CreatedDateTime' on AuditableShadowProperties with signature `public static readonly string CreatedDateTime = nameof(CreatedDateTime);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EFPropertyModifiedDateTime",
+          "kind": "field",
+          "signature": "public static readonly Func<object, DateTime?> EFPropertyModifiedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, ModifiedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «EFPropertyModifiedDateTime» در AuditableShadowProperties با امضای `public static readonly Func<object, DateTime?> EFPropertyModifiedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, ModifiedDateTime);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'EFPropertyModifiedDateTime' on AuditableShadowProperties with signature `public static readonly Func<object, DateTime?> EFPropertyModifiedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, ModifiedDateTime);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ModifiedDateTime",
+          "kind": "field",
+          "signature": "public static readonly string ModifiedDateTime = nameof(ModifiedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «ModifiedDateTime» در AuditableShadowProperties با امضای `public static readonly string ModifiedDateTime = nameof(ModifiedDateTime);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'ModifiedDateTime' on AuditableShadowProperties with signature `public static readonly string ModifiedDateTime = nameof(ModifiedDateTime);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddAuditableShadowProperties",
+          "kind": "method",
+          "signature": "public static void AddAuditableShadowProperties(this ModelBuilder modelBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entityType in modelBuilder.Model.GetEntityTypes().Where(c => typeof(IAuditableEntity).IsAssignableFrom(c.ClrType)))\r\n        {\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<string>(CreatedByUserId).HasMaxLength(50);\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<string>(ModifiedByUserId).HasMaxLength(50);\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<DateTime?>(CreatedDateTime);\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<DateTime?>(ModifiedDateTime);\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddAuditableShadowProperties» در AuditableShadowProperties. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- modelBuilder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddAuditableShadowProperties' on AuditableShadowProperties. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- modelBuilder (ModelBuilder): Input of type ModelBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SetAuditableEntityPropertyValues",
+          "kind": "method",
+          "signature": "public static void SetAuditableEntityPropertyValues(\r\n        this ChangeTracker changeTracker,\r\n        IUserInfoService userInfoService)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        var userAgent = userInfoService.GetUserAgent();\r\n        var userIp = userInfoService.GetUserIp();\r\n        var now = DateTime.UtcNow;\r\n        var userId = userInfoService.UserIdOrDefault();\r\n\r\n        var modifiedEntries = changeTracker.Entries<IAuditableEntity>().Where(x => x.State == EntityState.Modified);\r\n        foreach (var modifiedEntry in modifiedEntries)\r\n        {\r\n            modifiedEntry.Property(ModifiedDateTime).CurrentValue = now;\r\n            modifiedEntry.Property(ModifiedByUserId).CurrentValue = userId;\r\n        }\r\n\r\n        var addedEntries = changeTracker.Entries<IAuditableEntity>().Where(x => x.State == EntityState.Added);\r\n        foreach (var addedEntry in addedEntries)\r\n        {\r\n            addedEntry.Property(CreatedDateTime).CurrentValue = now;\r\n            addedEntry.Property(CreatedByUserId).CurrentValue = userId;\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SetAuditableEntityPropertyValues» در AuditableShadowProperties. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- changeTracker (ChangeTracker): ورودی از نوع ChangeTracker.\r\n- userInfoService (IUserInfoService): ورودی از نوع IUserInfoService.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'SetAuditableEntityPropertyValues' on AuditableShadowProperties. Updates or persists state.\r\nParameters:\r\n- changeTracker (ChangeTracker): Input of type ChangeTracker.\r\n- userInfoService (IUserInfoService): Input of type IUserInfoService.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AuditableShadowProperties» در namespace Zamin.Infra.Data.Sql.Commands.Extensions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'AuditableShadowProperties' in namespace Zamin.Infra.Data.Sql.Commands.Extensions. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ChangeTrackerExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/ChangeTrackerExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetChangedAggregates",
+          "kind": "method",
+          "signature": "public static List<AggregateRoot> GetChangedAggregates(this ChangeTracker changeTracker)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        changeTracker.Aggreates().Where(IsModified()).Select(c => c.Entity).ToList();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetChangedAggregates» در ChangeTrackerExtensions. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- changeTracker (ChangeTracker): ورودی از نوع ChangeTracker.\r\n\r\nمقدار بازگشتی: `List<AggregateRoot>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetChangedAggregates' on ChangeTrackerExtensions. Retrieves related data or state.\r\nParameters:\r\n- changeTracker (ChangeTracker): Input of type ChangeTracker.\r\n\r\nReturns: `List<AggregateRoot>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAggregatesWithEvent",
+          "kind": "method",
+          "signature": "public static List<AggregateRoot> GetAggregatesWithEvent(this ChangeTracker changeTracker)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            changeTracker.Aggreates()\r\n                                     .Where(IsNotDetached())\r\n                                     .Select(c => c.Entity)\r\n                                     .Where(c => c.GetEvents()\r\n                                         .Any()).ToList();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetAggregatesWithEvent» در ChangeTrackerExtensions. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- changeTracker (ChangeTracker): ورودی از نوع ChangeTracker.\r\n\r\nمقدار بازگشتی: `List<AggregateRoot>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetAggregatesWithEvent' on ChangeTrackerExtensions. Retrieves related data or state.\r\nParameters:\r\n- changeTracker (ChangeTracker): Input of type ChangeTracker.\r\n\r\nReturns: `List<AggregateRoot>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Aggreates",
+          "kind": "method",
+          "signature": "public static IEnumerable<EntityEntry<AggregateRoot>> Aggreates(this ChangeTracker changeTracker)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        changeTracker.Entries<AggregateRoot>();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Aggreates» در ChangeTrackerExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- changeTracker (ChangeTracker): ورودی از نوع ChangeTracker.\r\n\r\nمقدار بازگشتی: `IEnumerable<EntityEntry<AggregateRoot>>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Aggreates' on ChangeTrackerExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- changeTracker (ChangeTracker): Input of type ChangeTracker.\r\n\r\nReturns: `IEnumerable<EntityEntry<AggregateRoot>>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ChangeTrackerExtensions» در namespace Zamin.Infra.Data.Sql.Commands.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ChangeTrackerExtensions' in namespace Zamin.Infra.Data.Sql.Commands.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "DbCommandExtension",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/DbCommandExtension.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplyCorrectYeKe",
+          "kind": "method",
+          "signature": "public static void ApplyCorrectYeKe(this DbCommand command)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.CommandText = command.CommandText.ApplyCorrectYeKe();\r\n\r\n        foreach (DbParameter parameter in command.Parameters)\r\n        {\r\n            switch (parameter.DbType)\r\n            {\r\n                case DbType.AnsiString:\r\n                case DbType.AnsiStringFixedLength:\r\n                case DbType.String:\r\n                case DbType.StringFixedLength:\r\n                case DbType.Xml:\r\n                    parameter.Value = parameter.Value is DBNull ? parameter.Value : parameter.Value.ApplyCorrectYeKe();\r\n                    break;\r\n            }\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ApplyCorrectYeKe» در DbCommandExtension. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ApplyCorrectYeKe' on DbCommandExtension. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DbCommandExtension» در namespace Zamin.Infra.Data.Sql.Commands.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'DbCommandExtension' in namespace Zamin.Infra.Data.Sql.Commands.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ModelBuilderExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/ModelBuilderExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddBusinessId",
+          "kind": "method",
+          "signature": "public static void AddBusinessId(this ModelBuilder modelBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entityType in modelBuilder.Model\r\n                                               .GetEntityTypes()\r\n                                               .Where(e => typeof(AggregateRoot).IsAssignableFrom(e.ClrType) ||\r\n                                                    typeof(Entity).IsAssignableFrom(e.ClrType)))\r\n        {\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                .Property<BusinessId>(\"BusinessId\").HasConversion(c => c.Value, d => BusinessId.FromGuid(d))\r\n                .IsUnicode()\r\n                .IsRequired();\r\n            modelBuilder.Entity(entityType.ClrType).HasAlternateKey(\"BusinessId\");\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddBusinessId» در ModelBuilderExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- modelBuilder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddBusinessId' on ModelBuilderExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- modelBuilder (ModelBuilder): Input of type ModelBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UseValueConverterForType",
+          "kind": "method",
+          "signature": "public static ModelBuilder UseValueConverterForType<T>(this ModelBuilder modelBuilder, ValueConverter converter, int maxLenght = 0)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return modelBuilder.UseValueConverterForType(typeof(T), converter, maxLenght);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UseValueConverterForType» در ModelBuilderExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند.\r\nپارامترها:\r\n- modelBuilder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n- converter (ValueConverter): ورودی از نوع ValueConverter.\r\n- maxLenght (int): ورودی اختیاری از نوع int (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `ModelBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UseValueConverterForType' on ModelBuilderExtensions. Adds middleware or pipeline configuration to the application.\r\nParameters:\r\n- modelBuilder (ModelBuilder): Input of type ModelBuilder.\r\n- converter (ValueConverter): Input of type ValueConverter.\r\n- maxLenght (int): Optional int input (has default).\r\n\r\nReturns: `ModelBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UseValueConverterForType",
+          "kind": "method",
+          "signature": "public static ModelBuilder UseValueConverterForType(this ModelBuilder modelBuilder, Type type, ValueConverter converter, int maxLength = 0)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entityType in modelBuilder.Model.GetEntityTypes())\r\n        {\r\n            var properties = entityType.ClrType.GetProperties().Where(p => p.PropertyType == type);\r\n\r\n            foreach (var property in properties)\r\n            {\r\n                modelBuilder.Entity(entityType.Name).Property(property.Name)\r\n                    .HasConversion(converter);\r\n                if (maxLength > 0)\r\n                    modelBuilder.Entity(entityType.Name).Property(property.Name).HasMaxLength(maxLength);\r\n            }\r\n        }\r\n\r\n        return modelBuilder;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UseValueConverterForType» در ModelBuilderExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند.\r\nپارامترها:\r\n- modelBuilder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n- type (Type): ورودی از نوع Type.\r\n- converter (ValueConverter): ورودی از نوع ValueConverter.\r\n- maxLength (int): ورودی اختیاری از نوع int (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `ModelBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UseValueConverterForType' on ModelBuilderExtensions. Adds middleware or pipeline configuration to the application.\r\nParameters:\r\n- modelBuilder (ModelBuilder): Input of type ModelBuilder.\r\n- type (Type): Input of type Type.\r\n- converter (ValueConverter): Input of type ValueConverter.\r\n- maxLength (int): Optional int input (has default).\r\n\r\nReturns: `ModelBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ModelBuilderExtensions» در namespace Zamin.Infra.Data.Sql.Commands.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ModelBuilderExtensions' in namespace Zamin.Infra.Data.Sql.Commands.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RowVersionShadowProperty",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/RowVersionShadowProperty.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "RowVersion",
+          "kind": "field",
+          "signature": "public static readonly string RowVersion = nameof(RowVersion);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «RowVersion» در RowVersionShadowProperty با امضای `public static readonly string RowVersion = nameof(RowVersion);`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'RowVersion' on RowVersionShadowProperty with signature `public static readonly string RowVersion = nameof(RowVersion);`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddRowVersionShadowProperty",
+          "kind": "method",
+          "signature": "public static void AddRowVersionShadowProperty<TEntity>(this EntityTypeBuilder<TEntity> builder) where TEntity : class",
+          "xml_doc": "",
+          "body_summary": "=> builder.Property<byte[]>(RowVersion).IsRowVersion();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddRowVersionShadowProperty» در RowVersionShadowProperty. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- builder (EntityTypeBuilder<TEntity>): ورودی از نوع EntityTypeBuilder<TEntity>.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddRowVersionShadowProperty' on RowVersionShadowProperty. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- builder (EntityTypeBuilder<TEntity>): Input of type EntityTypeBuilder<TEntity>.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RowVersionShadowProperty» در namespace Zamin.Infra.Data.Sql.Commands.Extensions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'RowVersionShadowProperty' in namespace Zamin.Infra.Data.Sql.Commands.Extensions. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

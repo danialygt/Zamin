@@ -1,0 +1,29 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.ModelBinding",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "NonValidatingValidator",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.ModelBinding",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/ModelBinding/NonValidatingValidator.cs",
+      "base_types": [
+        "IObjectModelValidator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Validate",
+          "kind": "method",
+          "signature": "public void Validate(ActionContext actionContext, ValidationStateDictionary validationState, string prefix, object model)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entry in actionContext.ModelState.Values)\r\n            entry.ValidationState = ModelValidationState.Skipped;\r\n\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

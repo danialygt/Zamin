@@ -1,0 +1,276 @@
+﻿{
+  "namespace": "Zamin.Core.ApplicationServices.Queries",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "QueryDispatcher",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Queries/QueryDispatcher.cs",
+      "base_types": [
+        "IQueryDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<QueryDispatcher> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public QueryDispatcher(IServiceProvider serviceProvider, ILogger<QueryDispatcher> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _stopwatch = new Stopwatch();\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Execute",
+          "kind": "method",
+          "signature": "public Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query) where TQuery : class, IQuery<TData>",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _stopwatch.Start();\r\n        try\r\n        {\r\n            _logger.LogDebug(\"Routing query of type {QueryType} With value {Query}  Start at {StartDateTime}\", query.GetType(), query, DateTime.Now);\r\n            var handler = _serviceProvider.GetRequiredService<IQueryHandler<TQuery, TData>>();\r\n            return handler.Handle(query);\r\n        }\r\n        catch (InvalidOperationException ex)\r\n        {\r\n            _logger.LogError(ex, \"There is not suitable handler for {QueryType} Routing failed at {StartDateTime}.\", query.GetType(), DateTime.Now);\r\n            throw;\r\n        }\r\n        finally\r\n        {\r\n            _stopwatch.Stop();\r\n            _logger.LogInformation(ZaminEventId.PerformanceMeasurement, \"Processing the {QueryType} query tooks {Millisecconds} Millisecconds\", query.GetType(), _stopwatch.ElapsedMilliseconds);\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "QueryDispatcherDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Queries/QueryDispatcherDecorator.cs",
+      "base_types": [
+        "IQueryDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_queryDispatcher",
+          "kind": "field",
+          "signature": "protected IQueryDispatcher _queryDispatcher;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public abstract int Order { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public QueryDispatcherDecorator()",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": []
+        },
+        {
+          "name": "Execute",
+          "kind": "method",
+          "signature": "public abstract Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query) where TQuery : class, IQuery<TData>",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SetQueryDispatcher",
+          "kind": "method",
+          "signature": "public void SetQueryDispatcher(IQueryDispatcher queryDispatcher)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _queryDispatcher = queryDispatcher;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "QueryDispatcherDomainExceptionHandlerDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Queries/QueryDispatcherDomainExceptionHandlerDecorator.cs",
+      "base_types": [
+        "QueryDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<QueryDispatcherDomainExceptionHandlerDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 2;",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public QueryDispatcherDomainExceptionHandlerDecorator(IServiceProvider serviceProvider,\r\n                                                          ILogger<QueryDispatcherDomainExceptionHandlerDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Execute",
+          "kind": "method",
+          "signature": "public override async Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        try\r\n        {\r\n            var result = await _queryDispatcher.Execute<TQuery, TData>(query);\r\n            return result;\r\n\r\n        }\r\n        catch (DomainStateException ex)\r\n        {\r\n            _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {QueryType} With value {Query} failed at {StartDateTime} because there are domain exceptions.\", query.GetType(), query, DateTime.Now);\r\n            return DomainExceptionHandlingWithReturnValue<TQuery, TData>(ex);\r\n        }\r\n        catch (AggregateException ex)\r\n        {\r\n            if (ex.InnerException is DomainStateException domainStateException)\r\n            {\r\n                _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {QueryType} With value {Query} failed at {StartDateTime} because there are domain exceptions.\", query.GetType(), query, DateTime.Now);\r\n                return DomainExceptionHandlingWithReturnValue<TQuery, TData>(domainStateException);\r\n            }\r\n            throw ex;\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "QueryDispatcherValidationDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Queries/QueryDispatcherValidationDecorator.cs",
+      "base_types": [
+        "QueryDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<QueryDispatcherValidationDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 1;",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public QueryDispatcherValidationDecorator(IServiceProvider serviceProvider,\r\n                                              ILogger<QueryDispatcherValidationDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Execute",
+          "kind": "method",
+          "signature": "public override async Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogDebug(ZaminEventId.QueryValidation, \"Validating query of type {QueryType} With value {Query}  start at :{StartDateTime}\", query.GetType(), query, DateTime.Now);\r\n\r\n        var validationResult = Validate<TQuery, QueryResult<TData>>(query);\r\n\r\n        if (validationResult != null)\r\n        {\r\n            _logger.LogInformation(ZaminEventId.QueryValidation, \"Validating query of type {QueryType} With value {Query}  failed. Validation errors are: {ValidationErrors}\", query.GetType(), query, validationResult.Messages);\r\n            return validationResult;\r\n        }\r\n\r\n        _logger.LogDebug(ZaminEventId.QueryValidation, \"Validating query of type {QueryType} With value {Query}  finished at :{EndDateTime}\", query.GetType(), query, DateTime.Now);\r\n        return await _queryDispatcher.Execute<TQuery, TData>(query);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "QueryHandler<TQuery, TData>",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Queries/QueryHandler.cs",
+      "base_types": [
+        "IQueryHandler<TQuery, TData>"
+      ],
+      "generic_constraints": "where TQuery : class, IQuery<TData>",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ZaminServices zaminServices"
+      ],
+      "members": [
+        {
+          "name": "_zaminServices",
+          "kind": "field",
+          "signature": "protected readonly ZaminServices _zaminServices;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "result",
+          "kind": "field",
+          "signature": "protected readonly QueryResult<TData> result = new();",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ResultAsync",
+          "kind": "method",
+          "signature": "protected virtual Task<QueryResult<TData>> ResultAsync(TData data, ApplicationServiceStatus status)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result._data = data;\r\n        result.Status = status;\r\n        return Task.FromResult(result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Result",
+          "kind": "method",
+          "signature": "protected virtual QueryResult<TData> Result(TData data, ApplicationServiceStatus status)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result._data = data;\r\n        result.Status = status;\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ResultAsync",
+          "kind": "method",
+          "signature": "protected virtual Task<QueryResult<TData>> ResultAsync(TData data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var status = data != null ? ApplicationServiceStatus.Ok : ApplicationServiceStatus.NotFound;\r\n        return ResultAsync(data, status);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Result",
+          "kind": "method",
+          "signature": "protected virtual QueryResult<TData> Result(TData data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var status = data != null ? ApplicationServiceStatus.Ok : ApplicationServiceStatus.NotFound;\r\n        return Result(data, status);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public QueryHandler(ZaminServices zaminServices)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _zaminServices = zaminServices;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "protected void AddMessage(string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.AddMessage(_zaminServices.Translator[message]);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "protected void AddMessage(string message, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.AddMessage(_zaminServices.Translator[message, arguments]);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "public abstract Task<QueryResult<TData>> Handle(TQuery query)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

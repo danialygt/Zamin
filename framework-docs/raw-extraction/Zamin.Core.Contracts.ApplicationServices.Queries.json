@@ -1,0 +1,48 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IQueryDispatcher",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Queries/IQueryDispatcher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف ساختار الگوی Mediator جهت اتصال ساده کوئری‌ها به هندلر‌ها\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Execute",
+          "kind": "method",
+          "signature": "Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query) where TQuery : class, IQuery<TData>",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IQueryHandler<TQuery, TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Queries/IQueryHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TQuery : class, IQuery<TData>",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف ساختار مورد نیاز جهت پردازش یک کورئری\n/// </summary>\n/// <typeparam name=\"TQuery\">نوع کوئری و پارامتر‌های ورودی را تعیین می‌کند</typeparam>\n/// <typeparam name=\"TData\">نوع داده‌های بازگشتی را تعیین می‌کند</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task<QueryResult<TData>> Handle(TQuery request)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

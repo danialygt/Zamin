@@ -1,0 +1,43 @@
+﻿{
+  "namespace": "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DependencyInjectionServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection",
+      "source_file": "Extentsions/DependencyInjection/Zamin.Extensions.DependencyInjection/Zamin.Extensions.DependencyInjection/Extensions/DependencyInjection/DependencyInjectionServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = configuration.Get<DependencyInjectionOption>();\r\n\r\n        services.AddWithTransientLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithScopeLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithSingletoneLifetime(option.AssmblyNamesForLoad)\r\n            .Configure<DependencyInjectionOption>(configuration);\r\n\r\n        return services;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddCustomeDepenecies(configuration.GetSection(sectionName));",
+          "attributes": []
+        },
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, Action<DependencyInjectionOption> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = new DependencyInjectionOption();\r\n        setupAction.Invoke(option);\r\n\r\n        services.AddWithTransientLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithScopeLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithSingletoneLifetime(option.AssmblyNamesForLoad)\r\n            .Configure(setupAction);\r\n\r\n        return services;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

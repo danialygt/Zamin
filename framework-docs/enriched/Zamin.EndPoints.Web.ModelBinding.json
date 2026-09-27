@@ -1,0 +1,41 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.ModelBinding",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "NonValidatingValidator",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.ModelBinding",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/ModelBinding/NonValidatingValidator.cs",
+      "base_types": [
+        "IObjectModelValidator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Validate",
+          "kind": "method",
+          "signature": "public void Validate(ActionContext actionContext, ValidationStateDictionary validationState, string prefix, object model)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entry in actionContext.ModelState.Values)\r\n            entry.ValidationState = ModelValidationState.Skipped;\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Validate» در NonValidatingValidator. ورودی را اعتبارسنجی می‌کند.\r\nپارامترها:\r\n- actionContext (ActionContext): ورودی از نوع ActionContext.\r\n- validationState (ValidationStateDictionary): ورودی از نوع ValidationStateDictionary.\r\n- prefix (string): ورودی از نوع string.\r\n- model (object): ورودی از نوع object.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IObjectModelValidator",
+            "en": "Method 'Validate' on NonValidatingValidator. Validates the input.\r\nParameters:\r\n- actionContext (ActionContext): Input of type ActionContext.\r\n- validationState (ValidationStateDictionary): Input of type ValidationStateDictionary.\r\n- prefix (string): Input of type string.\r\n- model (object): Input of type object.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IObjectModelValidator"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NonValidatingValidator» در namespace Zamin.EndPoints.Web.ModelBinding. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IObjectModelValidator. مرتبط: IObjectModelValidator.",
+        "en": "Class 'NonValidatingValidator' in namespace Zamin.EndPoints.Web.ModelBinding. Public/protected class definition in the Zamin framework layer. Base/implemented types: IObjectModelValidator. Related: IObjectModelValidator."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

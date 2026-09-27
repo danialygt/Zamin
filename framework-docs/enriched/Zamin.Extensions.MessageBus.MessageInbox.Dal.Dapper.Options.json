@@ -1,0 +1,81 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "MessageInboxDalDapperOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper/Options/MessageInboxDalDapperOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ConnectionString» از نوع `string` در MessageInboxDalDapperOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ConnectionString' of type `string` on MessageInboxDalDapperOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AutoCreateSqlTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateSqlTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AutoCreateSqlTable» از نوع `bool` در MessageInboxDalDapperOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AutoCreateSqlTable' of type `bool` on MessageInboxDalDapperOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TableName",
+          "kind": "property",
+          "signature": "public string TableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TableName» از نوع `string` در MessageInboxDalDapperOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TableName' of type `string` on MessageInboxDalDapperOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SchemaName» از نوع `string` در MessageInboxDalDapperOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'SchemaName' of type `string` on MessageInboxDalDapperOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MessageInboxDalDapperOptions» در namespace Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'MessageInboxDalDapperOptions' in namespace Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

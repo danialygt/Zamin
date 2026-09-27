@@ -1,0 +1,61 @@
+﻿{
+  "namespace": "Zamin.Extensions.Logger.Abstractions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ZaminEventId",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Logger.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Logger.Abstractions/ZaminEventId.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [
+        "Obsolete(\"این بخش در نسخه 10 deprecated شده و ممکن است در Zamin 11 حذف یا بازطراحی شود.\")"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PerformanceMeasurement",
+          "kind": "field",
+          "signature": "public const int PerformanceMeasurement = 1001;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DomainValidationException",
+          "kind": "field",
+          "signature": "public const int DomainValidationException = 1010;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CommandValidation",
+          "kind": "field",
+          "signature": "public const int CommandValidation = 1011;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "QueryValidation",
+          "kind": "field",
+          "signature": "public const int QueryValidation = 1012;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EventValidation",
+          "kind": "field",
+          "signature": "public const int EventValidation = 1013;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

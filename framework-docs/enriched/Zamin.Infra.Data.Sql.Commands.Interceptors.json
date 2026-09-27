@@ -1,0 +1,209 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "AddAuditDataInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Interceptors/AddAuditDataInterceptor.cs",
+      "base_types": [
+        "SaveChangesInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SavingChanges",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddShadowProperties(eventData);\r\n        return base.SavingChanges(eventData, result);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SavingChanges» در AddAuditDataInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- eventData (DbContextEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n\r\nمقدار بازگشتی: `InterceptionResult<int>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: SaveChangesInterceptor",
+            "en": "Method 'SavingChanges' on AddAuditDataInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- eventData (DbContextEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n\r\nReturns: `InterceptionResult<int>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: SaveChangesInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SavingChangesAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddShadowProperties(eventData);\r\n        return base.SavingChangesAsync(eventData, result, cancellationToken);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SavingChangesAsync» در AddAuditDataInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- eventData (DbContextEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `ValueTask<InterceptionResult<int>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: SaveChangesInterceptor",
+            "en": "Method 'SavingChangesAsync' on AddAuditDataInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- eventData (DbContextEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `ValueTask<InterceptionResult<int>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: SaveChangesInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AddAuditDataInterceptor» در namespace Zamin.Infra.Data.Sql.Commands.Interceptors. رهگیر EF/زیرساخت برای اعمال منطق هنگام ذخیره یا تغییر داده. ارث‌بری/پیاده‌سازی: SaveChangesInterceptor. مرتبط: SaveChangesInterceptor.",
+        "en": "Class 'AddAuditDataInterceptor' in namespace Zamin.Infra.Data.Sql.Commands.Interceptors. EF/infrastructure interceptor applying logic during save or data change. Base/implemented types: SaveChangesInterceptor. Related: SaveChangesInterceptor."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "AddChangeDataLogInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Hamster/Interceptors/AddChangeDataLogInterceptor.cs",
+      "base_types": [
+        "SaveChangesInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SavingChanges",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        SaveEntityChangeLogs(eventData);\r\n        return base.SavingChanges(eventData, result);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SavingChanges» در AddChangeDataLogInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- eventData (DbContextEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n\r\nمقدار بازگشتی: `InterceptionResult<int>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: SaveChangesInterceptor",
+            "en": "Method 'SavingChanges' on AddChangeDataLogInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- eventData (DbContextEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n\r\nReturns: `InterceptionResult<int>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: SaveChangesInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SavingChangesAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        SaveEntityChangeLogs(eventData);\r\n        return base.SavingChangesAsync(eventData, result, cancellationToken);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SavingChangesAsync» در AddChangeDataLogInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- eventData (DbContextEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `ValueTask<InterceptionResult<int>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: SaveChangesInterceptor",
+            "en": "Method 'SavingChangesAsync' on AddChangeDataLogInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- eventData (DbContextEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `ValueTask<InterceptionResult<int>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: SaveChangesInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AddChangeDataLogInterceptor» در namespace Zamin.Infra.Data.Sql.Commands.Interceptors. رهگیر EF/زیرساخت برای اعمال منطق هنگام ذخیره یا تغییر داده. ارث‌بری/پیاده‌سازی: SaveChangesInterceptor. مرتبط: SaveChangesInterceptor.",
+        "en": "Class 'AddChangeDataLogInterceptor' in namespace Zamin.Infra.Data.Sql.Commands.Interceptors. EF/infrastructure interceptor applying logic during save or data change. Base/implemented types: SaveChangesInterceptor. Related: SaveChangesInterceptor."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SetPersianYeKeInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Interceptors/SetPersianYeKeInterceptor.cs",
+      "base_types": [
+        "DbCommandInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "NonQueryExecuting",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> NonQueryExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.NonQueryExecuting(command, eventData, result);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «NonQueryExecuting» در SetPersianYeKeInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n- eventData (CommandEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n\r\nمقدار بازگشتی: `InterceptionResult<int>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: DbCommandInterceptor",
+            "en": "Method 'NonQueryExecuting' on SetPersianYeKeInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n- eventData (CommandEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n\r\nReturns: `InterceptionResult<int>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: DbCommandInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "NonQueryExecutingAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> NonQueryExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.NonQueryExecutingAsync(command, eventData, result, cancellationToken);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «NonQueryExecutingAsync» در SetPersianYeKeInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n- eventData (CommandEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `ValueTask<InterceptionResult<int>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: DbCommandInterceptor",
+            "en": "Method 'NonQueryExecutingAsync' on SetPersianYeKeInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n- eventData (CommandEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `ValueTask<InterceptionResult<int>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: DbCommandInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ReaderExecuting",
+          "kind": "method",
+          "signature": "public override InterceptionResult<DbDataReader> ReaderExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ReaderExecuting(command, eventData, result);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ReaderExecuting» در SetPersianYeKeInterceptor. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n- eventData (CommandEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<DbDataReader>): ورودی از نوع InterceptionResult<DbDataReader>.\r\n\r\nمقدار بازگشتی: `InterceptionResult<DbDataReader>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: DbCommandInterceptor",
+            "en": "Method 'ReaderExecuting' on SetPersianYeKeInterceptor. Retrieves related data or state.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n- eventData (CommandEventData): Domain/event message to process.\r\n- result (InterceptionResult<DbDataReader>): Input of type InterceptionResult<DbDataReader>.\r\n\r\nReturns: `InterceptionResult<DbDataReader>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: DbCommandInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ReaderExecutingAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<DbDataReader>> ReaderExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ReaderExecutingAsync(command, eventData, result, cancellationToken);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ReaderExecutingAsync» در SetPersianYeKeInterceptor. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n- eventData (CommandEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<DbDataReader>): ورودی از نوع InterceptionResult<DbDataReader>.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `ValueTask<InterceptionResult<DbDataReader>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: DbCommandInterceptor",
+            "en": "Method 'ReaderExecutingAsync' on SetPersianYeKeInterceptor. Retrieves related data or state.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n- eventData (CommandEventData): Domain/event message to process.\r\n- result (InterceptionResult<DbDataReader>): Input of type InterceptionResult<DbDataReader>.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `ValueTask<InterceptionResult<DbDataReader>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: DbCommandInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ScalarExecuting",
+          "kind": "method",
+          "signature": "public override InterceptionResult<object> ScalarExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<object> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ScalarExecuting(command, eventData, result);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ScalarExecuting» در SetPersianYeKeInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n- eventData (CommandEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<object>): ورودی از نوع InterceptionResult<object>.\r\n\r\nمقدار بازگشتی: `InterceptionResult<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: DbCommandInterceptor",
+            "en": "Method 'ScalarExecuting' on SetPersianYeKeInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n- eventData (CommandEventData): Domain/event message to process.\r\n- result (InterceptionResult<object>): Input of type InterceptionResult<object>.\r\n\r\nReturns: `InterceptionResult<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: DbCommandInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ScalarExecutingAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<object>> ScalarExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<object> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ScalarExecutingAsync(command, eventData, result, cancellationToken);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ScalarExecutingAsync» در SetPersianYeKeInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- command (DbCommand): فرمان ورودی برای اجرا.\r\n- eventData (CommandEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<object>): ورودی از نوع InterceptionResult<object>.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `ValueTask<InterceptionResult<object>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: DbCommandInterceptor",
+            "en": "Method 'ScalarExecutingAsync' on SetPersianYeKeInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- command (DbCommand): Incoming command to execute.\r\n- eventData (CommandEventData): Domain/event message to process.\r\n- result (InterceptionResult<object>): Input of type InterceptionResult<object>.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `ValueTask<InterceptionResult<object>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: DbCommandInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SetPersianYeKeInterceptor» در namespace Zamin.Infra.Data.Sql.Commands.Interceptors. رهگیر EF/زیرساخت برای اعمال منطق هنگام ذخیره یا تغییر داده. ارث‌بری/پیاده‌سازی: DbCommandInterceptor. مرتبط: DbCommandInterceptor.",
+        "en": "Class 'SetPersianYeKeInterceptor' in namespace Zamin.Infra.Data.Sql.Commands.Interceptors. EF/infrastructure interceptor applying logic during save or data change. Base/implemented types: DbCommandInterceptor. Related: DbCommandInterceptor."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

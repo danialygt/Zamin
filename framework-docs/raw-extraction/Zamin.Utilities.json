@@ -1,0 +1,82 @@
+﻿{
+  "namespace": "Zamin.Utilities",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ZaminServices",
+      "kind": "class",
+      "namespace": "Zamin.Utilities",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/ZaminServices.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ITranslator translator",
+        "ILoggerFactory loggerFactory",
+        "IJsonSerializer serializer",
+        "IUserInfoService userInfoService",
+        "ICacheAdapter cacheAdapter",
+        "IMapperAdapter mapperFacade"
+      ],
+      "members": [
+        {
+          "name": "Translator",
+          "kind": "field",
+          "signature": "public readonly ITranslator Translator;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CacheAdapter",
+          "kind": "field",
+          "signature": "public readonly ICacheAdapter CacheAdapter;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MapperFacade",
+          "kind": "field",
+          "signature": "public readonly IMapperAdapter MapperFacade;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "LoggerFactory",
+          "kind": "field",
+          "signature": "public readonly ILoggerFactory LoggerFactory;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Serializer",
+          "kind": "field",
+          "signature": "public readonly IJsonSerializer Serializer;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserInfoService",
+          "kind": "field",
+          "signature": "public readonly IUserInfoService UserInfoService;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ZaminServices(ITranslator translator,\r\n            ILoggerFactory loggerFactory,\r\n            IJsonSerializer serializer,\r\n            IUserInfoService userInfoService,\r\n            ICacheAdapter cacheAdapter,\r\n            IMapperAdapter mapperFacade)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Translator = translator;\r\n        LoggerFactory = loggerFactory;\r\n        Serializer = serializer;\r\n        UserInfoService = userInfoService;\r\n        CacheAdapter = cacheAdapter;\r\n        MapperFacade = mapperFacade;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Utilities.Guards",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "Guard",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/Guard.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ThrowIf",
+          "kind": "field",
+          "signature": "public static Guard ThrowIf = new Guard();",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

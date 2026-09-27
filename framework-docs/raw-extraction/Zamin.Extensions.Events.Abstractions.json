@@ -1,0 +1,152 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IOutBoxEventItemRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Events.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Events.Abstractions/IOutBoxEventItemRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetOutBoxEventItemsForPublishe",
+          "kind": "method",
+          "signature": "public List<OutBoxEventItem> GetOutBoxEventItemsForPublishe(int maxCount = 100)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MarkAsRead",
+          "kind": "method",
+          "signature": "void MarkAsRead(List<OutBoxEventItem> outBoxEventItems)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "OutBoxEventItem",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Events.Abstractions/OutBoxEventItem.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OutBoxEventItemId",
+          "kind": "property",
+          "signature": "public long OutBoxEventItemId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EventId",
+          "kind": "property",
+          "signature": "public Guid EventId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AccuredByUserId",
+          "kind": "property",
+          "signature": "public string AccuredByUserId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AccuredOn",
+          "kind": "property",
+          "signature": "public DateTime AccuredOn { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AggregateName",
+          "kind": "property",
+          "signature": "public string AggregateName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AggregateTypeName",
+          "kind": "property",
+          "signature": "public string AggregateTypeName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AggregateId",
+          "kind": "property",
+          "signature": "public string AggregateId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EventName",
+          "kind": "property",
+          "signature": "public string EventName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EventTypeName",
+          "kind": "property",
+          "signature": "public string EventTypeName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EventPayload",
+          "kind": "property",
+          "signature": "public string EventPayload { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TraceId",
+          "kind": "property",
+          "signature": "public string? TraceId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SpanId",
+          "kind": "property",
+          "signature": "public string? SpanId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IsProcessed",
+          "kind": "property",
+          "signature": "public bool IsProcessed { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

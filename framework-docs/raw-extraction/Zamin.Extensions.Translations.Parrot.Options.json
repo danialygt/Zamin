@@ -1,0 +1,104 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "DefaultTranslationOption",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Options/ParrotTranslatorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Key",
+          "kind": "property",
+          "signature": "public string Key { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Culture",
+          "kind": "property",
+          "signature": "public string Culture { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ParrotTranslatorOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Options/ParrotTranslatorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AutoCreateSqlTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateSqlTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TableName",
+          "kind": "property",
+          "signature": "public string TableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ReloadDataIntervalInMinuts",
+          "kind": "property",
+          "signature": "public int ReloadDataIntervalInMinuts { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DefaultTranslations",
+          "kind": "property",
+          "signature": "public DefaultTranslationOption[] DefaultTranslations { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

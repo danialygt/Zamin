@@ -1,0 +1,114 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Extensions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ClaimExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Extensions",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/ClaimExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public static string GetClaim(this ClaimsPrincipal userClaimsPrincipal, string claimType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            return userClaimsPrincipal.Claims?.FirstOrDefault((Claim x) => x.Type == claimType)?.Value;\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetClaim» در ClaimExtensions. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- userClaimsPrincipal (ClaimsPrincipal): ورودی از نوع ClaimsPrincipal.\r\n- claimType (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetClaim' on ClaimExtensions. Retrieves related data or state.\r\nParameters:\r\n- userClaimsPrincipal (ClaimsPrincipal): Input of type ClaimsPrincipal.\r\n- claimType (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ClaimExtensions» در namespace Zamin.EndPoints.Web.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ClaimExtensions' in namespace Zamin.EndPoints.Web.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "HttpContextExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Extensions",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/HttpContextExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "CommandDispatcher",
+          "kind": "method",
+          "signature": "public static ICommandDispatcher CommandDispatcher(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (ICommandDispatcher)httpContext.RequestServices.GetService(typeof(ICommandDispatcher));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CommandDispatcher» در HttpContextExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- httpContext (HttpContext): ورودی از نوع HttpContext.\r\n\r\nمقدار بازگشتی: `ICommandDispatcher`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'CommandDispatcher' on HttpContextExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- httpContext (HttpContext): Input of type HttpContext.\r\n\r\nReturns: `ICommandDispatcher`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "QueryDispatcher",
+          "kind": "method",
+          "signature": "public static IQueryDispatcher QueryDispatcher(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (IQueryDispatcher)httpContext.RequestServices.GetService(typeof(IQueryDispatcher));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «QueryDispatcher» در HttpContextExtensions. کوئری/عملیات را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- httpContext (HttpContext): ورودی از نوع HttpContext.\r\n\r\nمقدار بازگشتی: `IQueryDispatcher`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'QueryDispatcher' on HttpContextExtensions. Routes the query/operation to the matching handler and executes it.\r\nParameters:\r\n- httpContext (HttpContext): Input of type HttpContext.\r\n\r\nReturns: `IQueryDispatcher`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EventDispatcher",
+          "kind": "method",
+          "signature": "public static IEventDispatcher EventDispatcher(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (IEventDispatcher)httpContext.RequestServices.GetService(typeof(IEventDispatcher));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «EventDispatcher» در HttpContextExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- httpContext (HttpContext): ورودی از نوع HttpContext.\r\n\r\nمقدار بازگشتی: `IEventDispatcher`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'EventDispatcher' on HttpContextExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- httpContext (HttpContext): Input of type HttpContext.\r\n\r\nReturns: `IEventDispatcher`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ZaminApplicationContext",
+          "kind": "method",
+          "signature": "public static ZaminServices ZaminApplicationContext(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (ZaminServices)httpContext.RequestServices.GetService(typeof(ZaminServices));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ZaminApplicationContext» در HttpContextExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- httpContext (HttpContext): ورودی از نوع HttpContext.\r\n\r\nمقدار بازگشتی: `ZaminServices`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ZaminApplicationContext' on HttpContextExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- httpContext (HttpContext): Input of type HttpContext.\r\n\r\nReturns: `ZaminServices`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «HttpContextExtensions» در namespace Zamin.EndPoints.Web.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'HttpContextExtensions' in namespace Zamin.EndPoints.Web.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SqlMessageInboxItemRepository",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper/SqlMessageInboxItemRepository.cs",
+      "base_types": [
+        "IMessageInboxItemRepository"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<MessageInboxDalDapperOptions> options",
+        "ILogger<SqlMessageInboxItemRepository> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SqlMessageInboxItemRepository(IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _options = options.Value;\r\n        _selectQuery = $\"Select Id from {_options.SchemaName}.{_options.TableName} Where [OwnerService] = @OwnerService and [MessageId] = @MessageId\";\r\n        _insertQuery = $\"Insert Into {_options.SchemaName}.{_options.TableName} ([OwnerService] ,[MessageId],[Payload] ) values(@OwnerService,@MessageId,@Payload)\";\r\n        _dbConnection = new SqlConnection(_options.ConnectionString);\r\n        _logger = logger;\r\n        if (_options.AutoCreateSqlTable)\r\n            CreateTableIfNeeded();\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SqlMessageInboxItemRepository. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- options (IOptions<MessageInboxDalDapperOptions>): گزینه‌های typed تنظیمات.\r\n- logger (ILogger<SqlMessageInboxItemRepository>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SqlMessageInboxItemRepository. Parameters are expected via dependency injection. Parameters:\r\n- options (IOptions<MessageInboxDalDapperOptions>): Typed options snapshot/wrapper.\r\n- logger (ILogger<SqlMessageInboxItemRepository>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AllowReceive",
+          "kind": "method",
+          "signature": "public bool AllowReceive(string messageId, string fromService)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = _dbConnection.Query<long>(_selectQuery, new\r\n        {\r\n            OwnerService = fromService,\r\n            MessageId = messageId\r\n        }).FirstOrDefault();\r\n        return result < 1;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AllowReceive» در SqlMessageInboxItemRepository. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- messageId (string): ورودی از نوع string.\r\n- fromService (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IMessageInboxItemRepository | DI: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger",
+            "en": "Method 'AllowReceive' on SqlMessageInboxItemRepository. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- messageId (string): Input of type string.\r\n- fromService (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IMessageInboxItemRepository | DI: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "public void Receive(string messageId, string fromService, string payload)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbConnection.Execute(_insertQuery, new\r\n        {\r\n            OwnerService = fromService,\r\n            MessageId = messageId,\r\n            Payload = payload\r\n        });\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Receive» در SqlMessageInboxItemRepository. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- messageId (string): ورودی از نوع string.\r\n- fromService (string): ورودی از نوع string.\r\n- payload (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IMessageInboxItemRepository | DI: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger",
+            "en": "Method 'Receive' on SqlMessageInboxItemRepository. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- messageId (string): Input of type string.\r\n- fromService (string): Input of type string.\r\n- payload (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IMessageInboxItemRepository | DI: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SqlMessageInboxItemRepository» در namespace Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IMessageInboxItemRepository. وابستگی‌های سازنده (DI): IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger. مرتبط: IMessageInboxItemRepository | DI: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger.",
+        "en": "Class 'SqlMessageInboxItemRepository' in namespace Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper. Public/protected class definition in the Zamin framework layer. Base/implemented types: IMessageInboxItemRepository. Constructor-injected dependencies: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger. Related: IMessageInboxItemRepository | DI: IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

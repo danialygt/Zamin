@@ -1,0 +1,133 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Queries",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "BaseQueryDbContext",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Queries/BaseQueryDbContext.cs",
+      "base_types": [
+        "DbContext"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "DbContextOptions options"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseQueryDbContext(DbContextOptions options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "OnConfiguring",
+          "kind": "method",
+          "signature": "protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            base.OnConfiguring(optionsBuilder);\r\n            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "OnModelCreating",
+          "kind": "method",
+          "signature": "protected override void OnModelCreating(ModelBuilder modelBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            base.OnModelCreating(modelBuilder);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "SaveChanges",
+          "kind": "method",
+          "signature": "public override int SaveChanges()",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "SaveChanges",
+          "kind": "method",
+          "signature": "public override int SaveChanges(bool acceptAllChangesOnSuccess)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "SaveChangesAsync",
+          "kind": "method",
+          "signature": "public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "SaveChangesAsync",
+          "kind": "method",
+          "signature": "public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            throw new NotSupportedException();\r\n\r\n        }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "BaseQueryRepository<TDbContext>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Queries/BaseQueryRepository.cs",
+      "base_types": [
+        "IQueryRepository"
+      ],
+      "generic_constraints": "where TDbContext : BaseQueryDbContext",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": "_dbContext",
+          "kind": "field",
+          "signature": "protected readonly TDbContext _dbContext;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseQueryRepository(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext = dbContext;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "QueryRepositoryExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Queries/QueryRepositoryExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToPagedData",
+          "kind": "method",
+          "signature": "public static async Task<PagedData<TResult>> ToPagedData<TEntity, TQuery, TResult>(this IQueryable<TEntity> entities, PageQuery<PagedData<TQuery>> query, Func<TEntity, TResult> selectFunc)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = new PagedData<TResult>\r\n        {\r\n            PageNumber = query.PageNumber,\r\n            PageSize = query.PageSize\r\n        };\r\n        if (query.NeedTotalCount)\r\n            result.TotalCount = await entities.CountAsync();\r\n\r\n        if (!string.IsNullOrWhiteSpace(query.SortBy))\r\n            entities = entities.OrderByField(query.SortBy, query.SortAscending);\r\n        entities = entities.Skip(query.SkipCount).Take(query.PageSize);\r\n\r\n        result.QueryResult = await entities.Select(\r\n               c => selectFunc(c)).ToListAsync();\r\n        return result;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "BaseOutboxCommandDbContext",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.Outbox/Zamin.Extensions.Events.Outbox.Dal.EF/BaseOutboxCommandDbContext.cs",
+      "base_types": [
+        "BaseCommandDbContext"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "DbContextOptions options"
+      ],
+      "members": [
+        {
+          "name": "OutBoxEventItems",
+          "kind": "property",
+          "signature": "public DbSet<OutBoxEventItem> OutBoxEventItems { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «OutBoxEventItems» از نوع `DbSet<OutBoxEventItem>` در BaseOutboxCommandDbContext. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'OutBoxEventItems' of type `DbSet<OutBoxEventItem>` on BaseOutboxCommandDbContext. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseOutboxCommandDbContext(DbContextOptions options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseOutboxCommandDbContext. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- options (DbContextOptions): ورودی از نوع DbContextOptions.",
+            "en": "Constructor for BaseOutboxCommandDbContext. Creates an instance with the provided initial values. Parameters:\r\n- options (DbContextOptions): Input of type DbContextOptions."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected BaseOutboxCommandDbContext()",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseOutboxCommandDbContext. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for BaseOutboxCommandDbContext. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OnConfiguring",
+          "kind": "method",
+          "signature": "protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.OnConfiguring(optionsBuilder);\r\n        optionsBuilder.AddInterceptors(new AddOutBoxEventItemInterceptor());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnConfiguring» در BaseOutboxCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- optionsBuilder (DbContextOptionsBuilder): ورودی از نوع DbContextOptionsBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseCommandDbContext | DI: DbContextOptions options",
+            "en": "Method 'OnConfiguring' on BaseOutboxCommandDbContext. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- optionsBuilder (DbContextOptionsBuilder): Input of type DbContextOptionsBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseCommandDbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OnModelCreating",
+          "kind": "method",
+          "signature": "protected override void OnModelCreating(ModelBuilder builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.OnModelCreating(builder);\r\n        builder.ApplyConfiguration(new OutBoxEventItemConfig());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnModelCreating» در BaseOutboxCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- builder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseCommandDbContext | DI: DbContextOptions options",
+            "en": "Method 'OnModelCreating' on BaseOutboxCommandDbContext. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- builder (ModelBuilder): Input of type ModelBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseCommandDbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseOutboxCommandDbContext» در namespace Zamin.Extensions.Events.Outbox.Dal.EF. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: BaseCommandDbContext. وابستگی‌های سازنده (DI): DbContextOptions options. مرتبط: BaseCommandDbContext | DI: DbContextOptions options.",
+        "en": "Class 'BaseOutboxCommandDbContext' in namespace Zamin.Extensions.Events.Outbox.Dal.EF. Public/protected class definition in the Zamin framework layer. Base/implemented types: BaseCommandDbContext. Constructor-injected dependencies: DbContextOptions options. Related: BaseCommandDbContext | DI: DbContextOptions options."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<!-- Stop parent Directory.Build.props / Packages.props from affecting this tool -->
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+</Project>

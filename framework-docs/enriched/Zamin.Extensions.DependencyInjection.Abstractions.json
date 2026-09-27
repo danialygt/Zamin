@@ -1,0 +1,60 @@
+﻿{
+  "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "IScopeLifetime",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.DependentyInjection.Abstractions/IScopeLifetime.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IScopeLifetime» در namespace Zamin.Extensions.DependencyInjection.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IScopeLifetime' in namespace Zamin.Extensions.DependencyInjection.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ISingletoneLifetime",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.DependentyInjection.Abstractions/ISingletoneLifetime.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ISingletoneLifetime» در namespace Zamin.Extensions.DependencyInjection.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'ISingletoneLifetime' in namespace Zamin.Extensions.DependencyInjection.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ITransientLifetime",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.DependentyInjection.Abstractions/ITransientLifetime.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ITransientLifetime» در namespace Zamin.Extensions.DependencyInjection.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'ITransientLifetime' in namespace Zamin.Extensions.DependencyInjection.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

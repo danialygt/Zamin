@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.Abstractions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "IMapperAdapter",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.ObjectMappers.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ObjectMappers.Abstractions/IMapperAdapter.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Map» در IMapperAdapter. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (TSource): ورودی از نوع TSource.\r\n\r\nمقدار بازگشتی: `TDestination`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Map' on IMapperAdapter. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (TSource): Input of type TSource.\r\n\r\nReturns: `TDestination`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IMapperAdapter» در namespace Zamin.Extensions.ObjectMappers.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IMapperAdapter' in namespace Zamin.Extensions.ObjectMappers.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

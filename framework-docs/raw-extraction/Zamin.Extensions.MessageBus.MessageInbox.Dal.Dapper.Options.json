@@ -1,0 +1,51 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "MessageInboxDalDapperOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper/Options/MessageInboxDalDapperOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AutoCreateSqlTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateSqlTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TableName",
+          "kind": "property",
+          "signature": "public string TableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

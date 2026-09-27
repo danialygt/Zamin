@@ -1,0 +1,48 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Attributes",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SoftwarePartControllerOptionAttribute",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Attributes",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Attributes/SoftwarePartControllerOptionAttribute.cs",
+      "base_types": [
+        "Attribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string? service",
+        "string? module"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartControllerOptionAttribute(string? service , string? module = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(service))\r\n            throw new ArgumentNullException(nameof(service));\r\n\r\n        _module = module;\r\n        _service = service;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Module",
+          "kind": "property",
+          "signature": "public string? Module => ...",
+          "xml_doc": "",
+          "body_summary": "=> _module;",
+          "attributes": []
+        },
+        {
+          "name": "Service",
+          "kind": "property",
+          "signature": "public string? Service => ...",
+          "xml_doc": "",
+          "body_summary": "=> _service;",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

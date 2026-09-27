@@ -1,0 +1,37 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "AddOutBoxEventItemInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.Outbox/Zamin.Extensions.Events.Outbox.Dal.EF/Interceptors/AddOutBoxEventItemInterceptor.cs",
+      "base_types": [
+        "SaveChangesInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SavingChanges",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddOutbox(eventData);\r\n        return base.SavingChanges(eventData, result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "SavingChangesAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddOutbox(eventData);\r\n\r\n        return base.SavingChangesAsync(eventData, result, cancellationToken);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.Entities",
+  "type_count": 6,
+  "types": [
+    {
+      "type_name": "AggregateRoot",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/AggregateRoot.cs",
+      "base_types": [
+        "AggregateRoot<long>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "AggregateRoot<TId>",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/AggregateRoot.cs",
+      "base_types": [
+        "Entity<TId>",
+        "IAggregateRoot"
+      ],
+      "generic_constraints": "where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// پیاده سازی الگوی AggregateRoot\n/// توضیحات کامل در مورد این الگو را در آدرس زیر می‌توانید مشاهده نمایید\n/// https://martinfowler.com/bliki/DDD_Aggregate.html\n///\n/// </summary>",
+      "injected_dependencies": [
+        "IEnumerable<IDomainEvent> events"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected AggregateRoot()",
+          "xml_doc": "",
+          "body_summary": "=> _events = new();",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public AggregateRoot(IEnumerable<IDomainEvent> events)",
+          "xml_doc": "/// <summary>\n    /// سازنده Aggregate برای ایجاد Aggregate از روی Eventها\n    /// </summary>\n    /// <param name=\"events\">در صورتی که Event از قبل وجود داشته باشد توسط این پارامتر به Aggregate ارسال می‌گردد</param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Apply",
+          "kind": "method",
+          "signature": "protected void Apply(IDomainEvent @event)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Mutate(@event);\r\n        AddEvent(@event);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddEvent",
+          "kind": "method",
+          "signature": "protected void AddEvent(IDomainEvent @event)",
+          "xml_doc": "/// <summary>\n    /// یک Event جدید به مجموعه Eventهای موجود در این Aggregate اضافه می‌کند.\n    /// مسئولیت ساخت و ارسال Event به عهده خود Aggregateها می‌باشد.\n    /// </summary>\n    /// <param name=\"event\"></param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetEvents",
+          "kind": "method",
+          "signature": "public IEnumerable<IDomainEvent> GetEvents()",
+          "xml_doc": "/// <summary>\n    /// لیستی از Eventهای رخداده برای Aggregate را به صورت فقط خواندی و غیر قابل تغییر را بازگشت می‌دهد\n    /// </summary>\n    /// <returns>لیست Eventها</returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ClearEvents",
+          "kind": "method",
+          "signature": "public void ClearEvents()",
+          "xml_doc": "/// <summary>\n    /// Eventهای موجود در این Aggregate را پاک می‌کند\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "Entity",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/Entity.cs",
+      "base_types": [
+        "Entity<long>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "Entity<TId>",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/Entity.cs",
+      "base_types": [
+        "IAuditableEntity"
+      ],
+      "generic_constraints": "where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// کلاس پایه برای تمامی Entityها موجود در سامانه\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public TId Id { get; protected set; }",
+          "xml_doc": "/// <summary>\n    /// شناسه عددی Entityها\n    /// صرفا برای ذخیره در دیتابیس و سادگی کار مورد استفاده قرار بگیرید.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "BusinessId",
+          "kind": "property",
+          "signature": "public BusinessId BusinessId { get; protected set; }",
+          "xml_doc": "/// <summary>\n    /// شناسه Entity\n    /// شناسه اصلی Entity که در همه جا باید مورد استفاده قرار گیرد BusinessId است.\n    /// تمامی ارتباطات به کمک این شناسه باید برقرار شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected Entity()",
+          "xml_doc": "/// <summary>\n    /// سازنده پیش‌فرض به صورت Protected تعریف شده است.\n    /// با توجه به اینکه این نیاز است هنگام ساخت خواص اساسی Entity ایجاد شود، هیچ شی بدون پر کردن این خواص نباید ایجاد شود.\n    /// بار جلو گیری از این مورد برای همه Entityها باید سازنده‌هایی تعریف شود که مقدار ورودی دارند.\n    /// برای اینکه بتوان از همین Entityها برای فرایند ذخیره سازی و بازیابی از دیتابیس به کمک ORMها استفاده کرد، ضروری است که سازنده پیش‌فرض با سطح دسترسی بالا مثل Protected یا Private ایجاد شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public bool Equals(Entity<TId>? other)",
+          "xml_doc": "",
+          "body_summary": "=> this == other;",
+          "attributes": []
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public override bool Equals(object? obj)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n         obj is Entity<TId> otherObject && Id.Equals(otherObject.Id);",
+          "attributes": []
+        },
+        {
+          "name": "GetHashCode",
+          "kind": "method",
+          "signature": "public override int GetHashCode()",
+          "xml_doc": "",
+          "body_summary": "=> Id.GetHashCode();",
+          "attributes": []
+        },
+        {
+          "name": "==",
+          "kind": "operator",
+          "signature": "public static bool operator ==(Entity<TId> left, Entity<TId> right)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (left is null && right is null)\r\n            return true;\r\n\r\n        if (left is null || right is null)\r\n            return false;\r\n\r\n        return left.Equals((object) right);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "!=",
+          "kind": "operator",
+          "signature": "public static bool operator !=(Entity<TId> left, Entity<TId> right)",
+          "xml_doc": "",
+          "body_summary": "=> !(right == left);",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IAggregateRoot",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/IAggregateRoot.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ClearEvents",
+          "kind": "method",
+          "signature": "void ClearEvents()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetEvents",
+          "kind": "method",
+          "signature": "IEnumerable<IDomainEvent> GetEvents()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IAuditableEntity",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/IAuditableEntity.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    }
+  ]
+}

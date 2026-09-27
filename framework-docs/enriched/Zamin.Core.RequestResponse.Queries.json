@@ -1,0 +1,463 @@
+﻿{
+  "namespace": "Zamin.Core.RequestResponse.Queries",
+  "type_count": 6,
+  "types": [
+    {
+      "type_name": "IPageQuery<TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Queries/IPageQuery.cs",
+      "base_types": [
+        "IQuery<TData>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// اینترفیسی جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند!\n/// در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PageNumber",
+          "kind": "property",
+          "signature": "public int PageNumber { get; set; }",
+          "xml_doc": "/// <summary>\n    /// شماره صفحه ای که باید اطلاعات از آن بارگذاری شود\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "شماره صفحه ای که باید اطلاعات از آن بارگذاری شود",
+            "en": "Author XML for property 'PageNumber': شماره صفحه ای که باید اطلاعات از آن بارگذاری شود"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "PageSize",
+          "kind": "property",
+          "signature": "public int PageSize { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعداد رکورد‌های هر صفحه\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعداد رکورد‌های هر صفحه",
+            "en": "Author XML for property 'PageSize': تعداد رکورد‌های هر صفحه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SkipCount",
+          "kind": "property",
+          "signature": "public int SkipCount => ...",
+          "xml_doc": "/// <summary>\n    /// تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم",
+            "en": "Author XML for property 'SkipCount': تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "NeedTotalCount",
+          "kind": "property",
+          "signature": "public bool NeedTotalCount { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر",
+            "en": "Author XML for property 'NeedTotalCount': تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SortBy",
+          "kind": "property",
+          "signature": "public string SortBy { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعیین ستونی که مرتب سازی بر اساس آن انجام می شود\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین ستونی که مرتب سازی بر اساس آن انجام می شود",
+            "en": "Author XML for property 'SortBy': تعیین ستونی که مرتب سازی بر اساس آن انجام می شود"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SortAscending",
+          "kind": "property",
+          "signature": "public bool SortAscending { get; set; }",
+          "xml_doc": "/// <summary>\n    /// جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی",
+            "en": "Author XML for property 'SortAscending': جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "اینترفیسی جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند! در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود",
+        "en": "Author XML for interface 'IPageQuery<TData>': اینترفیسی جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند! در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IQuery<TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Queries/IQuery.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// اینترفیسی جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند!\n/// </summary>\n/// <typeparam name=\"TData\">نوع بازگشتی را تعیین می‌کند</typeparam>",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "اینترفیسی جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند!",
+        "en": "Author XML for interface 'IQuery<TData>': اینترفیسی جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند!"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PageQuery<TData>",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Queries/PageQuery.cs",
+      "base_types": [
+        "IPageQuery<TData>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// کلاس پایه جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند!\n/// در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PageNumber",
+          "kind": "property",
+          "signature": "public int PageNumber { get; set; }",
+          "xml_doc": "/// <summary>\n    /// شماره صفحه ای که باید اطلاعات از آن بارگذاری شود\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "شماره صفحه ای که باید اطلاعات از آن بارگذاری شود",
+            "en": "Author XML for property 'PageNumber': شماره صفحه ای که باید اطلاعات از آن بارگذاری شود"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "PageSize",
+          "kind": "property",
+          "signature": "public int PageSize { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعداد رکورد‌های هر صفحه\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعداد رکورد‌های هر صفحه",
+            "en": "Author XML for property 'PageSize': تعداد رکورد‌های هر صفحه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SkipCount",
+          "kind": "property",
+          "signature": "public int SkipCount => ...",
+          "xml_doc": "/// <summary>\n    /// تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم",
+            "en": "Author XML for property 'SkipCount': تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "NeedTotalCount",
+          "kind": "property",
+          "signature": "public bool NeedTotalCount { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر",
+            "en": "Author XML for property 'NeedTotalCount': تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SortBy",
+          "kind": "property",
+          "signature": "public string SortBy { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعیین ستونی که مرتب سازی بر اساس آن انجام می شود\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین ستونی که مرتب سازی بر اساس آن انجام می شود",
+            "en": "Author XML for property 'SortBy': تعیین ستونی که مرتب سازی بر اساس آن انجام می شود"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SortAscending",
+          "kind": "property",
+          "signature": "public bool SortAscending { get; set; }",
+          "xml_doc": "/// <summary>\n    /// جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی",
+            "en": "Author XML for property 'SortAscending': جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس پایه جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند! در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود",
+        "en": "Author XML for class 'PageQuery<TData>': کلاس پایه جهت استفاده به عنوان مارکر برای کلاس‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند! در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PageQueryRecord<TData>",
+      "kind": "record",
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Queries/PageQuery.cs",
+      "base_types": [
+        "IPageQuery<TData>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// رکورد پایه جهت استفاده به عنوان مارکر برای رکورد‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند!\n/// در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PageNumber",
+          "kind": "property",
+          "signature": "public int PageNumber { get; set; }",
+          "xml_doc": "/// <summary>\n    /// شماره صفحه ای که باید اطلاعات از آن بارگذاری شود\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "شماره صفحه ای که باید اطلاعات از آن بارگذاری شود",
+            "en": "Author XML for property 'PageNumber': شماره صفحه ای که باید اطلاعات از آن بارگذاری شود"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "PageSize",
+          "kind": "property",
+          "signature": "public int PageSize { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعداد رکورد‌های هر صفحه\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعداد رکورد‌های هر صفحه",
+            "en": "Author XML for property 'PageSize': تعداد رکورد‌های هر صفحه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SkipCount",
+          "kind": "property",
+          "signature": "public int SkipCount => ...",
+          "xml_doc": "/// <summary>\n    /// تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم",
+            "en": "Author XML for property 'SkipCount': تعداد رکورد‌هایی که باید از ابتدای نتیجه رد شود تا به رکوردهای مورد نظر برسیم"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "NeedTotalCount",
+          "kind": "property",
+          "signature": "public bool NeedTotalCount { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر",
+            "en": "Author XML for property 'NeedTotalCount': تعیین اینکه آیا نیاز است تعداد کل رکورد‌های موجود در جستجو نیز بازگردانده شود یا خیر"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SortBy",
+          "kind": "property",
+          "signature": "public string SortBy { get; set; }",
+          "xml_doc": "/// <summary>\n    /// تعیین ستونی که مرتب سازی بر اساس آن انجام می شود\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین ستونی که مرتب سازی بر اساس آن انجام می شود",
+            "en": "Author XML for property 'SortBy': تعیین ستونی که مرتب سازی بر اساس آن انجام می شود"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "SortAscending",
+          "kind": "property",
+          "signature": "public bool SortAscending { get; set; }",
+          "xml_doc": "/// <summary>\n    /// جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی",
+            "en": "Author XML for property 'SortAscending': جهت مرتب سازی داده‌ها که به صورت صعودی انجام می‌شود یا نزولی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "رکورد پایه جهت استفاده به عنوان مارکر برای رکورد‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند! در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود",
+        "en": "Author XML for record 'PageQueryRecord<TData>': رکورد پایه جهت استفاده به عنوان مارکر برای رکورد‌هایی که پارامتر‌های ورودی را برای جستجو تعیین می‌کنند! در صورتی که جستجو نیاز به صفحه بندی داشته باشد از این اینترفیس استفاده می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PagedData<T>",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Queries/PagedData.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// ساختار پایه جهت بازگشت داده‌ها هنگام کوئری گرفتن وقتی که Paging دارد\n/// </summary>\n/// <typeparam name=\"T\">نوع داده‌ای که از کوئری دریافت می‌شود را تعیین می‌کند!</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "QueryResult",
+          "kind": "property",
+          "signature": "public List<T> QueryResult { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «QueryResult» از نوع `List<T>` در PagedData<T>. کوئری/عملیات را به handler مناسب مسیریابی و اجرا می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'QueryResult' of type `List<T>` on PagedData<T>. Routes the query/operation to the matching handler and executes it. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PageNumber",
+          "kind": "property",
+          "signature": "public int PageNumber { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PageNumber» از نوع `int` در PagedData<T>. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PageNumber' of type `int` on PagedData<T>. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PageSize",
+          "kind": "property",
+          "signature": "public int PageSize { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PageSize» از نوع `int` در PagedData<T>. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PageSize' of type `int` on PagedData<T>. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TotalCount",
+          "kind": "property",
+          "signature": "public int TotalCount { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TotalCount» از نوع `int` در PagedData<T>. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TotalCount' of type `int` on PagedData<T>. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "ساختار پایه جهت بازگشت داده‌ها هنگام کوئری گرفتن وقتی که Paging دارد",
+        "en": "Author XML for class 'PagedData<T>': ساختار پایه جهت بازگشت داده‌ها هنگام کوئری گرفتن وقتی که Paging دارد"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "QueryResult<TData>",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Queries/QueryResult.cs",
+      "base_types": [
+        "ApplicationServiceResult"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// نتیجه یک کوئری را بازگشت می‌دهد\n/// </summary>\n/// <typeparam name=\"TData\"></typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_data",
+          "kind": "field",
+          "signature": "public TData? _data;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_data» در QueryResult<TData> با امضای `public TData? _data;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_data' on QueryResult<TData> with signature `public TData? _data;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Data",
+          "kind": "property",
+          "signature": "public TData? Data { get; }",
+          "xml_doc": "",
+          "body_summary": "{\r\n        get\r\n        {\r\n            return _data;\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Data» از نوع `TData?` در QueryResult<TData>. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. فقط‌خواندنی است. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Data' of type `TData?` on QueryResult<TData>. Exposes related state or configuration for this member. Read-only. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "نتیجه یک کوئری را بازگشت می‌دهد",
+        "en": "Author XML for class 'QueryResult<TData>': نتیجه یک کوئری را بازگشت می‌دهد"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

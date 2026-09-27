@@ -1,0 +1,220 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "FakeUserInfoService",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.UsersManagement.Abstractions/FakeUserInfoService.cs",
+      "base_types": [
+        "IUserInfoService"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string defaultUserId"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public FakeUserInfoService()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public FakeUserInfoService(string defaultUserId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _defaultUserId = defaultUserId;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public string? GetClaim(string claimType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return claimType;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetFirstName",
+          "kind": "method",
+          "signature": "public string GetFirstName()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"FirstName\";\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetLastName",
+          "kind": "method",
+          "signature": "public string GetLastName()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"LastName\";\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetUserAgent",
+          "kind": "method",
+          "signature": "public string GetUserAgent()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"1\";\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetUserIp",
+          "kind": "method",
+          "signature": "public string GetUserIp()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"0.0.0.0\";\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetUsername",
+          "kind": "method",
+          "signature": "public string GetUsername()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"Username\";\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "HasAccess",
+          "kind": "method",
+          "signature": "public bool HasAccess(string access)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return true;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "IsCurrentUser",
+          "kind": "method",
+          "signature": "public bool IsCurrentUser(string userId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return true;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "UserId",
+          "kind": "method",
+          "signature": "public string UserId()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"1\";\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault()",
+          "xml_doc": "",
+          "body_summary": "=> _defaultUserId;",
+          "attributes": []
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault(string defaultValue)",
+          "xml_doc": "",
+          "body_summary": "=> defaultValue;",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IUserInfoService",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.UsersManagement.Abstractions/IUserInfoService.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetUserAgent",
+          "kind": "method",
+          "signature": "string GetUserAgent()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetUserIp",
+          "kind": "method",
+          "signature": "string GetUserIp()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserId",
+          "kind": "method",
+          "signature": "string UserId()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetFirstName",
+          "kind": "method",
+          "signature": "string GetFirstName()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetLastName",
+          "kind": "method",
+          "signature": "string GetLastName()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetUsername",
+          "kind": "method",
+          "signature": "string GetUsername()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "string? GetClaim(string claimType)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IsCurrentUser",
+          "kind": "method",
+          "signature": "bool IsCurrentUser(string userId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "string UserIdOrDefault()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "string UserIdOrDefault(string defaultValue)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

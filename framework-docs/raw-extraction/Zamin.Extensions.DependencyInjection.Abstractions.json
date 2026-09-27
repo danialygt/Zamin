@@ -1,0 +1,42 @@
+﻿{
+  "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "IScopeLifetime",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.DependentyInjection.Abstractions/IScopeLifetime.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "ISingletoneLifetime",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.DependentyInjection.Abstractions/ISingletoneLifetime.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "ITransientLifetime",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.DependentyInjection.Abstractions/ITransientLifetime.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    }
+  ]
+}

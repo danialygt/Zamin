@@ -1,0 +1,67 @@
+﻿{
+  "namespace": "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DependencyInjectionServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection",
+      "source_file": "Extentsions/DependencyInjection/Zamin.Extensions.DependencyInjection/Zamin.Extensions.DependencyInjection/Extensions/DependencyInjection/DependencyInjectionServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = configuration.Get<DependencyInjectionOption>();\r\n\r\n        services.AddWithTransientLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithScopeLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithSingletoneLifetime(option.AssmblyNamesForLoad)\r\n            .Configure<DependencyInjectionOption>(configuration);\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddCustomeDepenecies» در DependencyInjectionServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddCustomeDepenecies' on DependencyInjectionServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddCustomeDepenecies(configuration.GetSection(sectionName));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddCustomeDepenecies» در DependencyInjectionServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddCustomeDepenecies' on DependencyInjectionServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, Action<DependencyInjectionOption> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = new DependencyInjectionOption();\r\n        setupAction.Invoke(option);\r\n\r\n        services.AddWithTransientLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithScopeLifetime(option.AssmblyNamesForLoad)\r\n            .AddWithSingletoneLifetime(option.AssmblyNamesForLoad)\r\n            .Configure(setupAction);\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddCustomeDepenecies» در DependencyInjectionServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<DependencyInjectionOption>): ورودی از نوع Action<DependencyInjectionOption>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddCustomeDepenecies' on DependencyInjectionServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<DependencyInjectionOption>): Input of type Action<DependencyInjectionOption>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DependencyInjectionServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'DependencyInjectionServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "FakeCacheAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Chaching.Abstractions/FakeCacheAdapter.cs",
+      "base_types": [
+        "ICacheAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "public void Add<TInput>(string key, TInput obj, DateTime? AbsoluteExpiration, TimeSpan? SlidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Add» در FakeCacheAdapter. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n- obj (TInput): ورودی از نوع TInput.\r\n- AbsoluteExpiration (DateTime?): ورودی از نوع DateTime?.\r\n- SlidingExpiration (TimeSpan?): ورودی از نوع TimeSpan?.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: ICacheAdapter (same namespace)",
+            "en": "Method 'Add' on FakeCacheAdapter. Updates or persists state.\r\nParameters:\r\n- key (string): Input of type string.\r\n- obj (TInput): Input of type TInput.\r\n- AbsoluteExpiration (DateTime?): Input of type DateTime?.\r\n- SlidingExpiration (TimeSpan?): Input of type TimeSpan?.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: ICacheAdapter (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "=> default;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در FakeCacheAdapter. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `TOutput`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: ICacheAdapter (same namespace)",
+            "en": "Method 'Get' on FakeCacheAdapter. Retrieves related data or state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: `TOutput`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: ICacheAdapter (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "public void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RemoveCache» در FakeCacheAdapter. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: ICacheAdapter (same namespace)",
+            "en": "Method 'RemoveCache' on FakeCacheAdapter. Removes or clears the item/state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: ICacheAdapter (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «FakeCacheAdapter» در namespace Zamin.Extensions.Caching.Abstractions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ICacheAdapter. مرتبط: ICacheAdapter (same namespace).",
+        "en": "Class 'FakeCacheAdapter' in namespace Zamin.Extensions.Caching.Abstractions. Public/protected class definition in the Zamin framework layer. Base/implemented types: ICacheAdapter. Related: ICacheAdapter (same namespace)."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ICacheAdapter",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Caching.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Chaching.Abstractions/ICacheAdapter.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "void Add<TInput>(string key, TInput obj, DateTime? AbsoluteExpiration, TimeSpan? SlidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Add» در ICacheAdapter. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n- obj (TInput): ورودی از نوع TInput.\r\n- AbsoluteExpiration (DateTime?): ورودی از نوع DateTime?.\r\n- SlidingExpiration (TimeSpan?): ورودی از نوع TimeSpan?.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Add' on ICacheAdapter. Updates or persists state.\r\nParameters:\r\n- key (string): Input of type string.\r\n- obj (TInput): Input of type TInput.\r\n- AbsoluteExpiration (DateTime?): Input of type DateTime?.\r\n- SlidingExpiration (TimeSpan?): Input of type TimeSpan?.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در ICacheAdapter. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `TOutput`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Get' on ICacheAdapter. Retrieves related data or state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: `TOutput`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RemoveCache» در ICacheAdapter. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'RemoveCache' on ICacheAdapter. Removes or clears the item/state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ICacheAdapter» در namespace Zamin.Extensions.Caching.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'ICacheAdapter' in namespace Zamin.Extensions.Caching.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

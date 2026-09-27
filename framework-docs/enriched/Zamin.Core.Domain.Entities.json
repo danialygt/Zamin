@@ -1,0 +1,352 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.Entities",
+  "type_count": 6,
+  "types": [
+    {
+      "type_name": "AggregateRoot",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/AggregateRoot.cs",
+      "base_types": [
+        "AggregateRoot<long>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "کلاس «AggregateRoot» در namespace Zamin.Core.Domain.Entities. ریشه aggregate دامنه؛ مسئول ثبات درونی و ثبت domain eventها. ارث‌بری/پیاده‌سازی: AggregateRoot<long>. مرتبط: AggregateRoot<long> (same namespace).",
+        "en": "Class 'AggregateRoot' in namespace Zamin.Core.Domain.Entities. Domain aggregate root responsible for consistency and domain events. Base/implemented types: AggregateRoot<long>. Related: AggregateRoot<long> (same namespace)."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "AggregateRoot<TId>",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/AggregateRoot.cs",
+      "base_types": [
+        "Entity<TId>",
+        "IAggregateRoot"
+      ],
+      "generic_constraints": "where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// پیاده سازی الگوی AggregateRoot\n/// توضیحات کامل در مورد این الگو را در آدرس زیر می‌توانید مشاهده نمایید\n/// https://martinfowler.com/bliki/DDD_Aggregate.html\n///\n/// </summary>",
+      "injected_dependencies": [
+        "IEnumerable<IDomainEvent> events"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected AggregateRoot()",
+          "xml_doc": "",
+          "body_summary": "=> _events = new();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده AggregateRoot<TId>. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود. پیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for AggregateRoot<TId>. Parameterless; typically used for ORM/serialization or protected initialization.  Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public AggregateRoot(IEnumerable<IDomainEvent> events)",
+          "xml_doc": "/// <summary>\n    /// سازنده Aggregate برای ایجاد Aggregate از روی Eventها\n    /// </summary>\n    /// <param name=\"events\">در صورتی که Event از قبل وجود داشته باشد توسط این پارامتر به Aggregate ارسال می‌گردد</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده Aggregate برای ایجاد Aggregate از روی Eventها\r\nپارامترها:\r\n- events: در صورتی که Event از قبل وجود داشته باشد توسط این پارامتر به Aggregate ارسال می‌گردد",
+            "en": "Aggregate constructor used to rehydrate the aggregate from existing events.\r\nParameters:\r\n- events: Pre-existing events supplied to rebuild the aggregate."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Apply",
+          "kind": "method",
+          "signature": "protected void Apply(IDomainEvent @event)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Mutate(@event);\r\n        AddEvent(@event);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Apply» در AggregateRoot<TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- event (IDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: Entity<TId> (same namespace) | IAggregateRoot (same namespace) | DI: IEnumerable<IDomainEvent> events",
+            "en": "Method 'Apply' on AggregateRoot<TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- event (IDomainEvent): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: Entity<TId> (same namespace) | IAggregateRoot (same namespace) | DI: IEnumerable<IDomainEvent> events"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddEvent",
+          "kind": "method",
+          "signature": "protected void AddEvent(IDomainEvent @event)",
+          "xml_doc": "/// <summary>\n    /// یک Event جدید به مجموعه Eventهای موجود در این Aggregate اضافه می‌کند.\n    /// مسئولیت ساخت و ارسال Event به عهده خود Aggregateها می‌باشد.\n    /// </summary>\n    /// <param name=\"event\"></param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "یک Event جدید به مجموعه Eventهای موجود در این Aggregate اضافه می‌کند. مسئولیت ساخت و ارسال Event به عهده خود Aggregateها می‌باشد.\r\nپارامترها:\r\n- event: (بدون توضیح)",
+            "en": "Adds a new domain event to this aggregate's event collection.\r\nParameters:\r\n- event: See signature."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEvents",
+          "kind": "method",
+          "signature": "public IEnumerable<IDomainEvent> GetEvents()",
+          "xml_doc": "/// <summary>\n    /// لیستی از Eventهای رخداده برای Aggregate را به صورت فقط خواندی و غیر قابل تغییر را بازگشت می‌دهد\n    /// </summary>\n    /// <returns>لیست Eventها</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "لیستی از Eventهای رخداده برای Aggregate را به صورت فقط خواندی و غیر قابل تغییر را بازگشت می‌دهد\r\nمقدار بازگشتی: لیست Eventها",
+            "en": "Returns a read-only, immutable list of domain events that occurred on this aggregate.\r\nReturns: Return value as documented by author: لیست Eventها"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ClearEvents",
+          "kind": "method",
+          "signature": "public void ClearEvents()",
+          "xml_doc": "/// <summary>\n    /// Eventهای موجود در این Aggregate را پاک می‌کند\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Eventهای موجود در این Aggregate را پاک می‌کند",
+            "en": "Clears domain events currently held by this aggregate."
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "پیاده سازی الگوی AggregateRoot توضیحات کامل در مورد این الگو را در آدرس زیر می‌توانید مشاهده نمایید https://martinfowler.com/bliki/DDD_Aggregate.html",
+        "en": "Implements the Aggregate Root pattern."
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Entity",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/Entity.cs",
+      "base_types": [
+        "Entity<long>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "کلاس «Entity» در namespace Zamin.Core.Domain.Entities. موجودیت دامنه با هویت و قابلیت auditable. ارث‌بری/پیاده‌سازی: Entity<long>. مرتبط: Entity<long> (same namespace).",
+        "en": "Class 'Entity' in namespace Zamin.Core.Domain.Entities. Domain entity with identity and auditing support. Base/implemented types: Entity<long>. Related: Entity<long> (same namespace)."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Entity<TId>",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/Entity.cs",
+      "base_types": [
+        "IAuditableEntity"
+      ],
+      "generic_constraints": "where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// کلاس پایه برای تمامی Entityها موجود در سامانه\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public TId Id { get; protected set; }",
+          "xml_doc": "/// <summary>\n    /// شناسه عددی Entityها\n    /// صرفا برای ذخیره در دیتابیس و سادگی کار مورد استفاده قرار بگیرید.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "شناسه عددی Entityها صرفا برای ذخیره در دیتابیس و سادگی کار مورد استفاده قرار بگیرید.",
+            "en": "Numeric entity Id used mainly for database storage and simplicity."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "BusinessId",
+          "kind": "property",
+          "signature": "public BusinessId BusinessId { get; protected set; }",
+          "xml_doc": "/// <summary>\n    /// شناسه Entity\n    /// شناسه اصلی Entity که در همه جا باید مورد استفاده قرار گیرد BusinessId است.\n    /// تمامی ارتباطات به کمک این شناسه باید برقرار شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "شناسه Entity شناسه اصلی Entity که در همه جا باید مورد استفاده قرار گیرد BusinessId است. تمامی ارتباطات به کمک این شناسه باید برقرار شود.",
+            "en": "Primary business identifier (BusinessId) that should be used everywhere; all references must use this Id."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected Entity()",
+          "xml_doc": "/// <summary>\n    /// سازنده پیش‌فرض به صورت Protected تعریف شده است.\n    /// با توجه به اینکه این نیاز است هنگام ساخت خواص اساسی Entity ایجاد شود، هیچ شی بدون پر کردن این خواص نباید ایجاد شود.\n    /// بار جلو گیری از این مورد برای همه Entityها باید سازنده‌هایی تعریف شود که مقدار ورودی دارند.\n    /// برای اینکه بتوان از همین Entityها برای فرایند ذخیره سازی و بازیابی از دیتابیس به کمک ORMها استفاده کرد، ضروری است که سازنده پیش‌فرض با سطح دسترسی بالا مثل Protected یا Private ایجاد شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده پیش‌فرض به صورت Protected تعریف شده است. با توجه به اینکه این نیاز است هنگام ساخت خواص اساسی Entity ایجاد شود، هیچ شی بدون پر کردن این خواص نباید ایجاد شود. بار جلو گیری از این مورد برای همه Entityها باید سازنده‌هایی تعریف شود که مقدار ورودی دارند. برای اینکه بتوان از همین Entityها برای فرایند ذخیره سازی و بازیابی از دیتابیس به کمک ORMها استفاده کرد، ضروری است که سازنده پیش‌فرض با سطح دسترسی بالا مثل Protected یا Private ایجاد شود.",
+            "en": "Author XML for constructor '.ctor': سازنده پیش‌فرض به صورت Protected تعریف شده است. با توجه به اینکه این نیاز است هنگام ساخت خواص اساسی Entity ایجاد شود، هیچ شی بدون پر کردن این خواص نباید ایجاد شود. بار جلو گیری از این مورد برای همه Entityها باید سازنده‌هایی تعریف شود که مقدار ورودی دارند. برای اینکه بتوان از همین…"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public bool Equals(Entity<TId>? other)",
+          "xml_doc": "",
+          "body_summary": "=> this == other;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Equals» در Entity<TId>. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nپارامترها:\r\n- other (Entity<TId>?): ورودی از نوع Entity<TId>?.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAuditableEntity (same namespace)",
+            "en": "Method 'Equals' on Entity<TId>. Implements equality/display contract members.\r\nParameters:\r\n- other (Entity<TId>?): Input of type Entity<TId>?.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAuditableEntity (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public override bool Equals(object? obj)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n         obj is Entity<TId> otherObject && Id.Equals(otherObject.Id);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Equals» در Entity<TId>. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nپارامترها:\r\n- obj (object?): ورودی از نوع object?.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAuditableEntity (same namespace)",
+            "en": "Method 'Equals' on Entity<TId>. Implements equality/display contract members.\r\nParameters:\r\n- obj (object?): Input of type object?.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAuditableEntity (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetHashCode",
+          "kind": "method",
+          "signature": "public override int GetHashCode()",
+          "xml_doc": "",
+          "body_summary": "=> Id.GetHashCode();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetHashCode» در Entity<TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAuditableEntity (same namespace)",
+            "en": "Method 'GetHashCode' on Entity<TId>. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAuditableEntity (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "==",
+          "kind": "operator",
+          "signature": "public static bool operator ==(Entity<TId> left, Entity<TId> right)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (left is null && right is null)\r\n            return true;\r\n\r\n        if (left is null || right is null)\r\n            return false;\r\n\r\n        return left.Equals((object) right);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «==» در Entity<TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- left (Entity<TId>): ورودی از نوع Entity<TId>.\r\n- right (Entity<TId>): ورودی از نوع Entity<TId>.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAuditableEntity (same namespace)",
+            "en": "Operator '==' on Entity<TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- left (Entity<TId>): Input of type Entity<TId>.\r\n- right (Entity<TId>): Input of type Entity<TId>.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAuditableEntity (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "!=",
+          "kind": "operator",
+          "signature": "public static bool operator !=(Entity<TId> left, Entity<TId> right)",
+          "xml_doc": "",
+          "body_summary": "=> !(right == left);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «!=» در Entity<TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- left (Entity<TId>): ورودی از نوع Entity<TId>.\r\n- right (Entity<TId>): ورودی از نوع Entity<TId>.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAuditableEntity (same namespace)",
+            "en": "Operator '!=' on Entity<TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- left (Entity<TId>): Input of type Entity<TId>.\r\n- right (Entity<TId>): Input of type Entity<TId>.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAuditableEntity (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس پایه برای تمامی Entityها موجود در سامانه",
+        "en": "Base class for all entities in the system."
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IAggregateRoot",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/IAggregateRoot.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ClearEvents",
+          "kind": "method",
+          "signature": "void ClearEvents()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ClearEvents» در IAggregateRoot. مورد یا وضعیت را حذف/پاک می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ClearEvents' on IAggregateRoot. Removes or clears the item/state.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEvents",
+          "kind": "method",
+          "signature": "IEnumerable<IDomainEvent> GetEvents()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEvents» در IAggregateRoot. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<IDomainEvent>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetEvents' on IAggregateRoot. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<IDomainEvent>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IAggregateRoot» در namespace Zamin.Core.Domain.Entities. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IAggregateRoot' in namespace Zamin.Core.Domain.Entities. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IAuditableEntity",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Domain.Entities",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Entities/IAuditableEntity.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IAuditableEntity» در namespace Zamin.Core.Domain.Entities. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IAuditableEntity' in namespace Zamin.Core.Domain.Entities. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

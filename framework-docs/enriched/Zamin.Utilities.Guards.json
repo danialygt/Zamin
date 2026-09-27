@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.Utilities.Guards",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "Guard",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/Guard.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ThrowIf",
+          "kind": "field",
+          "signature": "public static Guard ThrowIf = new Guard();",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «ThrowIf» در Guard با امضای `public static Guard ThrowIf = new Guard();`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'ThrowIf' on Guard with signature `public static Guard ThrowIf = new Guard();`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «Guard» در namespace Zamin.Utilities.Guards. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'Guard' in namespace Zamin.Utilities.Guards. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

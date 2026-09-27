@@ -1,0 +1,63 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ISoftwarePartPublisher",
+      "kind": "interface",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Publishers/ISoftwarePartWebPublisher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PublishAsync",
+          "kind": "method",
+          "signature": "Task PublishAsync(SoftwarePart softwarePart)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "SoftwarePartWebPublisher",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Publishers/SoftwarePartWebPublisher.cs",
+      "base_types": [
+        "ISoftwarePartPublisher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "HttpClient httpClient",
+        "IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption",
+        "ISoftwarePartAuthentication softwarePartLogin",
+        "IJsonSerializer jsonSerializer"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartWebPublisher(HttpClient httpClient,\r\n                                    IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption,\r\n                                    ISoftwarePartAuthentication softwarePartLogin,\r\n                                    IJsonSerializer jsonSerializer)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _httpClient = httpClient;\r\n        _softwarePartDetectorOptions = softwarePartDetectorOption.Value;\r\n        _softwarePartLogin = softwarePartLogin;\r\n        _jsonSerializer = jsonSerializer;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "PublishAsync",
+          "kind": "method",
+          "signature": "public async Task PublishAsync(SoftwarePart softwarePart)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _httpClient.BaseAddress = new Uri(_softwarePartDetectorOptions.DestinationServiceBaseAddress);\r\n\r\n        if (_softwarePartDetectorOptions.OAuth.Enabled)\r\n        {\r\n            var token = await _softwarePartLogin.LoginAsync();\r\n\r\n            _httpClient.SetBearerToken(token.AccessToken);\r\n        }\r\n\r\n        HttpContent httpContent = new StringContent(_jsonSerializer.Serialize(softwarePart),\r\n                                                    Encoding.UTF8,\r\n                                                    \"application/json\");\r\n\r\n        await _httpClient.PostAsync(_softwarePartDetectorOptions.DestinationServicePath, httpContent);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

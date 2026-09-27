@@ -1,0 +1,213 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "FakeMessageConsumer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/Fakes/FakeMessageConsumer.cs",
+      "base_types": [
+        "IMessageConsumer"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConsumeCommand",
+          "kind": "method",
+          "signature": "public async Task<bool> ConsumeCommand(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Consume(\"command\", sender, parcel);\r\n        return true;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConsumeCommand» در FakeMessageConsumer. پیام دریافتی را مصرف و به handler مناسب تحویل می‌دهد.\r\nپارامترها:\r\n- sender (string): ورودی از نوع string.\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IMessageConsumer",
+            "en": "Method 'ConsumeCommand' on FakeMessageConsumer. Consumes an incoming message and dispatches it to the matching handler.\r\nParameters:\r\n- sender (string): Input of type string.\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IMessageConsumer"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ConsumeEvent",
+          "kind": "method",
+          "signature": "public async Task<bool> ConsumeEvent(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Consume(\"event\", sender, parcel);\r\n        return true;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConsumeEvent» در FakeMessageConsumer. پیام دریافتی را مصرف و به handler مناسب تحویل می‌دهد.\r\nپارامترها:\r\n- sender (string): ورودی از نوع string.\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IMessageConsumer",
+            "en": "Method 'ConsumeEvent' on FakeMessageConsumer. Consumes an incoming message and dispatches it to the matching handler.\r\nParameters:\r\n- sender (string): Input of type string.\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IMessageConsumer"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «FakeMessageConsumer» در namespace Zamin.Extensions.MessageBus.Abstractions.Fakes. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IMessageConsumer. مرتبط: IMessageConsumer.",
+        "en": "Class 'FakeMessageConsumer' in namespace Zamin.Extensions.MessageBus.Abstractions.Fakes. Public/protected class definition in the Zamin framework layer. Base/implemented types: IMessageConsumer. Related: IMessageConsumer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "FakeReceiveMessageBus",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/Fakes/FakeReceiveMessageBus.cs",
+      "base_types": [
+        "IReceiveMessageBus"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<FakeSendMessageBus> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public FakeReceiveMessageBus(ILogger<FakeSendMessageBus> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده FakeReceiveMessageBus. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- logger (ILogger<FakeSendMessageBus>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for FakeReceiveMessageBus. Parameters are expected via dependency injection. Parameters:\r\n- logger (ILogger<FakeSendMessageBus>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "public void Receive(string commandName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"fake message bus receive {commandName}\", commandName);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Receive» در FakeReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- commandName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IReceiveMessageBus | DI: ILogger<FakeSendMessageBus> logger",
+            "en": "Method 'Receive' on FakeReceiveMessageBus. Performs the operation declared by the signature on this type. Logs execution details.\r\nParameters:\r\n- commandName (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IReceiveMessageBus | DI: ILogger<FakeSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Subscribe",
+          "kind": "method",
+          "signature": "public void Subscribe(string serviceId, string eventName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"fake message bus subscribe for event: {eventName} from service {serviceId}\", eventName, serviceId);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Subscribe» در FakeReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- serviceId (string): ورودی از نوع string.\r\n- eventName (string): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IReceiveMessageBus | DI: ILogger<FakeSendMessageBus> logger",
+            "en": "Method 'Subscribe' on FakeReceiveMessageBus. Performs the operation declared by the signature on this type. Logs execution details.\r\nParameters:\r\n- serviceId (string): Input of type string.\r\n- eventName (string): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IReceiveMessageBus | DI: ILogger<FakeSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «FakeReceiveMessageBus» در namespace Zamin.Extensions.MessageBus.Abstractions.Fakes. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IReceiveMessageBus. وابستگی‌های سازنده (DI): ILogger<FakeSendMessageBus> logger. مرتبط: IReceiveMessageBus | DI: ILogger<FakeSendMessageBus> logger.",
+        "en": "Class 'FakeReceiveMessageBus' in namespace Zamin.Extensions.MessageBus.Abstractions.Fakes. Public/protected class definition in the Zamin framework layer. Base/implemented types: IReceiveMessageBus. Constructor-injected dependencies: ILogger<FakeSendMessageBus> logger. Related: IReceiveMessageBus | DI: ILogger<FakeSendMessageBus> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "FakeSendMessageBus",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/Fakes/FakeSendMessageBus.cs",
+      "base_types": [
+        "ISendMessageBus"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<FakeSendMessageBus> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public FakeSendMessageBus(ILogger<FakeSendMessageBus> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده FakeSendMessageBus. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- logger (ILogger<FakeSendMessageBus>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for FakeSendMessageBus. Parameters are expected via dependency injection. Parameters:\r\n- logger (ILogger<FakeSendMessageBus>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Publish",
+          "kind": "method",
+          "signature": "public void Publish<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"Message published by fake message bus: {input}\", input.ToString());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Publish» در FakeSendMessageBus. رویداد/پیام را منتشر می‌کند. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- input (TInput): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger",
+            "en": "Method 'Publish' on FakeSendMessageBus. Publishes an event/message. Logs execution details.\r\nParameters:\r\n- input (TInput): Value under validation or input.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public void Send(Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"Message send by fake message bus: {parcel}\", parcel.ToString());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Send» در FakeSendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger",
+            "en": "Method 'Send' on FakeSendMessageBus. Routes the request to the matching handler and executes it. Logs execution details.\r\nParameters:\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "public void SendCommandTo<TCommandData>(string destinationService, string commandName, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"command send to {destinationService} by fake message bus. Command name: {commandName} and command data is {commandData}\",\r\n            destinationService, commandName, commandData?.ToString());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SendCommandTo» در FakeSendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- destinationService (string): ورودی از نوع string.\r\n- commandName (string): ورودی از نوع string.\r\n- commandData (TCommandData): ورودی از نوع TCommandData.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger",
+            "en": "Method 'SendCommandTo' on FakeSendMessageBus. Routes the request to the matching handler and executes it. Logs execution details.\r\nParameters:\r\n- destinationService (string): Input of type string.\r\n- commandName (string): Input of type string.\r\n- commandData (TCommandData): Input of type TCommandData.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "public void SendCommandTo<TCommandData>(string destinationService, string commandName, string correlationId, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"command send to {destinationService} by fake message bus. Command name: {commandName} with correlation id: \" +\r\n            \"{correlationId} and command data is {commandData}\", destinationService, commandName, correlationId, commandData?.ToString());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SendCommandTo» در FakeSendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- destinationService (string): ورودی از نوع string.\r\n- commandName (string): ورودی از نوع string.\r\n- correlationId (string): ورودی از نوع string.\r\n- commandData (TCommandData): ورودی از نوع TCommandData.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger",
+            "en": "Method 'SendCommandTo' on FakeSendMessageBus. Routes the request to the matching handler and executes it. Logs execution details.\r\nParameters:\r\n- destinationService (string): Input of type string.\r\n- commandName (string): Input of type string.\r\n- correlationId (string): Input of type string.\r\n- commandData (TCommandData): Input of type TCommandData.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «FakeSendMessageBus» در namespace Zamin.Extensions.MessageBus.Abstractions.Fakes. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ISendMessageBus. وابستگی‌های سازنده (DI): ILogger<FakeSendMessageBus> logger. مرتبط: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger.",
+        "en": "Class 'FakeSendMessageBus' in namespace Zamin.Extensions.MessageBus.Abstractions.Fakes. Public/protected class definition in the Zamin framework layer. Base/implemented types: ISendMessageBus. Constructor-injected dependencies: ILogger<FakeSendMessageBus> logger. Related: ISendMessageBus | DI: ILogger<FakeSendMessageBus> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

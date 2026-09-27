@@ -1,0 +1,71 @@
+﻿{
+  "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Extensions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ClaimsPrincipalExtentions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Extensions",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Extensions/ClaimsPrincipalExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "HasSubClaim",
+          "kind": "method",
+          "signature": "public static bool HasSubClaim(this ClaimsPrincipal? principal, string userIdentifierClaimType)",
+          "xml_doc": "",
+          "body_summary": "=> principal?.Claims.Any(c => c.Type.Equals(userIdentifierClaimType)) ?? false;",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «HasSubClaim» در ClaimsPrincipalExtentions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- principal (ClaimsPrincipal?): ورودی از نوع ClaimsPrincipal?.\r\n- userIdentifierClaimType (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'HasSubClaim' on ClaimsPrincipalExtentions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- principal (ClaimsPrincipal?): Input of type ClaimsPrincipal?.\r\n- userIdentifierClaimType (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CreateClaimsIdentity",
+          "kind": "method",
+          "signature": "public static ClaimsIdentity CreateClaimsIdentity(this ClaimsPrincipal? principal, List<Claim> claims)",
+          "xml_doc": "",
+          "body_summary": "=> new(principal?.Claims?.ToList().GetNotExist([.. claims]),\r\n               principal?.Identities.FirstOrDefault()?.AuthenticationType,\r\n               principal?.Identities.FirstOrDefault()?.NameClaimType,\r\n               principal?.Identities.FirstOrDefault()?.RoleClaimType);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CreateClaimsIdentity» در ClaimsPrincipalExtentions. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- principal (ClaimsPrincipal?): ورودی از نوع ClaimsPrincipal?.\r\n- claims (List<Claim>): ورودی از نوع List<Claim>.\r\n\r\nمقدار بازگشتی: `ClaimsIdentity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'CreateClaimsIdentity' on ClaimsPrincipalExtentions. Creates a new instance or result.\r\nParameters:\r\n- principal (ClaimsPrincipal?): Input of type ClaimsPrincipal?.\r\n- claims (List<Claim>): Input of type List<Claim>.\r\n\r\nReturns: `ClaimsIdentity`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ClonePrincipalWithConvertedClaims",
+          "kind": "method",
+          "signature": "public static ClaimsPrincipal? ClonePrincipalWithConvertedClaims(this ClaimsPrincipal? principal, ProviderOption provider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (provider.UserClaimRules.Any(rule => string.IsNullOrWhiteSpace(rule.Source) || string.IsNullOrWhiteSpace(rule.Destination)))\r\n            throw new ArgumentNullException(\"Source or Destination can not be null or white-space in UserClaimRule\");\r\n\r\n        if (provider.UserClaimAddons.Any(addon => string.IsNullOrWhiteSpace(addon.Type) || string.IsNullOrWhiteSpace(addon.Value)))\r\n            throw new ArgumentNullException(\"Type or Value can not be null or white-space in UserClaimAddon\");\r\n\r\n        if (principal is null) return null;\r\n\r\n        ClaimsPrincipal clone = principal.Clone();\r\n\r\n        List<Claim> claims = [];\r\n        claims.AddRange(provider.UserClaimRulesProcesor([.. clone.Claims]));\r\n        claims.AddRange(provider.UserClaimAddonsProcesor());\r\n\r\n        string? authenticationType = clone.Identities.First().AuthenticationType;\r\n        string? nameType = clone.Identities.First().NameClaimType;\r\n        string? roleType = clone.Identities.First().RoleClaimType;\r\n\r\n        ClaimsIdentity claimsIdentity = new(claims, authenticationType, nameType, roleType);\r\n\r\n        return new(claimsIdentity);\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «ClonePrincipalWithConvertedClaims» در ClaimsPrincipalExtentions. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- principal (ClaimsPrincipal?): ورودی از نوع ClaimsPrincipal?.\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n\r\nمقدار بازگشتی: `ClaimsPrincipal?`.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException",
+            "en": "Method 'ClonePrincipalWithConvertedClaims' on ClaimsPrincipalExtentions. Creates a new instance or result.\r\nParameters:\r\n- principal (ClaimsPrincipal?): Input of type ClaimsPrincipal?.\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n\r\nReturns: `ClaimsPrincipal?`.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ClaimsPrincipalExtentions» در namespace Zamin.Utilities.Auth.ApiAuthentication.Extensions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'ClaimsPrincipalExtentions' in namespace Zamin.Utilities.Auth.ApiAuthentication.Extensions. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

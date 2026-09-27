@@ -1,0 +1,193 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Abstractions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ITranslator",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Translations.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Translations.Abstractions/ITranslator.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "string this[string name] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "string this[string name] { get; set; }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ITranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Indexer 'this' on ITranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "string this[CultureInfo culture, string name] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "string this[CultureInfo culture, string name] { get; set; }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ITranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Indexer 'this' on ITranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "string this[string name, params string[] arguments] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "string this[string name, params string[] arguments] { get; set; }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ITranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Indexer 'this' on ITranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "string this[CultureInfo culture, string name, params string[] arguments] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "string this[CultureInfo culture, string name, params string[] arguments] { get; set; }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ITranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Indexer 'this' on ITranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "string this[char separator, params string[] names] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "string this[char separator, params string[] names] { get; set; }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ITranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Indexer 'this' on ITranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "string this[CultureInfo culture, char separator, params string[] names] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "string this[CultureInfo culture, char separator, params string[] names] { get; set; }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ITranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Indexer 'this' on ITranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "string GetString(string name)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ITranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- name (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetString' on ITranslator. Retrieves related data or state.\r\nParameters:\r\n- name (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "string GetString(CultureInfo culture,string name)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ITranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- culture (CultureInfo): ورودی از نوع CultureInfo.\r\n- name (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetString' on ITranslator. Retrieves related data or state.\r\nParameters:\r\n- culture (CultureInfo): Input of type CultureInfo.\r\n- name (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "string GetString(string pattern, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ITranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- pattern (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetString' on ITranslator. Retrieves related data or state.\r\nParameters:\r\n- pattern (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "string GetString(CultureInfo culture, string pattern, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ITranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- culture (CultureInfo): ورودی از نوع CultureInfo.\r\n- pattern (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetString' on ITranslator. Retrieves related data or state.\r\nParameters:\r\n- culture (CultureInfo): Input of type CultureInfo.\r\n- pattern (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetConcateString",
+          "kind": "method",
+          "signature": "string GetConcateString(char separator = ' ', params string[] names)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetConcateString» در ITranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- separator (char): ورودی اختیاری از نوع char (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetConcateString' on ITranslator. Retrieves related data or state.\r\nParameters:\r\n- separator (char): Optional char input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetConcateString",
+          "kind": "method",
+          "signature": "string GetConcateString(CultureInfo culture, char separator = ' ', params string[] names)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetConcateString» در ITranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- culture (CultureInfo): ورودی از نوع CultureInfo.\r\n- separator (char): ورودی اختیاری از نوع char (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetConcateString' on ITranslator. Retrieves related data or state.\r\nParameters:\r\n- culture (CultureInfo): Input of type CultureInfo.\r\n- separator (char): Optional char input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ITranslator» در namespace Zamin.Extensions.Translations.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'ITranslator' in namespace Zamin.Extensions.Translations.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.Data.Queries",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "IQueryRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Queries",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Queries/IQueryRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف کوئری‌های پایه مورد نیاز در سامانه در این Interface قرار می‌گیرد.\n/// </summary>",
+      "injected_dependencies": [],
+      "members": []
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "IMessageConsumer",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/IMessageConsumer.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConsumeEvent",
+          "kind": "method",
+          "signature": "Task<bool> ConsumeEvent(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConsumeEvent» در IMessageConsumer. پیام دریافتی را مصرف و به handler مناسب تحویل می‌دهد.\r\nپارامترها:\r\n- sender (string): ورودی از نوع string.\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ConsumeEvent' on IMessageConsumer. Consumes an incoming message and dispatches it to the matching handler.\r\nParameters:\r\n- sender (string): Input of type string.\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ConsumeCommand",
+          "kind": "method",
+          "signature": "Task<bool> ConsumeCommand(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConsumeCommand» در IMessageConsumer. پیام دریافتی را مصرف و به handler مناسب تحویل می‌دهد.\r\nپارامترها:\r\n- sender (string): ورودی از نوع string.\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ConsumeCommand' on IMessageConsumer. Consumes an incoming message and dispatches it to the matching handler.\r\nParameters:\r\n- sender (string): Input of type string.\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IMessageConsumer» در namespace Zamin.Extensions.MessageBus.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IMessageConsumer' in namespace Zamin.Extensions.MessageBus.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IMessageInboxItemRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/IMessageInboxItemRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AllowReceive",
+          "kind": "method",
+          "signature": "bool AllowReceive(string messageId, string fromService)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AllowReceive» در IMessageInboxItemRepository. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- messageId (string): ورودی از نوع string.\r\n- fromService (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AllowReceive' on IMessageInboxItemRepository. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- messageId (string): Input of type string.\r\n- fromService (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "void Receive(string messageId, string fromService,string payload)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Receive» در IMessageInboxItemRepository. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- messageId (string): ورودی از نوع string.\r\n- fromService (string): ورودی از نوع string.\r\n- payload (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Receive' on IMessageInboxItemRepository. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- messageId (string): Input of type string.\r\n- fromService (string): Input of type string.\r\n- payload (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IMessageInboxItemRepository» در namespace Zamin.Extensions.MessageBus.Abstractions. قرارداد دسترسی به داده برای ذخیره و بازیابی aggregate/entity.",
+        "en": "Interface contract 'IMessageInboxItemRepository' in namespace Zamin.Extensions.MessageBus.Abstractions. Data-access contract for persisting and loading aggregates/entities."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IReceiveMessageBus",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/IReceiveMessageBus.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Subscribe",
+          "kind": "method",
+          "signature": "void Subscribe(string serviceId, string eventName)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Subscribe» در IReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- serviceId (string): ورودی از نوع string.\r\n- eventName (string): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Subscribe' on IReceiveMessageBus. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- serviceId (string): Input of type string.\r\n- eventName (string): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "void Receive(string commandName)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Receive» در IReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- commandName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Receive' on IReceiveMessageBus. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- commandName (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IReceiveMessageBus» در namespace Zamin.Extensions.MessageBus.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IReceiveMessageBus' in namespace Zamin.Extensions.MessageBus.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ISendMessageBus",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/ISendMessageBus.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// جهت ارسال پیام از این زیر ساخت اتستفاده می‌شود\n/// پیام ها می‌توانند در قالب دستوری باشند که به سرویسی خاص ارسال می‌شوند یا پیامی عمومی که برای همه ارسال می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Publish",
+          "kind": "method",
+          "signature": "void Publish<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Publish» در ISendMessageBus. رویداد/پیام را منتشر می‌کند.\r\nپارامترها:\r\n- input (TInput): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Publish' on ISendMessageBus. Publishes an event/message.\r\nParameters:\r\n- input (TInput): Value under validation or input.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "void SendCommandTo<TCommandData>(string destinationService, string commandName, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SendCommandTo» در ISendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- destinationService (string): ورودی از نوع string.\r\n- commandName (string): ورودی از نوع string.\r\n- commandData (TCommandData): ورودی از نوع TCommandData.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'SendCommandTo' on ISendMessageBus. Routes the request to the matching handler and executes it.\r\nParameters:\r\n- destinationService (string): Input of type string.\r\n- commandName (string): Input of type string.\r\n- commandData (TCommandData): Input of type TCommandData.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "void SendCommandTo<TCommandData>(string destinationService, string commandName, string correlationId, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SendCommandTo» در ISendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- destinationService (string): ورودی از نوع string.\r\n- commandName (string): ورودی از نوع string.\r\n- correlationId (string): ورودی از نوع string.\r\n- commandData (TCommandData): ورودی از نوع TCommandData.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'SendCommandTo' on ISendMessageBus. Routes the request to the matching handler and executes it.\r\nParameters:\r\n- destinationService (string): Input of type string.\r\n- commandName (string): Input of type string.\r\n- correlationId (string): Input of type string.\r\n- commandData (TCommandData): Input of type TCommandData.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "void Send(Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Send» در ISendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Send' on ISendMessageBus. Routes the request to the matching handler and executes it.\r\nParameters:\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "جهت ارسال پیام از این زیر ساخت اتستفاده می‌شود پیام ها می‌توانند در قالب دستوری باشند که به سرویسی خاص ارسال می‌شوند یا پیامی عمومی که برای همه ارسال می‌شود",
+        "en": "Author XML for interface 'ISendMessageBus': جهت ارسال پیام از این زیر ساخت اتستفاده می‌شود پیام ها می‌توانند در قالب دستوری باشند که به سرویسی خاص ارسال می‌شوند یا پیامی عمومی که برای همه ارسال می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Parcel",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/Parcel.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// این کلاس در نرم‌افزار داده‌هایی که باید از طریق زیر ساخت پیام رسانی منتقل شود را نگهداری می‌کند\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MessageId",
+          "kind": "property",
+          "signature": "public string MessageId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «MessageId» از نوع `string` در Parcel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'MessageId' of type `string` on Parcel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CorrelationId",
+          "kind": "property",
+          "signature": "public string CorrelationId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CorrelationId» از نوع `string` در Parcel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'CorrelationId' of type `string` on Parcel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MessageName",
+          "kind": "property",
+          "signature": "public string MessageName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «MessageName» از نوع `string` در Parcel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'MessageName' of type `string` on Parcel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Headers",
+          "kind": "property",
+          "signature": "public Dictionary<string, object> Headers { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Headers» از نوع `Dictionary<string, object>` در Parcel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Headers' of type `Dictionary<string, object>` on Parcel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MessageBody",
+          "kind": "property",
+          "signature": "public string MessageBody { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «MessageBody» از نوع `string` در Parcel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'MessageBody' of type `string` on Parcel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Route",
+          "kind": "property",
+          "signature": "public string Route { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Route» از نوع `string` در Parcel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Route' of type `string` on Parcel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "این کلاس در نرم‌افزار داده‌هایی که باید از طریق زیر ساخت پیام رسانی منتقل شود را نگهداری می‌کند",
+        "en": "Author XML for class 'Parcel': این کلاس در نرم‌افزار داده‌هایی که باید از طریق زیر ساخت پیام رسانی منتقل شود را نگهداری می‌کند"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

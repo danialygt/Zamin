@@ -1,0 +1,157 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "RabbitMqReceiveMessageBus",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/RabbitMqReceiveMessageBus.cs",
+      "base_types": [
+        "IReceiveMessageBus",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IConnection connection",
+        "ILogger<RabbitMqReceiveMessageBus> logger",
+        "IOptions<RabbitMqOptions> rabbitMqOptions",
+        "IServiceScopeFactory serviceScopeFactory"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public RabbitMqReceiveMessageBus(IConnection connection,\r\n                                     ILogger<RabbitMqReceiveMessageBus> logger,\r\n                                     IOptions<RabbitMqOptions> rabbitMqOptions,\r\n                                     IServiceScopeFactory serviceScopeFactory)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _rabbitMqOptions = rabbitMqOptions.Value;\r\n        _serviceScopeFactory = serviceScopeFactory;\r\n        _connection = connection;\r\n        _channel = _connection.CreateChannelAsync().Result;\r\n        _channel.ExchangeDeclareAsync(_rabbitMqOptions.ExchangeName, ExchangeType.Topic, true, false, null).Wait();\r\n        _commandQueueName = $\"{_rabbitMqOptions.ServiceName}.CommandsInputQueue\";\r\n        _eventQueueName = $\"{_rabbitMqOptions.ServiceName}.EventsInputQueue\";\r\n        CreateCommandQueue();\r\n        CreateEventQueue();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Subscribe",
+          "kind": "method",
+          "signature": "public void Subscribe(string serviceId, string eventName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var route = $\"{serviceId}.{RabbitMqSendMessageBusConstants.@event}.{eventName}\";\r\n        _channel.QueueBindAsync(_eventQueueName, _rabbitMqOptions.ExchangeName, route).Wait();\r\n        _logger.LogInformation(\"ServiceId: {serviceId} With EventName: {eventName} Binded.\", serviceId, eventName);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "public void Receive(string commandName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var route = $\"{_rabbitMqOptions.ServiceName}.{RabbitMqSendMessageBusConstants.command}.{commandName}\";\r\n        _channel.QueueBindAsync(_commandQueueName, _rabbitMqOptions.ExchangeName, route).Wait();\r\n        _logger.LogInformation(\"Command With CommandName: {commandName} Binded.\", commandName);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _channel.CloseAsync().Wait();\r\n        _connection.CloseAsync().Wait();\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "RabbitMqSendMessageBus",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/RabbitMqSendMessageBus.cs",
+      "base_types": [
+        "IDisposable",
+        "ISendMessageBus"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IConnection connection",
+        "IJsonSerializer jsonSerializer",
+        "IOptions<RabbitMqOptions> rabbitMqOptions",
+        "ILogger<RabbitMqSendMessageBus> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public RabbitMqSendMessageBus(IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions,ILogger<RabbitMqSendMessageBus> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            _jsonSerializer = jsonSerializer;\r\n            _logger = logger;\r\n            _rabbitMqOptions = rabbitMqOptions.Value;\r\n            _channel = connection.CreateChannelAsync().Result;\r\n            _channel.ExchangeDeclareAsync(_rabbitMqOptions.ExchangeName, ExchangeType.Topic, true, false, null).Wait();\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Publish",
+          "kind": "method",
+          "signature": "public void Publish<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (input == null)\r\n                throw new ArgumentNullException(nameof(input));\r\n\r\n            string messageName = input.GetType().Name;\r\n            Parcel parcel = new()\r\n            {\r\n                MessageId = Guid.NewGuid().ToString(),\r\n                MessageBody = _jsonSerializer.Serialize(input),\r\n                MessageName = messageName,\r\n                Route = $\"{_rabbitMqOptions.ServiceName}.{RabbitMqSendMessageBusConstants.@event}.{messageName}\",\r\n                Headers = new Dictionary<string, object>\r\n                {\r\n                    [\"AccuredOn\"] = DateTime.Now.ToString(),\r\n                }\r\n            };\r\n            Send(parcel);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "public void SendCommandTo<TCommandData>(string destinationService, string commandName, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (commandData == null)\r\n                throw new ArgumentNullException(nameof(commandData));\r\n            Parcel parcel = new()\r\n            {\r\n                MessageId = Guid.NewGuid().ToString(),\r\n                MessageBody = _jsonSerializer.Serialize(commandData),\r\n                MessageName = commandName,\r\n                Route = $\"{destinationService}.{RabbitMqSendMessageBusConstants.command}.{commandName}\"\r\n            };\r\n            Send(parcel);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "public void SendCommandTo<TCommandData>(string destinationService, string commandName, string correlationId, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (commandData == null)\r\n                throw new ArgumentNullException(nameof(commandData));\r\n            Parcel parcel = new()\r\n            {\r\n                MessageId = Guid.NewGuid().ToString(),\r\n                CorrelationId = correlationId,\r\n                MessageBody = _jsonSerializer.Serialize(commandData),\r\n                MessageName = commandName,\r\n                Route = $\"{destinationService}.{RabbitMqSendMessageBusConstants.command}.{commandName}\"\r\n            };\r\n            Send(parcel);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public void Send(Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            ArgumentNullException.ThrowIfNull(parcel);\r\n            Activity childActivity = StartChildActivity(parcel);\r\n            AddActivityHeaders(parcel, childActivity);\r\n\r\n            var basicProperties = new BasicProperties();\r\n\r\n            basicProperties.Persistent = _rabbitMqOptions.PerssistMessage;\r\n            basicProperties.AppId = _rabbitMqOptions.ServiceName;\r\n            basicProperties.CorrelationId = parcel?.CorrelationId;\r\n            basicProperties.MessageId = parcel?.MessageId;\r\n            basicProperties.Headers = parcel?.Headers;\r\n            basicProperties.Type = parcel?.MessageName ?? \"NullMessageName\";\r\n            _channel.BasicPublishAsync(_rabbitMqOptions.ExchangeName, parcel.Route, _rabbitMqOptions.IsMessageMandatory,basicProperties, parcel.MessageBody.ToByteArray());\r\n            _logger.LogDebug(\"Message Sent {MessageName}\",parcel.MessageName);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (_channel != null)\r\n            {\r\n                if (_channel.IsOpen)\r\n                    _channel.CloseAsync().Wait();\r\n                _channel.Dispose();\r\n            }\r\n        }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "RabbitMqSendMessageBusConstants",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/RabbitMqSendMessageBusConstants.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "@event",
+          "kind": "field",
+          "signature": "public const string @event = \"event\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "command",
+          "kind": "field",
+          "signature": "public const string command = \"command\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

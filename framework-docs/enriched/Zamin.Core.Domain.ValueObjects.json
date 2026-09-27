@@ -1,0 +1,274 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.ValueObjects",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "BaseValueObject<TValueObject>",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/ValueObjects/BaseValueObject.cs",
+      "base_types": [
+        "IEquatable<TValueObject>"
+      ],
+      "generic_constraints": "where TValueObject : BaseValueObject<TValueObject>",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// کلاس پایه برای همه ValueObjectها\n/// توضحیات کاملی در مورد دلایل وجود ValueObjectها را در لینک زیر مشاهده می‌کند\n/// https://martinfowler.com/bliki/ValueObject.html\n/// </summary>\n/// <typeparam name=\"TValueObject\"></typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public bool Equals(TValueObject other)",
+          "xml_doc": "",
+          "body_summary": "=> this == other;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Equals» در BaseValueObject<TValueObject>. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nپارامترها:\r\n- other (TValueObject): ورودی از نوع TValueObject.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEquatable<TValueObject>",
+            "en": "Method 'Equals' on BaseValueObject<TValueObject>. Implements equality/display contract members.\r\nParameters:\r\n- other (TValueObject): Input of type TValueObject.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEquatable<TValueObject>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public override bool Equals(object obj)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (obj is TValueObject otherObject)\r\n        {\r\n            return GetEqualityComponents().SequenceEqual(otherObject.GetEqualityComponents());\r\n        }\r\n        return false;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Equals» در BaseValueObject<TValueObject>. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nپارامترها:\r\n- obj (object): ورودی از نوع object.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEquatable<TValueObject>",
+            "en": "Method 'Equals' on BaseValueObject<TValueObject>. Implements equality/display contract members.\r\nParameters:\r\n- obj (object): Input of type object.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEquatable<TValueObject>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetHashCode",
+          "kind": "method",
+          "signature": "public override int GetHashCode()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return GetEqualityComponents()\r\n            .Select(x => x != null ? x.GetHashCode() : 0)\r\n            .Aggregate((x, y) => x ^ y);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetHashCode» در BaseValueObject<TValueObject>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEquatable<TValueObject>",
+            "en": "Method 'GetHashCode' on BaseValueObject<TValueObject>. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEquatable<TValueObject>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected abstract IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در BaseValueObject<TValueObject>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEquatable<TValueObject>",
+            "en": "Method 'GetEqualityComponents' on BaseValueObject<TValueObject>. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEquatable<TValueObject>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "==",
+          "kind": "operator",
+          "signature": "public static bool operator ==(BaseValueObject<TValueObject> right, BaseValueObject<TValueObject> left)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (right is null && left is null)\r\n            return true;\r\n        if (right is null || left is null)\r\n            return false;\r\n        return right.Equals(left);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «==» در BaseValueObject<TValueObject>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- right (BaseValueObject<TValueObject>): ورودی از نوع BaseValueObject<TValueObject>.\r\n- left (BaseValueObject<TValueObject>): ورودی از نوع BaseValueObject<TValueObject>.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEquatable<TValueObject>",
+            "en": "Operator '==' on BaseValueObject<TValueObject>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- right (BaseValueObject<TValueObject>): Input of type BaseValueObject<TValueObject>.\r\n- left (BaseValueObject<TValueObject>): Input of type BaseValueObject<TValueObject>.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEquatable<TValueObject>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "!=",
+          "kind": "operator",
+          "signature": "public static bool operator !=(BaseValueObject<TValueObject> right, BaseValueObject<TValueObject> left)",
+          "xml_doc": "",
+          "body_summary": "=> !(right == left);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «!=» در BaseValueObject<TValueObject>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- right (BaseValueObject<TValueObject>): ورودی از نوع BaseValueObject<TValueObject>.\r\n- left (BaseValueObject<TValueObject>): ورودی از نوع BaseValueObject<TValueObject>.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEquatable<TValueObject>",
+            "en": "Operator '!=' on BaseValueObject<TValueObject>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- right (BaseValueObject<TValueObject>): Input of type BaseValueObject<TValueObject>.\r\n- left (BaseValueObject<TValueObject>): Input of type BaseValueObject<TValueObject>.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEquatable<TValueObject>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس پایه برای همه ValueObjectها توضحیات کاملی در مورد دلایل وجود ValueObjectها را در لینک زیر مشاهده می‌کند https://martinfowler.com/bliki/ValueObject.html",
+        "en": "Author XML for class 'BaseValueObject<TValueObject>': کلاس پایه برای همه ValueObjectها توضحیات کاملی در مورد دلایل وجود ValueObjectها را در لینک زیر مشاهده می‌کند https://martinfowler.com/bliki/ValueObject.html"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "BusinessId",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/ValueObjects/‌BusinessId.cs",
+      "base_types": [
+        "BaseValueObject<BusinessId>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string value"
+      ],
+      "members": [
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static BusinessId FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromString» در BusinessId. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `BusinessId`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Method 'FromString' on BusinessId. Creates a new instance or result.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `BusinessId`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromGuid",
+          "kind": "method",
+          "signature": "public static BusinessId FromGuid(Guid value)",
+          "xml_doc": "",
+          "body_summary": "=> new() { Value = value };",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromGuid» در BusinessId. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (Guid): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `BusinessId`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Method 'FromGuid' on BusinessId. Creates a new instance or result.\r\nParameters:\r\n- value (Guid): Value under validation or input.\r\n\r\nReturns: `BusinessId`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BusinessId(string value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(value))\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorIsRequire\", nameof(BusinessId));\r\n        }\r\n        if (Guid.TryParse(value, out Guid tempValue))\r\n        {\r\n            Value = tempValue;\r\n        }\r\n        else\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorInvalidValue\", nameof(BusinessId));\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BusinessId. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\nاستثناها (از روی بدنه):\r\n- InvalidValueObjectStateException (throw new)",
+            "en": "Constructor for BusinessId. Creates an instance with the provided initial values. Parameters:\r\n- value (string): Value under validation or input.\r\nExceptions (from body):\r\n- InvalidValueObjectStateException (throw new)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public Guid Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `Guid` در BusinessId. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `Guid` on BusinessId. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return Value.ToString();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToString» در BusinessId. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Method 'ToString' on BusinessId. Implements equality/display contract members.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n     }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در BusinessId. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Method 'GetEqualityComponents' on BusinessId. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(BusinessId title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value.ToString()",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «string» در BusinessId. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- title (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Conversion operator 'string' on BusinessId. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- title (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BusinessId",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator BusinessId(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «BusinessId» در BusinessId. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Conversion operator 'BusinessId' on BusinessId. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Guid",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator Guid(BusinessId title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «Guid» در BusinessId. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- title (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Conversion operator 'Guid' on BusinessId. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- title (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BusinessId",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator BusinessId(Guid value)",
+          "xml_doc": "",
+          "body_summary": "=> new() { Value = value }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «BusinessId» در BusinessId. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (Guid): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value",
+            "en": "Conversion operator 'BusinessId' on BusinessId. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (Guid): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<BusinessId> (same namespace) | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BusinessId» در namespace Zamin.Core.Domain.ValueObjects. شیء مقدار دامنه با برابری مبتنی بر مقدار. ارث‌بری/پیاده‌سازی: BaseValueObject<BusinessId>. وابستگی‌های سازنده (DI): string value. مرتبط: BaseValueObject<BusinessId> (same namespace) | DI: string value.",
+        "en": "Class 'BusinessId' in namespace Zamin.Core.Domain.ValueObjects. Domain value object with value-based equality. Base/implemented types: BaseValueObject<BusinessId>. Constructor-injected dependencies: string value. Related: BaseValueObject<BusinessId> (same namespace) | DI: string value."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

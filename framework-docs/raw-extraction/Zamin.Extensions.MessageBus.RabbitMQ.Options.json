@@ -1,0 +1,59 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.RabbitMQ.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "RabbitMqOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ.Options",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/Options/RabbitMqOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Url",
+          "kind": "property",
+          "signature": "public string Url { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PerssistMessage",
+          "kind": "property",
+          "signature": "public bool PerssistMessage { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ExchangeName",
+          "kind": "property",
+          "signature": "public string ExchangeName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ServiceName",
+          "kind": "property",
+          "signature": "public string ServiceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "IsMessageMandatory",
+          "kind": "property",
+          "signature": "public bool IsMessageMandatory { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

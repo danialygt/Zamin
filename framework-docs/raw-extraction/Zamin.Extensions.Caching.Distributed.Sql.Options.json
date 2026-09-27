@@ -1,0 +1,51 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Distributed.Sql.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DistributedSqlCacheOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Distributed.Sql.Options",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Sql/Zamin.Extensions.Caching.Distributed.Sql/Options/DistributedSqlCacheOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AutoCreateTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TableName",
+          "kind": "property",
+          "signature": "public string TableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

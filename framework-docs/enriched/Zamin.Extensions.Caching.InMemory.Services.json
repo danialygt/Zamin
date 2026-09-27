@@ -1,0 +1,87 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.InMemory.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "InMemoryCacheAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.InMemory.Services",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.InMemory/Zamin.Extensions.Caching.InMemory/Services/InMemoryCacheAdapter.cs",
+      "base_types": [
+        "ICacheAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IMemoryCache memoryCache",
+        "IJsonSerializer jsonSerializer",
+        "ILogger<InMemoryCacheAdapter> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public InMemoryCacheAdapter(IMemoryCache memoryCache,\r\n                                IJsonSerializer jsonSerializer,\r\n                                ILogger<InMemoryCacheAdapter> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _memoryCache = memoryCache;\r\n        _jsonSerializer = jsonSerializer;\r\n        _logger = logger;\r\n        _logger.LogInformation(\"InMemoryCache Adapter Start working\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده InMemoryCacheAdapter. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- memoryCache (IMemoryCache): ورودی از نوع IMemoryCache.\r\n- jsonSerializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\n- logger (ILogger<InMemoryCacheAdapter>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for InMemoryCacheAdapter. Parameters are expected via dependency injection. Parameters:\r\n- memoryCache (IMemoryCache): Input of type IMemoryCache.\r\n- jsonSerializer (IJsonSerializer): Input of type IJsonSerializer.\r\n- logger (ILogger<InMemoryCacheAdapter>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "public void Add<TInput>(string key, TInput obj, DateTime? absoluteExpiration, TimeSpan? slidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"InMemoryCache Adapter Cache {obj} with key : {key} \" +\r\n                         \", with data : {data} \" +\r\n                         \", with absoluteExpiration : {absoluteExpiration} \" +\r\n                         \", with slidingExpiration : {slidingExpiration}\",\r\n                         typeof(TInput),\r\n                         key,\r\n                         _jsonSerializer.Serialize(obj),\r\n                         absoluteExpiration.ToString(),\r\n                         slidingExpiration.ToString());\r\n\r\n        _memoryCache.Set(key, obj, new MemoryCacheEntryOptions\r\n        {\r\n            AbsoluteExpiration = absoluteExpiration,\r\n            SlidingExpiration = slidingExpiration,\r\n        });\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Add» در InMemoryCacheAdapter. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n- obj (TInput): ورودی از نوع TInput.\r\n- absoluteExpiration (DateTime?): ورودی از نوع DateTime?.\r\n- slidingExpiration (TimeSpan?): ورودی از نوع TimeSpan?.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger",
+            "en": "Method 'Add' on InMemoryCacheAdapter. Updates or persists state.\r\nParameters:\r\n- key (string): Input of type string.\r\n- obj (TInput): Input of type TInput.\r\n- absoluteExpiration (DateTime?): Input of type DateTime?.\r\n- slidingExpiration (TimeSpan?): Input of type TimeSpan?.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"InMemoryCache Adapter Try Get Cache with key : {key}\", key);\r\n\r\n        var result = _memoryCache.TryGetValue(key, out TOutput resultObject);\r\n\r\n        if (result)\r\n            _logger.LogTrace(\"InMemoryCache Adapter Successful Get Cache with key : {key} and data : {data}\",\r\n                             key,\r\n                             _jsonSerializer.Serialize(resultObject));\r\n        else\r\n            _logger.LogTrace(\"InMemoryCache Adapter Failed Get Cache with key : {key}\", key);\r\n\r\n        return resultObject;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در InMemoryCacheAdapter. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `TOutput`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger",
+            "en": "Method 'Get' on InMemoryCacheAdapter. Retrieves related data or state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: `TOutput`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "public void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"InMemoryCache Adapter Remove Cache with key : {key}\", key);\r\n\r\n        _memoryCache.Remove(key);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RemoveCache» در InMemoryCacheAdapter. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger",
+            "en": "Method 'RemoveCache' on InMemoryCacheAdapter. Removes or clears the item/state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «InMemoryCacheAdapter» در namespace Zamin.Extensions.Caching.InMemory.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ICacheAdapter. وابستگی‌های سازنده (DI): IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger. مرتبط: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger.",
+        "en": "Class 'InMemoryCacheAdapter' in namespace Zamin.Extensions.Caching.InMemory.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: ICacheAdapter. Constructor-injected dependencies: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger. Related: ICacheAdapter | DI: IMemoryCache memoryCache, IJsonSerializer jsonSerializer, ILogger<InMemoryCacheAdapter> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

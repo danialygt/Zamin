@@ -1,0 +1,61 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ISoftwarePartAuthentication",
+      "kind": "interface",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Authentications/ISoftwarePartAuthentication.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "LoginAsync",
+          "kind": "method",
+          "signature": "Task<TokenResponse> LoginAsync()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "SoftwarePartAuthentication",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Authentications/SoftwarePartAuthentication.cs",
+      "base_types": [
+        "ISoftwarePartAuthentication"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "HttpClient httpClient",
+        "IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartAuthentication(HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _httpClient = httpClient;\r\n        _softwarePartDetectorOption = softwarePartDetectorOption.Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "LoginAsync",
+          "kind": "method",
+          "signature": "public async Task<TokenResponse> LoginAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var discoveryDocument = await _httpClient.GetDiscoveryDocumentAsync(_softwarePartDetectorOption.OAuth.Authority);\r\n\r\n        if (discoveryDocument.IsError)\r\n            throw new Exception(discoveryDocument.Error);\r\n\r\n        var tokenResponse = await _httpClient.RequestClientCredentialsTokenAsync(\r\n            new ClientCredentialsTokenRequest\r\n            {\r\n                Address = discoveryDocument.TokenEndpoint,\r\n                ClientId = _softwarePartDetectorOption.OAuth.ClientId,\r\n                ClientSecret = _softwarePartDetectorOption.OAuth.ClientSecret,\r\n                Scope = string.Join(',', _softwarePartDetectorOption.OAuth.Scopes),\r\n            });\r\n\r\n        if (tokenResponse.IsError)\r\n            throw new Exception(tokenResponse.Error);\r\n\r\n        return tokenResponse;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

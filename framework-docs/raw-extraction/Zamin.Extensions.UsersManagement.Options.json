@@ -1,0 +1,67 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "UserManagementOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Options",
+      "source_file": "Extentsions/UsersManagement/Zamin.Extensions.UsersManagement/Zamin.Extensions.UsersManagement/Options/UserManagementOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "DefaultUserId",
+          "kind": "property",
+          "signature": "public string DefaultUserId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DefaultUserAgent",
+          "kind": "property",
+          "signature": "public string DefaultUserAgent { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DefaultUserIp",
+          "kind": "property",
+          "signature": "public string DefaultUserIp { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DefaultUsername",
+          "kind": "property",
+          "signature": "public string DefaultUsername { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DefaultFirstName",
+          "kind": "property",
+          "signature": "public string DefaultFirstName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DefaultLastName",
+          "kind": "property",
+          "signature": "public string DefaultLastName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "IMessageConsumer",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/IMessageConsumer.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConsumeEvent",
+          "kind": "method",
+          "signature": "Task<bool> ConsumeEvent(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ConsumeCommand",
+          "kind": "method",
+          "signature": "Task<bool> ConsumeCommand(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IMessageInboxItemRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/IMessageInboxItemRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AllowReceive",
+          "kind": "method",
+          "signature": "bool AllowReceive(string messageId, string fromService)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "void Receive(string messageId, string fromService,string payload)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IReceiveMessageBus",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/IReceiveMessageBus.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Subscribe",
+          "kind": "method",
+          "signature": "void Subscribe(string serviceId, string eventName)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "void Receive(string commandName)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ISendMessageBus",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/ISendMessageBus.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// جهت ارسال پیام از این زیر ساخت اتستفاده می‌شود\n/// پیام ها می‌توانند در قالب دستوری باشند که به سرویسی خاص ارسال می‌شوند یا پیامی عمومی که برای همه ارسال می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Publish",
+          "kind": "method",
+          "signature": "void Publish<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "void SendCommandTo<TCommandData>(string destinationService, string commandName, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "void SendCommandTo<TCommandData>(string destinationService, string commandName, string correlationId, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "void Send(Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "Parcel",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.MessageBus.Abstractions/Parcel.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// این کلاس در نرم‌افزار داده‌هایی که باید از طریق زیر ساخت پیام رسانی منتقل شود را نگهداری می‌کند\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MessageId",
+          "kind": "property",
+          "signature": "public string MessageId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CorrelationId",
+          "kind": "property",
+          "signature": "public string CorrelationId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MessageName",
+          "kind": "property",
+          "signature": "public string MessageName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Headers",
+          "kind": "property",
+          "signature": "public Dictionary<string, object> Headers { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MessageBody",
+          "kind": "property",
+          "signature": "public string MessageBody { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Route",
+          "kind": "property",
+          "signature": "public string Route { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

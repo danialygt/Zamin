@@ -1,0 +1,77 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "ICommandDispatcher",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Commands/ICommandDispatcher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف ساختار برای مدیریت دستورات. پیاده سازی الگوی Mediator\n/// از این الگو جهت کاهش پیچیدگی صدا زدن دستورات استفاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "Task<CommandResult> Send<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "/// <summary>\n    /// یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\n    /// </summary>\n    /// <typeparam name=\"TCommand\">نوع دستور را تعیین می‌کند</typeparam>\n    /// <param name=\"command\">نام دستور</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command) where TCommand : class, ICommand<TData>",
+          "xml_doc": "/// <summary>\n    /// یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\n    /// </summary>\n    /// <typeparam name=\"TCommand\">نوع دستور را تعیین می‌کند</typeparam>\n    /// <typeparam name=\"TData\">نوع داده ای که از دستور بازگشت داده می‌شود</typeparam>\n    /// <param name=\"command\">نام دستور</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ICommandHandler<TCommand, TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Commands/ICommandHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TCommand : ICommand<TData>",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task<CommandResult<TData>> Handle(TCommand request)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ICommandHandler<TCommand>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Commands/ICommandHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TCommand : ICommand",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task<CommandResult> Handle(TCommand request)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

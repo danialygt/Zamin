@@ -1,0 +1,119 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "ICommandDispatcher",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Commands/ICommandDispatcher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف ساختار برای مدیریت دستورات. پیاده سازی الگوی Mediator\n/// از این الگو جهت کاهش پیچیدگی صدا زدن دستورات استفاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "Task<CommandResult> Send<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "/// <summary>\n    /// یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\n    /// </summary>\n    /// <typeparam name=\"TCommand\">نوع دستور را تعیین می‌کند</typeparam>\n    /// <param name=\"command\">نام دستور</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\r\nپارامترها:\r\n- command: نام دستور\n\nمقدار بازگشتی: `Task<CommandResult>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'Send': یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\r\nParameters:\r\n- command: Parameter 'command' as documented by author: نام دستور\n\nReturns: `Task<CommandResult>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command) where TCommand : class, ICommand<TData>",
+          "xml_doc": "/// <summary>\n    /// یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\n    /// </summary>\n    /// <typeparam name=\"TCommand\">نوع دستور را تعیین می‌کند</typeparam>\n    /// <typeparam name=\"TData\">نوع داده ای که از دستور بازگشت داده می‌شود</typeparam>\n    /// <param name=\"command\">نام دستور</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\r\nپارامترها:\r\n- command: نام دستور\n\nمقدار بازگشتی: `Task<CommandResult<TData>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'Send': یک دستور از نوع ICommand را دریافت کرده و پیاده سازی مناسب جهت مدیریت این دستور را یافته و کار را برای ادامه پردازش به آن پیاده سازی تحویل می‌شود.\r\nParameters:\r\n- command: Parameter 'command' as documented by author: نام دستور\n\nReturns: `Task<CommandResult<TData>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "تعریف ساختار برای مدیریت دستورات. پیاده سازی الگوی Mediator از این الگو جهت کاهش پیچیدگی صدا زدن دستورات استفاده می‌شود",
+        "en": "Author XML for interface 'ICommandDispatcher': تعریف ساختار برای مدیریت دستورات. پیاده سازی الگوی Mediator از این الگو جهت کاهش پیچیدگی صدا زدن دستورات استفاده می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ICommandHandler<TCommand, TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Commands/ICommandHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TCommand : ICommand<TData>",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task<CommandResult<TData>> Handle(TCommand request)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Handle» در ICommandHandler<TCommand, TData>. منطق اصلی پردازش درخواست/رویداد را اجرا می‌کند.\r\nپارامترها:\r\n- request (TCommand): ورودی از نوع TCommand.\r\n\r\nمقدار بازگشتی: `Task<CommandResult<TData>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Handle' on ICommandHandler<TCommand, TData>. Runs the core handling logic for the request/event.\r\nParameters:\r\n- request (TCommand): Input of type TCommand.\r\n\r\nReturns: `Task<CommandResult<TData>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ICommandHandler<TCommand, TData>» در namespace Zamin.Core.Contracts.ApplicationServices.Commands. قرارداد پردازش یک درخواست/رویداد در لایه اپلیکیشن. قیود جنریک: where TCommand : ICommand<TData>.",
+        "en": "Interface contract 'ICommandHandler<TCommand, TData>' in namespace Zamin.Core.Contracts.ApplicationServices.Commands. Contract for handling an application request or event. Generic constraints: where TCommand : ICommand<TData>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ICommandHandler<TCommand>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Commands/ICommandHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TCommand : ICommand",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task<CommandResult> Handle(TCommand request)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Handle» در ICommandHandler<TCommand>. منطق اصلی پردازش درخواست/رویداد را اجرا می‌کند.\r\nپارامترها:\r\n- request (TCommand): ورودی از نوع TCommand.\r\n\r\nمقدار بازگشتی: `Task<CommandResult>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Handle' on ICommandHandler<TCommand>. Runs the core handling logic for the request/event.\r\nParameters:\r\n- request (TCommand): Input of type TCommand.\r\n\r\nReturns: `Task<CommandResult>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ICommandHandler<TCommand>» در namespace Zamin.Core.Contracts.ApplicationServices.Commands. قرارداد پردازش یک درخواست/رویداد در لایه اپلیکیشن. قیود جنریک: where TCommand : ICommand.",
+        "en": "Interface contract 'ICommandHandler<TCommand>' in namespace Zamin.Core.Contracts.ApplicationServices.Commands. Contract for handling an application request or event. Generic constraints: where TCommand : ICommand."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

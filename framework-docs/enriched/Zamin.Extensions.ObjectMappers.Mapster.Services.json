@@ -1,0 +1,175 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IObjectMapper",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Services/IObjectMapper.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Map» در IObjectMapper. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (TSource): ورودی از نوع TSource.\r\n\r\nمقدار بازگشتی: `TDestination`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Map' on IObjectMapper. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (TSource): Input of type TSource.\r\n\r\nReturns: `TDestination`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "TDestination Map<TDestination>(object source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Map» در IObjectMapper. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (object): ورودی از نوع object.\r\n\r\nمقدار بازگشتی: `TDestination`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Map' on IObjectMapper. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (object): Input of type object.\r\n\r\nReturns: `TDestination`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MapCollection",
+          "kind": "method",
+          "signature": "IEnumerable<TDestination> MapCollection<TSource, TDestination>(IEnumerable<TSource> source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MapCollection» در IObjectMapper. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (IEnumerable<TSource>): ورودی از نوع IEnumerable<TSource>.\r\n\r\nمقدار بازگشتی: `IEnumerable<TDestination>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'MapCollection' on IObjectMapper. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (IEnumerable<TSource>): Input of type IEnumerable<TSource>.\r\n\r\nReturns: `IEnumerable<TDestination>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RegisterMap",
+          "kind": "method",
+          "signature": "void RegisterMap<TSource, TDestination>(Action<TypeAdapterSetter<TSource, TDestination>> configAction)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RegisterMap» در IObjectMapper. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- configAction (Action<TypeAdapterSetter<TSource, TDestination>>): ورودی از نوع Action<TypeAdapterSetter<TSource, TDestination>>.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'RegisterMap' on IObjectMapper. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- configAction (Action<TypeAdapterSetter<TSource, TDestination>>): Input of type Action<TypeAdapterSetter<TSource, TDestination>>.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IObjectMapper» در namespace Zamin.Extensions.ObjectMappers.Mapster.Services. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IObjectMapper' in namespace Zamin.Extensions.ObjectMappers.Mapster.Services. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Mapster",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Services/Mapster.cs",
+      "base_types": [
+        "Abstractions.IMapperAdapter",
+        "IObjectMapper"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<Mapster> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public Mapster(ILogger<Mapster> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _config = TypeAdapterConfig.GlobalSettings;\r\n        _logger.LogInformation(\"Mapster Adapter Start working\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده Mapster. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- logger (ILogger<Mapster>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for Mapster. Parameters are expected via dependency injection. Parameters:\r\n- logger (ILogger<Mapster>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "public TDestination Map<TDestination>(object source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n            typeof(object),\r\n            typeof(TDestination),\r\n            source);\r\n        return source.Adapt<TDestination>(_config);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Map» در Mapster. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (object): ورودی از نوع object.\r\n\r\nمقدار بازگشتی: `TDestination`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger",
+            "en": "Method 'Map' on Mapster. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (object): Input of type object.\r\n\r\nReturns: `TDestination`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "public TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n            typeof(TSource),\r\n            typeof(TDestination),\r\n            source);\r\n        return source.Adapt<TSource, TDestination>(_config);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Map» در Mapster. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (TSource): ورودی از نوع TSource.\r\n\r\nمقدار بازگشتی: `TDestination`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger",
+            "en": "Method 'Map' on Mapster. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (TSource): Input of type TSource.\r\n\r\nReturns: `TDestination`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MapCollection",
+          "kind": "method",
+          "signature": "public IEnumerable<TDestination> MapCollection<TSource, TDestination>(IEnumerable<TSource> source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n            typeof(TSource),\r\n            typeof(TDestination),\r\n            source);\r\n        return source.Adapt<IEnumerable<TDestination>>(_config);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MapCollection» در Mapster. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (IEnumerable<TSource>): ورودی از نوع IEnumerable<TSource>.\r\n\r\nمقدار بازگشتی: `IEnumerable<TDestination>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger",
+            "en": "Method 'MapCollection' on Mapster. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (IEnumerable<TSource>): Input of type IEnumerable<TSource>.\r\n\r\nReturns: `IEnumerable<TDestination>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RegisterMap",
+          "kind": "method",
+          "signature": "public void RegisterMap<TSource, TDestination>(Action<TypeAdapterSetter<TSource, TDestination>> configAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"RegisterMap Adapter Map {source} To {destination}\",\r\n            typeof(TSource),\r\n            typeof(TDestination));\r\n        var setter = _config.NewConfig<TSource, TDestination>();\r\n        configAction(setter);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RegisterMap» در Mapster. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- configAction (Action<TypeAdapterSetter<TSource, TDestination>>): ورودی از نوع Action<TypeAdapterSetter<TSource, TDestination>>.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger",
+            "en": "Method 'RegisterMap' on Mapster. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- configAction (Action<TypeAdapterSetter<TSource, TDestination>>): Input of type Action<TypeAdapterSetter<TSource, TDestination>>.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «Mapster» در namespace Zamin.Extensions.ObjectMappers.Mapster.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: Abstractions.IMapperAdapter, IObjectMapper. وابستگی‌های سازنده (DI): ILogger<Mapster> logger. مرتبط: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger.",
+        "en": "Class 'Mapster' in namespace Zamin.Extensions.ObjectMappers.Mapster.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: Abstractions.IMapperAdapter, IObjectMapper. Constructor-injected dependencies: ILogger<Mapster> logger. Related: Abstractions.IMapperAdapter | IObjectMapper (same namespace) | DI: ILogger<Mapster> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,373 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.Data.Commands",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "ICommandRepository<TEntity,TId>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Commands/ICommandRepository.cs",
+      "base_types": [
+        "IUnitOfWork"
+      ],
+      "generic_constraints": "where TEntity : AggregateRoot<TId> where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// در صورتی که داده‌ها به صورت عادی ذخیره سازی شوند از این Interface جهت تعیین اعمال اصلی موجود در بخش ذخیره سازی داده‌ها استفاده می‌شود.\n/// </summary>\n/// <typeparam name=\"TEntity\">کلاسی که جهت ذخیره سازی انتخاب می‌شود</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "void Delete(TId id)",
+          "xml_doc": "/// <summary>\n    /// یک شی را با شناسه حذف می کند\n    /// </summary>\n    /// <param name=\"id\">شناسه</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "یک شی را با شناسه حذف می کند\r\nپارامترها:\r\n- id: شناسه",
+            "en": "Author XML for method 'Delete': یک شی را با شناسه حذف می کند\r\nParameters:\r\n- id: Numeric entity Id used mainly for database storage and simplicity."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "DeleteGraph",
+          "kind": "method",
+          "signature": "void DeleteGraph(TId id)",
+          "xml_doc": "/// <summary>\n    /// حذف یک شی به همراه تمامی فرزندان آن را انجام می دهد\n    /// </summary>\n    /// <param name=\"id\">شناسه</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "حذف یک شی به همراه تمامی فرزندان آن را انجام می دهد\r\nپارامترها:\r\n- id: شناسه",
+            "en": "Author XML for method 'DeleteGraph': حذف یک شی به همراه تمامی فرزندان آن را انجام می دهد\r\nParameters:\r\n- id: Numeric entity Id used mainly for database storage and simplicity."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "void Delete(TEntity entity)",
+          "xml_doc": "/// <summary>\n    /// یک شی را دریافت کرده و از دیتابیس حذف می‌کند\n    /// </summary>\n    /// <param name=\"entity\"></param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "یک شی را دریافت کرده و از دیتابیس حذف می‌کند\r\nپارامترها:\r\n- entity: (بدون توضیح)",
+            "en": "Author XML for method 'Delete': یک شی را دریافت کرده و از دیتابیس حذف می‌کند\r\nParameters:\r\n- entity: See signature."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Insert",
+          "kind": "method",
+          "signature": "void Insert(TEntity entity)",
+          "xml_doc": "/// <summary>\n    /// داده‌های جدید را به دیتابیس اضافه می‌کند\n    /// </summary>\n    /// <param name=\"entity\">نمونه داده‌ای که باید به دیتابیس اضافه شود.</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "داده‌های جدید را به دیتابیس اضافه می‌کند\r\nپارامترها:\r\n- entity: نمونه داده‌ای که باید به دیتابیس اضافه شود.",
+            "en": "Author XML for method 'Insert': داده‌های جدید را به دیتابیس اضافه می‌کند\r\nParameters:\r\n- entity: Parameter 'entity' as documented by author: نمونه داده‌ای که باید به دیتابیس اضافه شود."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "InsertAsync",
+          "kind": "method",
+          "signature": "Task InsertAsync(TEntity entity)",
+          "xml_doc": "/// <summary>\n    /// داده‌های جدید را به دیتابیس اضافه می‌کند\n    /// </summary>\n    /// <param name=\"entity\">نمونه داده‌ای که باید به دیتابیس اضافه شود.</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "داده‌های جدید را به دیتابیس اضافه می‌کند\r\nپارامترها:\r\n- entity: نمونه داده‌ای که باید به دیتابیس اضافه شود.",
+            "en": "Author XML for method 'InsertAsync': داده‌های جدید را به دیتابیس اضافه می‌کند\r\nParameters:\r\n- entity: Parameter 'entity' as documented by author: نمونه داده‌ای که باید به دیتابیس اضافه شود."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "TEntity Get(TId id)",
+          "xml_doc": "/// <summary>\n    /// یک شی را با شناسه از دیتابیس یافته و بازگشت می‌دهد.\n    /// </summary>\n    /// <param name=\"id\">شناسه شی مورد نیاز</param>\n    /// <returns>نمونه ساخته شده از شی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "یک شی را با شناسه از دیتابیس یافته و بازگشت می‌دهد.\r\nپارامترها:\r\n- id: شناسه شی مورد نیاز\r\nمقدار بازگشتی: نمونه ساخته شده از شی",
+            "en": "Author XML for method 'Get': یک شی را با شناسه از دیتابیس یافته و بازگشت می‌دهد.\r\nParameters:\r\n- id: Parameter 'id' as documented by author: شناسه شی مورد نیاز\r\nReturns: Return value as documented by author: نمونه ساخته شده از شی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetAsync» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'GetAsync' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "TEntity Get(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'Get' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetAsync» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'GetAsync' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "TEntity GetGraph(TId id)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraph» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'GetGraph' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetGraphAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraphAsync» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'GetGraphAsync' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "TEntity GetGraph(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraph» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'GetGraph' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetGraphAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraphAsync» در ICommandRepository<TEntity,TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'GetGraphAsync' on ICommandRepository<TEntity,TId>. Retrieves related data or state.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Exists",
+          "kind": "method",
+          "signature": "bool Exists(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Exists» در ICommandRepository<TEntity,TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- expression (Expression<Func<TEntity, bool>>): ورودی از نوع Expression<Func<TEntity, bool>>.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'Exists' on ICommandRepository<TEntity,TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- expression (Expression<Func<TEntity, bool>>): Input of type Expression<Func<TEntity, bool>>.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExistsAsync",
+          "kind": "method",
+          "signature": "Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExistsAsync» در ICommandRepository<TEntity,TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- expression (Expression<Func<TEntity, bool>>): ورودی از نوع Expression<Func<TEntity, bool>>.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUnitOfWork (same namespace)",
+            "en": "Method 'ExistsAsync' on ICommandRepository<TEntity,TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- expression (Expression<Func<TEntity, bool>>): Input of type Expression<Func<TEntity, bool>>.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUnitOfWork (same namespace)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "در صورتی که داده‌ها به صورت عادی ذخیره سازی شوند از این Interface جهت تعیین اعمال اصلی موجود در بخش ذخیره سازی داده‌ها استفاده می‌شود.",
+        "en": "Author XML for interface 'ICommandRepository<TEntity,TId>': در صورتی که داده‌ها به صورت عادی ذخیره سازی شوند از این Interface جهت تعیین اعمال اصلی موجود در بخش ذخیره سازی داده‌ها استفاده می‌شود."
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IDomainEventStore",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Commands/IDomainEventStore.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// در صورت نیاز به ذخیره و بازیابی eventها از این اینترفیس استفاده می‌شود.\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Save",
+          "kind": "method",
+          "signature": "void Save<TEvent>(string aggregateName, string aggregateId, IEnumerable<TEvent> events) where TEvent : IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Save» در IDomainEventStore. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- aggregateName (string): ورودی از نوع string.\r\n- aggregateId (string): ورودی از نوع string.\r\n- events (IEnumerable<TEvent>): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Save' on IDomainEventStore. Updates or persists state.\r\nParameters:\r\n- aggregateName (string): Input of type string.\r\n- aggregateId (string): Input of type string.\r\n- events (IEnumerable<TEvent>): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SaveAsync",
+          "kind": "method",
+          "signature": "Task SaveAsync<TEvent>(string aggregateName, string aggregateId, IEnumerable<TEvent> events) where TEvent : IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SaveAsync» در IDomainEventStore. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- aggregateName (string): ورودی از نوع string.\r\n- aggregateId (string): ورودی از نوع string.\r\n- events (IEnumerable<TEvent>): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'SaveAsync' on IDomainEventStore. Updates or persists state.\r\nParameters:\r\n- aggregateName (string): Input of type string.\r\n- aggregateId (string): Input of type string.\r\n- events (IEnumerable<TEvent>): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "در صورت نیاز به ذخیره و بازیابی eventها از این اینترفیس استفاده می‌شود.",
+        "en": "Author XML for interface 'IDomainEventStore': در صورت نیاز به ذخیره و بازیابی eventها از این اینترفیس استفاده می‌شود."
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IUnitOfWork",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Commands/IUnitOfWork.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف Interface برای الگوی UnitOfWork جهت مدیریت تراکنش‌ها با دیتابیس در این قسمت انجام شده است\n/// تعریف کامل این الگو در کتاب P of EAA وجود دارد و تعریف اولیه را در آدرس زیر می‌توان مشاهده کرد\n/// https://martinfowler.com/eaaCatalog/unitOfWork.html\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "void BeginTransaction()",
+          "xml_doc": "/// <summary>\n    /// در صورت نیاز به کنترل تراکنش‌ها از این متد جهت شروع تراکنش استفاده می‌شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "در صورت نیاز به کنترل تراکنش‌ها از این متد جهت شروع تراکنش استفاده می‌شود.",
+            "en": "Author XML for method 'BeginTransaction': در صورت نیاز به کنترل تراکنش‌ها از این متد جهت شروع تراکنش استفاده می‌شود."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "void CommitTransaction()",
+          "xml_doc": "/// <summary>\n    /// در صورت کنترل دستی تراکنش از این متد جهت پایان موفقیت آمیز تراکنش استفاده می‌شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "در صورت کنترل دستی تراکنش از این متد جهت پایان موفقیت آمیز تراکنش استفاده می‌شود.",
+            "en": "Author XML for method 'CommitTransaction': در صورت کنترل دستی تراکنش از این متد جهت پایان موفقیت آمیز تراکنش استفاده می‌شود."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "void RollbackTransaction()",
+          "xml_doc": "/// <summary>\n    /// در صورت بروز خطا در فرایند‌ها از این متد جهت بازگشت تغییرات استفاده می‌شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "در صورت بروز خطا در فرایند‌ها از این متد جهت بازگشت تغییرات استفاده می‌شود.",
+            "en": "Author XML for method 'RollbackTransaction': در صورت بروز خطا در فرایند‌ها از این متد جهت بازگشت تغییرات استفاده می‌شود."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Commit",
+          "kind": "method",
+          "signature": "int Commit()",
+          "xml_doc": "/// <summary>\n    /// برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n    /// </summary>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'Commit': برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "CommitAsync",
+          "kind": "method",
+          "signature": "Task<int> CommitAsync()",
+          "xml_doc": "/// <summary>\n    /// برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n    /// </summary>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n\nمقدار بازگشتی: `Task<int>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'CommitAsync': برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n\nReturns: `Task<int>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "تعریف Interface برای الگوی UnitOfWork جهت مدیریت تراکنش‌ها با دیتابیس در این قسمت انجام شده است تعریف کامل این الگو در کتاب P of EAA وجود دارد و تعریف اولیه را در آدرس زیر می‌توان مشاهده کرد https://martinfowler.com/eaaCatalog/unitOfWork.html",
+        "en": "Author XML for interface 'IUnitOfWork': تعریف Interface برای الگوی UnitOfWork جهت مدیریت تراکنش‌ها با دیتابیس در این قسمت انجام شده است تعریف کامل این الگو در کتاب P of EAA وجود دارد و تعریف اولیه را در آدرس زیر می‌توان مشاهده کرد https://martinfowler.com/eaaCatalog/unitOfWork.html"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

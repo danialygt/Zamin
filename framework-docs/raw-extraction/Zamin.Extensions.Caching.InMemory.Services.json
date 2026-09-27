@@ -1,0 +1,57 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.InMemory.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "InMemoryCacheAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.InMemory.Services",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.InMemory/Zamin.Extensions.Caching.InMemory/Services/InMemoryCacheAdapter.cs",
+      "base_types": [
+        "ICacheAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IMemoryCache memoryCache",
+        "IJsonSerializer jsonSerializer",
+        "ILogger<InMemoryCacheAdapter> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public InMemoryCacheAdapter(IMemoryCache memoryCache,\r\n                                IJsonSerializer jsonSerializer,\r\n                                ILogger<InMemoryCacheAdapter> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _memoryCache = memoryCache;\r\n        _jsonSerializer = jsonSerializer;\r\n        _logger = logger;\r\n        _logger.LogInformation(\"InMemoryCache Adapter Start working\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "public void Add<TInput>(string key, TInput obj, DateTime? absoluteExpiration, TimeSpan? slidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"InMemoryCache Adapter Cache {obj} with key : {key} \" +\r\n                         \", with data : {data} \" +\r\n                         \", with absoluteExpiration : {absoluteExpiration} \" +\r\n                         \", with slidingExpiration : {slidingExpiration}\",\r\n                         typeof(TInput),\r\n                         key,\r\n                         _jsonSerializer.Serialize(obj),\r\n                         absoluteExpiration.ToString(),\r\n                         slidingExpiration.ToString());\r\n\r\n        _memoryCache.Set(key, obj, new MemoryCacheEntryOptions\r\n        {\r\n            AbsoluteExpiration = absoluteExpiration,\r\n            SlidingExpiration = slidingExpiration,\r\n        });\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"InMemoryCache Adapter Try Get Cache with key : {key}\", key);\r\n\r\n        var result = _memoryCache.TryGetValue(key, out TOutput resultObject);\r\n\r\n        if (result)\r\n            _logger.LogTrace(\"InMemoryCache Adapter Successful Get Cache with key : {key} and data : {data}\",\r\n                             key,\r\n                             _jsonSerializer.Serialize(resultObject));\r\n        else\r\n            _logger.LogTrace(\"InMemoryCache Adapter Failed Get Cache with key : {key}\", key);\r\n\r\n        return resultObject;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "public void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"InMemoryCache Adapter Remove Cache with key : {key}\", key);\r\n\r\n        _memoryCache.Remove(key);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

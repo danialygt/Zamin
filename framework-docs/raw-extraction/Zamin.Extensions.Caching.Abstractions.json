@@ -1,0 +1,82 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "FakeCacheAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Chaching.Abstractions/FakeCacheAdapter.cs",
+      "base_types": [
+        "ICacheAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "public void Add<TInput>(string key, TInput obj, DateTime? AbsoluteExpiration, TimeSpan? SlidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "=> default;",
+          "attributes": []
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "public void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ICacheAdapter",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Caching.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Chaching.Abstractions/ICacheAdapter.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "void Add<TInput>(string key, TInput obj, DateTime? AbsoluteExpiration, TimeSpan? SlidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

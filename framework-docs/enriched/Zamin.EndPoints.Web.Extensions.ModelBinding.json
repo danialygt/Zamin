@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Extensions.ModelBinding",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "NonValidatingValidatorExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Extensions.ModelBinding",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/ModelBinding/AddNonValidateValidator.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddNonValidatingValidator",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddNonValidatingValidator(this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var validator = services.FirstOrDefault(s => s.ServiceType == typeof(IObjectModelValidator));\r\n        if (validator != null)\r\n        {\r\n            services.Remove(validator);\r\n            services.Add(new ServiceDescriptor(typeof(IObjectModelValidator), _ => new NonValidatingValidator(), ServiceLifetime.Singleton));\r\n        }\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddNonValidatingValidator» در NonValidatingValidatorExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddNonValidatingValidator' on NonValidatingValidatorExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NonValidatingValidatorExtensions» در namespace Zamin.EndPoints.Web.Extensions.ModelBinding. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'NonValidatingValidatorExtensions' in namespace Zamin.EndPoints.Web.Extensions.ModelBinding. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

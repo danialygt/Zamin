@@ -1,0 +1,84 @@
+{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ControllersAndActionDetector",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Detectors/ControllersAndActionDetector.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IActionDescriptorCollectionProvider actionDescriptorCollectionProvider"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ControllersAndActionDetector(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public Task<List<SoftwarePartController>> Detect()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return Task.Run(() =>\r\n        {\r\n            var result = new List<SoftwarePartController>();\r\n\r\n            var controllerActionDescriptors = _actionDescriptorCollectionProvider.ActionDescriptors.Items.OfType<ControllerActionDescriptor>().ToList();\r\n\r\n            foreach (var item in controllerActionDescriptors)\r\n            {\r\n                var attribute = item.ControllerTypeInfo.GetCustomAttributes(typeof(SoftwarePartControllerOptionAttribute), false).FirstOrDefault() as SoftwarePartControllerOptionAttribute;\r\n                result.Add(new SoftwarePartController\r\n                {\r\n                    Module = attribute?.Module,\r\n                    Service = attribute?.Service,\r\n                    Name = item.ControllerName,\r\n                    ApplicationPartType = SoftwarePartType.Controller,\r\n                });\r\n            }\r\n\r\n            result = result.DistinctBy(c => c.Name).GroupJoin(controllerActionDescriptors, c => c.Name, a => a.ControllerName, (c, a) => new SoftwarePartController\r\n            {\r\n                Module = c.Module,\r\n                Service = c.Service,\r\n                Name = c.Name,\r\n                ApplicationPartType = SoftwarePartType.Controller,\r\n                Actions = a.Select(b => new SoftwarePartAction\r\n                {\r\n                    Name = b.ActionName,\r\n                    ApplicationPartType = SoftwarePartType.Action\r\n                }).DistinctBy(c => c.Name).ToList()\r\n            }).ToList();\r\n\r\n            return result;\r\n        });\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "SoftwarePartDetector",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Detectors/SoftwarePartDetector.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ControllersAndActionDetector controllersAndActionDetector"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartDetector(ControllersAndActionDetector controllersAndActionDetector)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _controllersAndActionDetector = controllersAndActionDetector;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public async Task<SoftwarePart> Detect(string softwareName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(softwareName))\r\n            throw new ArgumentNullException(nameof(softwareName));\r\n\r\n        var application = new SoftwarePart\r\n        {\r\n            Name = softwareName,\r\n            SoftwarePartType = SoftwarePartType.Sample\r\n        };\r\n\r\n        var controllers = await _controllersAndActionDetector.Detect();\r\n\r\n        foreach (var controller in controllers)\r\n        {\r\n            if (controller.Module is null)\r\n            {\r\n                if (controller.Service is null)\r\n                {\r\n                    AddControllerAndActionsToParent(application, controller);\r\n                }\r\n                else\r\n                {\r\n                    var service = application.Children.FirstOrDefault(c => c.Name == controller.Service && c.SoftwarePartType == SoftwarePartType.Service);\r\n                    if (service is not null)\r\n                    {\r\n                        AddControllerAndActionsToParent(service, controller);\r\n                    }\r\n                    else\r\n                    {\r\n                        service = new SoftwarePart()\r\n                        {\r\n                            Name = controller.Service,\r\n                            SoftwarePartType = SoftwarePartType.Service,\r\n                        };\r\n\r\n                        AddControllerAndActionsToParent(service, controller);\r\n\r\n                        application.Children.Add(service);\r\n                    }\r\n                }\r\n            }\r\n            else\r\n            {\r\n                AddControllerAndActionsToCustomModuleAndCustomService(application, controller);\r\n            }\r\n        }\r\n\r\n        return application;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public async Task<SoftwarePart> Detect(string softwareName, string moduleName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(moduleName))\r\n            return await Detect(softwareName);\r\n\r\n        var application = new SoftwarePart\r\n        {\r\n            Name = softwareName,\r\n            SoftwarePartType = SoftwarePartType.Sample,\r\n            Children = new List<SoftwarePart>\r\n            {\r\n                new SoftwarePart\r\n                {\r\n                    Name = moduleName,\r\n                    SoftwarePartType=SoftwarePartType.Module,\r\n                }\r\n            }\r\n        };\r\n\r\n        var controllers = await _controllersAndActionDetector.Detect();\r\n\r\n        foreach (var controller in controllers)\r\n        {\r\n            if (controller.Module is null)\r\n            {\r\n                var module = application.Children.First(c => c.Name == moduleName);\r\n\r\n                if (controller.Service is null)\r\n                {\r\n                    AddControllerAndActionsToParent(module, controller);\r\n                }\r\n                else\r\n                {\r\n                    var service = module.Children.FirstOrDefault(c => c.Name == controller.Service);\r\n                    if (service is not null)\r\n                    {\r\n                        AddControllerAndActionsToParent(service, controller);\r\n                    }\r\n                    else\r\n                    {\r\n                        service = CreateSoftwarePartService(controller.Service);\r\n\r\n                        AddControllerAndActionsToParent(service, controller);\r\n\r\n                        module.Children.Add(service);\r\n                    }\r\n                }\r\n\r\n            }\r\n            else\r\n            {\r\n                AddControllerAndActionsToCustomModuleAndCustomService(application, controller);\r\n            }\r\n        }\r\n\r\n        return application;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public async Task<SoftwarePart> Detect(string softwareName, string moduleName, string serviceName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(serviceName) || string.IsNullOrEmpty(moduleName))\r\n            return await Detect(softwareName, moduleName);\r\n\r\n        var application = new SoftwarePart\r\n        {\r\n            Name = softwareName,\r\n            SoftwarePartType = SoftwarePartType.Sample,\r\n            Children = new List<SoftwarePart>\r\n            {\r\n                new SoftwarePart\r\n                {\r\n                    Name = moduleName,\r\n                    SoftwarePartType=SoftwarePartType.Module,\r\n                    Children = new List<SoftwarePart>\r\n                    {\r\n                        new SoftwarePart\r\n                        {\r\n                            Name =serviceName,\r\n                            SoftwarePartType= SoftwarePartType.Service,\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        };\r\n\r\n        var controllers = await _controllersAndActionDetector.Detect();\r\n\r\n        foreach (var controller in controllers)\r\n        {\r\n            if (controller.Module is null)\r\n            {\r\n                var module = application.Children.First(c => c.Name == moduleName);\r\n                if (controller.Service is null)\r\n                {\r\n                    var service = module.Children.First(c => c.Name == serviceName);\r\n\r\n                    AddControllerAndActionsToParent(service, controller);\r\n                }\r\n                else\r\n                {\r\n                    var service = module.Children.FirstOrDefault(c => c.Name == controller.Service);\r\n                    if (service is not null)\r\n                    {\r\n                        AddControllerAndActionsToParent(service, controller);\r\n                    }\r\n                    else\r\n                    {\r\n                        service = CreateSoftwarePartService(controller.Service);\r\n\r\n                        AddControllerAndActionsToParent(service, controller);\r\n\r\n                        module.Children.Add(service);\r\n                    }\r\n                }\r\n            }\r\n            else\r\n            {\r\n                AddControllerAndActionsToCustomModuleAndCustomService(application, controller);\r\n            }\r\n        }\r\n\r\n        return application;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

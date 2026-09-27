@@ -1,0 +1,130 @@
+﻿{
+  "namespace": "Zamin.Utilities",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ZaminServices",
+      "kind": "class",
+      "namespace": "Zamin.Utilities",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/ZaminServices.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ITranslator translator",
+        "ILoggerFactory loggerFactory",
+        "IJsonSerializer serializer",
+        "IUserInfoService userInfoService",
+        "ICacheAdapter cacheAdapter",
+        "IMapperAdapter mapperFacade"
+      ],
+      "members": [
+        {
+          "name": "Translator",
+          "kind": "field",
+          "signature": "public readonly ITranslator Translator;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «Translator» در ZaminServices با امضای `public readonly ITranslator Translator;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'Translator' on ZaminServices with signature `public readonly ITranslator Translator;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CacheAdapter",
+          "kind": "field",
+          "signature": "public readonly ICacheAdapter CacheAdapter;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «CacheAdapter» در ZaminServices با امضای `public readonly ICacheAdapter CacheAdapter;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'CacheAdapter' on ZaminServices with signature `public readonly ICacheAdapter CacheAdapter;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MapperFacade",
+          "kind": "field",
+          "signature": "public readonly IMapperAdapter MapperFacade;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «MapperFacade» در ZaminServices با امضای `public readonly IMapperAdapter MapperFacade;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'MapperFacade' on ZaminServices with signature `public readonly IMapperAdapter MapperFacade;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "LoggerFactory",
+          "kind": "field",
+          "signature": "public readonly ILoggerFactory LoggerFactory;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «LoggerFactory» در ZaminServices با امضای `public readonly ILoggerFactory LoggerFactory;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'LoggerFactory' on ZaminServices with signature `public readonly ILoggerFactory LoggerFactory;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Serializer",
+          "kind": "field",
+          "signature": "public readonly IJsonSerializer Serializer;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «Serializer» در ZaminServices با امضای `public readonly IJsonSerializer Serializer;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'Serializer' on ZaminServices with signature `public readonly IJsonSerializer Serializer;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserInfoService",
+          "kind": "field",
+          "signature": "public readonly IUserInfoService UserInfoService;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «UserInfoService» در ZaminServices با امضای `public readonly IUserInfoService UserInfoService;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'UserInfoService' on ZaminServices with signature `public readonly IUserInfoService UserInfoService;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ZaminServices(ITranslator translator,\r\n            ILoggerFactory loggerFactory,\r\n            IJsonSerializer serializer,\r\n            IUserInfoService userInfoService,\r\n            ICacheAdapter cacheAdapter,\r\n            IMapperAdapter mapperFacade)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Translator = translator;\r\n        LoggerFactory = loggerFactory;\r\n        Serializer = serializer;\r\n        UserInfoService = userInfoService;\r\n        CacheAdapter = cacheAdapter;\r\n        MapperFacade = mapperFacade;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ZaminServices. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- translator (ITranslator): ورودی از نوع ITranslator.\r\n- loggerFactory (ILoggerFactory): لاگر برای ثبت رویدادها و خطاها.\r\n- serializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\n- userInfoService (IUserInfoService): ورودی از نوع IUserInfoService.\r\n- cacheAdapter (ICacheAdapter): ورودی از نوع ICacheAdapter.\r\n- mapperFacade (IMapperAdapter): ورودی از نوع IMapperAdapter.",
+            "en": "Constructor for ZaminServices. Parameters are expected via dependency injection. Parameters:\r\n- translator (ITranslator): Input of type ITranslator.\r\n- loggerFactory (ILoggerFactory): Logger for diagnostics and error reporting.\r\n- serializer (IJsonSerializer): Input of type IJsonSerializer.\r\n- userInfoService (IUserInfoService): Input of type IUserInfoService.\r\n- cacheAdapter (ICacheAdapter): Input of type ICacheAdapter.\r\n- mapperFacade (IMapperAdapter): Input of type IMapperAdapter."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ZaminServices» در namespace Zamin.Utilities. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. وابستگی‌های سازنده (DI): ITranslator translator, ILoggerFactory loggerFactory, IJsonSerializer serializer, IUserInfoService userInfoService, ICacheAdapter cacheAdapter, IMapperAdapter mapperFacade. مرتبط: DI: ITranslator translator, ILoggerFactory loggerFactory, IJsonSerializer serializer, IUserInfoService userInfoService, ICacheAdapter cacheAdapter.",
+        "en": "Class 'ZaminServices' in namespace Zamin.Utilities. Public/protected class definition in the Zamin framework layer. Constructor-injected dependencies: ITranslator translator, ILoggerFactory loggerFactory, IJsonSerializer serializer, IUserInfoService userInfoService, ICacheAdapter cacheAdapter, IMapperAdapter mapperFacade. Related: DI: ITranslator translator, ILoggerFactory loggerFactory, IJsonSerializer serializer, IUserInfoService userInfoService, ICacheAdapter cacheAdapter."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

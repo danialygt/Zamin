@@ -1,0 +1,494 @@
+﻿{
+  "generated_at": "2026-09-27T08:10:15.1177463Z",
+  "repo_root": "D:\\Sources\\Zamin",
+  "source_file_count": 249,
+  "namespace_count": 97,
+  "total_types": 258,
+  "namespaces": [
+    {
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "file": "Zamin.Core.ApplicationServices.Commands.json",
+      "type_count": 6
+    },
+    {
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "file": "Zamin.Core.ApplicationServices.Events.json",
+      "type_count": 4
+    },
+    {
+      "namespace": "Zamin.Core.ApplicationServices.Queries",
+      "file": "Zamin.Core.ApplicationServices.Queries.json",
+      "type_count": 5
+    },
+    {
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Commands",
+      "file": "Zamin.Core.Contracts.ApplicationServices.Commands.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+      "file": "Zamin.Core.Contracts.ApplicationServices.Events.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Queries",
+      "file": "Zamin.Core.Contracts.ApplicationServices.Queries.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "file": "Zamin.Core.Contracts.Data.Commands.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Core.Contracts.Data.Queries",
+      "file": "Zamin.Core.Contracts.Data.Queries.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Core.Domain.Entities",
+      "file": "Zamin.Core.Domain.Entities.json",
+      "type_count": 6
+    },
+    {
+      "namespace": "Zamin.Core.Domain.Events",
+      "file": "Zamin.Core.Domain.Events.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Core.Domain.Exceptions",
+      "file": "Zamin.Core.Domain.Exceptions.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "file": "Zamin.Core.Domain.Toolkits.ValueObjects.json",
+      "type_count": 5
+    },
+    {
+      "namespace": "Zamin.Core.Domain.ValueObjects",
+      "file": "Zamin.Core.Domain.ValueObjects.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "file": "Zamin.Core.RequestResponse.Commands.json",
+      "type_count": 4
+    },
+    {
+      "namespace": "Zamin.Core.RequestResponse.Common",
+      "file": "Zamin.Core.RequestResponse.Common.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Core.RequestResponse.Endpoints",
+      "file": "Zamin.Core.RequestResponse.Endpoints.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Core.RequestResponse.Queries",
+      "file": "Zamin.Core.RequestResponse.Queries.json",
+      "type_count": 6
+    },
+    {
+      "namespace": "Zamin.EndPoints.Web.Controllers",
+      "file": "Zamin.EndPoints.Web.Controllers.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.EndPoints.Web.Extensions",
+      "file": "Zamin.EndPoints.Web.Extensions.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.EndPoints.Web.Extensions.ModelBinding",
+      "file": "Zamin.EndPoints.Web.Extensions.ModelBinding.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "file": "Zamin.EndPoints.Web.Filters.json",
+      "type_count": 5
+    },
+    {
+      "namespace": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+      "file": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler.json",
+      "type_count": 4
+    },
+    {
+      "namespace": "Zamin.EndPoints.Web.ModelBinding",
+      "file": "Zamin.EndPoints.Web.ModelBinding.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Caching.Abstractions",
+      "file": "Zamin.Extensions.Caching.Abstractions.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Options",
+      "file": "Zamin.Extensions.Caching.Distributed.Redis.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Services",
+      "file": "Zamin.Extensions.Caching.Distributed.Redis.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Caching.Distributed.Sql.Options",
+      "file": "Zamin.Extensions.Caching.Distributed.Sql.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Caching.Distributed.Sql.Services",
+      "file": "Zamin.Extensions.Caching.Distributed.Sql.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Caching.InMemory.Services",
+      "file": "Zamin.Extensions.Caching.InMemory.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "file": "Zamin.Extensions.ChangeDataLog.Abstractions.json",
+      "type_count": 4
+    },
+    {
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql",
+      "file": "Zamin.Extensions.ChangeDataLog.Sql.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+      "file": "Zamin.Extensions.ChangeDataLog.Sql.Options.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "file": "Zamin.Extensions.DependencyInjection.json",
+      "type_count": 26
+    },
+    {
+      "namespace": "Zamin.Extensions.DependencyInjection.Abstractions",
+      "file": "Zamin.Extensions.DependencyInjection.Abstractions.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection",
+      "file": "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.DependencyInjection.Options",
+      "file": "Zamin.Extensions.DependencyInjection.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.Abstractions",
+      "file": "Zamin.Extensions.Events.Abstractions.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF",
+      "file": "Zamin.Extensions.Events.Outbox.Dal.EF.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Configs",
+      "file": "Zamin.Extensions.Events.Outbox.Dal.EF.Configs.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors",
+      "file": "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.PollingPublisher",
+      "file": "Zamin.Extensions.Events.PollingPublisher.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess",
+      "file": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.Options",
+      "file": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Options",
+      "file": "Zamin.Extensions.Events.PollingPublisher.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Logger.Abstractions",
+      "file": "Zamin.Extensions.Logger.Abstractions.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions",
+      "file": "Zamin.Extensions.MessageBus.Abstractions.json",
+      "type_count": 5
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+      "file": "Zamin.Extensions.MessageBus.Abstractions.Fakes.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox",
+      "file": "Zamin.Extensions.MessageBus.MessageInbox.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper",
+      "file": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options",
+      "file": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Options",
+      "file": "Zamin.Extensions.MessageBus.MessageInbox.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "file": "Zamin.Extensions.MessageBus.RabbitMQ.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ.Options",
+      "file": "Zamin.Extensions.MessageBus.RabbitMQ.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.ObjectMappers.Abstractions",
+      "file": "Zamin.Extensions.ObjectMappers.Abstractions.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Options",
+      "file": "Zamin.Extensions.ObjectMappers.AutoMapper.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Services",
+      "file": "Zamin.Extensions.ObjectMappers.AutoMapper.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.ObjectMappers.Mapster.Services",
+      "file": "Zamin.Extensions.ObjectMappers.Mapster.Services.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.Serializers.Abstractions",
+      "file": "Zamin.Extensions.Serializers.Abstractions.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.Serializers.EPPlus.Extensions",
+      "file": "Zamin.Extensions.Serializers.EPPlus.Extensions.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.Serializers.EPPlus.Services",
+      "file": "Zamin.Extensions.Serializers.EPPlus.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Serializers.Microsoft.Services",
+      "file": "Zamin.Extensions.Serializers.Microsoft.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Serializers.NewtonSoft.Services",
+      "file": "Zamin.Extensions.Serializers.NewtonSoft.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Translations.Abstractions",
+      "file": "Zamin.Extensions.Translations.Abstractions.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Translations.Parrot.DataModel",
+      "file": "Zamin.Extensions.Translations.Parrot.DataModel.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Translations.Parrot.Database",
+      "file": "Zamin.Extensions.Translations.Parrot.Database.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+      "file": "Zamin.Extensions.Translations.Parrot.Options.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.Translations.Parrot.Services",
+      "file": "Zamin.Extensions.Translations.Parrot.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+      "file": "Zamin.Extensions.UsersManagement.Abstractions.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Extensions.UsersManagement.Extensions",
+      "file": "Zamin.Extensions.UsersManagement.Extensions.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.UsersManagement.Options",
+      "file": "Zamin.Extensions.UsersManagement.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Extensions.UsersManagement.Services",
+      "file": "Zamin.Extensions.UsersManagement.Services.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "file": "Zamin.Infra.Data.Sql.Commands.json",
+      "type_count": 4
+    },
+    {
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "file": "Zamin.Infra.Data.Sql.Commands.Extensions.json",
+      "type_count": 5
+    },
+    {
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "file": "Zamin.Infra.Data.Sql.Commands.Interceptors.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+      "file": "Zamin.Infra.Data.Sql.Commands.ValueConversions.json",
+      "type_count": 5
+    },
+    {
+      "namespace": "Zamin.Infra.Data.Sql.Queries",
+      "file": "Zamin.Infra.Data.Sql.Queries.json",
+      "type_count": 3
+    },
+    {
+      "namespace": "Zamin.Utilities",
+      "file": "Zamin.Utilities.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Extensions",
+      "file": "Zamin.Utilities.Auth.ApiAuthentication.Extensions.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Models",
+      "file": "Zamin.Utilities.Auth.ApiAuthentication.Models.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "file": "Zamin.Utilities.Auth.ApiAuthentication.Options.json",
+      "type_count": 11
+    },
+    {
+      "namespace": "Zamin.Utilities.DateTimes",
+      "file": "Zamin.Utilities.DateTimes.json",
+      "type_count": 12
+    },
+    {
+      "namespace": "Zamin.Utilities.Extensions",
+      "file": "Zamin.Utilities.Extensions.json",
+      "type_count": 8
+    },
+    {
+      "namespace": "Zamin.Utilities.Guards",
+      "file": "Zamin.Utilities.Guards.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "file": "Zamin.Utilities.Guards.GuardClauses.json",
+      "type_count": 16
+    },
+    {
+      "namespace": "Zamin.Utilities.Resources.Translators",
+      "file": "Zamin.Utilities.Resources.Translators.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Utilities.ScalarRegistration.Options",
+      "file": "Zamin.Utilities.ScalarRegistration.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+      "file": "Zamin.Utilities.SerilogRegistration.Enrichers.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Utilities.SerilogRegistration.Extensions",
+      "file": "Zamin.Utilities.SerilogRegistration.Extensions.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.SerilogRegistration.Options",
+      "file": "Zamin.Utilities.SerilogRegistration.Options.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.Sinks.Elasticsearch",
+      "file": "Zamin.Utilities.Sinks.Elasticsearch.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector",
+      "file": "Zamin.Utilities.SoftwarePartDetector.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Attributes",
+      "file": "Zamin.Utilities.SoftwarePartDetector.Attributes.json",
+      "type_count": 1
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+      "file": "Zamin.Utilities.SoftwarePartDetector.Authentications.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.DataModel",
+      "file": "Zamin.Utilities.SoftwarePartDetector.DataModel.json",
+      "type_count": 4
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+      "file": "Zamin.Utilities.SoftwarePartDetector.Options.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+      "file": "Zamin.Utilities.SoftwarePartDetector.Publishers.json",
+      "type_count": 2
+    },
+    {
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Services",
+      "file": "Zamin.Utilities.SoftwarePartDetector.Services.json",
+      "type_count": 1
+    }
+  ]
+}

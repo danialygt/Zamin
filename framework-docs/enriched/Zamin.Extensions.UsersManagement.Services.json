@@ -1,0 +1,167 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "WebUserInfoService",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Services",
+      "source_file": "Extentsions/UsersManagement/Zamin.Extensions.UsersManagement/Zamin.Extensions.UsersManagement/Services/WebUserInfoService.cs",
+      "base_types": [
+        "IUserInfoService"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetUserAgent",
+          "kind": "method",
+          "signature": "public string GetUserAgent()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor?.HttpContext?.Request?.Headers[\"User-Agent\"] ?? _configuration.DefaultUserAgent;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUserAgent» در WebUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'GetUserAgent' on WebUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUserIp",
+          "kind": "method",
+          "signature": "public string GetUserIp()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress?.ToString() ?? _configuration.DefaultUserIp;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUserIp» در WebUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'GetUserIp' on WebUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserId",
+          "kind": "method",
+          "signature": "public string UserId()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor?.HttpContext?.User?.GetClaim(ClaimTypes.NameIdentifier) ?? string.Empty;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserId» در WebUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'UserId' on WebUserInfoService. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUsername",
+          "kind": "method",
+          "signature": "public string GetUsername()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(ClaimTypes.Name) ?? _configuration.DefaultUsername;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUsername» در WebUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'GetUsername' on WebUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetFirstName",
+          "kind": "method",
+          "signature": "public string GetFirstName()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(ClaimTypes.GivenName) ?? _configuration.DefaultFirstName;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetFirstName» در WebUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'GetFirstName' on WebUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetLastName",
+          "kind": "method",
+          "signature": "public string GetLastName()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(ClaimTypes.Surname) ?? _configuration.DefaultLastName;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetLastName» در WebUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'GetLastName' on WebUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsCurrentUser",
+          "kind": "method",
+          "signature": "public bool IsCurrentUser(string userId)",
+          "xml_doc": "",
+          "body_summary": "=> string.Equals(UserId().ToString(), userId, StringComparison.OrdinalIgnoreCase);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsCurrentUser» در WebUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- userId (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'IsCurrentUser' on WebUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- userId (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public string? GetClaim(string claimType)",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(claimType);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetClaim» در WebUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- claimType (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'GetClaim' on WebUserInfoService. Retrieves related data or state.\r\nParameters:\r\n- claimType (string): Input of type string.\r\n\r\nReturns: `string?`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault()",
+          "xml_doc": "",
+          "body_summary": "=> UserIdOrDefault(_configuration.DefaultUserId);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserIdOrDefault» در WebUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'UserIdOrDefault' on WebUserInfoService. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault(string defaultValue)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        string userId = UserId();\r\n        return string.IsNullOrEmpty(userId) ? defaultValue : userId;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserIdOrDefault» در WebUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- defaultValue (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IUserInfoService",
+            "en": "Method 'UserIdOrDefault' on WebUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- defaultValue (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IUserInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «WebUserInfoService» در namespace Zamin.Extensions.UsersManagement.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IUserInfoService. مرتبط: IUserInfoService.",
+        "en": "Class 'WebUserInfoService' in namespace Zamin.Extensions.UsersManagement.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: IUserInfoService. Related: IUserInfoService."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

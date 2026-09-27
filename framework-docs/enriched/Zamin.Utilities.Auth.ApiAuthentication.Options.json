@@ -1,0 +1,915 @@
+﻿{
+  "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+  "type_count": 11,
+  "types": [
+    {
+      "type_name": "ApiAuthenticationOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/ApiAuthenticationOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Enabled» از نوع `bool` در ApiAuthenticationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Enabled' of type `bool` on ApiAuthenticationOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Providers",
+          "kind": "property",
+          "signature": "public List<ProviderOption> Providers { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Providers» از نوع `List<ProviderOption>` در ApiAuthenticationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Providers' of type `List<ProviderOption>` on ApiAuthenticationOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EnabledProviders",
+          "kind": "property",
+          "signature": "public IReadOnlyList<ProviderOption> EnabledProviders => ...",
+          "xml_doc": "",
+          "body_summary": "=> [.. Providers.Where(c => c.Enabled).OrderBy(c => c.Priority)];",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EnabledProviders» از نوع `IReadOnlyList<ProviderOption>` در ApiAuthenticationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'EnabledProviders' of type `IReadOnlyList<ProviderOption>` on ApiAuthenticationOption. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DefualtProvider",
+          "kind": "property",
+          "signature": "public ProviderOption? DefualtProvider => ...",
+          "xml_doc": "",
+          "body_summary": "=> EnabledProviders.FirstOrDefault();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «DefualtProvider» از نوع `ProviderOption?` در ApiAuthenticationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'DefualtProvider' of type `ProviderOption?` on ApiAuthenticationOption. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Active",
+          "kind": "property",
+          "signature": "public bool Active => ...",
+          "xml_doc": "",
+          "body_summary": "=> Enabled && EnabledProviders.Any();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Active» از نوع `bool` در ApiAuthenticationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Active' of type `bool` on ApiAuthenticationOption. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ApiAuthenticationOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'ApiAuthenticationOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "CacheExpirationType",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/CacheExpirationType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Absolute",
+          "kind": "enum_member",
+          "signature": "Absolute = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Absolute» در enum CacheExpirationType.",
+            "en": "Enum member 'Absolute' of CacheExpirationType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Sliding",
+          "kind": "enum_member",
+          "signature": "Sliding = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Sliding» در enum CacheExpirationType.",
+            "en": "Enum member 'Sliding' of CacheExpirationType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "شمارشی (enum) «CacheExpirationType» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Enumeration 'CacheExpirationType' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "CacheKeyFormat",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/CacheKeyFormat.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Base64",
+          "kind": "enum_member",
+          "signature": "Base64 = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Base64» در enum CacheKeyFormat.",
+            "en": "Enum member 'Base64' of CacheKeyFormat."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PlainText",
+          "kind": "enum_member",
+          "signature": "PlainText = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «PlainText» در enum CacheKeyFormat.",
+            "en": "Enum member 'PlainText' of CacheKeyFormat."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "شمارشی (enum) «CacheKeyFormat» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Enumeration 'CacheKeyFormat' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EndpointsPathOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/EndpointsPathOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AuthorizeEndpoint",
+          "kind": "property",
+          "signature": "public string AuthorizeEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AuthorizeEndpoint» از نوع `string` در EndpointsPathOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AuthorizeEndpoint' of type `string` on EndpointsPathOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TokenEndpoint",
+          "kind": "property",
+          "signature": "public string TokenEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TokenEndpoint» از نوع `string` در EndpointsPathOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TokenEndpoint' of type `string` on EndpointsPathOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserInfoEndpoint",
+          "kind": "property",
+          "signature": "public string UserInfoEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «UserInfoEndpoint» از نوع `string` در EndpointsPathOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'UserInfoEndpoint' of type `string` on EndpointsPathOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IntrospectionEndpoint",
+          "kind": "property",
+          "signature": "public string IntrospectionEndpoint { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «IntrospectionEndpoint» از نوع `string` در EndpointsPathOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'IntrospectionEndpoint' of type `string` on EndpointsPathOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EndpointsPathOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'EndpointsPathOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "JwtTokenConfigOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/JwtTokenConfigOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Audience",
+          "kind": "property",
+          "signature": "public string? Audience { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Audience» از نوع `string?` در JwtTokenConfigOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Audience' of type `string?` on JwtTokenConfigOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RequireHttpsMetadata",
+          "kind": "property",
+          "signature": "public bool RequireHttpsMetadata { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «RequireHttpsMetadata» از نوع `bool` در JwtTokenConfigOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'RequireHttpsMetadata' of type `bool` on JwtTokenConfigOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ValidateAudience",
+          "kind": "property",
+          "signature": "public bool ValidateAudience { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ValidateAudience» از نوع `bool` در JwtTokenConfigOption. ورودی را اعتبارسنجی می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'ValidateAudience' of type `bool` on JwtTokenConfigOption. Validates the input. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ValidateIssuer",
+          "kind": "property",
+          "signature": "public bool ValidateIssuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ValidateIssuer» از نوع `bool` در JwtTokenConfigOption. ورودی را اعتبارسنجی می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'ValidateIssuer' of type `bool` on JwtTokenConfigOption. Validates the input. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ValidateIssuerSigningKey",
+          "kind": "property",
+          "signature": "public bool ValidateIssuerSigningKey { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ValidateIssuerSigningKey» از نوع `bool` در JwtTokenConfigOption. ورودی را اعتبارسنجی می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'ValidateIssuerSigningKey' of type `bool` on JwtTokenConfigOption. Validates the input. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «JwtTokenConfigOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'JwtTokenConfigOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ProviderOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/ProviderOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Enabled» از نوع `bool` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Enabled' of type `bool` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IgnoreSSL",
+          "kind": "property",
+          "signature": "public bool IgnoreSSL { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «IgnoreSSL» از نوع `bool` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'IgnoreSSL' of type `bool` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Scheme",
+          "kind": "property",
+          "signature": "public string Scheme { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Scheme» از نوع `string` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Scheme' of type `string` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Authority",
+          "kind": "property",
+          "signature": "public string Authority { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Authority» از نوع `string` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Authority' of type `string` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "HttpClientFactoryName",
+          "kind": "property",
+          "signature": "public string? HttpClientFactoryName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «HttpClientFactoryName» از نوع `string?` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'HttpClientFactoryName' of type `string?` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TokenTypeSupport",
+          "kind": "property",
+          "signature": "public TokenType TokenTypeSupport { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TokenTypeSupport» از نوع `TokenType` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TokenTypeSupport' of type `TokenType` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "JwtTokenConfig",
+          "kind": "property",
+          "signature": "public JwtTokenConfigOption JwtTokenConfig { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «JwtTokenConfig» از نوع `JwtTokenConfigOption` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'JwtTokenConfig' of type `JwtTokenConfigOption` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RefrenceTokenConfig",
+          "kind": "property",
+          "signature": "public RefrenceTokenConfigOption RefrenceTokenConfig { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «RefrenceTokenConfig» از نوع `RefrenceTokenConfigOption` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'RefrenceTokenConfig' of type `RefrenceTokenConfigOption` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdentifierClaimType",
+          "kind": "property",
+          "signature": "public string UserIdentifierClaimType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «UserIdentifierClaimType» از نوع `string` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'UserIdentifierClaimType' of type `string` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RegisterUserInfoClaims",
+          "kind": "property",
+          "signature": "public RegisterUserInfoClaimsOption RegisterUserInfoClaims { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «RegisterUserInfoClaims» از نوع `RegisterUserInfoClaimsOption` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'RegisterUserInfoClaims' of type `RegisterUserInfoClaimsOption` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserClaimRules",
+          "kind": "property",
+          "signature": "public List<UserClaimRuleOption> UserClaimRules { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «UserClaimRules» از نوع `List<UserClaimRuleOption>` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'UserClaimRules' of type `List<UserClaimRuleOption>` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserClaimAddons",
+          "kind": "property",
+          "signature": "public List<UserClaimAddonOption> UserClaimAddons { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «UserClaimAddons» از نوع `List<UserClaimAddonOption>` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'UserClaimAddons' of type `List<UserClaimAddonOption>` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EndpointsPath",
+          "kind": "property",
+          "signature": "public EndpointsPathOption? EndpointsPath { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EndpointsPath» از نوع `EndpointsPathOption?` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EndpointsPath' of type `EndpointsPathOption?` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Priority",
+          "kind": "property",
+          "signature": "public int Priority { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Priority» از نوع `int` در ProviderOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Priority' of type `int` on ProviderOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ProviderOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'ProviderOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RefrenceTokenConfigOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/RefrenceTokenConfigOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ClientId",
+          "kind": "property",
+          "signature": "public string ClientId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ClientId» از نوع `string` در RefrenceTokenConfigOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ClientId' of type `string` on RefrenceTokenConfigOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ClientSecret",
+          "kind": "property",
+          "signature": "public string ClientSecret { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ClientSecret» از نوع `string` در RefrenceTokenConfigOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ClientSecret' of type `string` on RefrenceTokenConfigOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RefrenceTokenConfigOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'RefrenceTokenConfigOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RegisterUserInfoClaimsOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/RegisterUserInfoClaimsOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Enabled» از نوع `bool` در RegisterUserInfoClaimsOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Enabled' of type `bool` on RegisterUserInfoClaimsOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CachingData",
+          "kind": "property",
+          "signature": "public bool CachingData { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CachingData» از نوع `bool` در RegisterUserInfoClaimsOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'CachingData' of type `bool` on RegisterUserInfoClaimsOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CacheKeyPrefix",
+          "kind": "property",
+          "signature": "public string CacheKeyPrefix { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CacheKeyPrefix» از نوع `string` در RegisterUserInfoClaimsOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'CacheKeyPrefix' of type `string` on RegisterUserInfoClaimsOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CacheKeyFormat",
+          "kind": "property",
+          "signature": "public CacheKeyFormat CacheKeyFormat { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CacheKeyFormat» از نوع `CacheKeyFormat` در RegisterUserInfoClaimsOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'CacheKeyFormat' of type `CacheKeyFormat` on RegisterUserInfoClaimsOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CacheExpirationType",
+          "kind": "property",
+          "signature": "public CacheExpirationType CacheExpirationType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CacheExpirationType» از نوع `CacheExpirationType` در RegisterUserInfoClaimsOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'CacheExpirationType' of type `CacheExpirationType` on RegisterUserInfoClaimsOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CacheExpirationInSeconds",
+          "kind": "property",
+          "signature": "public int CacheExpirationInSeconds { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CacheExpirationInSeconds» از نوع `int` در RegisterUserInfoClaimsOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'CacheExpirationInSeconds' of type `int` on RegisterUserInfoClaimsOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RegisterUserInfoClaimsOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'RegisterUserInfoClaimsOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "TokenType",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/TokenType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Jwt",
+          "kind": "enum_member",
+          "signature": "Jwt = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Jwt» در enum TokenType.",
+            "en": "Enum member 'Jwt' of TokenType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Reference",
+          "kind": "enum_member",
+          "signature": "Reference = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Reference» در enum TokenType.",
+            "en": "Enum member 'Reference' of TokenType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "شمارشی (enum) «TokenType» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Enumeration 'TokenType' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "UserClaimAddonOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/UserClaimAddonOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Type",
+          "kind": "property",
+          "signature": "public string Type { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Type» از نوع `string` در UserClaimAddonOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Type' of type `string` on UserClaimAddonOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در UserClaimAddonOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on UserClaimAddonOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ValueType",
+          "kind": "property",
+          "signature": "public string? ValueType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ValueType» از نوع `string?` در UserClaimAddonOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ValueType' of type `string?` on UserClaimAddonOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Issuer",
+          "kind": "property",
+          "signature": "public string? Issuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Issuer» از نوع `string?` در UserClaimAddonOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Issuer' of type `string?` on UserClaimAddonOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OriginalIssuer",
+          "kind": "property",
+          "signature": "public string? OriginalIssuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «OriginalIssuer» از نوع `string?` در UserClaimAddonOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'OriginalIssuer' of type `string?` on UserClaimAddonOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «UserClaimAddonOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'UserClaimAddonOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "UserClaimRuleOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Options",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Options/UserClaimRuleOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Source",
+          "kind": "property",
+          "signature": "public string Source { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Source» از نوع `string` در UserClaimRuleOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Source' of type `string` on UserClaimRuleOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Destination",
+          "kind": "property",
+          "signature": "public string Destination { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Destination» از نوع `string` در UserClaimRuleOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Destination' of type `string` on UserClaimRuleOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RemoveSource",
+          "kind": "property",
+          "signature": "public bool RemoveSource { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «RemoveSource» از نوع `bool` در UserClaimRuleOption. مورد یا وضعیت را حذف/پاک می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'RemoveSource' of type `bool` on UserClaimRuleOption. Removes or clears the item/state. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «UserClaimRuleOption» در namespace Zamin.Utilities.Auth.ApiAuthentication.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'UserClaimRuleOption' in namespace Zamin.Utilities.Auth.ApiAuthentication.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

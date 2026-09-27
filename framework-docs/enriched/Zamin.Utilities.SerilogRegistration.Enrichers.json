@@ -1,0 +1,108 @@
+﻿{
+  "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ZaminApplicaitonEnricher",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Enrichers/ZaminApplicaitonEnricher.cs",
+      "base_types": [
+        "ILogEventEnricher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<SerilogApplicationEnricherOptions> options"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ZaminApplicaitonEnricher(IOptions<SerilogApplicationEnricherOptions> options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _options = options.Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ZaminApplicaitonEnricher. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- options (IOptions<SerilogApplicationEnricherOptions>): گزینه‌های typed تنظیمات.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for ZaminApplicaitonEnricher. Parameters are expected via dependency injection. Parameters:\r\n- options (IOptions<SerilogApplicationEnricherOptions>): Typed options snapshot/wrapper.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Enrich",
+          "kind": "method",
+          "signature": "public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)",
+          "xml_doc": "",
+          "body_summary": "{        \r\n        var applicationNameProperty = propertyFactory.CreateProperty(nameof(_options.ApplicationName), _options.ApplicationName);\r\n        var serviceNameProperty = propertyFactory.CreateProperty(nameof(_options.ServiceName), _options.ServiceName);\r\n        var serviceVersionProperty = propertyFactory.CreateProperty(nameof(_options.ServiceVersion), _options.ServiceVersion);\r\n        var serviceIdProperty = propertyFactory.CreateProperty(nameof(_options.ServiceId), _options.ServiceId);\r\n        var machineNameProperty = propertyFactory.CreateProperty(nameof(Environment.MachineName), Environment.MachineName);\r\n        var entryPointProperty = propertyFactory.CreateProperty(\"EntryPoint\", Assembly.GetEntryAssembly().GetName().Name);\r\n\r\n        logEvent.AddPropertyIfAbsent(applicationNameProperty);\r\n        logEvent.AddPropertyIfAbsent(serviceNameProperty);\r\n        logEvent.AddPropertyIfAbsent(serviceVersionProperty);\r\n        logEvent.AddPropertyIfAbsent(machineNameProperty);\r\n        logEvent.AddPropertyIfAbsent(entryPointProperty);\r\n        logEvent.AddPropertyIfAbsent(serviceIdProperty);\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Enrich» در ZaminApplicaitonEnricher. اطلاعات کمکی را به رویداد لاگ اضافه می‌کند.\r\nپارامترها:\r\n- logEvent (LogEvent): رویداد دامنه/پیام برای پردازش.\r\n- propertyFactory (ILogEventPropertyFactory): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ILogEventEnricher | DI: IOptions<SerilogApplicationEnricherOptions> options",
+            "en": "Method 'Enrich' on ZaminApplicaitonEnricher. Adds contextual information to the log event.\r\nParameters:\r\n- logEvent (LogEvent): Domain/event message to process.\r\n- propertyFactory (ILogEventPropertyFactory): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ILogEventEnricher | DI: IOptions<SerilogApplicationEnricherOptions> options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ZaminApplicaitonEnricher» در namespace Zamin.Utilities.SerilogRegistration.Enrichers. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ILogEventEnricher. وابستگی‌های سازنده (DI): IOptions<SerilogApplicationEnricherOptions> options. مرتبط: ILogEventEnricher | DI: IOptions<SerilogApplicationEnricherOptions> options.",
+        "en": "Class 'ZaminApplicaitonEnricher' in namespace Zamin.Utilities.SerilogRegistration.Enrichers. Public/protected class definition in the Zamin framework layer. Base/implemented types: ILogEventEnricher. Constructor-injected dependencies: IOptions<SerilogApplicationEnricherOptions> options. Related: ILogEventEnricher | DI: IOptions<SerilogApplicationEnricherOptions> options."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ZaminUserInfoEnricher",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Enrichers/ZaminUserInfoEnricher.cs",
+      "base_types": [
+        "ILogEventEnricher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IUserInfoService userInfoService"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ZaminUserInfoEnricher(IUserInfoService userInfoService)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        this._userInfoService = userInfoService;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ZaminUserInfoEnricher. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- userInfoService (IUserInfoService): ورودی از نوع IUserInfoService.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for ZaminUserInfoEnricher. Parameters are expected via dependency injection. Parameters:\r\n- userInfoService (IUserInfoService): Input of type IUserInfoService.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Enrich",
+          "kind": "method",
+          "signature": "public void Enrich(LogEvent logEvent, ILogEventPropertyFactory factory)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        string userName;\r\n        string UserId;\r\n        string UserIp;\r\n        string clientId;\r\n\r\n        userName = _userInfoService.GetUsername();\r\n        if (string.IsNullOrEmpty(userName))\r\n            userName = \"Unknown\";\r\n        UserId = _userInfoService.UserIdOrDefault();\r\n        UserIp = _userInfoService.GetUserIp();\r\n        clientId = _userInfoService.GetClaim(\"client_id\");\r\n        if (string.IsNullOrEmpty(clientId))\r\n            clientId = \"Unknown\";\r\n\r\n        var userNameProperty = factory.CreateProperty(\"UserName\", userName);\r\n        var userIdProperty = factory.CreateProperty(\"UserId\", UserId);\r\n        var userIpProperty = factory.CreateProperty(\"UserIp\", UserIp);\r\n        var clientIdProperty = factory.CreateProperty(\"ClientId\", clientId);\r\n\r\n        logEvent.AddPropertyIfAbsent(userNameProperty);\r\n        logEvent.AddPropertyIfAbsent(userIdProperty);\r\n        logEvent.AddPropertyIfAbsent(userIpProperty);\r\n        logEvent.AddPropertyIfAbsent(clientIdProperty);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Enrich» در ZaminUserInfoEnricher. اطلاعات کمکی را به رویداد لاگ اضافه می‌کند.\r\nپارامترها:\r\n- logEvent (LogEvent): رویداد دامنه/پیام برای پردازش.\r\n- factory (ILogEventPropertyFactory): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ILogEventEnricher | DI: IUserInfoService userInfoService",
+            "en": "Method 'Enrich' on ZaminUserInfoEnricher. Adds contextual information to the log event.\r\nParameters:\r\n- logEvent (LogEvent): Domain/event message to process.\r\n- factory (ILogEventPropertyFactory): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ILogEventEnricher | DI: IUserInfoService userInfoService"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ZaminUserInfoEnricher» در namespace Zamin.Utilities.SerilogRegistration.Enrichers. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ILogEventEnricher. وابستگی‌های سازنده (DI): IUserInfoService userInfoService. مرتبط: ILogEventEnricher | DI: IUserInfoService userInfoService.",
+        "en": "Class 'ZaminUserInfoEnricher' in namespace Zamin.Utilities.SerilogRegistration.Enrichers. Public/protected class definition in the Zamin framework layer. Base/implemented types: ILogEventEnricher. Constructor-injected dependencies: IUserInfoService userInfoService. Related: ILogEventEnricher | DI: IUserInfoService userInfoService."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

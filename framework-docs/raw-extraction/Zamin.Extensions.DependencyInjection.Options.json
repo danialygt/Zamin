@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Extensions.DependencyInjection.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DependencyInjectionOption",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection.Options",
+      "source_file": "Extentsions/DependencyInjection/Zamin.Extensions.DependencyInjection/Zamin.Extensions.DependencyInjection/Options/DependencyInjectionOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AssmblyNamesForLoad",
+          "kind": "property",
+          "signature": "public string AssmblyNamesForLoad { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

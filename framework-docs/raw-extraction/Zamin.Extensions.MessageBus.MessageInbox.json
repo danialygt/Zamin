@@ -1,0 +1,51 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "InboxMessageConsumer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox/InboxMessageConsumer.cs",
+      "base_types": [
+        "IMessageConsumer"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<MessageInboxOptions> messageInboxOptions",
+        "IJsonSerializer jsonSerializer",
+        "IMessageInboxItemRepository messageInboxItemRepository",
+        "ICommandDispatcher commandDispatcher",
+        "IEventDispatcher eventDispatcher"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public InboxMessageConsumer(IOptions<MessageInboxOptions> messageInboxOptions,\r\n                                IJsonSerializer jsonSerializer,\r\n                                IMessageInboxItemRepository messageInboxItemRepository,\r\n                                ICommandDispatcher commandDispatcher,\r\n                                IEventDispatcher eventDispatcher)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _messageInboxOptions = messageInboxOptions.Value;\r\n        _eventDispatcher = eventDispatcher;\r\n        _jsonSerializer = jsonSerializer;\r\n        _commandDispatcher = commandDispatcher;\r\n        _messageInboxItemRepository = messageInboxItemRepository;\r\n        Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();\r\n        _domainEventTypes.AddRange(assemblies.SelectMany(assembly => assembly.GetTypes().Where(c => c.IsAssignableTo(typeof(IDomainEvent)) && c.IsClass).ToList()).ToList());\r\n        _commandTypes.AddRange(assemblies.SelectMany(assembly => assembly.GetTypes().Where(c => c.IsAssignableTo(typeof(ICommand)) && c.IsClass).ToList()).ToList());\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ConsumeCommand",
+          "kind": "method",
+          "signature": "public Task<bool> ConsumeCommand(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        throw new NotImplementedException();\r\n        //if (_messageInboxItemRepository.AllowReceive(parcel.MessageId, sender))\r\n        //{\r\n        //    var mapToClass = _messageTypeMap[parcel.Route];\r\n        //    var commandType = Type.GetType(mapToClass);\r\n        //    dynamic command = _jsonSerializer.Deserialize(parcel.MessageBody, commandType);\r\n        //    _commandDispatcher.Send(command);\r\n        //    _messageInboxItemRepository.Receive(parcel.MessageId, sender);\r\n        //}    }\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ConsumeEvent",
+          "kind": "method",
+          "signature": "public async Task<bool> ConsumeEvent(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (_messageInboxItemRepository.AllowReceive(parcel.MessageId, sender))\r\n        {\r\n            var eventType = _domainEventTypes.FirstOrDefault(c => c.Name == parcel.MessageName);\r\n            if (eventType != null)\r\n            {\r\n                dynamic @event = _jsonSerializer.Deserialize(parcel.MessageBody, eventType);\r\n                await _eventDispatcher.PublishDomainEventAsync(@event);\r\n                _messageInboxItemRepository.Receive(parcel.MessageId, sender, parcel.MessageBody);\r\n            }\r\n        }\r\n        return true;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

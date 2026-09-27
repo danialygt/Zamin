@@ -1,0 +1,131 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "AddAuditDataInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Interceptors/AddAuditDataInterceptor.cs",
+      "base_types": [
+        "SaveChangesInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SavingChanges",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddShadowProperties(eventData);\r\n        return base.SavingChanges(eventData, result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "SavingChangesAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddShadowProperties(eventData);\r\n        return base.SavingChangesAsync(eventData, result, cancellationToken);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "AddChangeDataLogInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Hamster/Interceptors/AddChangeDataLogInterceptor.cs",
+      "base_types": [
+        "SaveChangesInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SavingChanges",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        SaveEntityChangeLogs(eventData);\r\n        return base.SavingChanges(eventData, result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "SavingChangesAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        SaveEntityChangeLogs(eventData);\r\n        return base.SavingChangesAsync(eventData, result, cancellationToken);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "SetPersianYeKeInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Interceptors",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Interceptors/SetPersianYeKeInterceptor.cs",
+      "base_types": [
+        "DbCommandInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "NonQueryExecuting",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> NonQueryExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.NonQueryExecuting(command, eventData, result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "NonQueryExecutingAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> NonQueryExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.NonQueryExecutingAsync(command, eventData, result, cancellationToken);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ReaderExecuting",
+          "kind": "method",
+          "signature": "public override InterceptionResult<DbDataReader> ReaderExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ReaderExecuting(command, eventData, result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ReaderExecutingAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<DbDataReader>> ReaderExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ReaderExecutingAsync(command, eventData, result, cancellationToken);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ScalarExecuting",
+          "kind": "method",
+          "signature": "public override InterceptionResult<object> ScalarExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<object> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ScalarExecuting(command, eventData, result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ScalarExecutingAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<object>> ScalarExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<object> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.ApplyCorrectYeKe();\r\n        return base.ScalarExecutingAsync(command, eventData, result, cancellationToken);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Attributes",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SoftwarePartControllerOptionAttribute",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Attributes",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Attributes/SoftwarePartControllerOptionAttribute.cs",
+      "base_types": [
+        "Attribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string? service",
+        "string? module"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartControllerOptionAttribute(string? service , string? module = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(service))\r\n            throw new ArgumentNullException(nameof(service));\r\n\r\n        _module = module;\r\n        _service = service;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SoftwarePartControllerOptionAttribute. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- service (string?): ورودی از نوع string?.\r\n- module (string?): ورودی اختیاری از نوع string? (دارای مقدار پیش‌فرض).\r\nاستثناها (از روی بدنه):\r\n- ArgumentNullException (throw new)\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SoftwarePartControllerOptionAttribute. Creates an instance with the provided initial values. Parameters:\r\n- service (string?): Input of type string?.\r\n- module (string?): Optional string? input (has default).\r\nExceptions (from body):\r\n- ArgumentNullException (throw new)\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Module",
+          "kind": "property",
+          "signature": "public string? Module => ...",
+          "xml_doc": "",
+          "body_summary": "=> _module;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Module» از نوع `string?` در SoftwarePartControllerOptionAttribute. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Module' of type `string?` on SoftwarePartControllerOptionAttribute. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Service",
+          "kind": "property",
+          "signature": "public string? Service => ...",
+          "xml_doc": "",
+          "body_summary": "=> _service;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Service» از نوع `string?` در SoftwarePartControllerOptionAttribute. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Service' of type `string?` on SoftwarePartControllerOptionAttribute. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartControllerOptionAttribute» در namespace Zamin.Utilities.SoftwarePartDetector.Attributes. کنترلر endpoint برای دریافت درخواست HTTP و ارجاع به لایه اپلیکیشن. ارث‌بری/پیاده‌سازی: Attribute. وابستگی‌های سازنده (DI): string? service, string? module. مرتبط: Attribute | DI: string? service, string? module.",
+        "en": "Class 'SoftwarePartControllerOptionAttribute' in namespace Zamin.Utilities.SoftwarePartDetector.Attributes. HTTP endpoint controller that forwards requests to the application layer. Base/implemented types: Attribute. Constructor-injected dependencies: string? service, string? module. Related: Attribute | DI: string? service, string? module."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+﻿{
+  "namespace": "Zamin.Core.RequestResponse.Commands",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "CommandResult",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/CommandResult.cs",
+      "base_types": [
+        "ApplicationServiceResult"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود.\n/// دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید\n/// https://github.com/vkhorikov/CqrsInPractice\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود. دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید https://github.com/vkhorikov/CqrsInPractice",
+        "en": "Author XML for class 'CommandResult': نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود. دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید https://github.com/vkhorikov/CqrsInPractice"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "CommandResult<TData>",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/CommandResult.cs",
+      "base_types": [
+        "CommandResult"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود.\n/// دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید\n/// این ساختار در صورتی استفاده میشود که برای عملیات مقدار خروجی نیاز باشد\n/// https://github.com/vkhorikov/CqrsInPractice\n/// </summary>\n/// <typeparam name=\"TData\">نوع داده‌ای که بازگشت داده می‌شود</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_data",
+          "kind": "field",
+          "signature": "public TData? _data;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_data» در CommandResult<TData> با امضای `public TData? _data;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_data' on CommandResult<TData> with signature `public TData? _data;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Data",
+          "kind": "property",
+          "signature": "public TData? Data => ...",
+          "xml_doc": "",
+          "body_summary": "=> _data;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Data» از نوع `TData?` در CommandResult<TData>. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Data' of type `TData?` on CommandResult<TData>. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود. دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید این ساختار در صورتی استفاده میشود که برای عملیات مقدار خروجی نیاز باشد https://github.com/vkhorikov/CqrsInPractice",
+        "en": "Author XML for class 'CommandResult<TData>': نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود. دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید این ساختار در صورتی استفاده میشود که برای عملیات مقدار خروجی نیاز باشد https://github.com/vkhorikov/CqrsInPractice"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ICommand",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/ICommand.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود",
+        "en": "Author XML for interface 'ICommand': جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ICommand<TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/ICommand.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود\n/// اگر به ازای دستور ارسال شده مقدار خروجی باید بازگشت داده شود از این اینترفیس استفاده می‌شود\n/// </summary>\n/// <typeparam name=\"TData\">نوع داده‌ای که در ازای دستور باید بازگشت داده شود</typeparam>",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود اگر به ازای دستور ارسال شده مقدار خروجی باید بازگشت داده شود از این اینترفیس استفاده می‌شود",
+        "en": "Author XML for interface 'ICommand<TData>': جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود اگر به ازای دستور ارسال شده مقدار خروجی باید بازگشت داده شود از این اینترفیس استفاده می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

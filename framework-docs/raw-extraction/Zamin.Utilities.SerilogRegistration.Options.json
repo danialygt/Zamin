@@ -1,0 +1,51 @@
+﻿{
+  "namespace": "Zamin.Utilities.SerilogRegistration.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SerilogApplicationEnricherOptions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Options",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Options/SerilogApplicationEnricherOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ServiceName",
+          "kind": "property",
+          "signature": "public string ServiceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ServiceVersion",
+          "kind": "property",
+          "signature": "public string ServiceVersion { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ServiceId",
+          "kind": "property",
+          "signature": "public string ServiceId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

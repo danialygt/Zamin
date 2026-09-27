@@ -1,0 +1,59 @@
+﻿{
+  "namespace": "Zamin.Utilities.ScalarRegistration.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ScalarOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.ScalarRegistration.Options",
+      "source_file": "Utilities/ScalarRegistration/Zamin.Utilities.ScalarRegistration/Options/ScalarOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Name",
+          "kind": "property",
+          "signature": "public string Name { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Title",
+          "kind": "property",
+          "signature": "public string Title { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Version",
+          "kind": "property",
+          "signature": "public string Version { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Description",
+          "kind": "property",
+          "signature": "public string Description { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

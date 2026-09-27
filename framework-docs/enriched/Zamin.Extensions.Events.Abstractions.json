@@ -1,0 +1,254 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IOutBoxEventItemRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Events.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Events.Abstractions/IOutBoxEventItemRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetOutBoxEventItemsForPublishe",
+          "kind": "method",
+          "signature": "public List<OutBoxEventItem> GetOutBoxEventItemsForPublishe(int maxCount = 100)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetOutBoxEventItemsForPublishe» در IOutBoxEventItemRepository. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- maxCount (int): ورودی اختیاری از نوع int (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `List<OutBoxEventItem>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetOutBoxEventItemsForPublishe' on IOutBoxEventItemRepository. Retrieves related data or state.\r\nParameters:\r\n- maxCount (int): Optional int input (has default).\r\n\r\nReturns: `List<OutBoxEventItem>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MarkAsRead",
+          "kind": "method",
+          "signature": "void MarkAsRead(List<OutBoxEventItem> outBoxEventItems)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MarkAsRead» در IOutBoxEventItemRepository. وضعیت آیتم را در ذخیره‌گاه علامت‌گذاری می‌کند.\r\nپارامترها:\r\n- outBoxEventItems (List<OutBoxEventItem>): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'MarkAsRead' on IOutBoxEventItemRepository. Marks item state in the store.\r\nParameters:\r\n- outBoxEventItems (List<OutBoxEventItem>): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IOutBoxEventItemRepository» در namespace Zamin.Extensions.Events.Abstractions. قرارداد دسترسی به داده برای ذخیره و بازیابی aggregate/entity.",
+        "en": "Interface contract 'IOutBoxEventItemRepository' in namespace Zamin.Extensions.Events.Abstractions. Data-access contract for persisting and loading aggregates/entities."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "OutBoxEventItem",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Events.Abstractions/OutBoxEventItem.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OutBoxEventItemId",
+          "kind": "property",
+          "signature": "public long OutBoxEventItemId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «OutBoxEventItemId» از نوع `long` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'OutBoxEventItemId' of type `long` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EventId",
+          "kind": "property",
+          "signature": "public Guid EventId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EventId» از نوع `Guid` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EventId' of type `Guid` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AccuredByUserId",
+          "kind": "property",
+          "signature": "public string AccuredByUserId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AccuredByUserId» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AccuredByUserId' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AccuredOn",
+          "kind": "property",
+          "signature": "public DateTime AccuredOn { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AccuredOn» از نوع `DateTime` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AccuredOn' of type `DateTime` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AggregateName",
+          "kind": "property",
+          "signature": "public string AggregateName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AggregateName» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AggregateName' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AggregateTypeName",
+          "kind": "property",
+          "signature": "public string AggregateTypeName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AggregateTypeName» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AggregateTypeName' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AggregateId",
+          "kind": "property",
+          "signature": "public string AggregateId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AggregateId» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AggregateId' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EventName",
+          "kind": "property",
+          "signature": "public string EventName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EventName» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EventName' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EventTypeName",
+          "kind": "property",
+          "signature": "public string EventTypeName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EventTypeName» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EventTypeName' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EventPayload",
+          "kind": "property",
+          "signature": "public string EventPayload { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EventPayload» از نوع `string` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EventPayload' of type `string` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TraceId",
+          "kind": "property",
+          "signature": "public string? TraceId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TraceId» از نوع `string?` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TraceId' of type `string?` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SpanId",
+          "kind": "property",
+          "signature": "public string? SpanId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SpanId» از نوع `string?` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'SpanId' of type `string?` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsProcessed",
+          "kind": "property",
+          "signature": "public bool IsProcessed { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «IsProcessed» از نوع `bool` در OutBoxEventItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'IsProcessed' of type `bool` on OutBoxEventItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «OutBoxEventItem» در namespace Zamin.Extensions.Events.Abstractions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'OutBoxEventItem' in namespace Zamin.Extensions.Events.Abstractions. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

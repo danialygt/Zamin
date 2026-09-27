@@ -1,0 +1,223 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.Data.Commands",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "ICommandRepository<TEntity,TId>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Commands/ICommandRepository.cs",
+      "base_types": [
+        "IUnitOfWork"
+      ],
+      "generic_constraints": "where TEntity : AggregateRoot<TId> where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// در صورتی که داده‌ها به صورت عادی ذخیره سازی شوند از این Interface جهت تعیین اعمال اصلی موجود در بخش ذخیره سازی داده‌ها استفاده می‌شود.\n/// </summary>\n/// <typeparam name=\"TEntity\">کلاسی که جهت ذخیره سازی انتخاب می‌شود</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "void Delete(TId id)",
+          "xml_doc": "/// <summary>\n    /// یک شی را با شناسه حذف می کند\n    /// </summary>\n    /// <param name=\"id\">شناسه</param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DeleteGraph",
+          "kind": "method",
+          "signature": "void DeleteGraph(TId id)",
+          "xml_doc": "/// <summary>\n    /// حذف یک شی به همراه تمامی فرزندان آن را انجام می دهد\n    /// </summary>\n    /// <param name=\"id\">شناسه</param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "void Delete(TEntity entity)",
+          "xml_doc": "/// <summary>\n    /// یک شی را دریافت کرده و از دیتابیس حذف می‌کند\n    /// </summary>\n    /// <param name=\"entity\"></param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Insert",
+          "kind": "method",
+          "signature": "void Insert(TEntity entity)",
+          "xml_doc": "/// <summary>\n    /// داده‌های جدید را به دیتابیس اضافه می‌کند\n    /// </summary>\n    /// <param name=\"entity\">نمونه داده‌ای که باید به دیتابیس اضافه شود.</param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "InsertAsync",
+          "kind": "method",
+          "signature": "Task InsertAsync(TEntity entity)",
+          "xml_doc": "/// <summary>\n    /// داده‌های جدید را به دیتابیس اضافه می‌کند\n    /// </summary>\n    /// <param name=\"entity\">نمونه داده‌ای که باید به دیتابیس اضافه شود.</param>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "TEntity Get(TId id)",
+          "xml_doc": "/// <summary>\n    /// یک شی را با شناسه از دیتابیس یافته و بازگشت می‌دهد.\n    /// </summary>\n    /// <param name=\"id\">شناسه شی مورد نیاز</param>\n    /// <returns>نمونه ساخته شده از شی</returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "TEntity Get(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "TEntity GetGraph(TId id)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetGraphAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "TEntity GetGraph(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "Task<TEntity> GetGraphAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Exists",
+          "kind": "method",
+          "signature": "bool Exists(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ExistsAsync",
+          "kind": "method",
+          "signature": "Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IDomainEventStore",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Commands/IDomainEventStore.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// در صورت نیاز به ذخیره و بازیابی eventها از این اینترفیس استفاده می‌شود.\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Save",
+          "kind": "method",
+          "signature": "void Save<TEvent>(string aggregateName, string aggregateId, IEnumerable<TEvent> events) where TEvent : IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SaveAsync",
+          "kind": "method",
+          "signature": "Task SaveAsync<TEvent>(string aggregateName, string aggregateId, IEnumerable<TEvent> events) where TEvent : IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IUnitOfWork",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.Data.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/Data/Commands/IUnitOfWork.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// تعریف Interface برای الگوی UnitOfWork جهت مدیریت تراکنش‌ها با دیتابیس در این قسمت انجام شده است\n/// تعریف کامل این الگو در کتاب P of EAA وجود دارد و تعریف اولیه را در آدرس زیر می‌توان مشاهده کرد\n/// https://martinfowler.com/eaaCatalog/unitOfWork.html\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "void BeginTransaction()",
+          "xml_doc": "/// <summary>\n    /// در صورت نیاز به کنترل تراکنش‌ها از این متد جهت شروع تراکنش استفاده می‌شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "void CommitTransaction()",
+          "xml_doc": "/// <summary>\n    /// در صورت کنترل دستی تراکنش از این متد جهت پایان موفقیت آمیز تراکنش استفاده می‌شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "void RollbackTransaction()",
+          "xml_doc": "/// <summary>\n    /// در صورت بروز خطا در فرایند‌ها از این متد جهت بازگشت تغییرات استفاده می‌شود.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Commit",
+          "kind": "method",
+          "signature": "int Commit()",
+          "xml_doc": "/// <summary>\n    /// برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n    /// </summary>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CommitAsync",
+          "kind": "method",
+          "signature": "Task<int> CommitAsync()",
+          "xml_doc": "/// <summary>\n    /// برای تایید تراکنشی که اتوماتیک توسط سیستم ایجاد شده است از این متد استفاده می‌شود.\n    /// </summary>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

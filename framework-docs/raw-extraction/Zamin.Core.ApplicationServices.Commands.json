@@ -1,0 +1,405 @@
+﻿{
+  "namespace": "Zamin.Core.ApplicationServices.Commands",
+  "type_count": 6,
+  "types": [
+    {
+      "type_name": "CommandDispatcher",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Commands/CommandDispatcher.cs",
+      "base_types": [
+        "ICommandDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<CommandDispatcher> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public CommandDispatcher(IServiceProvider serviceProvider, ILogger<CommandDispatcher> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _stopwatch = new Stopwatch();\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public async Task<CommandResult> Send<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _stopwatch.Start();\r\n        try\r\n        {\r\n            _logger.LogDebug(\"Routing command of type {CommandType} With value {Command}  Start at {StartDateTime}\", command.GetType(), command, DateTime.Now);\r\n            var handler = _serviceProvider.GetRequiredService<ICommandHandler<TCommand>>();\r\n\r\n            return await handler.Handle(command);\r\n\r\n        }\r\n        catch (InvalidOperationException ex)\r\n        {\r\n            _logger.LogError(ex, \"There is not suitable handler for {CommandType} Routing failed at {StartDateTime}.\", command.GetType(), DateTime.Now);\r\n            throw;\r\n        }\r\n        finally\r\n        {\r\n            _stopwatch.Stop();\r\n            _logger.LogInformation(ZaminEventId.PerformanceMeasurement, \"Processing the {CommandType} command tooks {Millisecconds} Millisecconds\", command.GetType(), _stopwatch.ElapsedMilliseconds);\r\n        }\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public async Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command) where TCommand : class, ICommand<TData>",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _stopwatch.Start();\r\n        try\r\n        {\r\n            _logger.LogDebug(\"Routing command of type {CommandType} With value {Command}  Start at {StartDateTime}\", command.GetType(), command, DateTime.Now);\r\n            var handler = _serviceProvider.GetRequiredService<ICommandHandler<TCommand, TData>>();\r\n            return await handler.Handle(command);           \r\n        }\r\n        catch (Exception ex)\r\n        {\r\n            _logger.LogError(ex, \"There is not suitable handler for {CommandType} Routing failed at {StartDateTime}.\", command.GetType(), DateTime.Now);\r\n            throw;\r\n        }\r\n        finally\r\n        {\r\n            _stopwatch.Stop();\r\n            _logger.LogInformation(\"Processing the {CommandType} command tooks {Millisecconds} Millisecconds\", command.GetType(), _stopwatch.ElapsedMilliseconds);\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CommandDispatcherDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Commands/CommandDispatcherDecorator.cs",
+      "base_types": [
+        "ICommandDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_commandDispatcher",
+          "kind": "field",
+          "signature": "protected ICommandDispatcher _commandDispatcher;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public abstract int Order { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public CommandDispatcherDecorator()",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "SetCommandDispatcher",
+          "kind": "method",
+          "signature": "public void SetCommandDispatcher(ICommandDispatcher commandDispatcher)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _commandDispatcher = commandDispatcher;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public abstract Task<CommandResult> Send<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public abstract Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command) where TCommand : class, ICommand<TData>",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CommandDispatcherDomainExceptionHandlerDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Commands/CommandDispatcherDomainExceptionHandlerDecorator.cs",
+      "base_types": [
+        "CommandDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<CommandDispatcherDomainExceptionHandlerDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public CommandDispatcherDomainExceptionHandlerDecorator(IServiceProvider serviceProvider,\r\n                                                            ILogger<CommandDispatcherDomainExceptionHandlerDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 2;",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public override async Task<CommandResult> Send<TCommand>(TCommand command)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        try\r\n        {\r\n            var result = _commandDispatcher.Send(command);\r\n            return await result;\r\n        }\r\n        catch (DomainStateException ex)\r\n        {\r\n            _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {CommandType} With value {Command} failed at {StartDateTime} because there are domain exceptions.\", command.GetType(), command, DateTime.Now);\r\n            return DomainExceptionHandlingWithoutReturnValue<TCommand>(ex);\r\n        }\r\n        catch (AggregateException ex)\r\n        {\r\n            if (ex.InnerException is DomainStateException domainStateException)\r\n            {\r\n                _logger.LogError(ZaminEventId.DomainValidationException, domainStateException, \"Processing of {CommandType} With value {Command} failed at {StartDateTime} because there are domain exceptions.\", command.GetType(), command, DateTime.Now);\r\n                return DomainExceptionHandlingWithoutReturnValue<TCommand>(domainStateException);\r\n            }\r\n            throw ex;\r\n        }\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public override async Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        try\r\n        {\r\n            var result = await _commandDispatcher.Send<TCommand, TData>(command);\r\n            return result;\r\n\r\n        }\r\n        catch (DomainStateException ex)\r\n        {\r\n            _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {CommandType} With value {Command} failed at {StartDateTime} because there are domain exceptions.\", command.GetType(), command, DateTime.Now);\r\n            return DomainExceptionHandlingWithReturnValue<TCommand, TData>(ex);\r\n        }\r\n        catch (AggregateException ex)\r\n        {\r\n            if (ex.InnerException is DomainStateException domainStateException)\r\n            {\r\n                _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {CommandType} With value {Command} failed at {StartDateTime} because there are domain exceptions.\", command.GetType(), command, DateTime.Now);\r\n                return DomainExceptionHandlingWithReturnValue<TCommand, TData>(domainStateException);\r\n            }\r\n            throw ex;\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CommandDispatcherValidationDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Commands/CommandDispatcherValidationDecorator.cs",
+      "base_types": [
+        "CommandDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<CommandDispatcherValidationDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public CommandDispatcherValidationDecorator(IServiceProvider serviceProvider,\r\n                                                ILogger<CommandDispatcherValidationDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 1;",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public override async Task<CommandResult> Send<TCommand>(TCommand command)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogDebug(ZaminEventId.CommandValidation, \"Validating command of type {CommandType} With value {Command}  start at :{StartDateTime}\", command.GetType(), command, DateTime.Now);\r\n        var validationResult = Validate<TCommand, CommandResult>(command);\r\n\r\n        if (validationResult != null)\r\n        {\r\n            _logger.LogInformation(ZaminEventId.CommandValidation, \"Validating command of type {CommandType} With value {Command}  failed. Validation errors are: {ValidationErrors}\", command.GetType(), command, validationResult.Messages);\r\n            return validationResult;\r\n        }\r\n        _logger.LogDebug(ZaminEventId.CommandValidation, \"Validating command of type {CommandType} With value {Command}  finished at :{EndDateTime}\", command.GetType(), command, DateTime.Now);\r\n        return await _commandDispatcher.Send(command);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public override async Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogDebug(ZaminEventId.CommandValidation, \"Validating command of type {CommandType} With value {Command}  start at :{StartDateTime}\", command.GetType(), command, DateTime.Now);\r\n\r\n        var validationResult = Validate<TCommand, CommandResult<TData>>(command);\r\n\r\n        if (validationResult != null)\r\n        {\r\n            _logger.LogInformation(ZaminEventId.CommandValidation, \"Validating command of type {CommandType} With value {Command}  failed. Validation errors are: {ValidationErrors}\", command.GetType(), command, validationResult.Messages);\r\n            return validationResult;\r\n        }\r\n        _logger.LogDebug(ZaminEventId.CommandValidation, \"Validating command of type {CommandType} With value {Command}  finished at :{EndDateTime}\", command.GetType(), command, DateTime.Now);\r\n        return await _commandDispatcher.Send<TCommand, TData>(command);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CommandHandler<TCommand, TData>",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Commands/CommandHandler.cs",
+      "base_types": [
+        "ICommandHandler<TCommand, TData>"
+      ],
+      "generic_constraints": "where TCommand : ICommand<TData>",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ZaminServices zaminServices"
+      ],
+      "members": [
+        {
+          "name": "_zaminServices",
+          "kind": "field",
+          "signature": "protected readonly ZaminServices _zaminServices;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "result",
+          "kind": "field",
+          "signature": "protected readonly CommandResult<TData> result = new();",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public CommandHandler(ZaminServices zaminServices)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _zaminServices = zaminServices;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "public abstract Task<CommandResult<TData>> Handle(TCommand command)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "OkAsync",
+          "kind": "method",
+          "signature": "protected virtual Task<CommandResult<TData>> OkAsync(TData data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result._data = data;\r\n        result.Status = ApplicationServiceStatus.Ok;\r\n        return Task.FromResult(result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Ok",
+          "kind": "method",
+          "signature": "protected virtual CommandResult<TData> Ok(TData data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result._data = data;\r\n        result.Status = ApplicationServiceStatus.Ok;\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ResultAsync",
+          "kind": "method",
+          "signature": "protected virtual Task<CommandResult<TData>> ResultAsync(TData data, ApplicationServiceStatus status)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result._data = data;\r\n        result.Status = status;\r\n        return Task.FromResult(result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Result",
+          "kind": "method",
+          "signature": "protected virtual CommandResult<TData> Result(TData data, ApplicationServiceStatus status)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result._data = data;\r\n        result.Status = status;\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "protected void AddMessage(string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.AddMessage(_zaminServices.Translator[message]);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "protected void AddMessage(string message, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.AddMessage(_zaminServices.Translator[message, arguments]);\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "CommandHandler<TCommand>",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Commands/CommandHandler.cs",
+      "base_types": [
+        "ICommandHandler<TCommand>"
+      ],
+      "generic_constraints": "where TCommand : ICommand",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ZaminServices zaminServices"
+      ],
+      "members": [
+        {
+          "name": "_zaminServices",
+          "kind": "field",
+          "signature": "protected readonly ZaminServices _zaminServices;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "result",
+          "kind": "field",
+          "signature": "protected readonly CommandResult result = new();",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public CommandHandler(ZaminServices zaminServices)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _zaminServices = zaminServices;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "public abstract Task<CommandResult> Handle(TCommand command)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "OkAsync",
+          "kind": "method",
+          "signature": "protected virtual Task<CommandResult> OkAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.Status = ApplicationServiceStatus.Ok;\r\n        return Task.FromResult(result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Ok",
+          "kind": "method",
+          "signature": "protected virtual CommandResult Ok()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.Status = ApplicationServiceStatus.Ok;\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ResultAsync",
+          "kind": "method",
+          "signature": "protected virtual Task<CommandResult> ResultAsync(ApplicationServiceStatus status)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.Status = status;\r\n        return Task.FromResult(result);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Result",
+          "kind": "method",
+          "signature": "protected virtual CommandResult Result(ApplicationServiceStatus status)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.Status = status;\r\n        return result;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "protected void AddMessage(string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.AddMessage(_zaminServices.Translator[message]);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AddMessage",
+          "kind": "method",
+          "signature": "protected void AddMessage(string message, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        result.AddMessage(_zaminServices.Translator[message, arguments]);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

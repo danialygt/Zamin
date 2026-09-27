@@ -1,0 +1,218 @@
+﻿{
+  "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "DatabaseChangeType",
+      "kind": "enum",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/DatabaseChangeType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Insert",
+          "kind": "enum_member",
+          "signature": "Insert = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Update",
+          "kind": "enum_member",
+          "signature": "Update = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Delete",
+          "kind": "enum_member",
+          "signature": "Delete = 3",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EntityChageInterceptorItem",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/EntityChageInterceptorItem.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public Guid Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ContextName",
+          "kind": "property",
+          "signature": "public string ContextName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EntityType",
+          "kind": "property",
+          "signature": "public string EntityType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EntityId",
+          "kind": "property",
+          "signature": "public string EntityId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "UserId",
+          "kind": "property",
+          "signature": "public string UserId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Ip",
+          "kind": "property",
+          "signature": "public string Ip { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TransactionId",
+          "kind": "property",
+          "signature": "public string TransactionId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DateOfOccurrence",
+          "kind": "property",
+          "signature": "public DateTime DateOfOccurrence { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ChangeType",
+          "kind": "property",
+          "signature": "public string ChangeType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PropertyChangeLogItems",
+          "kind": "property",
+          "signature": "public List<PropertyChangeLogItem> PropertyChangeLogItems { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AddPropertyChangeItem",
+          "kind": "method",
+          "signature": "public void AddPropertyChangeItem(string propertyName, string value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        PropertyChangeLogItems.Add(new PropertyChangeLogItem\r\n        {\r\n            ChageInterceptorItemId = Id,\r\n            PropertyName = propertyName,\r\n            Value = value\r\n        });\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IEntityChageInterceptorItemRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/IEntityChageInterceptorItemRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Save",
+          "kind": "method",
+          "signature": "public void Save(List<EntityChageInterceptorItem> entityChageInterceptorItems, IDbTransaction transaction)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SaveAsync",
+          "kind": "method",
+          "signature": "public Task SaveAsync(List<EntityChageInterceptorItem> entityChageInterceptorItems, IDbTransaction transaction)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "PropertyChangeLogItem",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/PropertyChangeLogItem.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public Guid Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ChageInterceptorItemId",
+          "kind": "property",
+          "signature": "public Guid ChageInterceptorItemId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PropertyName",
+          "kind": "property",
+          "signature": "public string PropertyName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

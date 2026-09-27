@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Core.RequestResponse.Endpoints",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "IWebRequest",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Endpoints",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Endpoints/IWebRequest.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Path",
+          "kind": "property",
+          "signature": "string Path { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

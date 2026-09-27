@@ -1,0 +1,55 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "AddOutBoxEventItemInterceptor",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.Outbox/Zamin.Extensions.Events.Outbox.Dal.EF/Interceptors/AddOutBoxEventItemInterceptor.cs",
+      "base_types": [
+        "SaveChangesInterceptor"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SavingChanges",
+          "kind": "method",
+          "signature": "public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddOutbox(eventData);\r\n        return base.SavingChanges(eventData, result);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SavingChanges» در AddOutBoxEventItemInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- eventData (DbContextEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n\r\nمقدار بازگشتی: `InterceptionResult<int>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: SaveChangesInterceptor",
+            "en": "Method 'SavingChanges' on AddOutBoxEventItemInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- eventData (DbContextEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n\r\nReturns: `InterceptionResult<int>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: SaveChangesInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SavingChangesAsync",
+          "kind": "method",
+          "signature": "public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        AddOutbox(eventData);\r\n\r\n        return base.SavingChangesAsync(eventData, result, cancellationToken);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SavingChangesAsync» در AddOutBoxEventItemInterceptor. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- eventData (DbContextEventData): رویداد دامنه/پیام برای پردازش.\r\n- result (InterceptionResult<int>): ورودی از نوع InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `ValueTask<InterceptionResult<int>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: SaveChangesInterceptor",
+            "en": "Method 'SavingChangesAsync' on AddOutBoxEventItemInterceptor. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- eventData (DbContextEventData): Domain/event message to process.\r\n- result (InterceptionResult<int>): Input of type InterceptionResult<int>.\r\n- cancellationToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `ValueTask<InterceptionResult<int>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: SaveChangesInterceptor"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AddOutBoxEventItemInterceptor» در namespace Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors. رهگیر EF/زیرساخت برای اعمال منطق هنگام ذخیره یا تغییر داده. ارث‌بری/پیاده‌سازی: SaveChangesInterceptor. مرتبط: SaveChangesInterceptor.",
+        "en": "Class 'AddOutBoxEventItemInterceptor' in namespace Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors. EF/infrastructure interceptor applying logic during save or data change. Base/implemented types: SaveChangesInterceptor. Related: SaveChangesInterceptor."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

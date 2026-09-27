@@ -1,0 +1,108 @@
+﻿{
+  "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Models",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ClaimCacheModel",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Models",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Models/ClaimCacheModel.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [
+        "Obsolete(\"این کلاس deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string type",
+        "string value",
+        "string? valueType",
+        "string? issuer",
+        "string? originalIssuer",
+        "ClaimsIdentity? subject"
+      ],
+      "members": [
+        {
+          "name": "Type",
+          "kind": "property",
+          "signature": "public string Type { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ValueType",
+          "kind": "property",
+          "signature": "public string? ValueType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Issuer",
+          "kind": "property",
+          "signature": "public string? Issuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "OriginalIssuer",
+          "kind": "property",
+          "signature": "public string? OriginalIssuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Subject",
+          "kind": "property",
+          "signature": "public ClaimsIdentity? Subject { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ClaimCacheModel()",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ClaimCacheModel(string type, string value, string? valueType, string? issuer, string? originalIssuer, ClaimsIdentity? subject)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Type = type;\r\n        Value = value;\r\n        ValueType = valueType;\r\n        Issuer = issuer;\r\n        OriginalIssuer = originalIssuer;\r\n        Subject = subject;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "FromClaim",
+          "kind": "method",
+          "signature": "public static ClaimCacheModel FromClaim(Claim claim)",
+          "xml_doc": "",
+          "body_summary": "=> new(claim.Type, claim.Value, claim.ValueType, claim.Issuer, claim.OriginalIssuer, claim.Subject);",
+          "attributes": []
+        },
+        {
+          "name": "ToClaim",
+          "kind": "method",
+          "signature": "public Claim ToClaim()",
+          "xml_doc": "",
+          "body_summary": "=> new(Type, Value, ValueType, Issuer, OriginalIssuer, Subject);",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

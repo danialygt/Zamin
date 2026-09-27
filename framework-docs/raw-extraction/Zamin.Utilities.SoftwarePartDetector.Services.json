@@ -1,0 +1,39 @@
+{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SoftwarePartDetectorService",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Services",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Services/SoftwarePartDetectorService.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "SoftwarePartDetector softwarePartDetector",
+        "ISoftwarePartPublisher partWebPublisher",
+        "IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartDetectorService(SoftwarePartDetector softwarePartDetector,\r\n                                       ISoftwarePartPublisher partWebPublisher,\r\n                                       IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _softwarePartDetector = softwarePartDetector;\r\n        _partWebPublisher = partWebPublisher;\r\n        _softwarePartDetectorOption = softwarePartDetectorOption.Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Run",
+          "kind": "method",
+          "signature": "public async Task Run()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(_softwarePartDetectorOption.ApplicationName))\r\n            throw new ArgumentNullException(\"SampleName in SoftwarePartDetectorOption is null\");\r\n\r\n        var softwareParts = await _softwarePartDetector.Detect(_softwarePartDetectorOption.ApplicationName,\r\n                                                               _softwarePartDetectorOption.ModuleName,\r\n                                                               _softwarePartDetectorOption.ServiceName);\r\n        if (softwareParts != null)\r\n            await _partWebPublisher.PublishAsync(softwareParts);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

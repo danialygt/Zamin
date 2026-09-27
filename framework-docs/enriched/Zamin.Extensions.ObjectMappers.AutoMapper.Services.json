@@ -1,0 +1,58 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "AutoMapperAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ObjectMappers.AutoMapper.Services",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.AutoMapper/Zamin.Extensions.ObjectMappers.AutoMapper/Services/AutoMapperAdapter.cs",
+      "base_types": [
+        "IMapperAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IMapper mapper",
+        "ILogger<AutoMapperAdapter> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public AutoMapperAdapter(IMapper mapper, ILogger<AutoMapperAdapter> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _mapper = mapper;\r\n        _logger = logger;\r\n        _logger.LogInformation(\"AutoMapper Adapter Start working\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده AutoMapperAdapter. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- mapper (IMapper): ورودی از نوع IMapper.\r\n- logger (ILogger<AutoMapperAdapter>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for AutoMapperAdapter. Parameters are expected via dependency injection. Parameters:\r\n- mapper (IMapper): Input of type IMapper.\r\n- logger (ILogger<AutoMapperAdapter>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "public TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"AutoMapper Adapter Map {source} To {destination} with data {sourcedata}\",\r\n                         typeof(TSource),\r\n                         typeof(TDestination),\r\n                         source);\r\n\r\n        return _mapper.Map<TDestination>(source);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Map» در AutoMapperAdapter. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- source (TSource): ورودی از نوع TSource.\r\n\r\nمقدار بازگشتی: `TDestination`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IMapperAdapter | DI: IMapper mapper, ILogger<AutoMapperAdapter> logger",
+            "en": "Method 'Map' on AutoMapperAdapter. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- source (TSource): Input of type TSource.\r\n\r\nReturns: `TDestination`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IMapperAdapter | DI: IMapper mapper, ILogger<AutoMapperAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AutoMapperAdapter» در namespace Zamin.Extensions.ObjectMappers.AutoMapper.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IMapperAdapter. وابستگی‌های سازنده (DI): IMapper mapper, ILogger<AutoMapperAdapter> logger. مرتبط: IMapperAdapter | DI: IMapper mapper, ILogger<AutoMapperAdapter> logger.",
+        "en": "Class 'AutoMapperAdapter' in namespace Zamin.Extensions.ObjectMappers.AutoMapper.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: IMapperAdapter. Constructor-injected dependencies: IMapper mapper, ILogger<AutoMapperAdapter> logger. Related: IMapperAdapter | DI: IMapper mapper, ILogger<AutoMapperAdapter> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

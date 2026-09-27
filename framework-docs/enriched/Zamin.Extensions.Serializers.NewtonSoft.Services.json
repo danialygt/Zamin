@@ -1,0 +1,100 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.NewtonSoft.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "NewtonSoftSerializer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.NewtonSoft.Services",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.NewtonSoft/Zamin.Extensions.Serializers.NewtonSoft/Services/NewtonSoftSerializer.cs",
+      "base_types": [
+        "IJsonSerializer",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<NewtonSoftSerializer> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public NewtonSoftSerializer(ILogger<NewtonSoftSerializer> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _logger.LogInformation(\"Newton Soft Serializer Start working\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده NewtonSoftSerializer. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- logger (ILogger<NewtonSoftSerializer>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for NewtonSoftSerializer. Parameters are expected via dependency injection. Parameters:\r\n- logger (ILogger<NewtonSoftSerializer>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "public TOutput Deserialize<TOutput>(string input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Newton Soft Serializer Deserialize with name {input}\", input);\r\n\r\n        return string.IsNullOrWhiteSpace(input) ? default : JsonConvert.DeserializeObject<TOutput>(input);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Deserialize» در NewtonSoftSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `TOutput`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger",
+            "en": "Method 'Deserialize' on NewtonSoftSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n\r\nReturns: `TOutput`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "public object Deserialize(string input, Type type)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Newton Soft Serializer Deserialize with name {input} and type {type}\", input, type);\r\n\r\n        return string.IsNullOrWhiteSpace(input) ? default : JsonConvert.DeserializeObject(input, type);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Deserialize» در NewtonSoftSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- type (Type): ورودی از نوع Type.\r\n\r\nمقدار بازگشتی: `object`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger",
+            "en": "Method 'Deserialize' on NewtonSoftSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- type (Type): Input of type Type.\r\n\r\nReturns: `object`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Serialize",
+          "kind": "method",
+          "signature": "public string Serialize<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Newton Soft Serializer Serilize with name {input}\", input);\r\n\r\n        return input == null ? string.Empty : JsonConvert.SerializeObject(input, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Serialize» در NewtonSoftSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (TInput): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger",
+            "en": "Method 'Serialize' on NewtonSoftSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (TInput): Value under validation or input.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "=> _logger.LogInformation(\"Newton Soft Serializer Stop working\");",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Dispose» در NewtonSoftSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. جزئیات اجرا را لاگ می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger",
+            "en": "Method 'Dispose' on NewtonSoftSerializer. Performs the operation declared by the signature on this type. Logs execution details.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NewtonSoftSerializer» در namespace Zamin.Extensions.Serializers.NewtonSoft.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IJsonSerializer, IDisposable. وابستگی‌های سازنده (DI): ILogger<NewtonSoftSerializer> logger. مرتبط: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger.",
+        "en": "Class 'NewtonSoftSerializer' in namespace Zamin.Extensions.Serializers.NewtonSoft.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: IJsonSerializer, IDisposable. Constructor-injected dependencies: ILogger<NewtonSoftSerializer> logger. Related: IJsonSerializer | IDisposable | DI: ILogger<NewtonSoftSerializer> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

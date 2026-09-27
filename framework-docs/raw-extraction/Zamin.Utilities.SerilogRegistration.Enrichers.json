@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ZaminApplicaitonEnricher",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Enrichers/ZaminApplicaitonEnricher.cs",
+      "base_types": [
+        "ILogEventEnricher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<SerilogApplicationEnricherOptions> options"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ZaminApplicaitonEnricher(IOptions<SerilogApplicationEnricherOptions> options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _options = options.Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Enrich",
+          "kind": "method",
+          "signature": "public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)",
+          "xml_doc": "",
+          "body_summary": "{        \r\n        var applicationNameProperty = propertyFactory.CreateProperty(nameof(_options.ApplicationName), _options.ApplicationName);\r\n        var serviceNameProperty = propertyFactory.CreateProperty(nameof(_options.ServiceName), _options.ServiceName);\r\n        var serviceVersionProperty = propertyFactory.CreateProperty(nameof(_options.ServiceVersion), _options.ServiceVersion);\r\n        var serviceIdProperty = propertyFactory.CreateProperty(nameof(_options.ServiceId), _options.ServiceId);\r\n        var machineNameProperty = propertyFactory.CreateProperty(nameof(Environment.MachineName), Environment.MachineName);\r\n        var entryPointProperty = propertyFactory.CreateProperty(\"EntryPoint\", Assembly.GetEntryAssembly().GetName().Name);\r\n\r\n        logEvent.AddPropertyIfAbsent(applicationNameProperty);\r\n        logEvent.AddPropertyIfAbsent(serviceNameProperty);\r\n        logEvent.AddPropertyIfAbsent(serviceVersionProperty);\r\n        logEvent.AddPropertyIfAbsent(machineNameProperty);\r\n        logEvent.AddPropertyIfAbsent(entryPointProperty);\r\n        logEvent.AddPropertyIfAbsent(serviceIdProperty);\r\n\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ZaminUserInfoEnricher",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Enrichers",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Enrichers/ZaminUserInfoEnricher.cs",
+      "base_types": [
+        "ILogEventEnricher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IUserInfoService userInfoService"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ZaminUserInfoEnricher(IUserInfoService userInfoService)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        this._userInfoService = userInfoService;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Enrich",
+          "kind": "method",
+          "signature": "public void Enrich(LogEvent logEvent, ILogEventPropertyFactory factory)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        string userName;\r\n        string UserId;\r\n        string UserIp;\r\n        string clientId;\r\n\r\n        userName = _userInfoService.GetUsername();\r\n        if (string.IsNullOrEmpty(userName))\r\n            userName = \"Unknown\";\r\n        UserId = _userInfoService.UserIdOrDefault();\r\n        UserIp = _userInfoService.GetUserIp();\r\n        clientId = _userInfoService.GetClaim(\"client_id\");\r\n        if (string.IsNullOrEmpty(clientId))\r\n            clientId = \"Unknown\";\r\n\r\n        var userNameProperty = factory.CreateProperty(\"UserName\", userName);\r\n        var userIdProperty = factory.CreateProperty(\"UserId\", UserId);\r\n        var userIpProperty = factory.CreateProperty(\"UserIp\", UserIp);\r\n        var clientIdProperty = factory.CreateProperty(\"ClientId\", clientId);\r\n\r\n        logEvent.AddPropertyIfAbsent(userNameProperty);\r\n        logEvent.AddPropertyIfAbsent(userIdProperty);\r\n        logEvent.AddPropertyIfAbsent(userIpProperty);\r\n        logEvent.AddPropertyIfAbsent(clientIdProperty);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

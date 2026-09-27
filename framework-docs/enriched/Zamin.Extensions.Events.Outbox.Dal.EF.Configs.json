@@ -1,0 +1,41 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Configs",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "OutBoxEventItemConfig",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF.Configs",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.Outbox/Zamin.Extensions.Events.Outbox.Dal.EF/Configs/OutBoxEventItemConfig.cs",
+      "base_types": [
+        "IEntityTypeConfiguration<OutBoxEventItem>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Configure",
+          "kind": "method",
+          "signature": "public void Configure(EntityTypeBuilder<OutBoxEventItem> builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        builder.Property(c => c.AccuredByUserId).HasMaxLength(255);\r\n        builder.Property(c => c.EventName).HasMaxLength(255);\r\n        builder.Property(c => c.AggregateName).HasMaxLength(255);\r\n        builder.Property(c => c.EventTypeName).HasMaxLength(500);\r\n        builder.Property(c => c.AggregateTypeName).HasMaxLength(500);\r\n        builder.Property(c => c.TraceId).HasMaxLength(100);\r\n        builder.Property(c => c.SpanId).HasMaxLength(100);\r\n        builder.ToTable(\"OutBoxEventItems\",\"zamin\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Configure» در OutBoxEventItemConfig. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- builder (EntityTypeBuilder<OutBoxEventItem>): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEntityTypeConfiguration<OutBoxEventItem>",
+            "en": "Method 'Configure' on OutBoxEventItemConfig. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- builder (EntityTypeBuilder<OutBoxEventItem>): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEntityTypeConfiguration<OutBoxEventItem>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «OutBoxEventItemConfig» در namespace Zamin.Extensions.Events.Outbox.Dal.EF.Configs. موجودیت دامنه با هویت و قابلیت auditable. ارث‌بری/پیاده‌سازی: IEntityTypeConfiguration<OutBoxEventItem>. مرتبط: IEntityTypeConfiguration<OutBoxEventItem>.",
+        "en": "Class 'OutBoxEventItemConfig' in namespace Zamin.Extensions.Events.Outbox.Dal.EF.Configs. Domain entity with identity and auditing support. Base/implemented types: IEntityTypeConfiguration<OutBoxEventItem>. Related: IEntityTypeConfiguration<OutBoxEventItem>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

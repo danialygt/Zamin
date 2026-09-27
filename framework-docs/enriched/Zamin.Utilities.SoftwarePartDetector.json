@@ -1,0 +1,132 @@
+{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ControllersAndActionDetector",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Detectors/ControllersAndActionDetector.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IActionDescriptorCollectionProvider actionDescriptorCollectionProvider"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ControllersAndActionDetector(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ControllersAndActionDetector. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- actionDescriptorCollectionProvider (IActionDescriptorCollectionProvider): ورودی از نوع IActionDescriptorCollectionProvider.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for ControllersAndActionDetector. Parameters are expected via dependency injection. Parameters:\r\n- actionDescriptorCollectionProvider (IActionDescriptorCollectionProvider): Input of type IActionDescriptorCollectionProvider.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public Task<List<SoftwarePartController>> Detect()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return Task.Run(() =>\r\n        {\r\n            var result = new List<SoftwarePartController>();\r\n\r\n            var controllerActionDescriptors = _actionDescriptorCollectionProvider.ActionDescriptors.Items.OfType<ControllerActionDescriptor>().ToList();\r\n\r\n            foreach (var item in controllerActionDescriptors)\r\n            {\r\n                var attribute = item.ControllerTypeInfo.GetCustomAttributes(typeof(SoftwarePartControllerOptionAttribute), false).FirstOrDefault() as SoftwarePartControllerOptionAttribute;\r\n                result.Add(new SoftwarePartController\r\n                {\r\n                    Module = attribute?.Module,\r\n                    Service = attribute?.Service,\r\n                    Name = item.ControllerName,\r\n                    ApplicationPartType = SoftwarePartType.Controller,\r\n                });\r\n            }\r\n\r\n            result = result.DistinctBy(c => c.Name).GroupJoin(controllerActionDescriptors, c => c.Name, a => a.ControllerName, (c, a) => new SoftwarePartController\r\n            {\r\n                Module = c.Module,\r\n                Service = c.Service,\r\n                Name = c.Name,\r\n                ApplicationPartType = SoftwarePartType.Controller,\r\n                Actions = a.Select(b => new SoftwarePartAction\r\n                {\r\n                    Name = b.ActionName,\r\n                    ApplicationPartType = SoftwarePartType.Action\r\n                }).DistinctBy(c => c.Name).ToList()\r\n            }).ToList();\r\n\r\n            return result;\r\n        });\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Detect» در ControllersAndActionDetector. اجزای نرم‌افزاری (کنترلر/اکشن و ...) را کشف می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Task<List<SoftwarePartController>>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: IActionDescriptorCollectionProvider actionDescriptorCollectionProvider",
+            "en": "Method 'Detect' on ControllersAndActionDetector. Discovers software parts (controllers/actions, etc.).\r\nNo input parameters.\r\nReturns: `Task<List<SoftwarePartController>>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: IActionDescriptorCollectionProvider actionDescriptorCollectionProvider"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ControllersAndActionDetector» در namespace Zamin.Utilities.SoftwarePartDetector. کنترلر endpoint برای دریافت درخواست HTTP و ارجاع به لایه اپلیکیشن. وابستگی‌های سازنده (DI): IActionDescriptorCollectionProvider actionDescriptorCollectionProvider. مرتبط: DI: IActionDescriptorCollectionProvider actionDescriptorCollectionProvider.",
+        "en": "Class 'ControllersAndActionDetector' in namespace Zamin.Utilities.SoftwarePartDetector. HTTP endpoint controller that forwards requests to the application layer. Constructor-injected dependencies: IActionDescriptorCollectionProvider actionDescriptorCollectionProvider. Related: DI: IActionDescriptorCollectionProvider actionDescriptorCollectionProvider."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartDetector",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Detectors/SoftwarePartDetector.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ControllersAndActionDetector controllersAndActionDetector"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartDetector(ControllersAndActionDetector controllersAndActionDetector)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _controllersAndActionDetector = controllersAndActionDetector;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SoftwarePartDetector. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- controllersAndActionDetector (ControllersAndActionDetector): ورودی از نوع ControllersAndActionDetector.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SoftwarePartDetector. Creates an instance with the provided initial values. Parameters:\r\n- controllersAndActionDetector (ControllersAndActionDetector): Input of type ControllersAndActionDetector.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public async Task<SoftwarePart> Detect(string softwareName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(softwareName))\r\n            throw new ArgumentNullException(nameof(softwareName));\r\n\r\n        var application = new SoftwarePart\r\n        {\r\n            Name = softwareName,\r\n            SoftwarePartType = SoftwarePartType.Sample\r\n        };\r\n\r\n        var controllers = await _controllersAndActionDetector.Detect();\r\n\r\n        foreach (var controller in controllers)\r\n        {\r\n            if (controller.Module is null)\r\n            {\r\n                if (controller.Service is null)\r\n                {\r\n                    AddControllerAndActionsToParent(application, controller);\r\n                }\r\n                else\r\n                {\r\n                    var service = application.Children.FirstOrDefault(c => c.Name == controller.Service && c.SoftwarePartType == SoftwarePartType.Service);\r\n                    if (service is not null)\r\n                    {\r\n                        AddControllerAndActionsToParent(service, controller);\r\n                    }\r\n                    else\r\n                    {\r\n                        service = new SoftwarePart()\r\n                        {\r\n                            Name = controller.Service,\r\n                            SoftwarePartType = SoftwarePartType.Service,\r\n                        };\r\n\r\n                        AddControllerAndActionsToParent(service, controller);\r\n\r\n                        application.Children.Add(service);\r\n                    }\r\n                }\r\n            }\r\n            else\r\n            {\r\n                AddControllerAndActionsToCustomModuleAndCustomService(application, controller);\r\n            }\r\n        }\r\n\r\n        return application;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Detect» در SoftwarePartDetector. اجزای نرم‌افزاری (کنترلر/اکشن و ...) را کشف می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- softwareName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `Task<SoftwarePart>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: ControllersAndActionDetector controllersAndActionDetector",
+            "en": "Method 'Detect' on SoftwarePartDetector. Discovers software parts (controllers/actions, etc.). Runs asynchronously.\r\nParameters:\r\n- softwareName (string): Input of type string.\r\n\r\nReturns: `Task<SoftwarePart>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: ControllersAndActionDetector controllersAndActionDetector"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public async Task<SoftwarePart> Detect(string softwareName, string moduleName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(moduleName))\r\n            return await Detect(softwareName);\r\n\r\n        var application = new SoftwarePart\r\n        {\r\n            Name = softwareName,\r\n            SoftwarePartType = SoftwarePartType.Sample,\r\n            Children = new List<SoftwarePart>\r\n            {\r\n                new SoftwarePart\r\n                {\r\n                    Name = moduleName,\r\n                    SoftwarePartType=SoftwarePartType.Module,\r\n                }\r\n            }\r\n        };\r\n\r\n        var controllers = await _controllersAndActionDetector.Detect();\r\n\r\n        foreach (var controller in controllers)\r\n        {\r\n            if (controller.Module is null)\r\n            {\r\n                var module = application.Children.First(c => c.Name == moduleName);\r\n\r\n                if (controller.Service is null)\r\n                {\r\n                    AddControllerAndActionsToParent(module, controller);\r\n                }\r\n                else\r\n                {\r\n                    var service = module.Children.FirstOrDefault(c => c.Name == controller.Service);\r\n                    if (service is not null)\r\n                    {\r\n                        AddControllerAndActionsToParent(service, controller);\r\n                    }\r\n                    else\r\n                    {\r\n                        service = CreateSoftwarePartService(controller.Service);\r\n\r\n                        AddControllerAndActionsToParent(service, controller);\r\n\r\n                        module.Children.Add(service);\r\n                    }\r\n                }\r\n\r\n            }\r\n            else\r\n            {\r\n                AddControllerAndActionsToCustomModuleAndCustomService(application, controller);\r\n            }\r\n        }\r\n\r\n        return application;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Detect» در SoftwarePartDetector. اجزای نرم‌افزاری (کنترلر/اکشن و ...) را کشف می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- softwareName (string): ورودی از نوع string.\r\n- moduleName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `Task<SoftwarePart>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: ControllersAndActionDetector controllersAndActionDetector",
+            "en": "Method 'Detect' on SoftwarePartDetector. Discovers software parts (controllers/actions, etc.). Runs asynchronously.\r\nParameters:\r\n- softwareName (string): Input of type string.\r\n- moduleName (string): Input of type string.\r\n\r\nReturns: `Task<SoftwarePart>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: ControllersAndActionDetector controllersAndActionDetector"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Detect",
+          "kind": "method",
+          "signature": "public async Task<SoftwarePart> Detect(string softwareName, string moduleName, string serviceName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(serviceName) || string.IsNullOrEmpty(moduleName))\r\n            return await Detect(softwareName, moduleName);\r\n\r\n        var application = new SoftwarePart\r\n        {\r\n            Name = softwareName,\r\n            SoftwarePartType = SoftwarePartType.Sample,\r\n            Children = new List<SoftwarePart>\r\n            {\r\n                new SoftwarePart\r\n                {\r\n                    Name = moduleName,\r\n                    SoftwarePartType=SoftwarePartType.Module,\r\n                    Children = new List<SoftwarePart>\r\n                    {\r\n                        new SoftwarePart\r\n                        {\r\n                            Name =serviceName,\r\n                            SoftwarePartType= SoftwarePartType.Service,\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        };\r\n\r\n        var controllers = await _controllersAndActionDetector.Detect();\r\n\r\n        foreach (var controller in controllers)\r\n        {\r\n            if (controller.Module is null)\r\n            {\r\n                var module = application.Children.First(c => c.Name == moduleName);\r\n                if (controller.Service is null)\r\n                {\r\n                    var service = module.Children.First(c => c.Name == serviceName);\r\n\r\n                    AddControllerAndActionsToParent(service, controller);\r\n                }\r\n                else\r\n                {\r\n                    var service = module.Children.FirstOrDefault(c => c.Name == controller.Service);\r\n                    if (service is not null)\r\n                    {\r\n                        AddControllerAndActionsToParent(service, controller);\r\n                    }\r\n                    else\r\n                    {\r\n                        service = CreateSoftwarePartService(controller.Service);\r\n\r\n                        AddControllerAndActionsToParent(service, controller);\r\n\r\n                        module.Children.Add(service);\r\n                    }\r\n                }\r\n            }\r\n            else\r\n            {\r\n                AddControllerAndActionsToCustomModuleAndCustomService(application, controller);\r\n            }\r\n        }\r\n\r\n        return application;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Detect» در SoftwarePartDetector. اجزای نرم‌افزاری (کنترلر/اکشن و ...) را کشف می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- softwareName (string): ورودی از نوع string.\r\n- moduleName (string): ورودی از نوع string.\r\n- serviceName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `Task<SoftwarePart>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: ControllersAndActionDetector controllersAndActionDetector",
+            "en": "Method 'Detect' on SoftwarePartDetector. Discovers software parts (controllers/actions, etc.). Runs asynchronously.\r\nParameters:\r\n- softwareName (string): Input of type string.\r\n- moduleName (string): Input of type string.\r\n- serviceName (string): Input of type string.\r\n\r\nReturns: `Task<SoftwarePart>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: ControllersAndActionDetector controllersAndActionDetector"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartDetector» در namespace Zamin.Utilities.SoftwarePartDetector. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. وابستگی‌های سازنده (DI): ControllersAndActionDetector controllersAndActionDetector. مرتبط: DI: ControllersAndActionDetector controllersAndActionDetector.",
+        "en": "Class 'SoftwarePartDetector' in namespace Zamin.Utilities.SoftwarePartDetector. Public/protected class definition in the Zamin framework layer. Constructor-injected dependencies: ControllersAndActionDetector controllersAndActionDetector. Related: DI: ControllersAndActionDetector controllersAndActionDetector."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

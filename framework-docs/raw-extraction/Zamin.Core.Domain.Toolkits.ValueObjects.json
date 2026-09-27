@@ -1,0 +1,389 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "Description",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/Description.cs",
+      "base_types": [
+        "BaseValueObject<Description>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static Description FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(Description description)",
+          "xml_doc": "",
+          "body_summary": "=> description.Value",
+          "attributes": []
+        },
+        {
+          "name": "Description",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator Description(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "LegalNationalId",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/LegalNationalId.cs",
+      "base_types": [
+        "BaseValueObject<LegalNationalId>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static LegalNationalId FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(LegalNationalId title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": []
+        },
+        {
+          "name": "LegalNationalId",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator LegalNationalId(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": []
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value;",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "NationalCode",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/NationalCode.cs",
+      "base_types": [
+        "BaseValueObject<NationalCode>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string value"
+      ],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static NationalCode FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public NationalCode(string value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (!value.IsNationalCode())\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorStringFormat\", nameof(NationalCode));\r\n        }\r\n\r\n        Value = value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(NationalCode title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": []
+        },
+        {
+          "name": "NationalCode",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator NationalCode(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": []
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value;",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "Priority",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/Priority.cs",
+      "base_types": [
+        "BaseValueObject<Priority>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "int value"
+      ],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public int Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "FromInt",
+          "kind": "method",
+          "signature": "public static Priority FromInt(int value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public Priority(int value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (value < 1)\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorValueGraterThan\", nameof(Priority), \"0\");\r\n        }\r\n        Value = value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "+",
+          "kind": "operator",
+          "signature": "public static Priority operator +(Priority priority, int addNum)",
+          "xml_doc": "",
+          "body_summary": "=> new(priority.Value + addNum);",
+          "attributes": []
+        },
+        {
+          "name": "-",
+          "kind": "operator",
+          "signature": "public static Priority operator -(Priority priority, int addNum)",
+          "xml_doc": "",
+          "body_summary": "=> new(priority.Value - addNum);",
+          "attributes": []
+        },
+        {
+          "name": "<",
+          "kind": "operator",
+          "signature": "public static bool operator <(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value < priority02.Value;",
+          "attributes": []
+        },
+        {
+          "name": ">",
+          "kind": "operator",
+          "signature": "public static bool operator >(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value > priority02.Value;",
+          "attributes": []
+        },
+        {
+          "name": "<=",
+          "kind": "operator",
+          "signature": "public static bool operator <=(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value <= priority02.Value;",
+          "attributes": []
+        },
+        {
+          "name": ">=",
+          "kind": "operator",
+          "signature": "public static bool operator >=(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value >= priority02.Value;",
+          "attributes": []
+        },
+        {
+          "name": "int",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator int(Priority priority)",
+          "xml_doc": "",
+          "body_summary": "=> priority.Value",
+          "attributes": []
+        },
+        {
+          "name": "Priority",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator Priority(int value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": []
+        },
+        {
+          "name": "Increase",
+          "kind": "method",
+          "signature": "public Priority Increase(int increasedValue)",
+          "xml_doc": "",
+          "body_summary": "=> new(Value + increasedValue);",
+          "attributes": []
+        },
+        {
+          "name": "Decrease",
+          "kind": "method",
+          "signature": "public Priority Decrease(int increasedValue)",
+          "xml_doc": "",
+          "body_summary": "=> new(Value - increasedValue);",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "Title",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/Title.cs",
+      "base_types": [
+        "BaseValueObject<Title>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static Title FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new Title(value);",
+          "attributes": []
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(Title title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": []
+        },
+        {
+          "name": "Title",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator Title(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": []
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value;",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

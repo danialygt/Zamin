@@ -1,0 +1,75 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "InboxMessageConsumer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox/InboxMessageConsumer.cs",
+      "base_types": [
+        "IMessageConsumer"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<MessageInboxOptions> messageInboxOptions",
+        "IJsonSerializer jsonSerializer",
+        "IMessageInboxItemRepository messageInboxItemRepository",
+        "ICommandDispatcher commandDispatcher",
+        "IEventDispatcher eventDispatcher"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public InboxMessageConsumer(IOptions<MessageInboxOptions> messageInboxOptions,\r\n                                IJsonSerializer jsonSerializer,\r\n                                IMessageInboxItemRepository messageInboxItemRepository,\r\n                                ICommandDispatcher commandDispatcher,\r\n                                IEventDispatcher eventDispatcher)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _messageInboxOptions = messageInboxOptions.Value;\r\n        _eventDispatcher = eventDispatcher;\r\n        _jsonSerializer = jsonSerializer;\r\n        _commandDispatcher = commandDispatcher;\r\n        _messageInboxItemRepository = messageInboxItemRepository;\r\n        Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();\r\n        _domainEventTypes.AddRange(assemblies.SelectMany(assembly => assembly.GetTypes().Where(c => c.IsAssignableTo(typeof(IDomainEvent)) && c.IsClass).ToList()).ToList());\r\n        _commandTypes.AddRange(assemblies.SelectMany(assembly => assembly.GetTypes().Where(c => c.IsAssignableTo(typeof(ICommand)) && c.IsClass).ToList()).ToList());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده InboxMessageConsumer. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- messageInboxOptions (IOptions<MessageInboxOptions>): گزینه‌های typed تنظیمات.\r\n- jsonSerializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\n- messageInboxItemRepository (IMessageInboxItemRepository): ورودی از نوع IMessageInboxItemRepository.\r\n- commandDispatcher (ICommandDispatcher): فرمان ورودی برای اجرا.\r\n- eventDispatcher (IEventDispatcher): رویداد دامنه/پیام برای پردازش.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for InboxMessageConsumer. Parameters are expected via dependency injection. Parameters:\r\n- messageInboxOptions (IOptions<MessageInboxOptions>): Typed options snapshot/wrapper.\r\n- jsonSerializer (IJsonSerializer): Input of type IJsonSerializer.\r\n- messageInboxItemRepository (IMessageInboxItemRepository): Input of type IMessageInboxItemRepository.\r\n- commandDispatcher (ICommandDispatcher): Incoming command to execute.\r\n- eventDispatcher (IEventDispatcher): Domain/event message to process.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ConsumeCommand",
+          "kind": "method",
+          "signature": "public Task<bool> ConsumeCommand(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        throw new NotImplementedException();\r\n        //if (_messageInboxItemRepository.AllowReceive(parcel.MessageId, sender))\r\n        //{\r\n        //    var mapToClass = _messageTypeMap[parcel.Route];\r\n        //    var commandType = Type.GetType(mapToClass);\r\n        //    dynamic command = _jsonSerializer.Deserialize(parcel.MessageBody, commandType);\r\n        //    _commandDispatcher.Send(command);\r\n        //    _messageInboxItemRepository.Receive(parcel.MessageId, sender);\r\n        //}    }\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConsumeCommand» در InboxMessageConsumer. پیام دریافتی را مصرف و به handler مناسب تحویل می‌دهد.\r\nپارامترها:\r\n- sender (string): ورودی از نوع string.\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند؛ قبل از Send باید SetCommandDispatcher فراخوانی شده باشد\r\nانواع مرتبط: IMessageConsumer | DI: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher",
+            "en": "Method 'ConsumeCommand' on InboxMessageConsumer. Consumes an incoming message and dispatches it to the matching handler.\r\nParameters:\r\n- sender (string): Input of type string.\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available; SetCommandDispatcher must be called before Send\r\nRelated types: IMessageConsumer | DI: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ConsumeEvent",
+          "kind": "method",
+          "signature": "public async Task<bool> ConsumeEvent(string sender, Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (_messageInboxItemRepository.AllowReceive(parcel.MessageId, sender))\r\n        {\r\n            var eventType = _domainEventTypes.FirstOrDefault(c => c.Name == parcel.MessageName);\r\n            if (eventType != null)\r\n            {\r\n                dynamic @event = _jsonSerializer.Deserialize(parcel.MessageBody, eventType);\r\n                await _eventDispatcher.PublishDomainEventAsync(@event);\r\n                _messageInboxItemRepository.Receive(parcel.MessageId, sender, parcel.MessageBody);\r\n            }\r\n        }\r\n        return true;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConsumeEvent» در InboxMessageConsumer. پیام دریافتی را مصرف و به handler مناسب تحویل می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- sender (string): ورودی از نوع string.\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند؛ قبل از Publish باید SetEventDispatcher فراخوانی شده باشد\r\nانواع مرتبط: IMessageConsumer | DI: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher",
+            "en": "Method 'ConsumeEvent' on InboxMessageConsumer. Consumes an incoming message and dispatches it to the matching handler. Runs asynchronously.\r\nParameters:\r\n- sender (string): Input of type string.\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available; SetEventDispatcher must be called before Publish\r\nRelated types: IMessageConsumer | DI: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «InboxMessageConsumer» در namespace Zamin.Extensions.MessageBus.MessageInbox. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IMessageConsumer. وابستگی‌های سازنده (DI): IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher. مرتبط: IMessageConsumer | DI: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher.",
+        "en": "Class 'InboxMessageConsumer' in namespace Zamin.Extensions.MessageBus.MessageInbox. Public/protected class definition in the Zamin framework layer. Base/implemented types: IMessageConsumer. Constructor-injected dependencies: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher. Related: IMessageConsumer | DI: IOptions<MessageInboxOptions> messageInboxOptions, IJsonSerializer jsonSerializer, IMessageInboxItemRepository messageInboxItemRepository, ICommandDispatcher commandDispatcher, IEventDispatcher eventDispatcher."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

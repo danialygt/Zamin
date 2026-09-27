@@ -1,0 +1,137 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ParrotTranslator",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Services",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Services/ParrotTranslator.cs",
+      "base_types": [
+        "ITranslator",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<ParrotTranslatorOptions> configuration",
+        "ILogger<ParrotTranslator> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ParrotTranslator(IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _currentCulture = CultureInfo.CurrentCulture.ToString();\r\n        _logger = logger;\r\n        if (string.IsNullOrWhiteSpace(_currentCulture))\r\n        {\r\n            _currentCulture = \"en-US\";\r\n            _logger.LogInformation(\"Parrot Translator current culture is null and set to en-US\");\r\n        }\r\n        _localizer = new ParrotSqlRepository(configuration.Value, logger);\r\n        _logger.LogInformation(\"Parrot Translator Start working with culture {Culture}\", _currentCulture);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[string name] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[string name] { get => GetString(name); set => throw new NotImplementedException(); }",
+          "attributes": []
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[CultureInfo culture, string name ] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[CultureInfo culture, string name ] { get => GetString(culture, name); set => throw new NotImplementedException(); }",
+          "attributes": []
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[string name, params string[] arguments] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[string name, params string[] arguments] { get => GetString(name, arguments); set => throw new NotImplementedException(); }",
+          "attributes": []
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[CultureInfo culture, string name, params string[] arguments] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[CultureInfo culture, string name, params string[] arguments] { get => GetString(culture, name,  arguments); set => throw new NotImplementedException(); }",
+          "attributes": []
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[char separator, params string[] names] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[char separator, params string[] names] { get => GetConcateString(separator, names); set => throw new NotImplementedException(); }",
+          "attributes": []
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[CultureInfo culture, char separator, params string[] names] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[CultureInfo culture, char separator, params string[] names] { get => GetConcateString(culture, separator, names); set => throw new NotImplementedException(); }",
+          "attributes": []
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(string name)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString with name {name}\", name);\r\n            return _localizer.Get(name, _currentCulture);\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(CultureInfo culture, string name)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString  with culture {culture} name {name}\", culture, name);\r\n        if (culture is null)\r\n            return _localizer.Get(name, _currentCulture);\r\n        else return _localizer.Get(name, culture.ToString());\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(string pattern, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString with pattern {pattern} and arguments {arguments}\", pattern, arguments);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            arguments[i] = GetString(arguments[i]);\r\n        }\r\n\r\n        pattern = GetString(pattern);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            string placeHolder = $\"{{{i}}}\";\r\n            pattern = pattern.Replace(placeHolder, arguments[i]);\r\n        }\r\n\r\n        return pattern;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(CultureInfo culture, string pattern, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString with culture {culture} and  pattern {pattern} and arguments {arguments}\", culture, pattern, arguments);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            arguments[i] = GetString(culture,arguments[i]);\r\n        }\r\n\r\n        pattern = GetString(culture, pattern);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            string placeHolder = $\"{{{i}}}\";\r\n            pattern = pattern.Replace(placeHolder, arguments[i]);\r\n        }\r\n\r\n        return pattern;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetConcateString",
+          "kind": "method",
+          "signature": "public string GetConcateString(char separator = ' ', params string[] names)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetConcateString with separator {separator} and names {names}\", separator, names);\r\n\r\n        for (int i = 0; i < names.Length; i++)\r\n        {\r\n            names[i] = GetString(names[i]);\r\n        }\r\n\r\n        return string.Join(separator, names);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "GetConcateString",
+          "kind": "method",
+          "signature": "public string GetConcateString(CultureInfo culture, char separator = ' ',  params string[] names)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetConcateString with culture {culture} and separator {separator} and names {names}\", culture, separator, names);\r\n\r\n        for (int i = 0; i < names.Length; i++)\r\n        {\r\n            names[i] = GetString(culture, names[i]);\r\n        }\r\n\r\n        return string.Join(separator, names);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"Parrot Translator Stop working with culture {Culture}\", _currentCulture);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

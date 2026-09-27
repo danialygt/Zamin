@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Extensions.ModelBinding",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "NonValidatingValidatorExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Extensions.ModelBinding",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/ModelBinding/AddNonValidateValidator.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddNonValidatingValidator",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddNonValidatingValidator(this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var validator = services.FirstOrDefault(s => s.ServiceType == typeof(IObjectModelValidator));\r\n        if (validator != null)\r\n        {\r\n            services.Remove(validator);\r\n            services.Add(new ServiceDescriptor(typeof(IObjectModelValidator), _ => new NonValidatingValidator(), ServiceLifetime.Singleton));\r\n        }\r\n        return services;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

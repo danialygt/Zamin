@@ -1,0 +1,170 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "DefaultTranslationOption",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Options/ParrotTranslatorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Key",
+          "kind": "property",
+          "signature": "public string Key { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Key» از نوع `string` در DefaultTranslationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Key' of type `string` on DefaultTranslationOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در DefaultTranslationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on DefaultTranslationOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Culture",
+          "kind": "property",
+          "signature": "public string Culture { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Culture» از نوع `string` در DefaultTranslationOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Culture' of type `string` on DefaultTranslationOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DefaultTranslationOption» در namespace Zamin.Extensions.Translations.Parrot.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'DefaultTranslationOption' in namespace Zamin.Extensions.Translations.Parrot.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ParrotTranslatorOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Options",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Options/ParrotTranslatorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ConnectionString» از نوع `string` در ParrotTranslatorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ConnectionString' of type `string` on ParrotTranslatorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AutoCreateSqlTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateSqlTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AutoCreateSqlTable» از نوع `bool` در ParrotTranslatorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AutoCreateSqlTable' of type `bool` on ParrotTranslatorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TableName",
+          "kind": "property",
+          "signature": "public string TableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TableName» از نوع `string` در ParrotTranslatorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TableName' of type `string` on ParrotTranslatorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SchemaName» از نوع `string` در ParrotTranslatorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'SchemaName' of type `string` on ParrotTranslatorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ReloadDataIntervalInMinuts",
+          "kind": "property",
+          "signature": "public int ReloadDataIntervalInMinuts { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ReloadDataIntervalInMinuts» از نوع `int` در ParrotTranslatorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ReloadDataIntervalInMinuts' of type `int` on ParrotTranslatorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DefaultTranslations",
+          "kind": "property",
+          "signature": "public DefaultTranslationOption[] DefaultTranslations { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «DefaultTranslations» از نوع `DefaultTranslationOption[]` در ParrotTranslatorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'DefaultTranslations' of type `DefaultTranslationOption[]` on ParrotTranslatorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ParrotTranslatorOptions» در namespace Zamin.Extensions.Translations.Parrot.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'ParrotTranslatorOptions' in namespace Zamin.Extensions.Translations.Parrot.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

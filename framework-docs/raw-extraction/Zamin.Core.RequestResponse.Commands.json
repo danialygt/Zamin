@@ -1,0 +1,75 @@
+﻿{
+  "namespace": "Zamin.Core.RequestResponse.Commands",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "CommandResult",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/CommandResult.cs",
+      "base_types": [
+        "ApplicationServiceResult"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود.\n/// دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید\n/// https://github.com/vkhorikov/CqrsInPractice\n/// </summary>",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "CommandResult<TData>",
+      "kind": "class",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/CommandResult.cs",
+      "base_types": [
+        "CommandResult"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// نتیجه انجام هر عملیات به کمک این کلاس بازگشت داده می‌شود.\n/// دلایل استفاده از این الگو و پیاده سازی کاملی از این الگو را در لینک زیر می‌توانید مشاهده کنید\n/// این ساختار در صورتی استفاده میشود که برای عملیات مقدار خروجی نیاز باشد\n/// https://github.com/vkhorikov/CqrsInPractice\n/// </summary>\n/// <typeparam name=\"TData\">نوع داده‌ای که بازگشت داده می‌شود</typeparam>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_data",
+          "kind": "field",
+          "signature": "public TData? _data;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Data",
+          "kind": "property",
+          "signature": "public TData? Data => ...",
+          "xml_doc": "",
+          "body_summary": "=> _data;",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ICommand",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/ICommand.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "ICommand<TData>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.RequestResponse.Commands",
+      "source_file": "Onion/src/2.Core/Zamin.Core.RequestResponse/Commands/ICommand.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// جهت علامت گذاری کلاسی که پارامتر‌های ورودی درستور را دارد از این اینترفیس اسفتاده می‌شود\n/// اگر به ازای دستور ارسال شده مقدار خروجی باید بازگشت داده شود از این اینترفیس استفاده می‌شود\n/// </summary>\n/// <typeparam name=\"TData\">نوع داده‌ای که در ازای دستور باید بازگشت داده شود</typeparam>",
+      "injected_dependencies": [],
+      "members": []
+    }
+  ]
+}

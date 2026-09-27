@@ -1,0 +1,55 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.EPPlus.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "EPPlusExcelSerializer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.EPPlus.Services",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.EPPlus/Zamin.Extensions.Serializers.EPPlus/Services/EPPlusExcelSerializer.cs",
+      "base_types": [
+        "IExcelSerializer"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ITranslator translator"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EPPlusExcelSerializer(ITranslator translator)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _translator = translator;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ListToExcelByteArray",
+          "kind": "method",
+          "signature": "public byte[] ListToExcelByteArray<T>(List<T> list, string sheetName = \"Result\")",
+          "xml_doc": "",
+          "body_summary": "=> list.ToExcelByteArray(_translator, sheetName);",
+          "attributes": []
+        },
+        {
+          "name": "ExcelToDataTable",
+          "kind": "method",
+          "signature": "public DataTable ExcelToDataTable(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "=> bytes.ToDataTableFromExcel();",
+          "attributes": []
+        },
+        {
+          "name": "ExcelToList",
+          "kind": "method",
+          "signature": "public List<T> ExcelToList<T>(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "=> bytes.ToDataTableFromExcel().ToList<T>(_translator);",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

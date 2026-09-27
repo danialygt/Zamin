@@ -1,0 +1,75 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.DataModel",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "LocalizationRecord",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.DataModel",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/DataModel/LocalizationRecord.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public long Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "BusinessId",
+          "kind": "property",
+          "signature": "public Guid BusinessId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Key",
+          "kind": "property",
+          "signature": "public string Key { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Culture",
+          "kind": "property",
+          "signature": "public string Culture { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CorrespondingValueNotFound",
+          "kind": "property",
+          "signature": "public bool CorrespondingValueNotFound => ...",
+          "xml_doc": "",
+          "body_summary": "=> string.IsNullOrEmpty(Value);",
+          "attributes": []
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value.ToString();",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

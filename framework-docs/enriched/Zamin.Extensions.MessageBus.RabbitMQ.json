@@ -1,0 +1,247 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "RabbitMqReceiveMessageBus",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/RabbitMqReceiveMessageBus.cs",
+      "base_types": [
+        "IReceiveMessageBus",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IConnection connection",
+        "ILogger<RabbitMqReceiveMessageBus> logger",
+        "IOptions<RabbitMqOptions> rabbitMqOptions",
+        "IServiceScopeFactory serviceScopeFactory"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public RabbitMqReceiveMessageBus(IConnection connection,\r\n                                     ILogger<RabbitMqReceiveMessageBus> logger,\r\n                                     IOptions<RabbitMqOptions> rabbitMqOptions,\r\n                                     IServiceScopeFactory serviceScopeFactory)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _rabbitMqOptions = rabbitMqOptions.Value;\r\n        _serviceScopeFactory = serviceScopeFactory;\r\n        _connection = connection;\r\n        _channel = _connection.CreateChannelAsync().Result;\r\n        _channel.ExchangeDeclareAsync(_rabbitMqOptions.ExchangeName, ExchangeType.Topic, true, false, null).Wait();\r\n        _commandQueueName = $\"{_rabbitMqOptions.ServiceName}.CommandsInputQueue\";\r\n        _eventQueueName = $\"{_rabbitMqOptions.ServiceName}.EventsInputQueue\";\r\n        CreateCommandQueue();\r\n        CreateEventQueue();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده RabbitMqReceiveMessageBus. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- connection (IConnection): ورودی از نوع IConnection.\r\n- logger (ILogger<RabbitMqReceiveMessageBus>): لاگر برای ثبت رویدادها و خطاها.\r\n- rabbitMqOptions (IOptions<RabbitMqOptions>): گزینه‌های typed تنظیمات.\r\n- serviceScopeFactory (IServiceScopeFactory): ورودی از نوع IServiceScopeFactory.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for RabbitMqReceiveMessageBus. Parameters are expected via dependency injection. Parameters:\r\n- connection (IConnection): Input of type IConnection.\r\n- logger (ILogger<RabbitMqReceiveMessageBus>): Logger for diagnostics and error reporting.\r\n- rabbitMqOptions (IOptions<RabbitMqOptions>): Typed options snapshot/wrapper.\r\n- serviceScopeFactory (IServiceScopeFactory): Input of type IServiceScopeFactory.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Subscribe",
+          "kind": "method",
+          "signature": "public void Subscribe(string serviceId, string eventName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var route = $\"{serviceId}.{RabbitMqSendMessageBusConstants.@event}.{eventName}\";\r\n        _channel.QueueBindAsync(_eventQueueName, _rabbitMqOptions.ExchangeName, route).Wait();\r\n        _logger.LogInformation(\"ServiceId: {serviceId} With EventName: {eventName} Binded.\", serviceId, eventName);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Subscribe» در RabbitMqReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- serviceId (string): ورودی از نوع string.\r\n- eventName (string): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory",
+            "en": "Method 'Subscribe' on RabbitMqReceiveMessageBus. Performs the operation declared by the signature on this type. Logs execution details.\r\nParameters:\r\n- serviceId (string): Input of type string.\r\n- eventName (string): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "public void Receive(string commandName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var route = $\"{_rabbitMqOptions.ServiceName}.{RabbitMqSendMessageBusConstants.command}.{commandName}\";\r\n        _channel.QueueBindAsync(_commandQueueName, _rabbitMqOptions.ExchangeName, route).Wait();\r\n        _logger.LogInformation(\"Command With CommandName: {commandName} Binded.\", commandName);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Receive» در RabbitMqReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- commandName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory",
+            "en": "Method 'Receive' on RabbitMqReceiveMessageBus. Performs the operation declared by the signature on this type. Logs execution details.\r\nParameters:\r\n- commandName (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _channel.CloseAsync().Wait();\r\n        _connection.CloseAsync().Wait();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Dispose» در RabbitMqReceiveMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory",
+            "en": "Method 'Dispose' on RabbitMqReceiveMessageBus. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RabbitMqReceiveMessageBus» در namespace Zamin.Extensions.MessageBus.RabbitMQ. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IReceiveMessageBus, IDisposable. وابستگی‌های سازنده (DI): IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory. مرتبط: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory.",
+        "en": "Class 'RabbitMqReceiveMessageBus' in namespace Zamin.Extensions.MessageBus.RabbitMQ. Public/protected class definition in the Zamin framework layer. Base/implemented types: IReceiveMessageBus, IDisposable. Constructor-injected dependencies: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory. Related: IReceiveMessageBus | IDisposable | DI: IConnection connection, ILogger<RabbitMqReceiveMessageBus> logger, IOptions<RabbitMqOptions> rabbitMqOptions, IServiceScopeFactory serviceScopeFactory."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RabbitMqSendMessageBus",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/RabbitMqSendMessageBus.cs",
+      "base_types": [
+        "IDisposable",
+        "ISendMessageBus"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IConnection connection",
+        "IJsonSerializer jsonSerializer",
+        "IOptions<RabbitMqOptions> rabbitMqOptions",
+        "ILogger<RabbitMqSendMessageBus> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public RabbitMqSendMessageBus(IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions,ILogger<RabbitMqSendMessageBus> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            _jsonSerializer = jsonSerializer;\r\n            _logger = logger;\r\n            _rabbitMqOptions = rabbitMqOptions.Value;\r\n            _channel = connection.CreateChannelAsync().Result;\r\n            _channel.ExchangeDeclareAsync(_rabbitMqOptions.ExchangeName, ExchangeType.Topic, true, false, null).Wait();\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده RabbitMqSendMessageBus. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- connection (IConnection): ورودی از نوع IConnection.\r\n- jsonSerializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\n- rabbitMqOptions (IOptions<RabbitMqOptions>): گزینه‌های typed تنظیمات.\r\n- logger (ILogger<RabbitMqSendMessageBus>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for RabbitMqSendMessageBus. Parameters are expected via dependency injection. Parameters:\r\n- connection (IConnection): Input of type IConnection.\r\n- jsonSerializer (IJsonSerializer): Input of type IJsonSerializer.\r\n- rabbitMqOptions (IOptions<RabbitMqOptions>): Typed options snapshot/wrapper.\r\n- logger (ILogger<RabbitMqSendMessageBus>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Publish",
+          "kind": "method",
+          "signature": "public void Publish<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (input == null)\r\n                throw new ArgumentNullException(nameof(input));\r\n\r\n            string messageName = input.GetType().Name;\r\n            Parcel parcel = new()\r\n            {\r\n                MessageId = Guid.NewGuid().ToString(),\r\n                MessageBody = _jsonSerializer.Serialize(input),\r\n                MessageName = messageName,\r\n                Route = $\"{_rabbitMqOptions.ServiceName}.{RabbitMqSendMessageBusConstants.@event}.{messageName}\",\r\n                Headers = new Dictionary<string, object>\r\n                {\r\n                    [\"AccuredOn\"] = DateTime.Now.ToString(),\r\n                }\r\n            };\r\n            Send(parcel);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Publish» در RabbitMqSendMessageBus. رویداد/پیام را منتشر می‌کند.\r\nپارامترها:\r\n- input (TInput): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger",
+            "en": "Method 'Publish' on RabbitMqSendMessageBus. Publishes an event/message.\r\nParameters:\r\n- input (TInput): Value under validation or input.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "public void SendCommandTo<TCommandData>(string destinationService, string commandName, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (commandData == null)\r\n                throw new ArgumentNullException(nameof(commandData));\r\n            Parcel parcel = new()\r\n            {\r\n                MessageId = Guid.NewGuid().ToString(),\r\n                MessageBody = _jsonSerializer.Serialize(commandData),\r\n                MessageName = commandName,\r\n                Route = $\"{destinationService}.{RabbitMqSendMessageBusConstants.command}.{commandName}\"\r\n            };\r\n            Send(parcel);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SendCommandTo» در RabbitMqSendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- destinationService (string): ورودی از نوع string.\r\n- commandName (string): ورودی از نوع string.\r\n- commandData (TCommandData): ورودی از نوع TCommandData.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger",
+            "en": "Method 'SendCommandTo' on RabbitMqSendMessageBus. Routes the request to the matching handler and executes it.\r\nParameters:\r\n- destinationService (string): Input of type string.\r\n- commandName (string): Input of type string.\r\n- commandData (TCommandData): Input of type TCommandData.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCommandTo",
+          "kind": "method",
+          "signature": "public void SendCommandTo<TCommandData>(string destinationService, string commandName, string correlationId, TCommandData commandData)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (commandData == null)\r\n                throw new ArgumentNullException(nameof(commandData));\r\n            Parcel parcel = new()\r\n            {\r\n                MessageId = Guid.NewGuid().ToString(),\r\n                CorrelationId = correlationId,\r\n                MessageBody = _jsonSerializer.Serialize(commandData),\r\n                MessageName = commandName,\r\n                Route = $\"{destinationService}.{RabbitMqSendMessageBusConstants.command}.{commandName}\"\r\n            };\r\n            Send(parcel);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SendCommandTo» در RabbitMqSendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند.\r\nپارامترها:\r\n- destinationService (string): ورودی از نوع string.\r\n- commandName (string): ورودی از نوع string.\r\n- correlationId (string): ورودی از نوع string.\r\n- commandData (TCommandData): ورودی از نوع TCommandData.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger",
+            "en": "Method 'SendCommandTo' on RabbitMqSendMessageBus. Routes the request to the matching handler and executes it.\r\nParameters:\r\n- destinationService (string): Input of type string.\r\n- commandName (string): Input of type string.\r\n- correlationId (string): Input of type string.\r\n- commandData (TCommandData): Input of type TCommandData.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Send",
+          "kind": "method",
+          "signature": "public void Send(Parcel parcel)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            ArgumentNullException.ThrowIfNull(parcel);\r\n            Activity childActivity = StartChildActivity(parcel);\r\n            AddActivityHeaders(parcel, childActivity);\r\n\r\n            var basicProperties = new BasicProperties();\r\n\r\n            basicProperties.Persistent = _rabbitMqOptions.PerssistMessage;\r\n            basicProperties.AppId = _rabbitMqOptions.ServiceName;\r\n            basicProperties.CorrelationId = parcel?.CorrelationId;\r\n            basicProperties.MessageId = parcel?.MessageId;\r\n            basicProperties.Headers = parcel?.Headers;\r\n            basicProperties.Type = parcel?.MessageName ?? \"NullMessageName\";\r\n            _channel.BasicPublishAsync(_rabbitMqOptions.ExchangeName, parcel.Route, _rabbitMqOptions.IsMessageMandatory,basicProperties, parcel.MessageBody.ToByteArray());\r\n            _logger.LogDebug(\"Message Sent {MessageName}\",parcel.MessageName);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Send» در RabbitMqSendMessageBus. درخواست را به handler مناسب مسیریابی و اجرا می‌کند. جزئیات اجرا را لاگ می‌کند.\r\nپارامترها:\r\n- parcel (Parcel): ورودی از نوع Parcel.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger",
+            "en": "Method 'Send' on RabbitMqSendMessageBus. Routes the request to the matching handler and executes it. Logs execution details.\r\nParameters:\r\n- parcel (Parcel): Input of type Parcel.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (_channel != null)\r\n            {\r\n                if (_channel.IsOpen)\r\n                    _channel.CloseAsync().Wait();\r\n                _channel.Dispose();\r\n            }\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Dispose» در RabbitMqSendMessageBus. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger",
+            "en": "Method 'Dispose' on RabbitMqSendMessageBus. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RabbitMqSendMessageBus» در namespace Zamin.Extensions.MessageBus.RabbitMQ. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IDisposable, ISendMessageBus. وابستگی‌های سازنده (DI): IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger. مرتبط: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger.",
+        "en": "Class 'RabbitMqSendMessageBus' in namespace Zamin.Extensions.MessageBus.RabbitMQ. Public/protected class definition in the Zamin framework layer. Base/implemented types: IDisposable, ISendMessageBus. Constructor-injected dependencies: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger. Related: IDisposable | ISendMessageBus | DI: IConnection connection, IJsonSerializer jsonSerializer, IOptions<RabbitMqOptions> rabbitMqOptions, ILogger<RabbitMqSendMessageBus> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RabbitMqSendMessageBusConstants",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/RabbitMqSendMessageBusConstants.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "@event",
+          "kind": "field",
+          "signature": "public const string @event = \"event\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «@event» در RabbitMqSendMessageBusConstants با امضای `public const string @event = \"event\";`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '@event' on RabbitMqSendMessageBusConstants with signature `public const string @event = \"event\";`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "command",
+          "kind": "field",
+          "signature": "public const string command = \"command\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «command» در RabbitMqSendMessageBusConstants با امضای `public const string command = \"command\";`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'command' on RabbitMqSendMessageBusConstants with signature `public const string command = \"command\";`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RabbitMqSendMessageBusConstants» در namespace Zamin.Extensions.MessageBus.RabbitMQ. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'RabbitMqSendMessageBusConstants' in namespace Zamin.Extensions.MessageBus.RabbitMQ. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

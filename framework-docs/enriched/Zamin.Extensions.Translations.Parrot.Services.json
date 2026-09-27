@@ -1,0 +1,227 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ParrotTranslator",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Services",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Services/ParrotTranslator.cs",
+      "base_types": [
+        "ITranslator",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<ParrotTranslatorOptions> configuration",
+        "ILogger<ParrotTranslator> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ParrotTranslator(IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _currentCulture = CultureInfo.CurrentCulture.ToString();\r\n        _logger = logger;\r\n        if (string.IsNullOrWhiteSpace(_currentCulture))\r\n        {\r\n            _currentCulture = \"en-US\";\r\n            _logger.LogInformation(\"Parrot Translator current culture is null and set to en-US\");\r\n        }\r\n        _localizer = new ParrotSqlRepository(configuration.Value, logger);\r\n        _logger.LogInformation(\"Parrot Translator Start working with culture {Culture}\", _currentCulture);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ParrotTranslator. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- configuration (IOptions<ParrotTranslatorOptions>): گزینه‌های typed تنظیمات.\r\n- logger (ILogger<ParrotTranslator>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for ParrotTranslator. Parameters are expected via dependency injection. Parameters:\r\n- configuration (IOptions<ParrotTranslatorOptions>): Typed options snapshot/wrapper.\r\n- logger (ILogger<ParrotTranslator>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[string name] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[string name] { get => GetString(name); set => throw new NotImplementedException(); }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Indexer 'this' on ParrotTranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[CultureInfo culture, string name ] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[CultureInfo culture, string name ] { get => GetString(culture, name); set => throw new NotImplementedException(); }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Indexer 'this' on ParrotTranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[string name, params string[] arguments] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[string name, params string[] arguments] { get => GetString(name, arguments); set => throw new NotImplementedException(); }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Indexer 'this' on ParrotTranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[CultureInfo culture, string name, params string[] arguments] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[CultureInfo culture, string name, params string[] arguments] { get => GetString(culture, name,  arguments); set => throw new NotImplementedException(); }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Indexer 'this' on ParrotTranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[char separator, params string[] names] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[char separator, params string[] names] { get => GetConcateString(separator, names); set => throw new NotImplementedException(); }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Indexer 'this' on ParrotTranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "this",
+          "kind": "indexer",
+          "signature": "public string this[CultureInfo culture, char separator, params string[] names] { get; set; }",
+          "xml_doc": "",
+          "body_summary": "public string this[CultureInfo culture, char separator, params string[] names] { get => GetConcateString(culture, separator, names); set => throw new NotImplementedException(); }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ایندکسر «this» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NotImplementedException (throw new)\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Indexer 'this' on ParrotTranslator. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NotImplementedException (throw new)\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(string name)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString with name {name}\", name);\r\n            return _localizer.Get(name, _currentCulture);\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ParrotTranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- name (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'GetString' on ParrotTranslator. Retrieves related data or state.\r\nParameters:\r\n- name (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(CultureInfo culture, string name)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString  with culture {culture} name {name}\", culture, name);\r\n        if (culture is null)\r\n            return _localizer.Get(name, _currentCulture);\r\n        else return _localizer.Get(name, culture.ToString());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ParrotTranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- culture (CultureInfo): ورودی از نوع CultureInfo.\r\n- name (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'GetString' on ParrotTranslator. Retrieves related data or state.\r\nParameters:\r\n- culture (CultureInfo): Input of type CultureInfo.\r\n- name (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(string pattern, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString with pattern {pattern} and arguments {arguments}\", pattern, arguments);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            arguments[i] = GetString(arguments[i]);\r\n        }\r\n\r\n        pattern = GetString(pattern);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            string placeHolder = $\"{{{i}}}\";\r\n            pattern = pattern.Replace(placeHolder, arguments[i]);\r\n        }\r\n\r\n        return pattern;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ParrotTranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- pattern (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'GetString' on ParrotTranslator. Retrieves related data or state.\r\nParameters:\r\n- pattern (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetString",
+          "kind": "method",
+          "signature": "public string GetString(CultureInfo culture, string pattern, params string[] arguments)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetString with culture {culture} and  pattern {pattern} and arguments {arguments}\", culture, pattern, arguments);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            arguments[i] = GetString(culture,arguments[i]);\r\n        }\r\n\r\n        pattern = GetString(culture, pattern);\r\n\r\n        for (int i = 0; i < arguments.Length; i++)\r\n        {\r\n            string placeHolder = $\"{{{i}}}\";\r\n            pattern = pattern.Replace(placeHolder, arguments[i]);\r\n        }\r\n\r\n        return pattern;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetString» در ParrotTranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- culture (CultureInfo): ورودی از نوع CultureInfo.\r\n- pattern (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'GetString' on ParrotTranslator. Retrieves related data or state.\r\nParameters:\r\n- culture (CultureInfo): Input of type CultureInfo.\r\n- pattern (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetConcateString",
+          "kind": "method",
+          "signature": "public string GetConcateString(char separator = ' ', params string[] names)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetConcateString with separator {separator} and names {names}\", separator, names);\r\n\r\n        for (int i = 0; i < names.Length; i++)\r\n        {\r\n            names[i] = GetString(names[i]);\r\n        }\r\n\r\n        return string.Join(separator, names);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetConcateString» در ParrotTranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- separator (char): ورودی اختیاری از نوع char (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'GetConcateString' on ParrotTranslator. Retrieves related data or state.\r\nParameters:\r\n- separator (char): Optional char input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetConcateString",
+          "kind": "method",
+          "signature": "public string GetConcateString(CultureInfo culture, char separator = ' ',  params string[] names)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Parrot Translator GetConcateString with culture {culture} and separator {separator} and names {names}\", culture, separator, names);\r\n\r\n        for (int i = 0; i < names.Length; i++)\r\n        {\r\n            names[i] = GetString(culture, names[i]);\r\n        }\r\n\r\n        return string.Join(separator, names);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetConcateString» در ParrotTranslator. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- culture (CultureInfo): ورودی از نوع CultureInfo.\r\n- separator (char): ورودی اختیاری از نوع char (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'GetConcateString' on ParrotTranslator. Retrieves related data or state.\r\nParameters:\r\n- culture (CultureInfo): Input of type CultureInfo.\r\n- separator (char): Optional char input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogInformation(\"Parrot Translator Stop working with culture {Culture}\", _currentCulture);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Dispose» در ParrotTranslator. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. جزئیات اجرا را لاگ می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger",
+            "en": "Method 'Dispose' on ParrotTranslator. Performs the operation declared by the signature on this type. Logs execution details.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ParrotTranslator» در namespace Zamin.Extensions.Translations.Parrot.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ITranslator, IDisposable. وابستگی‌های سازنده (DI): IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger. مرتبط: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger.",
+        "en": "Class 'ParrotTranslator' in namespace Zamin.Extensions.Translations.Parrot.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: ITranslator, IDisposable. Constructor-injected dependencies: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger. Related: ITranslator | IDisposable | DI: IOptions<ParrotTranslatorOptions> configuration, ILogger<ParrotTranslator> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

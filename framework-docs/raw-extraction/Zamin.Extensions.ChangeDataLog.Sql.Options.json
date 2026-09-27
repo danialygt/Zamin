@@ -1,0 +1,88 @@
+﻿{
+  "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ChangeDataLogHamsterOptions",
+      "kind": "record",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Hamster/Options/ChangeDataLogHamsterOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PropertyForReject",
+          "kind": "property",
+          "signature": "public List<string> PropertyForReject { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "BusinessIdFieldName",
+          "kind": "property",
+          "signature": "public string BusinessIdFieldName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ChangeDataLogSqlOptions",
+      "kind": "record",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Sql/Options/ChangeDataLogSqlOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AutoCreateSqlTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateSqlTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EntityTableName",
+          "kind": "property",
+          "signature": "public string EntityTableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PropertyTableName",
+          "kind": "property",
+          "signature": "public string PropertyTableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

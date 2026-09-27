@@ -1,0 +1,128 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "OAuthOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Options/SoftwarePartDetectorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ClientId",
+          "kind": "property",
+          "signature": "public string ClientId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ClientSecret",
+          "kind": "property",
+          "signature": "public string ClientSecret { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Authority",
+          "kind": "property",
+          "signature": "public string Authority { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Scopes",
+          "kind": "property",
+          "signature": "public string[] Scopes { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "SoftwarePartDetectorOptions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Options/SoftwarePartDetectorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ModuleName",
+          "kind": "property",
+          "signature": "public string ModuleName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ServiceName",
+          "kind": "property",
+          "signature": "public string ServiceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DestinationServiceBaseAddress",
+          "kind": "property",
+          "signature": "public string DestinationServiceBaseAddress { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DestinationServicePath",
+          "kind": "property",
+          "signature": "public string DestinationServicePath { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "FakeSSL",
+          "kind": "property",
+          "signature": "public bool FakeSSL { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "OAuth",
+          "kind": "property",
+          "signature": "public OAuthOption OAuth { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

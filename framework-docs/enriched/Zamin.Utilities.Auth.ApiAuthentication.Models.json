@@ -1,0 +1,174 @@
+﻿{
+  "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Models",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ClaimCacheModel",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Auth.ApiAuthentication.Models",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Models/ClaimCacheModel.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [
+        "Obsolete(\"این کلاس deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string type",
+        "string value",
+        "string? valueType",
+        "string? issuer",
+        "string? originalIssuer",
+        "ClaimsIdentity? subject"
+      ],
+      "members": [
+        {
+          "name": "Type",
+          "kind": "property",
+          "signature": "public string Type { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Type» از نوع `string` در ClaimCacheModel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Type' of type `string` on ClaimCacheModel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در ClaimCacheModel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on ClaimCacheModel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ValueType",
+          "kind": "property",
+          "signature": "public string? ValueType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ValueType» از نوع `string?` در ClaimCacheModel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ValueType' of type `string?` on ClaimCacheModel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Issuer",
+          "kind": "property",
+          "signature": "public string? Issuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Issuer» از نوع `string?` در ClaimCacheModel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Issuer' of type `string?` on ClaimCacheModel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OriginalIssuer",
+          "kind": "property",
+          "signature": "public string? OriginalIssuer { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «OriginalIssuer» از نوع `string?` در ClaimCacheModel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'OriginalIssuer' of type `string?` on ClaimCacheModel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Subject",
+          "kind": "property",
+          "signature": "public ClaimsIdentity? Subject { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Subject» از نوع `ClaimsIdentity?` در ClaimCacheModel. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Subject' of type `ClaimsIdentity?` on ClaimCacheModel. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ClaimCacheModel()",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ClaimCacheModel. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for ClaimCacheModel. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ClaimCacheModel(string type, string value, string? valueType, string? issuer, string? originalIssuer, ClaimsIdentity? subject)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Type = type;\r\n        Value = value;\r\n        ValueType = valueType;\r\n        Issuer = issuer;\r\n        OriginalIssuer = originalIssuer;\r\n        Subject = subject;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ClaimCacheModel. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- type (string): ورودی از نوع string.\r\n- value (string): مقدار مورد بررسی/ورود.\r\n- valueType (string?): ورودی از نوع string?.\r\n- issuer (string?): ورودی از نوع string?.\r\n- originalIssuer (string?): ورودی از نوع string?.\r\n- subject (ClaimsIdentity?): ورودی از نوع ClaimsIdentity?.",
+            "en": "Constructor for ClaimCacheModel. Creates an instance with the provided initial values. Parameters:\r\n- type (string): Input of type string.\r\n- value (string): Value under validation or input.\r\n- valueType (string?): Input of type string?.\r\n- issuer (string?): Input of type string?.\r\n- originalIssuer (string?): Input of type string?.\r\n- subject (ClaimsIdentity?): Input of type ClaimsIdentity?."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromClaim",
+          "kind": "method",
+          "signature": "public static ClaimCacheModel FromClaim(Claim claim)",
+          "xml_doc": "",
+          "body_summary": "=> new(claim.Type, claim.Value, claim.ValueType, claim.Issuer, claim.OriginalIssuer, claim.Subject);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromClaim» در ClaimCacheModel. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- claim (Claim): ورودی از نوع Claim.\r\n\r\nمقدار بازگشتی: `ClaimCacheModel`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: string type, string value, string? valueType, string? issuer, string? originalIssuer",
+            "en": "Method 'FromClaim' on ClaimCacheModel. Creates a new instance or result.\r\nParameters:\r\n- claim (Claim): Input of type Claim.\r\n\r\nReturns: `ClaimCacheModel`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: string type, string value, string? valueType, string? issuer, string? originalIssuer"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToClaim",
+          "kind": "method",
+          "signature": "public Claim ToClaim()",
+          "xml_doc": "",
+          "body_summary": "=> new(Type, Value, ValueType, Issuer, OriginalIssuer, Subject);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToClaim» در ClaimCacheModel. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Claim`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: string type, string value, string? valueType, string? issuer, string? originalIssuer",
+            "en": "Method 'ToClaim' on ClaimCacheModel. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `Claim`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: string type, string value, string? valueType, string? issuer, string? originalIssuer"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ClaimCacheModel» در namespace Zamin.Utilities.Auth.ApiAuthentication.Models. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. وابستگی‌های سازنده (DI): string type, string value, string? valueType, string? issuer, string? originalIssuer, ClaimsIdentity? subject. اتریبیوت‌ها: Obsolete(\"این کلاس deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\"). مرتبط: DI: string type, string value, string? valueType, string? issuer, string? originalIssuer.",
+        "en": "Class 'ClaimCacheModel' in namespace Zamin.Utilities.Auth.ApiAuthentication.Models. Public/protected class definition in the Zamin framework layer. Constructor-injected dependencies: string type, string value, string? valueType, string? issuer, string? originalIssuer, ClaimsIdentity? subject. Attributes: Obsolete(\"این کلاس deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\"). Related: DI: string type, string value, string? valueType, string? issuer, string? originalIssuer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

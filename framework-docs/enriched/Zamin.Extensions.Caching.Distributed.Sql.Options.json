@@ -1,0 +1,81 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Distributed.Sql.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DistributedSqlCacheOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Distributed.Sql.Options",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Sql/Zamin.Extensions.Caching.Distributed.Sql/Options/DistributedSqlCacheOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AutoCreateTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AutoCreateTable» از نوع `bool` در DistributedSqlCacheOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AutoCreateTable' of type `bool` on DistributedSqlCacheOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ConnectionString» از نوع `string` در DistributedSqlCacheOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ConnectionString' of type `string` on DistributedSqlCacheOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SchemaName» از نوع `string` در DistributedSqlCacheOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'SchemaName' of type `string` on DistributedSqlCacheOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TableName",
+          "kind": "property",
+          "signature": "public string TableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TableName» از نوع `string` در DistributedSqlCacheOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TableName' of type `string` on DistributedSqlCacheOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DistributedSqlCacheOptions» در namespace Zamin.Extensions.Caching.Distributed.Sql.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'DistributedSqlCacheOptions' in namespace Zamin.Extensions.Caching.Distributed.Sql.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

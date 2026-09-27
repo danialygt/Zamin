@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SqlOutBoxEventItemRepository",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher.Dal.Dapper/DataAccess/SqlOutBoxEventItemRepository.cs",
+      "base_types": [
+        "IOutBoxEventItemRepository"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<PollingPublisherDalRedisOptions> options",
+        "ILogger<SqlOutBoxEventItemRepository> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SqlOutBoxEventItemRepository(IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            _options = options.Value;\r\n            _dbConnection = new SqlConnection(_options.ConnectionString);\r\n            _logger = logger;\r\n            _logger.LogInformation(\"New Instance of SqlOutBoxEventItemRepository Created\");\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SqlOutBoxEventItemRepository. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- options (IOptions<PollingPublisherDalRedisOptions>): گزینه‌های typed تنظیمات.\r\n- logger (ILogger<SqlOutBoxEventItemRepository>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SqlOutBoxEventItemRepository. Parameters are expected via dependency injection. Parameters:\r\n- options (IOptions<PollingPublisherDalRedisOptions>): Typed options snapshot/wrapper.\r\n- logger (ILogger<SqlOutBoxEventItemRepository>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetOutBoxEventItemsForPublishe",
+          "kind": "method",
+          "signature": "public List<OutBoxEventItem> GetOutBoxEventItemsForPublishe(int maxCount = 100)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            try\r\n            {\r\n                var result = _dbConnection.Query<OutBoxEventItem>(_options.SelectCommand, new { Count = maxCount }).ToList();\r\n                _logger.LogDebug(\"{Count} of event fetched for sending from service {ApplicaitonName} at {DateTime}\", result.Count, _options.ApplicationName, DateTime.Now);\r\n                return result;\r\n            }\r\n            catch (Exception ex)\r\n            {\r\n                _logger.LogError(ex, \"fetching events failed in applicaiton {ApplicaitonName}\", _options.ApplicationName);\r\n                throw;\r\n            }\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetOutBoxEventItemsForPublishe» در SqlOutBoxEventItemRepository. داده یا وضعیت مرتبط را بازیابی می‌کند. جزئیات اجرا را لاگ می‌کند. خطاها را در بلوک try/catch مدیریت می‌کند.\r\nپارامترها:\r\n- maxCount (int): ورودی اختیاری از نوع int (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `List<OutBoxEventItem>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IOutBoxEventItemRepository | DI: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger",
+            "en": "Method 'GetOutBoxEventItemsForPublishe' on SqlOutBoxEventItemRepository. Retrieves related data or state. Logs execution details. Handles failures in a try/catch block.\r\nParameters:\r\n- maxCount (int): Optional int input (has default).\r\n\r\nReturns: `List<OutBoxEventItem>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IOutBoxEventItemRepository | DI: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MarkAsRead",
+          "kind": "method",
+          "signature": "public void MarkAsRead(List<OutBoxEventItem> outBoxEventItems)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            try\r\n            {\r\n                var idForMark = outBoxEventItems.Where(c => c.IsProcessed).Select(c => c.OutBoxEventItemId).ToList();\r\n                if (idForMark != null && idForMark.Any())\r\n                {\r\n                    _dbConnection.Execute(_options.UpdateCommand, new\r\n                    {\r\n                        Ids = idForMark\r\n                    });\r\n                    _logger.LogInformation(\"{Count} of event marked as processed in service {ApplicaitonName} at {DateTime}. marked ids are {Ids}\", outBoxEventItems.Count, _options.ApplicationName, DateTime.Now, idForMark);\r\n                }\r\n            }\r\n            catch (Exception ex)\r\n            {\r\n                _logger.LogError(ex, \"Marking events as processed failed in applicaiton {ApplicaitonName}\", _options.ApplicationName);\r\n                throw;\r\n            }\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MarkAsRead» در SqlOutBoxEventItemRepository. وضعیت آیتم را در ذخیره‌گاه علامت‌گذاری می‌کند. جزئیات اجرا را لاگ می‌کند. خطاها را در بلوک try/catch مدیریت می‌کند.\r\nپارامترها:\r\n- outBoxEventItems (List<OutBoxEventItem>): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IOutBoxEventItemRepository | DI: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger",
+            "en": "Method 'MarkAsRead' on SqlOutBoxEventItemRepository. Marks item state in the store. Logs execution details. Handles failures in a try/catch block.\r\nParameters:\r\n- outBoxEventItems (List<OutBoxEventItem>): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IOutBoxEventItemRepository | DI: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SqlOutBoxEventItemRepository» در namespace Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IOutBoxEventItemRepository. وابستگی‌های سازنده (DI): IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger. مرتبط: IOutBoxEventItemRepository | DI: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger.",
+        "en": "Class 'SqlOutBoxEventItemRepository' in namespace Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess. Public/protected class definition in the Zamin framework layer. Base/implemented types: IOutBoxEventItemRepository. Constructor-injected dependencies: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger. Related: IOutBoxEventItemRepository | DI: IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

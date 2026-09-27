@@ -1,0 +1,101 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "WebUserInfoService",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Services",
+      "source_file": "Extentsions/UsersManagement/Zamin.Extensions.UsersManagement/Zamin.Extensions.UsersManagement/Services/WebUserInfoService.cs",
+      "base_types": [
+        "IUserInfoService"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetUserAgent",
+          "kind": "method",
+          "signature": "public string GetUserAgent()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor?.HttpContext?.Request?.Headers[\"User-Agent\"] ?? _configuration.DefaultUserAgent;",
+          "attributes": []
+        },
+        {
+          "name": "GetUserIp",
+          "kind": "method",
+          "signature": "public string GetUserIp()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress?.ToString() ?? _configuration.DefaultUserIp;",
+          "attributes": []
+        },
+        {
+          "name": "UserId",
+          "kind": "method",
+          "signature": "public string UserId()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor?.HttpContext?.User?.GetClaim(ClaimTypes.NameIdentifier) ?? string.Empty;",
+          "attributes": []
+        },
+        {
+          "name": "GetUsername",
+          "kind": "method",
+          "signature": "public string GetUsername()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(ClaimTypes.Name) ?? _configuration.DefaultUsername;",
+          "attributes": []
+        },
+        {
+          "name": "GetFirstName",
+          "kind": "method",
+          "signature": "public string GetFirstName()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(ClaimTypes.GivenName) ?? _configuration.DefaultFirstName;",
+          "attributes": []
+        },
+        {
+          "name": "GetLastName",
+          "kind": "method",
+          "signature": "public string GetLastName()",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(ClaimTypes.Surname) ?? _configuration.DefaultLastName;",
+          "attributes": []
+        },
+        {
+          "name": "IsCurrentUser",
+          "kind": "method",
+          "signature": "public bool IsCurrentUser(string userId)",
+          "xml_doc": "",
+          "body_summary": "=> string.Equals(UserId().ToString(), userId, StringComparison.OrdinalIgnoreCase);",
+          "attributes": []
+        },
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public string? GetClaim(string claimType)",
+          "xml_doc": "",
+          "body_summary": "=> httpContextAccessor.HttpContext?.User?.GetClaim(claimType);",
+          "attributes": []
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault()",
+          "xml_doc": "",
+          "body_summary": "=> UserIdOrDefault(_configuration.DefaultUserId);",
+          "attributes": []
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault(string defaultValue)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        string userId = UserId();\r\n        return string.IsNullOrEmpty(userId) ? defaultValue : userId;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

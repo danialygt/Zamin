@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "MessageInboxOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Options",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox/Options/MessageInboxOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ApplicationName» از نوع `string` در MessageInboxOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ApplicationName' of type `string` on MessageInboxOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MessageInboxOptions» در namespace Zamin.Extensions.MessageBus.MessageInbox.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'MessageInboxOptions' in namespace Zamin.Extensions.MessageBus.MessageInbox.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

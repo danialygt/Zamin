@@ -1,0 +1,56 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.EPPlus.Extensions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ExcelExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.EPPlus.Extensions",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.EPPlus/Zamin.Extensions.Serializers.EPPlus/Extensions/ExcelExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToExcelByteArray",
+          "kind": "method",
+          "signature": "public static byte[] ToExcelByteArray<T>(this List<T> list, ITranslator translator, string sheetName = \"Result\")",
+          "xml_doc": "",
+          "body_summary": "{\r\n        using ExcelPackage excelPackage = new ExcelPackage();\r\n\r\n        ExcelWorksheet ws = excelPackage.Workbook.Worksheets.Add(sheetName);\r\n\r\n        var t = typeof(T);\r\n        var headings = t.GetProperties();\r\n\r\n        for (int i = 0; i < headings.Count(); i++)\r\n        {\r\n\r\n            ws.Cells[1, i + 1].Value = translator[headings[i].Name];\r\n        }\r\n\r\n        //populate our Data\r\n        if (list.Count() > 0)\r\n        {\r\n            ws.Cells[\"A2\"].LoadFromCollection(list);\r\n        }\r\n\r\n        using (ExcelRange rng = ws.Cells[\"A1:BZ1\"])\r\n        {\r\n            rng.Style.Font.Bold = true;\r\n            rng.Style.Fill.PatternType = ExcelFillStyle.Solid;                      //Set Pattern for the background to Solid\r\n            rng.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(79, 129, 189));  //Set color to dark blue\r\n            rng.Style.Font.Color.SetColor(Color.White);\r\n        }\r\n\r\n        var array = excelPackage.GetAsByteArray();\r\n\r\n        return array;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToDataTableFromExcel",
+          "kind": "method",
+          "signature": "public static DataTable ToDataTableFromExcel(this byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var excelPackage = new ExcelPackage();\r\n\r\n        using (MemoryStream memoryStream = new MemoryStream(bytes))\r\n            excelPackage.Load(memoryStream);\r\n\r\n        var ws = excelPackage.Workbook.Worksheets.First();\r\n\r\n        DataTable dataTable = new();\r\n\r\n        bool hasHeader = true;\r\n\r\n        foreach (var firstRowCell in ws.Cells[1, 1, 1, ws.Dimension.End.Column])\r\n        {\r\n            dataTable.Columns.Add(hasHeader ? firstRowCell.Text : string.Format(\"Column {0}\", firstRowCell.Start.Column));\r\n        }\r\n\r\n        var startRow = hasHeader ? 2 : 1;\r\n\r\n        for (var rowNum = startRow; rowNum <= ws.Dimension.End.Row; rowNum++)\r\n        {\r\n            var wsRow = ws.Cells[rowNum, 1, rowNum, ws.Dimension.End.Column];\r\n            var row = dataTable.NewRow();\r\n            foreach (var cell in wsRow)\r\n            {\r\n                row[cell.Start.Column - 1] = cell.Text;\r\n            }\r\n            dataTable.Rows.Add(row);\r\n        }\r\n\r\n        excelPackage.Dispose();\r\n\r\n        return dataTable;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "LinqExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.EPPlus.Extensions",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.EPPlus/Zamin.Extensions.Serializers.EPPlus/Extensions/LinqExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToList",
+          "kind": "method",
+          "signature": "public static List<T> ToList<T>(this DataTable dataTable, ITranslator translator)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        List<T> data = new();\r\n\r\n        foreach (DataRow row in dataTable.Rows)\r\n        {\r\n            T item = GetItem<T>(row, translator);\r\n            data.Add(item);\r\n        }\r\n\r\n        return data;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

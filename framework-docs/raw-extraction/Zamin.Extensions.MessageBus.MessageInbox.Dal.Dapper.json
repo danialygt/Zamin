@@ -1,0 +1,48 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SqlMessageInboxItemRepository",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper/SqlMessageInboxItemRepository.cs",
+      "base_types": [
+        "IMessageInboxItemRepository"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<MessageInboxDalDapperOptions> options",
+        "ILogger<SqlMessageInboxItemRepository> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SqlMessageInboxItemRepository(IOptions<MessageInboxDalDapperOptions> options, ILogger<SqlMessageInboxItemRepository> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _options = options.Value;\r\n        _selectQuery = $\"Select Id from {_options.SchemaName}.{_options.TableName} Where [OwnerService] = @OwnerService and [MessageId] = @MessageId\";\r\n        _insertQuery = $\"Insert Into {_options.SchemaName}.{_options.TableName} ([OwnerService] ,[MessageId],[Payload] ) values(@OwnerService,@MessageId,@Payload)\";\r\n        _dbConnection = new SqlConnection(_options.ConnectionString);\r\n        _logger = logger;\r\n        if (_options.AutoCreateSqlTable)\r\n            CreateTableIfNeeded();\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "AllowReceive",
+          "kind": "method",
+          "signature": "public bool AllowReceive(string messageId, string fromService)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = _dbConnection.Query<long>(_selectQuery, new\r\n        {\r\n            OwnerService = fromService,\r\n            MessageId = messageId\r\n        }).FirstOrDefault();\r\n        return result < 1;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Receive",
+          "kind": "method",
+          "signature": "public void Receive(string messageId, string fromService, string payload)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbConnection.Execute(_insertQuery, new\r\n        {\r\n            OwnerService = fromService,\r\n            MessageId = messageId,\r\n            Payload = payload\r\n        });\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.DataModel",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "SoftwarePart",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.DataModel",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/DataModel/SoftwarePart.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Name",
+          "kind": "property",
+          "signature": "public string Name { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Name» از نوع `string` در SoftwarePart. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Name' of type `string` on SoftwarePart. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SoftwarePartType",
+          "kind": "property",
+          "signature": "public SoftwarePartType SoftwarePartType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SoftwarePartType» از نوع `SoftwarePartType` در SoftwarePart. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'SoftwarePartType' of type `SoftwarePartType` on SoftwarePart. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Children",
+          "kind": "property",
+          "signature": "public List<SoftwarePart> Children { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Children» از نوع `List<SoftwarePart>` در SoftwarePart. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Children' of type `List<SoftwarePart>` on SoftwarePart. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePart» در namespace Zamin.Utilities.SoftwarePartDetector.DataModel. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'SoftwarePart' in namespace Zamin.Utilities.SoftwarePartDetector.DataModel. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartAction",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.DataModel",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/DataModel/SoftwarePartController.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Name",
+          "kind": "property",
+          "signature": "public string Name { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Name» از نوع `string` در SoftwarePartAction. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Name' of type `string` on SoftwarePartAction. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ApplicationPartType",
+          "kind": "property",
+          "signature": "public SoftwarePartType ApplicationPartType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ApplicationPartType» از نوع `SoftwarePartType` در SoftwarePartAction. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ApplicationPartType' of type `SoftwarePartType` on SoftwarePartAction. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartAction» در namespace Zamin.Utilities.SoftwarePartDetector.DataModel. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'SoftwarePartAction' in namespace Zamin.Utilities.SoftwarePartDetector.DataModel. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartController",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.DataModel",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/DataModel/SoftwarePartController.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Module",
+          "kind": "property",
+          "signature": "public string? Module { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Module» از نوع `string?` در SoftwarePartController. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Module' of type `string?` on SoftwarePartController. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Service",
+          "kind": "property",
+          "signature": "public string? Service { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Service» از نوع `string?` در SoftwarePartController. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Service' of type `string?` on SoftwarePartController. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Name",
+          "kind": "property",
+          "signature": "public string Name { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Name» از نوع `string` در SoftwarePartController. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Name' of type `string` on SoftwarePartController. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ApplicationPartType",
+          "kind": "property",
+          "signature": "public SoftwarePartType ApplicationPartType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ApplicationPartType» از نوع `SoftwarePartType` در SoftwarePartController. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ApplicationPartType' of type `SoftwarePartType` on SoftwarePartController. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Actions",
+          "kind": "property",
+          "signature": "public List<SoftwarePartAction> Actions { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Actions» از نوع `List<SoftwarePartAction>` در SoftwarePartController. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Actions' of type `List<SoftwarePartAction>` on SoftwarePartController. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartController» در namespace Zamin.Utilities.SoftwarePartDetector.DataModel. کنترلر endpoint برای دریافت درخواست HTTP و ارجاع به لایه اپلیکیشن.",
+        "en": "Class 'SoftwarePartController' in namespace Zamin.Utilities.SoftwarePartDetector.DataModel. HTTP endpoint controller that forwards requests to the application layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartType",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.DataModel",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/DataModel/SoftwarePartType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Other",
+          "kind": "enum_member",
+          "signature": "Other = 0",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Other» در enum SoftwarePartType.",
+            "en": "Enum member 'Other' of SoftwarePartType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Sample",
+          "kind": "enum_member",
+          "signature": "Sample = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Sample» در enum SoftwarePartType.",
+            "en": "Enum member 'Sample' of SoftwarePartType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Module",
+          "kind": "enum_member",
+          "signature": "Module = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Module» در enum SoftwarePartType.",
+            "en": "Enum member 'Module' of SoftwarePartType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Service",
+          "kind": "enum_member",
+          "signature": "Service = 3",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Service» در enum SoftwarePartType.",
+            "en": "Enum member 'Service' of SoftwarePartType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Controller",
+          "kind": "enum_member",
+          "signature": "Controller = 4",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Controller» در enum SoftwarePartType.",
+            "en": "Enum member 'Controller' of SoftwarePartType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Action",
+          "kind": "enum_member",
+          "signature": "Action = 5",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Action» در enum SoftwarePartType.",
+            "en": "Enum member 'Action' of SoftwarePartType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "شمارشی (enum) «SoftwarePartType» در namespace Zamin.Utilities.SoftwarePartDetector.DataModel. تعریف enum عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Enumeration 'SoftwarePartType' in namespace Zamin.Utilities.SoftwarePartDetector.DataModel. Public/protected enum definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

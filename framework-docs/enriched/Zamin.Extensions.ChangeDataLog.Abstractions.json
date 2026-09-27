@@ -1,0 +1,362 @@
+﻿{
+  "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "DatabaseChangeType",
+      "kind": "enum",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/DatabaseChangeType.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Insert",
+          "kind": "enum_member",
+          "signature": "Insert = 1",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Insert» در enum DatabaseChangeType.",
+            "en": "Enum member 'Insert' of DatabaseChangeType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Update",
+          "kind": "enum_member",
+          "signature": "Update = 2",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Update» در enum DatabaseChangeType.",
+            "en": "Enum member 'Update' of DatabaseChangeType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Delete",
+          "kind": "enum_member",
+          "signature": "Delete = 3",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "مقدار شمارشی «Delete» در enum DatabaseChangeType.",
+            "en": "Enum member 'Delete' of DatabaseChangeType."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "شمارشی (enum) «DatabaseChangeType» در namespace Zamin.Extensions.ChangeDataLog.Abstractions. تعریف enum عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Enumeration 'DatabaseChangeType' in namespace Zamin.Extensions.ChangeDataLog.Abstractions. Public/protected enum definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EntityChageInterceptorItem",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/EntityChageInterceptorItem.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public Guid Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Id» از نوع `Guid` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Id' of type `Guid` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ContextName",
+          "kind": "property",
+          "signature": "public string ContextName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ContextName» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ContextName' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EntityType",
+          "kind": "property",
+          "signature": "public string EntityType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EntityType» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EntityType' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EntityId",
+          "kind": "property",
+          "signature": "public string EntityId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EntityId» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EntityId' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserId",
+          "kind": "property",
+          "signature": "public string UserId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «UserId» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'UserId' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Ip",
+          "kind": "property",
+          "signature": "public string Ip { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Ip» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Ip' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "TransactionId",
+          "kind": "property",
+          "signature": "public string TransactionId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «TransactionId» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'TransactionId' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DateOfOccurrence",
+          "kind": "property",
+          "signature": "public DateTime DateOfOccurrence { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «DateOfOccurrence» از نوع `DateTime` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'DateOfOccurrence' of type `DateTime` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ChangeType",
+          "kind": "property",
+          "signature": "public string ChangeType { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ChangeType» از نوع `string` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ChangeType' of type `string` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PropertyChangeLogItems",
+          "kind": "property",
+          "signature": "public List<PropertyChangeLogItem> PropertyChangeLogItems { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PropertyChangeLogItems» از نوع `List<PropertyChangeLogItem>` در EntityChageInterceptorItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PropertyChangeLogItems' of type `List<PropertyChangeLogItem>` on EntityChageInterceptorItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddPropertyChangeItem",
+          "kind": "method",
+          "signature": "public void AddPropertyChangeItem(string propertyName, string value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        PropertyChangeLogItems.Add(new PropertyChangeLogItem\r\n        {\r\n            ChageInterceptorItemId = Id,\r\n            PropertyName = propertyName,\r\n            Value = value\r\n        });\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddPropertyChangeItem» در EntityChageInterceptorItem. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- propertyName (string): ورودی از نوع string.\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddPropertyChangeItem' on EntityChageInterceptorItem. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- propertyName (string): Input of type string.\r\n- value (string): Value under validation or input.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EntityChageInterceptorItem» در namespace Zamin.Extensions.ChangeDataLog.Abstractions. موجودیت دامنه با هویت و قابلیت auditable.",
+        "en": "Class 'EntityChageInterceptorItem' in namespace Zamin.Extensions.ChangeDataLog.Abstractions. Domain entity with identity and auditing support."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IEntityChageInterceptorItemRepository",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/IEntityChageInterceptorItemRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Save",
+          "kind": "method",
+          "signature": "public void Save(List<EntityChageInterceptorItem> entityChageInterceptorItems, IDbTransaction transaction)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Save» در IEntityChageInterceptorItemRepository. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- entityChageInterceptorItems (List<EntityChageInterceptorItem>): ورودی از نوع List<EntityChageInterceptorItem>.\r\n- transaction (IDbTransaction): ورودی از نوع IDbTransaction.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Save' on IEntityChageInterceptorItemRepository. Updates or persists state.\r\nParameters:\r\n- entityChageInterceptorItems (List<EntityChageInterceptorItem>): Input of type List<EntityChageInterceptorItem>.\r\n- transaction (IDbTransaction): Input of type IDbTransaction.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SaveAsync",
+          "kind": "method",
+          "signature": "public Task SaveAsync(List<EntityChageInterceptorItem> entityChageInterceptorItems, IDbTransaction transaction)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SaveAsync» در IEntityChageInterceptorItemRepository. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- entityChageInterceptorItems (List<EntityChageInterceptorItem>): ورودی از نوع List<EntityChageInterceptorItem>.\r\n- transaction (IDbTransaction): ورودی از نوع IDbTransaction.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'SaveAsync' on IEntityChageInterceptorItemRepository. Updates or persists state.\r\nParameters:\r\n- entityChageInterceptorItems (List<EntityChageInterceptorItem>): Input of type List<EntityChageInterceptorItem>.\r\n- transaction (IDbTransaction): Input of type IDbTransaction.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IEntityChageInterceptorItemRepository» در namespace Zamin.Extensions.ChangeDataLog.Abstractions. قرارداد دسترسی به داده برای ذخیره و بازیابی aggregate/entity.",
+        "en": "Interface contract 'IEntityChageInterceptorItemRepository' in namespace Zamin.Extensions.ChangeDataLog.Abstractions. Data-access contract for persisting and loading aggregates/entities."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PropertyChangeLogItem",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ChangeDataLog.Abstractions/PropertyChangeLogItem.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public Guid Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Id» از نوع `Guid` در PropertyChangeLogItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Id' of type `Guid` on PropertyChangeLogItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ChageInterceptorItemId",
+          "kind": "property",
+          "signature": "public Guid ChageInterceptorItemId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ChageInterceptorItemId» از نوع `Guid` در PropertyChangeLogItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ChageInterceptorItemId' of type `Guid` on PropertyChangeLogItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PropertyName",
+          "kind": "property",
+          "signature": "public string PropertyName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PropertyName» از نوع `string` در PropertyChangeLogItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PropertyName' of type `string` on PropertyChangeLogItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در PropertyChangeLogItem. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on PropertyChangeLogItem. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «PropertyChangeLogItem» در namespace Zamin.Extensions.ChangeDataLog.Abstractions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'PropertyChangeLogItem' in namespace Zamin.Extensions.ChangeDataLog.Abstractions. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

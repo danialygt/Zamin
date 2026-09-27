@@ -1,0 +1,85 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.EPPlus.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "EPPlusExcelSerializer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.EPPlus.Services",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.EPPlus/Zamin.Extensions.Serializers.EPPlus/Services/EPPlusExcelSerializer.cs",
+      "base_types": [
+        "IExcelSerializer"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ITranslator translator"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EPPlusExcelSerializer(ITranslator translator)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _translator = translator;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده EPPlusExcelSerializer. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- translator (ITranslator): ورودی از نوع ITranslator.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for EPPlusExcelSerializer. Parameters are expected via dependency injection. Parameters:\r\n- translator (ITranslator): Input of type ITranslator.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ListToExcelByteArray",
+          "kind": "method",
+          "signature": "public byte[] ListToExcelByteArray<T>(List<T> list, string sheetName = \"Result\")",
+          "xml_doc": "",
+          "body_summary": "=> list.ToExcelByteArray(_translator, sheetName);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ListToExcelByteArray» در EPPlusExcelSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- list (List<T>): ورودی از نوع List<T>.\r\n- sheetName (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `byte[]`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IExcelSerializer | DI: ITranslator translator",
+            "en": "Method 'ListToExcelByteArray' on EPPlusExcelSerializer. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- list (List<T>): Input of type List<T>.\r\n- sheetName (string): Optional string input (has default).\r\n\r\nReturns: `byte[]`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IExcelSerializer | DI: ITranslator translator"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExcelToDataTable",
+          "kind": "method",
+          "signature": "public DataTable ExcelToDataTable(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "=> bytes.ToDataTableFromExcel();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExcelToDataTable» در EPPlusExcelSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `DataTable`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IExcelSerializer | DI: ITranslator translator",
+            "en": "Method 'ExcelToDataTable' on EPPlusExcelSerializer. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `DataTable`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IExcelSerializer | DI: ITranslator translator"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExcelToList",
+          "kind": "method",
+          "signature": "public List<T> ExcelToList<T>(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "=> bytes.ToDataTableFromExcel().ToList<T>(_translator);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExcelToList» در EPPlusExcelSerializer. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `List<T>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IExcelSerializer | DI: ITranslator translator",
+            "en": "Method 'ExcelToList' on EPPlusExcelSerializer. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `List<T>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IExcelSerializer | DI: ITranslator translator"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EPPlusExcelSerializer» در namespace Zamin.Extensions.Serializers.EPPlus.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IExcelSerializer. وابستگی‌های سازنده (DI): ITranslator translator. مرتبط: IExcelSerializer | DI: ITranslator translator.",
+        "en": "Class 'EPPlusExcelSerializer' in namespace Zamin.Extensions.Serializers.EPPlus.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: IExcelSerializer. Constructor-injected dependencies: ITranslator translator. Related: IExcelSerializer | DI: ITranslator translator."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

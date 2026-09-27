@@ -1,0 +1,123 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.DataModel",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "LocalizationRecord",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.DataModel",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/DataModel/LocalizationRecord.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public long Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Id» از نوع `long` در LocalizationRecord. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Id' of type `long` on LocalizationRecord. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BusinessId",
+          "kind": "property",
+          "signature": "public Guid BusinessId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «BusinessId» از نوع `Guid` در LocalizationRecord. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'BusinessId' of type `Guid` on LocalizationRecord. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Key",
+          "kind": "property",
+          "signature": "public string Key { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Key» از نوع `string` در LocalizationRecord. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Key' of type `string` on LocalizationRecord. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در LocalizationRecord. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on LocalizationRecord. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Culture",
+          "kind": "property",
+          "signature": "public string Culture { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Culture» از نوع `string` در LocalizationRecord. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Culture' of type `string` on LocalizationRecord. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CorrespondingValueNotFound",
+          "kind": "property",
+          "signature": "public bool CorrespondingValueNotFound => ...",
+          "xml_doc": "",
+          "body_summary": "=> string.IsNullOrEmpty(Value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «CorrespondingValueNotFound» از نوع `bool` در LocalizationRecord. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'CorrespondingValueNotFound' of type `bool` on LocalizationRecord. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value.ToString();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToString» در LocalizationRecord. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToString' on LocalizationRecord. Implements equality/display contract members.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LocalizationRecord» در namespace Zamin.Extensions.Translations.Parrot.DataModel. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'LocalizationRecord' in namespace Zamin.Extensions.Translations.Parrot.DataModel. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

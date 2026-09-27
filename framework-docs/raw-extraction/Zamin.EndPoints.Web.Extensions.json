@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Extensions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ClaimExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Extensions",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/ClaimExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public static string GetClaim(this ClaimsPrincipal userClaimsPrincipal, string claimType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            return userClaimsPrincipal.Claims?.FirstOrDefault((Claim x) => x.Type == claimType)?.Value;\r\n        }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "HttpContextExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Extensions",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/HttpContextExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "CommandDispatcher",
+          "kind": "method",
+          "signature": "public static ICommandDispatcher CommandDispatcher(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (ICommandDispatcher)httpContext.RequestServices.GetService(typeof(ICommandDispatcher));",
+          "attributes": []
+        },
+        {
+          "name": "QueryDispatcher",
+          "kind": "method",
+          "signature": "public static IQueryDispatcher QueryDispatcher(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (IQueryDispatcher)httpContext.RequestServices.GetService(typeof(IQueryDispatcher));",
+          "attributes": []
+        },
+        {
+          "name": "EventDispatcher",
+          "kind": "method",
+          "signature": "public static IEventDispatcher EventDispatcher(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (IEventDispatcher)httpContext.RequestServices.GetService(typeof(IEventDispatcher));",
+          "attributes": []
+        },
+        {
+          "name": "ZaminApplicationContext",
+          "kind": "method",
+          "signature": "public static ZaminServices ZaminApplicationContext(this HttpContext httpContext)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            (ZaminServices)httpContext.RequestServices.GetService(typeof(ZaminServices));",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

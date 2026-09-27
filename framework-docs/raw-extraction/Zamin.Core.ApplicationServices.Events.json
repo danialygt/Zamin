@@ -1,0 +1,178 @@
+﻿{
+  "namespace": "Zamin.Core.ApplicationServices.Events",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "EventDispatcher",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcher.cs",
+      "base_types": [
+        "IEventDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<EventDispatcher> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcher(IServiceProvider serviceProvider, ILogger<EventDispatcher> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n        _stopwatch = new Stopwatch();\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _stopwatch.Start();\r\n        int counter = 0;\r\n        try\r\n        {\r\n            _logger.LogDebug(\"Routing event of type {EventType} With value {Event}  Start at {StartDateTime}\", @event.GetType(), @event, DateTime.Now);\r\n            var handlers = _serviceProvider.GetServices<IDomainEventHandler<TDomainEvent>>();\r\n            List<Task> tasks = new List<Task>();\r\n            foreach (var handler in handlers)\r\n            {\r\n                counter++;\r\n                tasks.Add(handler.Handle(@event));\r\n            }\r\n            await Task.WhenAll(tasks);\r\n        }\r\n        catch (InvalidOperationException ex)\r\n        {\r\n            _logger.LogError(ex, \"There is not suitable handler for {EventType} Routing failed at {StartDateTime}.\", @event.GetType(), DateTime.Now);\r\n            throw;\r\n        }\r\n        finally\r\n        {\r\n            _stopwatch.Stop();\r\n            _logger.LogDebug(\"Total number of handler for {EventType} is {Count} ,EventHandlers tooks {Millisecconds} Millisecconds\", @event.GetType(), counter, _stopwatch.ElapsedMilliseconds);\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EventDispatcherDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcherDecorator.cs",
+      "base_types": [
+        "IEventDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_eventDispatcher",
+          "kind": "field",
+          "signature": "protected IEventDispatcher _eventDispatcher;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public abstract int Order { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcherDecorator()",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": []
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public abstract Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "SetEventDispatcher",
+          "kind": "method",
+          "signature": "public void SetEventDispatcher(IEventDispatcher eventDispatcher)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _eventDispatcher = eventDispatcher;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EventDispatcherDomainExceptionHandlerDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcherDomainExceptionHandlerDecorator.cs",
+      "base_types": [
+        "EventDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 2;",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcherDomainExceptionHandlerDecorator(ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public override async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        try\r\n        {\r\n            await _eventDispatcher.PublishDomainEventAsync(@event);\r\n        }\r\n        catch (DomainStateException ex)\r\n        {\r\n            _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {EventType} With value {Event} failed at {StartDateTime} because there are domain exceptions.\", @event.GetType(), @event, DateTime.Now);\r\n        }\r\n        catch (AggregateException ex)\r\n        {\r\n            if (ex.InnerException is DomainStateException domainStateException)\r\n            {\r\n                _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {EventType} With value {Event} failed at {StartDateTime} because there are domain exceptions.\", @event.GetType(), @event, DateTime.Now);\r\n            }\r\n            throw ex;\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "EventDispatcherValidationDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcherValidationDecorator.cs",
+      "base_types": [
+        "EventDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<EventDispatcherValidationDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 1;",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcherValidationDecorator(IServiceProvider serviceProvider,\r\n                                              ILogger<EventDispatcherValidationDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public override async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogDebug(ZaminEventId.EventValidation, \"Validating Event of type {EventType} With value {Event}  start at :{StartDateTime}\", @event.GetType(), @event, DateTime.Now);\r\n\r\n        List<string> errorMessages = Validate(@event);\r\n\r\n        if (errorMessages.Any())\r\n        {\r\n            _logger.LogInformation(ZaminEventId.EventValidation, \"Validating query of type {QueryType} With value {Query}  failed. Validation errors are: {ValidationErrors}\", @event.GetType(), @event, errorMessages);\r\n        }\r\n        else\r\n        {\r\n            _logger.LogDebug(ZaminEventId.EventValidation, \"Validating query of type {QueryType} With value {Query}  finished at :{EndDateTime}\", @event.GetType(), @event, DateTime.Now);\r\n            await _eventDispatcher.PublishDomainEventAsync(@event);\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

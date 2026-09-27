@@ -1,0 +1,223 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "AuditableShadowProperties",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/AuditableShadowProperties.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "EFPropertyCreatedByUserId",
+          "kind": "field",
+          "signature": "public static readonly Func<object, string> EFPropertyCreatedByUserId =\r\n                                    entity => EF.Property<string>(entity, CreatedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CreatedByUserId",
+          "kind": "field",
+          "signature": "public static readonly string CreatedByUserId = nameof(CreatedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EFPropertyModifiedByUserId",
+          "kind": "field",
+          "signature": "public static readonly Func<object, string> EFPropertyModifiedByUserId =\r\n                                    entity => EF.Property<string>(entity, ModifiedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ModifiedByUserId",
+          "kind": "field",
+          "signature": "public static readonly string ModifiedByUserId = nameof(ModifiedByUserId);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EFPropertyCreatedDateTime",
+          "kind": "field",
+          "signature": "public static readonly Func<object, DateTime?> EFPropertyCreatedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, CreatedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CreatedDateTime",
+          "kind": "field",
+          "signature": "public static readonly string CreatedDateTime = nameof(CreatedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "EFPropertyModifiedDateTime",
+          "kind": "field",
+          "signature": "public static readonly Func<object, DateTime?> EFPropertyModifiedDateTime =\r\n                                    entity => EF.Property<DateTime?>(entity, ModifiedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ModifiedDateTime",
+          "kind": "field",
+          "signature": "public static readonly string ModifiedDateTime = nameof(ModifiedDateTime);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AddAuditableShadowProperties",
+          "kind": "method",
+          "signature": "public static void AddAuditableShadowProperties(this ModelBuilder modelBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entityType in modelBuilder.Model.GetEntityTypes().Where(c => typeof(IAuditableEntity).IsAssignableFrom(c.ClrType)))\r\n        {\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<string>(CreatedByUserId).HasMaxLength(50);\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<string>(ModifiedByUserId).HasMaxLength(50);\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<DateTime?>(CreatedDateTime);\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                        .Property<DateTime?>(ModifiedDateTime);\r\n        }\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "SetAuditableEntityPropertyValues",
+          "kind": "method",
+          "signature": "public static void SetAuditableEntityPropertyValues(\r\n        this ChangeTracker changeTracker,\r\n        IUserInfoService userInfoService)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        var userAgent = userInfoService.GetUserAgent();\r\n        var userIp = userInfoService.GetUserIp();\r\n        var now = DateTime.UtcNow;\r\n        var userId = userInfoService.UserIdOrDefault();\r\n\r\n        var modifiedEntries = changeTracker.Entries<IAuditableEntity>().Where(x => x.State == EntityState.Modified);\r\n        foreach (var modifiedEntry in modifiedEntries)\r\n        {\r\n            modifiedEntry.Property(ModifiedDateTime).CurrentValue = now;\r\n            modifiedEntry.Property(ModifiedByUserId).CurrentValue = userId;\r\n        }\r\n\r\n        var addedEntries = changeTracker.Entries<IAuditableEntity>().Where(x => x.State == EntityState.Added);\r\n        foreach (var addedEntry in addedEntries)\r\n        {\r\n            addedEntry.Property(CreatedDateTime).CurrentValue = now;\r\n            addedEntry.Property(CreatedByUserId).CurrentValue = userId;\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ChangeTrackerExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/ChangeTrackerExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetChangedAggregates",
+          "kind": "method",
+          "signature": "public static List<AggregateRoot> GetChangedAggregates(this ChangeTracker changeTracker)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        changeTracker.Aggreates().Where(IsModified()).Select(c => c.Entity).ToList();",
+          "attributes": []
+        },
+        {
+          "name": "GetAggregatesWithEvent",
+          "kind": "method",
+          "signature": "public static List<AggregateRoot> GetAggregatesWithEvent(this ChangeTracker changeTracker)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n            changeTracker.Aggreates()\r\n                                     .Where(IsNotDetached())\r\n                                     .Select(c => c.Entity)\r\n                                     .Where(c => c.GetEvents()\r\n                                         .Any()).ToList();",
+          "attributes": []
+        },
+        {
+          "name": "Aggreates",
+          "kind": "method",
+          "signature": "public static IEnumerable<EntityEntry<AggregateRoot>> Aggreates(this ChangeTracker changeTracker)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        changeTracker.Entries<AggregateRoot>();",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "DbCommandExtension",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/DbCommandExtension.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplyCorrectYeKe",
+          "kind": "method",
+          "signature": "public static void ApplyCorrectYeKe(this DbCommand command)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        command.CommandText = command.CommandText.ApplyCorrectYeKe();\r\n\r\n        foreach (DbParameter parameter in command.Parameters)\r\n        {\r\n            switch (parameter.DbType)\r\n            {\r\n                case DbType.AnsiString:\r\n                case DbType.AnsiStringFixedLength:\r\n                case DbType.String:\r\n                case DbType.StringFixedLength:\r\n                case DbType.Xml:\r\n                    parameter.Value = parameter.Value is DBNull ? parameter.Value : parameter.Value.ApplyCorrectYeKe();\r\n                    break;\r\n            }\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ModelBuilderExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/ModelBuilderExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddBusinessId",
+          "kind": "method",
+          "signature": "public static void AddBusinessId(this ModelBuilder modelBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entityType in modelBuilder.Model\r\n                                               .GetEntityTypes()\r\n                                               .Where(e => typeof(AggregateRoot).IsAssignableFrom(e.ClrType) ||\r\n                                                    typeof(Entity).IsAssignableFrom(e.ClrType)))\r\n        {\r\n            modelBuilder.Entity(entityType.ClrType)\r\n                .Property<BusinessId>(\"BusinessId\").HasConversion(c => c.Value, d => BusinessId.FromGuid(d))\r\n                .IsUnicode()\r\n                .IsRequired();\r\n            modelBuilder.Entity(entityType.ClrType).HasAlternateKey(\"BusinessId\");\r\n        }\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "UseValueConverterForType",
+          "kind": "method",
+          "signature": "public static ModelBuilder UseValueConverterForType<T>(this ModelBuilder modelBuilder, ValueConverter converter, int maxLenght = 0)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return modelBuilder.UseValueConverterForType(typeof(T), converter, maxLenght);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "UseValueConverterForType",
+          "kind": "method",
+          "signature": "public static ModelBuilder UseValueConverterForType(this ModelBuilder modelBuilder, Type type, ValueConverter converter, int maxLength = 0)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        foreach (var entityType in modelBuilder.Model.GetEntityTypes())\r\n        {\r\n            var properties = entityType.ClrType.GetProperties().Where(p => p.PropertyType == type);\r\n\r\n            foreach (var property in properties)\r\n            {\r\n                modelBuilder.Entity(entityType.Name).Property(property.Name)\r\n                    .HasConversion(converter);\r\n                if (maxLength > 0)\r\n                    modelBuilder.Entity(entityType.Name).Property(property.Name).HasMaxLength(maxLength);\r\n            }\r\n        }\r\n\r\n        return modelBuilder;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "RowVersionShadowProperty",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.Extensions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/Extensions/RowVersionShadowProperty.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "RowVersion",
+          "kind": "field",
+          "signature": "public static readonly string RowVersion = nameof(RowVersion);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "AddRowVersionShadowProperty",
+          "kind": "method",
+          "signature": "public static void AddRowVersionShadowProperty<TEntity>(this EntityTypeBuilder<TEntity> builder) where TEntity : class",
+          "xml_doc": "",
+          "body_summary": "=> builder.Property<byte[]>(RowVersion).IsRowVersion();",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

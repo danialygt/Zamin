@@ -1,0 +1,702 @@
+﻿{
+  "namespace": "Zamin.Utilities.Guards.GuardClauses",
+  "type_count": 16,
+  "types": [
+    {
+      "type_name": "EmptyGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/EmptyGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Empty",
+          "kind": "method",
+          "signature": "public static void Empty<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value == null)\r\n            return;\r\n\r\n        if (value is ICollection collectionValue && collectionValue.Count == 0)\r\n            return;\r\n\r\n        if (value is IEnumerable enumerableValue && !enumerableValue.GetEnumerator().MoveNext())\r\n            return;\r\n\r\n        if (value is string strValue && string.IsNullOrWhiteSpace(strValue))\r\n            return;\r\n\r\n        if (!Equals(value, default(T)))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Empty» در EmptyGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Empty' on EmptyGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Empty",
+          "kind": "method",
+          "signature": "public static void Empty<T>(this Guard guard, T value, IEqualityComparer<T> equalityComparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!equalityComparer.Equals(value, default))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Empty» در EmptyGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- equalityComparer (IEqualityComparer<T>): ورودی از نوع IEqualityComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Empty' on EmptyGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- equalityComparer (IEqualityComparer<T>): Input of type IEqualityComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EmptyGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'EmptyGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/EqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Equal",
+          "kind": "method",
+          "signature": "public static void Equal<T>(this Guard guard, T value, T targetValue, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!Equals(value, targetValue))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Equal» در EqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- targetValue (T): مقدار مبنا برای مقایسه.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Equal' on EqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- targetValue (T): Comparison baseline value.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Equal",
+          "kind": "method",
+          "signature": "public static void Equal<T>(this Guard guard, T value, T targetValue, IEqualityComparer<T> equalityComparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!equalityComparer.Equals(value, targetValue))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Equal» در EqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- targetValue (T): مقدار مبنا برای مقایسه.\r\n- equalityComparer (IEqualityComparer<T>): ورودی از نوع IEqualityComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Equal' on EqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- targetValue (T): Comparison baseline value.\r\n- equalityComparer (IEqualityComparer<T>): Input of type IEqualityComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EqualGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'EqualGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ExclusiveBetweenGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/ExclusiveBetweenGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ExclusiveBetween",
+          "kind": "method",
+          "signature": "public static void ExclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int minimumValueComparerResult = comparer.Compare(value, minimumValue);\r\n        int maximumValueComparerResult = comparer.Compare(value, maximumValue);\r\n\r\n        if (minimumValueComparerResult != 1)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (maximumValueComparerResult != -1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExclusiveBetween» در ExclusiveBetweenGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- maximumValue (T): ورودی از نوع T.\r\n- comparer (IComparer<T>): ورودی از نوع IComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'ExclusiveBetween' on ExclusiveBetweenGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- maximumValue (T): Input of type T.\r\n- comparer (IComparer<T>): Input of type IComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExclusiveBetween",
+          "kind": "method",
+          "signature": "public static void ExclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.ExclusiveBetween(value, minimumValue, maximumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExclusiveBetween» در ExclusiveBetweenGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- maximumValue (T): ورودی از نوع T.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'ExclusiveBetween' on ExclusiveBetweenGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- maximumValue (T): Input of type T.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ExclusiveBetweenGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'ExclusiveBetweenGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "GreaterThanGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/GreaterThanGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GreaterThan",
+          "kind": "method",
+          "signature": "public static void GreaterThan<T>(this Guard guard, T value, T minimumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int maximumValueComparerResult = comparer.Compare(value, minimumValue);\r\n\r\n        if (maximumValueComparerResult != 1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GreaterThan» در GreaterThanGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- comparer (IComparer<T>): ورودی از نوع IComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'GreaterThan' on GreaterThanGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- comparer (IComparer<T>): Input of type IComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GreaterThan",
+          "kind": "method",
+          "signature": "public static void GreaterThan<T>(this Guard guard, T value, T minimumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.GreaterThan(value, minimumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GreaterThan» در GreaterThanGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'GreaterThan' on GreaterThanGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «GreaterThanGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'GreaterThanGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "GreaterThanOrEqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/GreaterThanOrEqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GreaterThanOrEqual",
+          "kind": "method",
+          "signature": "public static void GreaterThanOrEqual<T>(this Guard guard, T value, T minimumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int comparerResult = comparer.Compare(value, minimumValue);\r\n\r\n        if (comparerResult < 0)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GreaterThanOrEqual» در GreaterThanOrEqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- comparer (IComparer<T>): ورودی از نوع IComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'GreaterThanOrEqual' on GreaterThanOrEqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- comparer (IComparer<T>): Input of type IComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GreaterThanOrEqual",
+          "kind": "method",
+          "signature": "public static void GreaterThanOrEqual<T>(this Guard guard, T value, T minimumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.GreaterThanOrEqual(value, minimumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GreaterThanOrEqual» در GreaterThanOrEqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'GreaterThanOrEqual' on GreaterThanOrEqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «GreaterThanOrEqualGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'GreaterThanOrEqualGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "InclusiveBetweenGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/InclusiveBetweenGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "InclusiveBetween",
+          "kind": "method",
+          "signature": "public static void InclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int minimumValueComparerResult = comparer.Compare(value, minimumValue);\r\n        int maximumValueComparerResult = comparer.Compare(value, maximumValue);\r\n\r\n        if (minimumValueComparerResult == -1)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (maximumValueComparerResult == 1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «InclusiveBetween» در InclusiveBetweenGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- maximumValue (T): ورودی از نوع T.\r\n- comparer (IComparer<T>): ورودی از نوع IComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'InclusiveBetween' on InclusiveBetweenGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- maximumValue (T): Input of type T.\r\n- comparer (IComparer<T>): Input of type IComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "InclusiveBetween",
+          "kind": "method",
+          "signature": "public static void InclusiveBetween<T>(this Guard guard, T value, T minimumValue, T maximumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.InclusiveBetween(value, minimumValue, maximumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «InclusiveBetween» در InclusiveBetweenGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- maximumValue (T): ورودی از نوع T.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'InclusiveBetween' on InclusiveBetweenGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- maximumValue (T): Input of type T.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «InclusiveBetweenGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'InclusiveBetweenGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "LengthGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/LengthGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Length",
+          "kind": "method",
+          "signature": "public static void Length(this Guard guard, string value, int length, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Length != length)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Length» در LengthGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (string): مقدار مورد بررسی/ورود.\r\n- length (int): ورودی از نوع int.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Length' on LengthGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (string): Value under validation or input.\r\n- length (int): Input of type int.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Length",
+          "kind": "method",
+          "signature": "public static void Length(this Guard guard, ICollection value, int length, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Count != length)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Length» در LengthGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (ICollection): مقدار مورد بررسی/ورود.\r\n- length (int): ورودی از نوع int.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Length' on LengthGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (ICollection): Value under validation or input.\r\n- length (int): Input of type int.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LengthGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'LengthGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "LessThanGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/LessThanGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "LessThan",
+          "kind": "method",
+          "signature": "public static void LessThan<T>(this Guard guard, T value, T maximumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int comparerResult = comparer.Compare(value, maximumValue);\r\n\r\n        if (comparerResult > -1)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «LessThan» در LessThanGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- maximumValue (T): ورودی از نوع T.\r\n- comparer (IComparer<T>): ورودی از نوع IComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'LessThan' on LessThanGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- maximumValue (T): Input of type T.\r\n- comparer (IComparer<T>): Input of type IComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "LessThan",
+          "kind": "method",
+          "signature": "public static void LessThan<T>(this Guard guard, T value, T maximumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.LessThan(value, maximumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «LessThan» در LessThanGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- maximumValue (T): ورودی از نوع T.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'LessThan' on LessThanGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- maximumValue (T): Input of type T.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LessThanGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'LessThanGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "LessThanOrEqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/LessThanOrEqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "LessThanOrEqual",
+          "kind": "method",
+          "signature": "public static void LessThanOrEqual<T>(this Guard guard, T value, T minimumValue, IComparer<T> comparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        int comparerResult = comparer.Compare(value, minimumValue);\r\n\r\n        if (comparerResult > 0)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «LessThanOrEqual» در LessThanOrEqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- comparer (IComparer<T>): ورودی از نوع IComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'LessThanOrEqual' on LessThanOrEqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- comparer (IComparer<T>): Input of type IComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "LessThanOrEqual",
+          "kind": "method",
+          "signature": "public static void LessThanOrEqual<T>(this Guard guard, T value, T minimumValue, string message) where T : IComparable<T>, IComparable",
+          "xml_doc": "",
+          "body_summary": "{\r\n        guard.LessThanOrEqual(value, minimumValue, Comparer<T>.Default, message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «LessThanOrEqual» در LessThanOrEqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- minimumValue (T): ورودی از نوع T.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'LessThanOrEqual' on LessThanOrEqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- minimumValue (T): Input of type T.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LessThanOrEqualGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'LessThanOrEqualGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "MatchGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/MatchGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Match",
+          "kind": "method",
+          "signature": "public static void Match(this Guard guard, string value, string pattern, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (!Regex.IsMatch(value, pattern))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Match» در MatchGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (string): مقدار مورد بررسی/ورود.\r\n- pattern (string): ورودی از نوع string.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Match' on MatchGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (string): Value under validation or input.\r\n- pattern (string): Input of type string.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MatchGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'MatchGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "MaximumLengthGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/MaximumLengthGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MaximumLength",
+          "kind": "method",
+          "signature": "public static void MaximumLength(this Guard guard, string value, int maximumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Length > maximumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MaximumLength» در MaximumLengthGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (string): مقدار مورد بررسی/ورود.\r\n- maximumLength (int): ورودی از نوع int.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'MaximumLength' on MaximumLengthGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (string): Value under validation or input.\r\n- maximumLength (int): Input of type int.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MaximumLength",
+          "kind": "method",
+          "signature": "public static void MaximumLength(this Guard guard, ICollection value, int maximumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Count > maximumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MaximumLength» در MaximumLengthGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (ICollection): مقدار مورد بررسی/ورود.\r\n- maximumLength (int): ورودی از نوع int.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'MaximumLength' on MaximumLengthGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (ICollection): Value under validation or input.\r\n- maximumLength (int): Input of type int.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MaximumLengthGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'MaximumLengthGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "MinimumLengthGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/MinimumLengthGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MinimumLength",
+          "kind": "method",
+          "signature": "public static void MinimumLength(this Guard guard, string value, int minimumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Length < minimumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MinimumLength» در MinimumLengthGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (string): مقدار مورد بررسی/ورود.\r\n- minimumLength (int): ورودی از نوع int.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'MinimumLength' on MinimumLengthGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (string): Value under validation or input.\r\n- minimumLength (int): Input of type int.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "MinimumLength",
+          "kind": "method",
+          "signature": "public static void MinimumLength<T>(this Guard guard, ICollection value, int minimumLength, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value.Count < minimumLength)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «MinimumLength» در MinimumLengthGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (ICollection): مقدار مورد بررسی/ورود.\r\n- minimumLength (int): ورودی از نوع int.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'MinimumLength' on MinimumLengthGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (ICollection): Value under validation or input.\r\n- minimumLength (int): Input of type int.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MinimumLengthGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'MinimumLengthGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NotEmptyGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NotEmptyGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "NotEmpty",
+          "kind": "method",
+          "signature": "public static void NotEmpty<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value == null)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (value is ICollection collectionValue && collectionValue.Count == 0)\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (value is IEnumerable enumerableValue && !enumerableValue.GetEnumerator().MoveNext())\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (value is string strValue && string.IsNullOrWhiteSpace(strValue))\r\n            throw new InvalidOperationException(message);\r\n\r\n        if (EqualityComparer<T>.Default.Equals(value, default))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «NotEmpty» در NotEmptyGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'NotEmpty' on NotEmptyGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "NotEmpty",
+          "kind": "method",
+          "signature": "public static void NotEmpty<T>(this Guard guard, T value, IEqualityComparer<T> equalityComparer, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (equalityComparer.Equals(value, default))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «NotEmpty» در NotEmptyGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- equalityComparer (IEqualityComparer<T>): ورودی از نوع IEqualityComparer<T>.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'NotEmpty' on NotEmptyGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- equalityComparer (IEqualityComparer<T>): Input of type IEqualityComparer<T>.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NotEmptyGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'NotEmptyGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NotEqualGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NotEqualGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "NotEqual",
+          "kind": "method",
+          "signature": "public static void NotEqual<T>(this Guard guard, T value, T targetValue, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (Equals(value, targetValue))\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «NotEqual» در NotEqualGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- targetValue (T): مقدار مبنا برای مقایسه.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'NotEqual' on NotEqualGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- targetValue (T): Comparison baseline value.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NotEqualGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'NotEqualGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NotNullGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NotNullGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Null",
+          "kind": "method",
+          "signature": "public static void Null<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value == null)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Null» در NotNullGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Null' on NotNullGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NotNullGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'NotNullGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NullGuardClause",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Guards.GuardClauses",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Guards/GuardClauses/NullGuardClause.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Null",
+          "kind": "method",
+          "signature": "public static void Null<T>(this Guard guard, T value, string message)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(message))\r\n            throw new ArgumentNullException(\"Message\");\r\n\r\n        if (value != null)\r\n            throw new InvalidOperationException(message);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Null» در NullGuardClause. در صورت نقض شرط، استثنا پرتاب می‌کند تا از ادامه با ورودی نامعتبر جلوگیری شود.\r\nپارامترها:\r\n- guard (Guard): نمونه‌ی Guard برای فراخوانی زنجیره‌ای extension method.\r\n- value (T): مقدار مورد بررسی/ورود.\r\n- message (string): پیام متنی خطا یا توضیح نقض شرط.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: برای جلوگیری از ادامه با داده نامعتبر، معمولاً در ابتدای متدهای عمومی فراخوانی می‌شود",
+            "en": "Method 'Null' on NullGuardClause. Throws when a precondition fails to prevent continuing with invalid input.\r\nParameters:\r\n- guard (Guard): Guard instance for fluent extension-method chaining.\r\n- value (T): Value under validation or input.\r\n- message (string): Error/violation message text.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: typically called at the start of public methods to block invalid input"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NullGuardClause» در namespace Zamin.Utilities.Guards.GuardClauses. کمک‌کننده اعتبارسنجی ورودی و پیش‌شرط‌ها.",
+        "en": "Class 'NullGuardClause' in namespace Zamin.Utilities.Guards.GuardClauses. Helper for validating inputs and enforcing preconditions."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

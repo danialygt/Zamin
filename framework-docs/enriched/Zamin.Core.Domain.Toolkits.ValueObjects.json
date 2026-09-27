@@ -1,0 +1,647 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "Description",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/Description.cs",
+      "base_types": [
+        "BaseValueObject<Description>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در Description. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on Description. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static Description FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromString» در Description. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `Description`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Description>",
+            "en": "Method 'FromString' on Description. Creates a new instance or result.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `Description`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Description>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در Description. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Description>",
+            "en": "Method 'GetEqualityComponents' on Description. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Description>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(Description description)",
+          "xml_doc": "",
+          "body_summary": "=> description.Value",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «string» در Description. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- description (Description): ورودی از نوع Description.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Description>",
+            "en": "Conversion operator 'string' on Description. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- description (Description): Input of type Description.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Description>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Description",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator Description(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «Description» در Description. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Description>",
+            "en": "Conversion operator 'Description' on Description. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Description>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «Description» در namespace Zamin.Core.Domain.Toolkits.ValueObjects. شیء مقدار دامنه با برابری مبتنی بر مقدار. ارث‌بری/پیاده‌سازی: BaseValueObject<Description>. مرتبط: BaseValueObject<Description>.",
+        "en": "Class 'Description' in namespace Zamin.Core.Domain.Toolkits.ValueObjects. Domain value object with value-based equality. Base/implemented types: BaseValueObject<Description>. Related: BaseValueObject<Description>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "LegalNationalId",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/LegalNationalId.cs",
+      "base_types": [
+        "BaseValueObject<LegalNationalId>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در LegalNationalId. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on LegalNationalId. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static LegalNationalId FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromString» در LegalNationalId. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `LegalNationalId`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<LegalNationalId>",
+            "en": "Method 'FromString' on LegalNationalId. Creates a new instance or result.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `LegalNationalId`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<LegalNationalId>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در LegalNationalId. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<LegalNationalId>",
+            "en": "Method 'GetEqualityComponents' on LegalNationalId. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<LegalNationalId>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(LegalNationalId title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «string» در LegalNationalId. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- title (LegalNationalId): ورودی از نوع LegalNationalId.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<LegalNationalId>",
+            "en": "Conversion operator 'string' on LegalNationalId. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- title (LegalNationalId): Input of type LegalNationalId.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<LegalNationalId>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "LegalNationalId",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator LegalNationalId(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «LegalNationalId» در LegalNationalId. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<LegalNationalId>",
+            "en": "Conversion operator 'LegalNationalId' on LegalNationalId. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<LegalNationalId>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToString» در LegalNationalId. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<LegalNationalId>",
+            "en": "Method 'ToString' on LegalNationalId. Implements equality/display contract members.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<LegalNationalId>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LegalNationalId» در namespace Zamin.Core.Domain.Toolkits.ValueObjects. شیء مقدار دامنه با برابری مبتنی بر مقدار. ارث‌بری/پیاده‌سازی: BaseValueObject<LegalNationalId>. مرتبط: BaseValueObject<LegalNationalId>.",
+        "en": "Class 'LegalNationalId' in namespace Zamin.Core.Domain.Toolkits.ValueObjects. Domain value object with value-based equality. Base/implemented types: BaseValueObject<LegalNationalId>. Related: BaseValueObject<LegalNationalId>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NationalCode",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/NationalCode.cs",
+      "base_types": [
+        "BaseValueObject<NationalCode>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string value"
+      ],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در NationalCode. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on NationalCode. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static NationalCode FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromString» در NationalCode. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `NationalCode`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<NationalCode> | DI: string value",
+            "en": "Method 'FromString' on NationalCode. Creates a new instance or result.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `NationalCode`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<NationalCode> | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public NationalCode(string value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (!value.IsNationalCode())\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorStringFormat\", nameof(NationalCode));\r\n        }\r\n\r\n        Value = value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده NationalCode. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\nاستثناها (از روی بدنه):\r\n- InvalidValueObjectStateException (throw new)",
+            "en": "Constructor for NationalCode. Creates an instance with the provided initial values. Parameters:\r\n- value (string): Value under validation or input.\r\nExceptions (from body):\r\n- InvalidValueObjectStateException (throw new)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در NationalCode. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<NationalCode> | DI: string value",
+            "en": "Method 'GetEqualityComponents' on NationalCode. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<NationalCode> | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(NationalCode title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «string» در NationalCode. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- title (NationalCode): ورودی از نوع NationalCode.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<NationalCode> | DI: string value",
+            "en": "Conversion operator 'string' on NationalCode. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- title (NationalCode): Input of type NationalCode.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<NationalCode> | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "NationalCode",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator NationalCode(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «NationalCode» در NationalCode. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<NationalCode> | DI: string value",
+            "en": "Conversion operator 'NationalCode' on NationalCode. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<NationalCode> | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToString» در NationalCode. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<NationalCode> | DI: string value",
+            "en": "Method 'ToString' on NationalCode. Implements equality/display contract members.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<NationalCode> | DI: string value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NationalCode» در namespace Zamin.Core.Domain.Toolkits.ValueObjects. شیء مقدار دامنه با برابری مبتنی بر مقدار. ارث‌بری/پیاده‌سازی: BaseValueObject<NationalCode>. وابستگی‌های سازنده (DI): string value. مرتبط: BaseValueObject<NationalCode> | DI: string value.",
+        "en": "Class 'NationalCode' in namespace Zamin.Core.Domain.Toolkits.ValueObjects. Domain value object with value-based equality. Base/implemented types: BaseValueObject<NationalCode>. Constructor-injected dependencies: string value. Related: BaseValueObject<NationalCode> | DI: string value."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Priority",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/Priority.cs",
+      "base_types": [
+        "BaseValueObject<Priority>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "int value"
+      ],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public int Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `int` در Priority. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `int` on Priority. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromInt",
+          "kind": "method",
+          "signature": "public static Priority FromInt(int value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromInt» در Priority. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (int): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `Priority`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Method 'FromInt' on Priority. Creates a new instance or result.\r\nParameters:\r\n- value (int): Value under validation or input.\r\n\r\nReturns: `Priority`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public Priority(int value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (value < 1)\r\n        {\r\n            throw new InvalidValueObjectStateException(\"ValidationErrorValueGraterThan\", nameof(Priority), \"0\");\r\n        }\r\n        Value = value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده Priority. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- value (int): مقدار مورد بررسی/ورود.\r\nاستثناها (از روی بدنه):\r\n- InvalidValueObjectStateException (throw new)",
+            "en": "Constructor for Priority. Creates an instance with the provided initial values. Parameters:\r\n- value (int): Value under validation or input.\r\nExceptions (from body):\r\n- InvalidValueObjectStateException (throw new)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در Priority. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Method 'GetEqualityComponents' on Priority. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "+",
+          "kind": "operator",
+          "signature": "public static Priority operator +(Priority priority, int addNum)",
+          "xml_doc": "",
+          "body_summary": "=> new(priority.Value + addNum);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «+» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority (Priority): ورودی از نوع Priority.\r\n- addNum (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `Priority`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Operator '+' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority (Priority): Input of type Priority.\r\n- addNum (int): Input of type int.\r\n\r\nReturns: `Priority`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "-",
+          "kind": "operator",
+          "signature": "public static Priority operator -(Priority priority, int addNum)",
+          "xml_doc": "",
+          "body_summary": "=> new(priority.Value - addNum);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «-» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority (Priority): ورودی از نوع Priority.\r\n- addNum (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `Priority`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Operator '-' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority (Priority): Input of type Priority.\r\n- addNum (int): Input of type int.\r\n\r\nReturns: `Priority`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "<",
+          "kind": "operator",
+          "signature": "public static bool operator <(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value < priority02.Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «<» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority01 (Priority): ورودی از نوع Priority.\r\n- priority02 (Priority): ورودی از نوع Priority.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Operator '<' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority01 (Priority): Input of type Priority.\r\n- priority02 (Priority): Input of type Priority.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ">",
+          "kind": "operator",
+          "signature": "public static bool operator >(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value > priority02.Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «>» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority01 (Priority): ورودی از نوع Priority.\r\n- priority02 (Priority): ورودی از نوع Priority.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Operator '>' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority01 (Priority): Input of type Priority.\r\n- priority02 (Priority): Input of type Priority.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "<=",
+          "kind": "operator",
+          "signature": "public static bool operator <=(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value <= priority02.Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «<=» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority01 (Priority): ورودی از نوع Priority.\r\n- priority02 (Priority): ورودی از نوع Priority.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Operator '<=' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority01 (Priority): Input of type Priority.\r\n- priority02 (Priority): Input of type Priority.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ">=",
+          "kind": "operator",
+          "signature": "public static bool operator >=(Priority priority01, Priority priority02)",
+          "xml_doc": "",
+          "body_summary": "=> priority01.Value >= priority02.Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر «>=» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority01 (Priority): ورودی از نوع Priority.\r\n- priority02 (Priority): ورودی از نوع Priority.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Operator '>=' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority01 (Priority): Input of type Priority.\r\n- priority02 (Priority): Input of type Priority.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "int",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator int(Priority priority)",
+          "xml_doc": "",
+          "body_summary": "=> priority.Value",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «int» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- priority (Priority): ورودی از نوع Priority.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Conversion operator 'int' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- priority (Priority): Input of type Priority.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Priority",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator Priority(int value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «Priority» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (int): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Conversion operator 'Priority' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (int): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Increase",
+          "kind": "method",
+          "signature": "public Priority Increase(int increasedValue)",
+          "xml_doc": "",
+          "body_summary": "=> new(Value + increasedValue);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Increase» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- increasedValue (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `Priority`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Method 'Increase' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- increasedValue (int): Input of type int.\r\n\r\nReturns: `Priority`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Decrease",
+          "kind": "method",
+          "signature": "public Priority Decrease(int increasedValue)",
+          "xml_doc": "",
+          "body_summary": "=> new(Value - increasedValue);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Decrease» در Priority. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- increasedValue (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `Priority`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BaseValueObject<Priority> | DI: int value",
+            "en": "Method 'Decrease' on Priority. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- increasedValue (int): Input of type int.\r\n\r\nReturns: `Priority`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BaseValueObject<Priority> | DI: int value"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «Priority» در namespace Zamin.Core.Domain.Toolkits.ValueObjects. شیء مقدار دامنه با برابری مبتنی بر مقدار. ارث‌بری/پیاده‌سازی: BaseValueObject<Priority>. وابستگی‌های سازنده (DI): int value. مرتبط: BaseValueObject<Priority> | DI: int value.",
+        "en": "Class 'Priority' in namespace Zamin.Core.Domain.Toolkits.ValueObjects. Domain value object with value-based equality. Base/implemented types: BaseValueObject<Priority>. Constructor-injected dependencies: int value. Related: BaseValueObject<Priority> | DI: int value."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Title",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Toolkits.ValueObjects",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain.Toolkits/ValueObjects/Title.cs",
+      "base_types": [
+        "BaseValueObject<Title>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "property",
+          "signature": "public string Value { get; private set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Value» از نوع `string` در Title. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Value' of type `string` on Title. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromString",
+          "kind": "method",
+          "signature": "public static Title FromString(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new Title(value);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromString» در Title. نمونه یا نتیجه جدیدی می‌سازد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `Title`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Title>",
+            "en": "Method 'FromString' on Title. Creates a new instance or result.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `Title`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Title>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetEqualityComponents",
+          "kind": "method",
+          "signature": "protected override IEnumerable<object> GetEqualityComponents()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        yield return Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetEqualityComponents» در Title. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `IEnumerable<object>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Title>",
+            "en": "Method 'GetEqualityComponents' on Title. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `IEnumerable<object>`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Title>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "string",
+          "kind": "conversion_operator",
+          "signature": "public static explicit operator string(Title title)",
+          "xml_doc": "",
+          "body_summary": "=> title.Value",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «string» در Title. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- title (Title): ورودی از نوع Title.\r\n\r\nمقدار بازگشتی: `explicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Title>",
+            "en": "Conversion operator 'string' on Title. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- title (Title): Input of type Title.\r\n\r\nReturns: `explicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Title>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Title",
+          "kind": "conversion_operator",
+          "signature": "public static implicit operator Title(string value)",
+          "xml_doc": "",
+          "body_summary": "=> new(value)",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عملگر تبدیل «Title» در Title. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `implicit`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Title>",
+            "en": "Conversion operator 'Title' on Title. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (string): Value under validation or input.\r\n\r\nReturns: `implicit`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Title>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "=> Value;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToString» در Title. بخشی از قرارداد برابری/نمایش شیء را پیاده می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: BaseValueObject<Title>",
+            "en": "Method 'ToString' on Title. Implements equality/display contract members.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: BaseValueObject<Title>"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «Title» در namespace Zamin.Core.Domain.Toolkits.ValueObjects. شیء مقدار دامنه با برابری مبتنی بر مقدار. ارث‌بری/پیاده‌سازی: BaseValueObject<Title>. مرتبط: BaseValueObject<Title>.",
+        "en": "Class 'Title' in namespace Zamin.Core.Domain.Toolkits.ValueObjects. Domain value object with value-based equality. Base/implemented types: BaseValueObject<Title>. Related: BaseValueObject<Title>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

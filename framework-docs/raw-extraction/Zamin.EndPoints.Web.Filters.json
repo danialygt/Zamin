@@ -1,0 +1,107 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Filters",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "CamelCaseJsonAttribute",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/CamelCaseJsonAttribute.cs",
+      "base_types": [
+        "Attribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [
+        "AttributeUsage(AttributeTargets.Method)"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "CamelCaseJsonFilter",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/CamelCaseJsonAttribute.cs",
+      "base_types": [
+        "IAsyncResultFilter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OnResultExecutionAsync",
+          "kind": "method",
+          "signature": "public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var hasCamelCaseAttr = context.ActionDescriptor.EndpointMetadata\r\n                .OfType<CamelCaseJsonAttribute>()\r\n                .Any();\r\n\r\n            if (hasCamelCaseAttr && context.Result is ObjectResult objectResult)\r\n            {\r\n                var options = new JsonSerializerOptions\r\n                {\r\n                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,\r\n                    TypeInfoResolver = new DefaultJsonTypeInfoResolver()\r\n                };\r\n\r\n                objectResult.Formatters.Clear();\r\n                objectResult.Formatters.Add(new SystemTextJsonOutputFormatter(options));\r\n            }\r\n\r\n            await next();\r\n        }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "PascalCaseJsonAttribute",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/PascalCaseJsonAttribute.cs",
+      "base_types": [
+        "Attribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [
+        "AttributeUsage(AttributeTargets.Method)"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": []
+    },
+    {
+      "type_name": "PascalCaseJsonFilter",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/PascalCaseJsonAttribute.cs",
+      "base_types": [
+        "IAsyncResultFilter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OnResultExecutionAsync",
+          "kind": "method",
+          "signature": "public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var hasPascalCaseAttr = context.ActionDescriptor.EndpointMetadata\r\n                .OfType<PascalCaseJsonAttribute>()\r\n                .Any();\r\n\r\n            if (hasPascalCaseAttr && context.Result is ObjectResult objectResult)\r\n            {\r\n                var options = new JsonSerializerOptions\r\n                {\r\n                    PropertyNamingPolicy = null,\r\n                    TypeInfoResolver = new DefaultJsonTypeInfoResolver()\r\n                };\r\n\r\n                objectResult.Formatters.Clear();\r\n                objectResult.Formatters.Add(new SystemTextJsonOutputFormatter(options));\r\n            }\r\n\r\n            await next();\r\n        }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "ValidateModelStateAttribute",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/ValidateModelStateAttribute.cs",
+      "base_types": [
+        "ActionFilterAttribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OnActionExecuting",
+          "kind": "method",
+          "signature": "public override void OnActionExecuting(ActionExecutingContext context)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (!context.ModelState.IsValid)\r\n            {\r\n                var errors = context.ModelState.Where(x => x.Value.Errors.Any()).Select(kvp => string.Join(\", \", kvp.Value.Errors.Select(p => p.ErrorMessage))).ToList();\r\n                context.Result = new BadRequestObjectResult(errors);\r\n            }\r\n        }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

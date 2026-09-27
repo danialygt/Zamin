@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Utilities.SerilogRegistration.Extensions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SerilogExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Extensions",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Extensions/SerilogExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "RunWithSerilogExceptionHandling",
+          "kind": "method",
+          "signature": "public static void RunWithSerilogExceptionHandling(Action action, string startUpMessage = \"Starting up\", string exceptionMessage = \"Unhandled exception\", string shutdownMessage = \"Shutdown complete\")",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateBootstrapLogger();\r\n        Log.Information(startUpMessage);\r\n        try\r\n        {\r\n            action();\r\n        }\r\n        catch (Exception ex)\r\n        {\r\n            Log.Fatal(ex, exceptionMessage);\r\n        }\r\n        finally\r\n        {\r\n            Log.Information(shutdownMessage);\r\n            Log.CloseAndFlush();\r\n        }\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

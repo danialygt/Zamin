@@ -1,0 +1,39 @@
+﻿{
+  "namespace": "Zamin.Utilities.SerilogRegistration.Extensions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SerilogExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Extensions",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Extensions/SerilogExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "RunWithSerilogExceptionHandling",
+          "kind": "method",
+          "signature": "public static void RunWithSerilogExceptionHandling(Action action, string startUpMessage = \"Starting up\", string exceptionMessage = \"Unhandled exception\", string shutdownMessage = \"Shutdown complete\")",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateBootstrapLogger();\r\n        Log.Information(startUpMessage);\r\n        try\r\n        {\r\n            action();\r\n        }\r\n        catch (Exception ex)\r\n        {\r\n            Log.Fatal(ex, exceptionMessage);\r\n        }\r\n        finally\r\n        {\r\n            Log.Information(shutdownMessage);\r\n            Log.CloseAndFlush();\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RunWithSerilogExceptionHandling» در SerilogExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. خطاها را در بلوک try/catch مدیریت می‌کند.\r\nپارامترها:\r\n- action (Action): ورودی از نوع Action.\r\n- startUpMessage (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n- exceptionMessage (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n- shutdownMessage (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'RunWithSerilogExceptionHandling' on SerilogExtensions. Performs the operation declared by the signature on this type. Handles failures in a try/catch block.\r\nParameters:\r\n- action (Action): Input of type Action.\r\n- startUpMessage (string): Optional string input (has default).\r\n- exceptionMessage (string): Optional string input (has default).\r\n- shutdownMessage (string): Optional string input (has default).\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SerilogExtensions» در namespace Zamin.Utilities.SerilogRegistration.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'SerilogExtensions' in namespace Zamin.Utilities.SerilogRegistration.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

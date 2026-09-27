@@ -1,0 +1,57 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DistributedRedisCacheAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Services",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Redis/Zamin.Extensions.Caching.Distributed.Redis/Services/DistributedRedisCacheAdapter.cs",
+      "base_types": [
+        "ICacheAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IDistributedCache cache",
+        "IJsonSerializer serializer",
+        "ILogger<DistributedRedisCacheAdapter> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public DistributedRedisCacheAdapter(IDistributedCache cache,\r\n                                        IJsonSerializer serializer,\r\n                                        ILogger<DistributedRedisCacheAdapter> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _cache = cache;\r\n        _serializer = serializer;\r\n        _logger = logger;\r\n\r\n        _logger.LogInformation(\"DistributedCache Redis Adapter Start working\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "public void Add<TInput>(string key, TInput obj, DateTime? absoluteExpiration, TimeSpan? slidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"DistributedCache Redis Adapter Cache {obj} with key : {key} \" +\r\n                         \", with data : {data} \" +\r\n                         \", with absoluteExpiration : {absoluteExpiration} \" +\r\n                         \", with slidingExpiration : {slidingExpiration}\",\r\n                         typeof(TInput),\r\n                         key,\r\n                         _serializer.Serialize(obj),\r\n                         absoluteExpiration.ToString(),\r\n                         slidingExpiration.ToString());\r\n\r\n        var option = new DistributedCacheEntryOptions\r\n        {\r\n            AbsoluteExpiration = absoluteExpiration,\r\n            SlidingExpiration = slidingExpiration\r\n        };\r\n\r\n        _cache.Set(key, Encoding.UTF8.GetBytes(_serializer.Serialize(obj)), option);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = _cache.GetString(key);\r\n\r\n        if (!string.IsNullOrWhiteSpace(result))\r\n        {\r\n            _logger.LogTrace(\"DistributedCache Redis Adapter Successful Get Cache with key : {key} and data : {data}\",\r\n                             key,\r\n                             _serializer.Serialize(result));\r\n\r\n            return _serializer.Deserialize<TOutput>(result);\r\n        }\r\n        else\r\n        {\r\n            _logger.LogTrace(\"DistributedCache Redis Adapter Failed Get Cache with key : {key}\", key);\r\n\r\n            return default;\r\n        }\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "public void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"DistributedCache Redis Adapter Remove Cache with key : {key}\", key);\r\n\r\n        _cache.Remove(key);\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

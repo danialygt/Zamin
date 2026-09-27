@@ -1,0 +1,38 @@
+﻿{
+  "namespace": "Zamin.Extensions.Translations.Parrot.Database",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ParrotSqlRepository",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Translations.Parrot.Database",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Database/ParrotSqlRepository.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ParrotTranslatorOptions configuration",
+        "ILogger logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ParrotSqlRepository(ParrotTranslatorOptions configuration,\r\n                               ILogger logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _configuration = configuration;\r\n        _logger = logger;\r\n        _dbConnection = new SqlConnection(configuration.ConnectionString);\r\n\r\n        if (_configuration.AutoCreateSqlTable)\r\n            CreateTableIfNeeded();\r\n\r\n        _selectCommand = string.Format(_selectCommand, configuration.SchemaName, configuration.TableName);\r\n\r\n        _insertCommand = string.Format(_insertCommand, configuration.SchemaName, configuration.TableName);\r\n\r\n        LoadLocalizationRecords(null);\r\n\r\n        SeedData();\r\n\r\n        LoadLocalizationRecords(null);\r\n\r\n        _ = new Timer(LoadLocalizationRecords,\r\n                           null,\r\n                           TimeSpan.FromMinutes(configuration.ReloadDataIntervalInMinuts),\r\n                           TimeSpan.FromMinutes(configuration.ReloadDataIntervalInMinuts));\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public string Get(string key, string culture)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        try\r\n        {\r\n            var record = _localizationRecords.FirstOrDefault(c => c.Key == key && c.Culture == culture);\r\n            if (record == null)\r\n            {\r\n                _logger.LogInformation(\"The key was not found and was registered with the default value in Parrot Translator. Key is {Key} and culture is {Culture}\", key, culture);\r\n                record = new LocalizationRecord\r\n                {\r\n                    Key = key,\r\n                    Culture = culture,\r\n                    Value = key\r\n                };\r\n\r\n                var parameters = new DynamicParameters();\r\n                parameters.Add(\"@Key\", key);\r\n                parameters.Add(\"@Culture\", culture);\r\n                parameters.Add(\"@Value\", key);\r\n\r\n                record.Id = _dbConnection.Query<int>(_insertCommand, param: parameters, commandType: CommandType.Text).FirstOrDefault();\r\n                _localizationRecords.Add(record);\r\n            }\r\n            return record.Value;\r\n        }\r\n        catch (Exception ex)\r\n        {\r\n            _logger.LogError(ex, \"Get Key value from Sql Server for Parrot Translator Failed\");\r\n            throw;\r\n        }\r\n\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ISoftwarePartAuthentication",
+      "kind": "interface",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Authentications/ISoftwarePartAuthentication.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "LoginAsync",
+          "kind": "method",
+          "signature": "Task<TokenResponse> LoginAsync()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «LoginAsync» در ISoftwarePartAuthentication. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Task<TokenResponse>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'LoginAsync' on ISoftwarePartAuthentication. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `Task<TokenResponse>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ISoftwarePartAuthentication» در namespace Zamin.Utilities.SoftwarePartDetector.Authentications. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'ISoftwarePartAuthentication' in namespace Zamin.Utilities.SoftwarePartDetector.Authentications. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartAuthentication",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Authentications",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Authentications/SoftwarePartAuthentication.cs",
+      "base_types": [
+        "ISoftwarePartAuthentication"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "HttpClient httpClient",
+        "IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartAuthentication(HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _httpClient = httpClient;\r\n        _softwarePartDetectorOption = softwarePartDetectorOption.Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SoftwarePartAuthentication. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- httpClient (HttpClient): ورودی از نوع HttpClient.\r\n- softwarePartDetectorOption (IOptions<SoftwarePartDetectorOptions>): گزینه‌های typed تنظیمات.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SoftwarePartAuthentication. Parameters are expected via dependency injection. Parameters:\r\n- httpClient (HttpClient): Input of type HttpClient.\r\n- softwarePartDetectorOption (IOptions<SoftwarePartDetectorOptions>): Typed options snapshot/wrapper.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "LoginAsync",
+          "kind": "method",
+          "signature": "public async Task<TokenResponse> LoginAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var discoveryDocument = await _httpClient.GetDiscoveryDocumentAsync(_softwarePartDetectorOption.OAuth.Authority);\r\n\r\n        if (discoveryDocument.IsError)\r\n            throw new Exception(discoveryDocument.Error);\r\n\r\n        var tokenResponse = await _httpClient.RequestClientCredentialsTokenAsync(\r\n            new ClientCredentialsTokenRequest\r\n            {\r\n                Address = discoveryDocument.TokenEndpoint,\r\n                ClientId = _softwarePartDetectorOption.OAuth.ClientId,\r\n                ClientSecret = _softwarePartDetectorOption.OAuth.ClientSecret,\r\n                Scope = string.Join(',', _softwarePartDetectorOption.OAuth.Scopes),\r\n            });\r\n\r\n        if (tokenResponse.IsError)\r\n            throw new Exception(tokenResponse.Error);\r\n\r\n        return tokenResponse;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «LoginAsync» در SoftwarePartAuthentication. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Task<TokenResponse>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- Exception (throw new)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ISoftwarePartAuthentication (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption",
+            "en": "Method 'LoginAsync' on SoftwarePartAuthentication. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nNo input parameters.\r\nReturns: `Task<TokenResponse>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- Exception (throw new)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ISoftwarePartAuthentication (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartAuthentication» در namespace Zamin.Utilities.SoftwarePartDetector.Authentications. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ISoftwarePartAuthentication. وابستگی‌های سازنده (DI): HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption. مرتبط: ISoftwarePartAuthentication (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption.",
+        "en": "Class 'SoftwarePartAuthentication' in namespace Zamin.Utilities.SoftwarePartDetector.Authentications. Public/protected class definition in the Zamin framework layer. Base/implemented types: ISoftwarePartAuthentication. Constructor-injected dependencies: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption. Related: ISoftwarePartAuthentication (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

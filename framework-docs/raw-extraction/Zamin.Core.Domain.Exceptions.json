@@ -1,0 +1,100 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.Exceptions",
+  "type_count": 3,
+  "types": [
+    {
+      "type_name": "DomainStateException",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Exceptions",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Exceptions/DomainStateException.cs",
+      "base_types": [
+        "Exception"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// خطاهای لایه Domain مربوط به Entityها و ValueObjectها به کمک Extention برای لایه‌های بالاتر ارسال می‌شود\n/// با توجه به اینکه هم Entity و هم ValueObject به یک شکل خطا را ارسال می‌کنند یک کلاس Exception طراحی و پیاده سازی شده است.\n/// برای اینکه در لایه‌های بالاتر بتوان تفاوت خطای و محل رخداد آن را تشخیص داد از الگوی MicroType استفاده شده.\n/// </summary>",
+      "injected_dependencies": [
+        "string message",
+        "string[] parameters"
+      ],
+      "members": [
+        {
+          "name": "Parameters",
+          "kind": "property",
+          "signature": "public string[] Parameters { get; set; }",
+          "xml_doc": "/// <summary>\n    /// لیست پارامتر‌های خطا\n    /// در صورتی که پارامتری وجود داشته باشد message را به صورت الگو ارسال کرده و مقادیر پارامتر‌ها در محل مخصوص در الگو قرار می‌گیرند.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public DomainStateException(string message, params string[] parameters)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Parameters = parameters;\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (Parameters?.Length < 1)\r\n        {\r\n            return Message;\r\n        }\r\n\r\n\r\n        string result = Message;\r\n\r\n        for (int i = 0; i < Parameters.Length; i++)\r\n        {\r\n            string placeHolder = $\"{{{i}}}\";\r\n            result = result.Replace(placeHolder, Parameters[i]);\r\n        }\r\n\r\n        return result;\r\n    }",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "InvalidEntityStateException",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Exceptions",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Exceptions/InvalidEntityStateException.cs",
+      "base_types": [
+        "DomainStateException"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string message",
+        "string[] parameters"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public InvalidEntityStateException(string message, params string[] parameters)",
+          "xml_doc": "/// <summary>\n    /// خطا‌های مربوط به وضعیت ناصحیح در Entity ها توسط این کلاس ارسال می‌شود\n    /// </summary>\n    /// <param name=\"message\">پیام یا الگوی پیام خطا</param>\n    /// <param name=\"parameters\">پارامتر‌ها که در صورت وجود در الگوی پیام جایگذاری می‌شوند</param>",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "InvalidValueObjectStateException",
+      "kind": "class",
+      "namespace": "Zamin.Core.Domain.Exceptions",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Exceptions/InvalidValueObjectStateException.cs",
+      "base_types": [
+        "DomainStateException"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// خطا‌های مربوط به وضعیت ناصحیح در ValueObject ها توسط این کلاس ارسال می‌شود\n/// </summary>\n/// <param name=\"message\">پیام یا الگوی پیام خطا</param>\n/// <param name=\"parameters\">پارامتر‌ها که در صورت وجود در الگوی پیام جایگذاری می‌شوند</param>",
+      "injected_dependencies": [
+        "string message",
+        "string[] parameters"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public InvalidValueObjectStateException(string message, params string[] parameters)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        Parameters = parameters;\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

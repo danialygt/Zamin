@@ -1,0 +1,370 @@
+﻿{
+  "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "FakeUserInfoService",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.UsersManagement.Abstractions/FakeUserInfoService.cs",
+      "base_types": [
+        "IUserInfoService"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "string defaultUserId"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public FakeUserInfoService()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده FakeUserInfoService. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for FakeUserInfoService. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public FakeUserInfoService(string defaultUserId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _defaultUserId = defaultUserId;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده FakeUserInfoService. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- defaultUserId (string): ورودی از نوع string.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for FakeUserInfoService. Creates an instance with the provided initial values. Parameters:\r\n- defaultUserId (string): Input of type string.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "public string? GetClaim(string claimType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return claimType;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetClaim» در FakeUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- claimType (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'GetClaim' on FakeUserInfoService. Retrieves related data or state.\r\nParameters:\r\n- claimType (string): Input of type string.\r\n\r\nReturns: `string?`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetFirstName",
+          "kind": "method",
+          "signature": "public string GetFirstName()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"FirstName\";\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetFirstName» در FakeUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'GetFirstName' on FakeUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetLastName",
+          "kind": "method",
+          "signature": "public string GetLastName()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"LastName\";\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetLastName» در FakeUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'GetLastName' on FakeUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUserAgent",
+          "kind": "method",
+          "signature": "public string GetUserAgent()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"1\";\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUserAgent» در FakeUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'GetUserAgent' on FakeUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUserIp",
+          "kind": "method",
+          "signature": "public string GetUserIp()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"0.0.0.0\";\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUserIp» در FakeUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'GetUserIp' on FakeUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUsername",
+          "kind": "method",
+          "signature": "public string GetUsername()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"Username\";\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUsername» در FakeUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'GetUsername' on FakeUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "HasAccess",
+          "kind": "method",
+          "signature": "public bool HasAccess(string access)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return true;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «HasAccess» در FakeUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- access (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'HasAccess' on FakeUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- access (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsCurrentUser",
+          "kind": "method",
+          "signature": "public bool IsCurrentUser(string userId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return true;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsCurrentUser» در FakeUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- userId (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'IsCurrentUser' on FakeUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- userId (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserId",
+          "kind": "method",
+          "signature": "public string UserId()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return \"1\";\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserId» در FakeUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'UserId' on FakeUserInfoService. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault()",
+          "xml_doc": "",
+          "body_summary": "=> _defaultUserId;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserIdOrDefault» در FakeUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'UserIdOrDefault' on FakeUserInfoService. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "public string UserIdOrDefault(string defaultValue)",
+          "xml_doc": "",
+          "body_summary": "=> defaultValue;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserIdOrDefault» در FakeUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- defaultValue (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId",
+            "en": "Method 'UserIdOrDefault' on FakeUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- defaultValue (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUserInfoService (same namespace) | DI: string defaultUserId"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «FakeUserInfoService» در namespace Zamin.Extensions.UsersManagement.Abstractions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IUserInfoService. وابستگی‌های سازنده (DI): string defaultUserId. مرتبط: IUserInfoService (same namespace) | DI: string defaultUserId.",
+        "en": "Class 'FakeUserInfoService' in namespace Zamin.Extensions.UsersManagement.Abstractions. Public/protected class definition in the Zamin framework layer. Base/implemented types: IUserInfoService. Constructor-injected dependencies: string defaultUserId. Related: IUserInfoService (same namespace) | DI: string defaultUserId."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IUserInfoService",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.UsersManagement.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.UsersManagement.Abstractions/IUserInfoService.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetUserAgent",
+          "kind": "method",
+          "signature": "string GetUserAgent()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUserAgent» در IUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetUserAgent' on IUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUserIp",
+          "kind": "method",
+          "signature": "string GetUserIp()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUserIp» در IUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetUserIp' on IUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserId",
+          "kind": "method",
+          "signature": "string UserId()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserId» در IUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UserId' on IUserInfoService. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetFirstName",
+          "kind": "method",
+          "signature": "string GetFirstName()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetFirstName» در IUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetFirstName' on IUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetLastName",
+          "kind": "method",
+          "signature": "string GetLastName()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetLastName» در IUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetLastName' on IUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUsername",
+          "kind": "method",
+          "signature": "string GetUsername()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetUsername» در IUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetUsername' on IUserInfoService. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetClaim",
+          "kind": "method",
+          "signature": "string? GetClaim(string claimType)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetClaim» در IUserInfoService. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- claimType (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'GetClaim' on IUserInfoService. Retrieves related data or state.\r\nParameters:\r\n- claimType (string): Input of type string.\r\n\r\nReturns: `string?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsCurrentUser",
+          "kind": "method",
+          "signature": "bool IsCurrentUser(string userId)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsCurrentUser» در IUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- userId (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsCurrentUser' on IUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- userId (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "string UserIdOrDefault()",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserIdOrDefault» در IUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UserIdOrDefault' on IUserInfoService. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserIdOrDefault",
+          "kind": "method",
+          "signature": "string UserIdOrDefault(string defaultValue)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UserIdOrDefault» در IUserInfoService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- defaultValue (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UserIdOrDefault' on IUserInfoService. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- defaultValue (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IUserInfoService» در namespace Zamin.Extensions.UsersManagement.Abstractions. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'IUserInfoService' in namespace Zamin.Extensions.UsersManagement.Abstractions. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.PollingPublisher.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "PollingPublisherOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Options",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher/Options/PollingPublisherOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "SendInterval",
+          "kind": "property",
+          "signature": "public int SendInterval { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SendInterval» از نوع `int` در PollingPublisherOptions. درخواست را به handler مناسب مسیریابی و اجرا می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'SendInterval' of type `int` on PollingPublisherOptions. Routes the request to the matching handler and executes it. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExceptionInterval",
+          "kind": "property",
+          "signature": "public int ExceptionInterval { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ExceptionInterval» از نوع `int` در PollingPublisherOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ExceptionInterval' of type `int` on PollingPublisherOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SendCount",
+          "kind": "property",
+          "signature": "public int SendCount { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SendCount» از نوع `int` در PollingPublisherOptions. درخواست را به handler مناسب مسیریابی و اجرا می‌کند. قابل خواندن و نوشتن است.",
+            "en": "Property 'SendCount' of type `int` on PollingPublisherOptions. Routes the request to the matching handler and executes it. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ApplicationName» از نوع `string` در PollingPublisherOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ApplicationName' of type `string` on PollingPublisherOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «PollingPublisherOptions» در namespace Zamin.Extensions.Events.PollingPublisher.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'PollingPublisherOptions' in namespace Zamin.Extensions.Events.PollingPublisher.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+﻿{
+  "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ChangeDataLogHamsterOptions",
+      "kind": "record",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Hamster/Options/ChangeDataLogHamsterOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PropertyForReject",
+          "kind": "property",
+          "signature": "public List<string> PropertyForReject { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PropertyForReject» از نوع `List<string>` در ChangeDataLogHamsterOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PropertyForReject' of type `List<string>` on ChangeDataLogHamsterOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BusinessIdFieldName",
+          "kind": "property",
+          "signature": "public string BusinessIdFieldName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «BusinessIdFieldName» از نوع `string` در ChangeDataLogHamsterOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'BusinessIdFieldName' of type `string` on ChangeDataLogHamsterOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "رکورد «ChangeDataLogHamsterOptions» در namespace Zamin.Extensions.ChangeDataLog.Sql.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Record 'ChangeDataLogHamsterOptions' in namespace Zamin.Extensions.ChangeDataLog.Sql.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ChangeDataLogSqlOptions",
+      "kind": "record",
+      "namespace": "Zamin.Extensions.ChangeDataLog.Sql.Options",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Sql/Options/ChangeDataLogSqlOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ConnectionString",
+          "kind": "property",
+          "signature": "public string ConnectionString { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ConnectionString» از نوع `string` در ChangeDataLogSqlOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ConnectionString' of type `string` on ChangeDataLogSqlOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AutoCreateSqlTable",
+          "kind": "property",
+          "signature": "public bool AutoCreateSqlTable { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AutoCreateSqlTable» از نوع `bool` در ChangeDataLogSqlOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AutoCreateSqlTable' of type `bool` on ChangeDataLogSqlOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "EntityTableName",
+          "kind": "property",
+          "signature": "public string EntityTableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «EntityTableName» از نوع `string` در ChangeDataLogSqlOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'EntityTableName' of type `string` on ChangeDataLogSqlOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PropertyTableName",
+          "kind": "property",
+          "signature": "public string PropertyTableName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PropertyTableName» از نوع `string` در ChangeDataLogSqlOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PropertyTableName' of type `string` on ChangeDataLogSqlOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SchemaName",
+          "kind": "property",
+          "signature": "public string SchemaName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «SchemaName» از نوع `string` در ChangeDataLogSqlOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'SchemaName' of type `string` on ChangeDataLogSqlOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "رکورد «ChangeDataLogSqlOptions» در namespace Zamin.Extensions.ChangeDataLog.Sql.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Record 'ChangeDataLogSqlOptions' in namespace Zamin.Extensions.ChangeDataLog.Sql.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

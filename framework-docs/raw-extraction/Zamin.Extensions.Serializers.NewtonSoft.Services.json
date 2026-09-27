@@ -1,0 +1,64 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.NewtonSoft.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "NewtonSoftSerializer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.NewtonSoft.Services",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.NewtonSoft/Zamin.Extensions.Serializers.NewtonSoft/Services/NewtonSoftSerializer.cs",
+      "base_types": [
+        "IJsonSerializer",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<NewtonSoftSerializer> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public NewtonSoftSerializer(ILogger<NewtonSoftSerializer> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _logger.LogInformation(\"Newton Soft Serializer Start working\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "public TOutput Deserialize<TOutput>(string input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Newton Soft Serializer Deserialize with name {input}\", input);\r\n\r\n        return string.IsNullOrWhiteSpace(input) ? default : JsonConvert.DeserializeObject<TOutput>(input);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "public object Deserialize(string input, Type type)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Newton Soft Serializer Deserialize with name {input} and type {type}\", input, type);\r\n\r\n        return string.IsNullOrWhiteSpace(input) ? default : JsonConvert.DeserializeObject(input, type);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Serialize",
+          "kind": "method",
+          "signature": "public string Serialize<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Newton Soft Serializer Serilize with name {input}\", input);\r\n\r\n        return input == null ? string.Empty : JsonConvert.SerializeObject(input, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "=> _logger.LogInformation(\"Newton Soft Serializer Stop working\");",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

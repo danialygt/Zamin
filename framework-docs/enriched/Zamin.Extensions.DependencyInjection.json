@@ -1,0 +1,1554 @@
+﻿{
+  "namespace": "Zamin.Extensions.DependencyInjection",
+  "type_count": 26,
+  "types": [
+    {
+      "type_name": "AddApiConfigurationExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/DependencyInjection/AddApiConfigurationExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminApiCore",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminApiCore(this IServiceCollection services, params string[] assemblyNamesForLoad)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddControllers(delegate (MvcOptions options)\r\n        {\r\n            options.Filters.Add<PascalCaseJsonFilter>();\r\n            options.Filters.Add<CamelCaseJsonFilter>();\r\n        }).AddFluentValidation();\r\n        services.AddZaminDependencies(assemblyNamesForLoad);\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminApiCore» در AddApiConfigurationExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminApiCore' on AddApiConfigurationExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UseZaminApiExceptionHandler",
+          "kind": "method",
+          "signature": "public static void UseZaminApiExceptionHandler(this IApplicationBuilder app)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        \r\n        app.UseApiExceptionHandler(options =>\r\n        {\r\n            options.AddResponseDetails = (context, ex, error) =>\r\n            {\r\n                if (ex.GetType().Name == typeof(Microsoft.Data.SqlClient.SqlException).Name)\r\n                {\r\n                    error.Detail = \"Exception was a database exception!\";\r\n                }\r\n            };\r\n            options.DetermineLogLevel = ex =>\r\n            {\r\n                if (ex.Message.StartsWith(\"cannot open database\", StringComparison.InvariantCultureIgnoreCase) ||\r\n                    ex.Message.StartsWith(\"a network-related\", StringComparison.InvariantCultureIgnoreCase))\r\n                {\r\n                    return LogLevel.Critical;\r\n                }\r\n                return LogLevel.Error;\r\n            };\r\n        });\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UseZaminApiExceptionHandler» در AddApiConfigurationExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند.\r\nپارامترها:\r\n- app (IApplicationBuilder): ورودی از نوع IApplicationBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UseZaminApiExceptionHandler' on AddApiConfigurationExtensions. Adds middleware or pipeline configuration to the application.\r\nParameters:\r\n- app (IApplicationBuilder): Input of type IApplicationBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AddApiConfigurationExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'AddApiConfigurationExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "AddApplicationServicesExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/DependencyInjection/AddApplicationServicesExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminApplicationServices",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminApplicationServices(this IServiceCollection services,\r\n                                                                 IEnumerable<Assembly> assembliesForSearch)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddCommandHandlers(assembliesForSearch)\r\n                   .AddCommandDispatcherDecorators()\r\n                   .AddQueryHandlers(assembliesForSearch)\r\n                   .AddQueryDispatcherDecorators()\r\n                   .AddEventHandlers(assembliesForSearch)\r\n                   .AddEventDispatcherDecorators()\r\n                   .AddFluentValidators(assembliesForSearch);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminApplicationServices» در AddApplicationServicesExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminApplicationServices' on AddApplicationServicesExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AddApplicationServicesExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'AddApplicationServicesExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "AddDataAccessExtentsions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/DependencyInjection/AddDataAccessExtentsions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// توابع کمکی جهت ثبت نیازمندی‌های لایه داده\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminDataAccess",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminDataAccess(\r\n        this IServiceCollection services,\r\n        IEnumerable<Assembly> assembliesForSearch)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        services.AddRepositories(assembliesForSearch).AddUnitOfWorks(assembliesForSearch);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminDataAccess» در AddDataAccessExtentsions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminDataAccess' on AddDataAccessExtentsions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddRepositories",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddRepositories(this IServiceCollection services,\r\n        IEnumerable<Assembly> assembliesForSearch)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        services.AddWithTransientLifetime(assembliesForSearch, typeof(ICommandRepository<,>), typeof(IQueryRepository));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddRepositories» در AddDataAccessExtentsions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddRepositories' on AddDataAccessExtentsions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddUnitOfWorks",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddUnitOfWorks(this IServiceCollection services,\r\n        IEnumerable<Assembly> assembliesForSearch)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        services.AddWithTransientLifetime(assembliesForSearch, typeof(IUnitOfWork));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddUnitOfWorks» در AddDataAccessExtentsions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddUnitOfWorks' on AddDataAccessExtentsions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "توابع کمکی جهت ثبت نیازمندی‌های لایه داده",
+        "en": "Author XML for class 'AddDataAccessExtentsions': توابع کمکی جهت ثبت نیازمندی‌های لایه داده"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "AddZaminServicesExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/DependencyInjection/AddZaminServicesExtentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminUntilityServices",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminUntilityServices(\r\n        this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddTransient<ZaminServices>();\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminUntilityServices» در AddZaminServicesExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminUntilityServices' on AddZaminServicesExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AddZaminServicesExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'AddZaminServicesExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ApiAuthenticationServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Extensions/DependencyInjection/ApiAuthenticationServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminApiAuthentication",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminApiAuthentication(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddZaminApiAuthentication(configuration.GetSection(sectionName));",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «AddZaminApiAuthentication» در ApiAuthenticationServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminApiAuthentication' on ApiAuthenticationServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminApiAuthentication",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminApiAuthentication(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<ApiAuthenticationOption>(configuration);\r\n        var option = configuration.Get<ApiAuthenticationOption>() ?? new();\r\n\r\n        return services.AddAuthentication(option);\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «AddZaminApiAuthentication» در ApiAuthenticationServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminApiAuthentication' on ApiAuthenticationServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminApiAuthentication",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminApiAuthentication(this IServiceCollection services, Action<ApiAuthenticationOption> action)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(action);\r\n        var option = new ApiAuthenticationOption();\r\n        action.Invoke(option);\r\n\r\n        return services.AddAuthentication(option);\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «AddZaminApiAuthentication» در ApiAuthenticationServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- action (Action<ApiAuthenticationOption>): ورودی از نوع Action<ApiAuthenticationOption>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminApiAuthentication' on ApiAuthenticationServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- action (Action<ApiAuthenticationOption>): Input of type Action<ApiAuthenticationOption>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ApiAuthenticationServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ApiAuthenticationServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "AutoMapperServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.AutoMapper/Zamin.Extensions.ObjectMappers.AutoMapper/Extensions/DependencyInjection/AutoMapperServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminAutoMapperProfiles",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminAutoMapperProfiles(this IServiceCollection services,\r\n                                                          IConfiguration configuration,\r\n                                                          string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddZaminAutoMapperProfiles(configuration.GetSection(sectionName));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminAutoMapperProfiles» در AutoMapperServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminAutoMapperProfiles' on AutoMapperServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminAutoMapperProfiles",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminAutoMapperProfiles(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = configuration.Get<AutoMapperOption>();\r\n\r\n        var assemblies = GetAssemblies(option?.AssmblyNamesForLoadProfiles??string.Empty);\r\n\r\n        return services.AddAutoMapper(cfg => { },assemblies).AddSingleton<IMapperAdapter, AutoMapperAdapter>();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminAutoMapperProfiles» در AutoMapperServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminAutoMapperProfiles' on AutoMapperServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminAutoMapperProfiles",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminAutoMapperProfiles(this IServiceCollection services, Action<AutoMapperOption> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = new AutoMapperOption();\r\n        setupAction.Invoke(option);\r\n\r\n        var assemblies = GetAssemblies(option.AssmblyNamesForLoadProfiles);\r\n\r\n        return services.AddAutoMapper(cfg => { },assemblies).AddSingleton<IMapperAdapter, AutoMapperAdapter>();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminAutoMapperProfiles» در AutoMapperServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<AutoMapperOption>): ورودی از نوع Action<AutoMapperOption>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminAutoMapperProfiles' on AutoMapperServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<AutoMapperOption>): Input of type Action<AutoMapperOption>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «AutoMapperServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'AutoMapperServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ChageDatalogServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Hamster/Extensions/DependencyInjection/ChageDatalogServiceCollectionExtensions.cs;Extentsions/Databases/Zamin.Extensions.ChangeDataLog/Zamin.Extensions.ChangeDataLog.Sql/Extensions/DependencyInjection/ChageDatalogServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminHamsterChageDatalog",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminHamsterChageDatalog(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<ChangeDataLogHamsterOptions>(configuration);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminHamsterChageDatalog» در ChageDatalogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminHamsterChageDatalog' on ChageDatalogServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminHamsterChageDatalog",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminHamsterChageDatalog(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminHamsterChageDatalog(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminHamsterChageDatalog» در ChageDatalogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminHamsterChageDatalog' on ChageDatalogServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminHamsterChageDatalog",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminHamsterChageDatalog(this IServiceCollection services, Action<ChangeDataLogHamsterOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(setupAction);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminHamsterChageDatalog» در ChageDatalogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<ChangeDataLogHamsterOptions>): ورودی از نوع Action<ChangeDataLogHamsterOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminHamsterChageDatalog' on ChageDatalogServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<ChangeDataLogHamsterOptions>): Input of type Action<ChangeDataLogHamsterOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminChageDatalogDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminChageDatalogDalSql(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{        \r\n        services.AddScoped<IEntityChageInterceptorItemRepository, DapperEntityChangeInterceptorItemRepository>();\r\n        services.Configure<ChangeDataLogSqlOptions>(configuration);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminChageDatalogDalSql» در ChageDatalogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminChageDatalogDalSql' on ChageDatalogServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminChageDatalogDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminChageDatalogDalSql(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminChageDatalogDalSql(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminChageDatalogDalSql» در ChageDatalogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminChageDatalogDalSql' on ChageDatalogServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminChageDatalogDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminChageDatalogDalSql(this IServiceCollection services, Action<ChangeDataLogSqlOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddScoped<IEntityChageInterceptorItemRepository, DapperEntityChangeInterceptorItemRepository>();\r\n        services.Configure(setupAction);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminChageDatalogDalSql» در ChageDatalogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<ChangeDataLogSqlOptions>): ورودی از نوع Action<ChangeDataLogSqlOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminChageDatalogDalSql' on ChageDatalogServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<ChangeDataLogSqlOptions>): Input of type Action<ChangeDataLogSqlOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ChageDatalogServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ChageDatalogServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "DistributedRedisCacheServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Redis/Zamin.Extensions.Caching.Distributed.Redis/Extensions/DependencyInjection/DistributedRedisCacheServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminRedisDistributedCache",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminRedisDistributedCache(this IServiceCollection services,\r\n                                                                   IConfiguration configuration,\r\n                                                                   string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddZaminRedisDistributedCache(configuration.GetSection(sectionName));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminRedisDistributedCache» در DistributedRedisCacheServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminRedisDistributedCache' on DistributedRedisCacheServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminRedisDistributedCache",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminRedisDistributedCache(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddTransient<ICacheAdapter, DistributedRedisCacheAdapter>();\r\n        services.Configure<DistributedRedisCacheOptions>(configuration);\r\n\r\n        var option = configuration.Get<DistributedRedisCacheOptions>();\r\n\r\n        services.AddStackExchangeRedisCache(options =>\r\n        {\r\n            options.Configuration = option.Configuration;\r\n            options.InstanceName = option.InstanceName;\r\n        });\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminRedisDistributedCache» در DistributedRedisCacheServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminRedisDistributedCache' on DistributedRedisCacheServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminRedisDistributedCache",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminRedisDistributedCache(this IServiceCollection services,\r\n                                                              Action<DistributedRedisCacheOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddTransient<ICacheAdapter, DistributedRedisCacheAdapter>();\r\n        services.Configure(setupAction);\r\n\r\n        var option = new DistributedRedisCacheOptions();\r\n        setupAction.Invoke(option);\r\n\r\n        services.AddStackExchangeRedisCache(options =>\r\n        {\r\n            options.Configuration = option.Configuration;\r\n            options.InstanceName = option.InstanceName;\r\n        });\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminRedisDistributedCache» در DistributedRedisCacheServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<DistributedRedisCacheOptions>): ورودی از نوع Action<DistributedRedisCacheOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminRedisDistributedCache' on DistributedRedisCacheServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<DistributedRedisCacheOptions>): Input of type Action<DistributedRedisCacheOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DistributedRedisCacheServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'DistributedRedisCacheServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "DistributedSqlCacheServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Sql/Zamin.Extensions.Caching.Distributed.Sql/Extensions/DependencyInjection/DistributedSqlCacheServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminSqlDistributedCache",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminSqlDistributedCache(this IServiceCollection services,\r\n                                                                  IConfiguration configuration,\r\n                                                                  string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddZaminSqlDistributedCache(configuration.GetSection(sectionName));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminSqlDistributedCache» در DistributedSqlCacheServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminSqlDistributedCache' on DistributedSqlCacheServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminSqlDistributedCache",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminSqlDistributedCache(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddTransient<ICacheAdapter, DistributedSqlCacheAdapter>();\r\n        services.Configure<DistributedSqlCacheOptions>(configuration);\r\n\r\n        var option = configuration.Get<DistributedSqlCacheOptions>();\r\n\r\n        if (option.AutoCreateTable)\r\n            CreateTable(option);\r\n\r\n        services.AddDistributedSqlServerCache(options =>\r\n        {\r\n            options.ConnectionString = option.ConnectionString;\r\n            options.SchemaName = option.SchemaName;\r\n            options.TableName = option.TableName;\r\n        });\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminSqlDistributedCache» در DistributedSqlCacheServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminSqlDistributedCache' on DistributedSqlCacheServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminSqlDistributedCache",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminSqlDistributedCache(this IServiceCollection services,\r\n                                                            Action<DistributedSqlCacheOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddTransient<ICacheAdapter, DistributedSqlCacheAdapter>();\r\n        services.Configure(setupAction);\r\n\r\n        var option = new DistributedSqlCacheOptions();\r\n        setupAction.Invoke(option);\r\n\r\n        if (option.AutoCreateTable)\r\n            CreateTable(option);\r\n\r\n        services.AddDistributedSqlServerCache(options =>\r\n        {\r\n            options.ConnectionString = option.ConnectionString;\r\n            options.SchemaName = option.SchemaName;\r\n            options.TableName = option.TableName;\r\n        });\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminSqlDistributedCache» در DistributedSqlCacheServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<DistributedSqlCacheOptions>): ورودی از نوع Action<DistributedSqlCacheOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminSqlDistributedCache' on DistributedSqlCacheServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<DistributedSqlCacheOptions>): Input of type Action<DistributedSqlCacheOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DistributedSqlCacheServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'DistributedSqlCacheServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EPPlusExcelSerializerServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.EPPlus/Zamin.Extensions.Serializers.EPPlus/Extensions/DependencyInjection/EPPlusExcelSerializerServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddEPPlusExcelSerializer",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddEPPlusExcelSerializer(this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddSingleton<IExcelSerializer, EPPlusExcelSerializer>();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddEPPlusExcelSerializer» در EPPlusExcelSerializerServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddEPPlusExcelSerializer' on EPPlusExcelSerializerServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EPPlusExcelSerializerServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'EPPlusExcelSerializerServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "Extensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Extentions/DependencyInjection/Extentions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminDependencies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminDependencies(this IServiceCollection services,\r\n        params string[] assemblyNamesForSearch)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        var assemblies = GetAssemblies(assemblyNamesForSearch);\r\n        services.AddZaminApplicationServices(assemblies).AddZaminDataAccess(assemblies).AddZaminUntilityServices().AddCustomeDepenecies(assemblies);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminDependencies» در Extensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminDependencies' on Extensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddCustomeDepenecies",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, IEnumerable<Assembly> assemblies)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return services.AddWithTransientLifetime(assemblies, typeof(ITransientLifetime))\r\n            .AddWithScopedLifetime(assemblies, typeof(IScopeLifetime))\r\n            .AddWithSingletonLifetime(assemblies, typeof(ISingletoneLifetime));\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddCustomeDepenecies» در Extensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assemblies (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddCustomeDepenecies' on Extensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assemblies (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddWithTransientLifetime",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddWithTransientLifetime(this IServiceCollection services,\r\n        IEnumerable<Assembly> assembliesForSearch,\r\n        params Type[] assignableTo)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Scan(s => s.FromAssemblies(assembliesForSearch)\r\n            .AddClasses(c => c.AssignableToAny(assignableTo))\r\n            .AsImplementedInterfaces()\r\n            .WithTransientLifetime());\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddWithTransientLifetime» در Extensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddWithTransientLifetime' on Extensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddWithScopedLifetime",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddWithScopedLifetime(this IServiceCollection services,\r\n       IEnumerable<Assembly> assembliesForSearch,\r\n       params Type[] assignableTo)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Scan(s => s.FromAssemblies(assembliesForSearch)\r\n            .AddClasses(c => c.AssignableToAny(assignableTo))\r\n            .AsImplementedInterfaces()\r\n            .WithScopedLifetime());\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddWithScopedLifetime» در Extensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddWithScopedLifetime' on Extensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddWithSingletonLifetime",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddWithSingletonLifetime(this IServiceCollection services,\r\n        IEnumerable<Assembly> assembliesForSearch,\r\n        params Type[] assignableTo)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Scan(s => s.FromAssemblies(assembliesForSearch)\r\n            .AddClasses(c => c.AssignableToAny(assignableTo))\r\n            .AsImplementedInterfaces()\r\n            .WithSingletonLifetime());\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddWithSingletonLifetime» در Extensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- assembliesForSearch (IEnumerable<Assembly>): ورودی از نوع IEnumerable<Assembly>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddWithSingletonLifetime' on Extensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- assembliesForSearch (IEnumerable<Assembly>): Input of type IEnumerable<Assembly>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «Extensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'Extensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "InMemoryCachingServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.InMemory/Zamin.Extensions.Caching.InMemory/Extensions/DependencyInjection/InMemoryCachingServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminInMemoryCaching",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminInMemoryCaching(this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddMemoryCache().AddTransient<ICacheAdapter, InMemoryCacheAdapter>();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminInMemoryCaching» در InMemoryCachingServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminInMemoryCaching' on InMemoryCachingServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «InMemoryCachingServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'InMemoryCachingServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "JwtTokenExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Extensions/JwtTokenExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddJwtTokenSupoort",
+          "kind": "method",
+          "signature": "public static AuthenticationBuilder AddJwtTokenSupoort(this AuthenticationBuilder authenticationBuilder,\r\n                                                           IServiceCollection services,\r\n                                                           ProviderOption provider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        string httpClientName = provider.AddProviderHttpClient(services);\r\n\r\n        authenticationBuilder.AddJwtBearer(provider.Scheme, option =>\r\n        {\r\n            option.Authority = provider.Authority;\r\n            option.Audience = provider.JwtTokenConfig.Audience;\r\n            option.RequireHttpsMetadata = provider.JwtTokenConfig.RequireHttpsMetadata;\r\n            if (provider.IgnoreSSL)\r\n            {\r\n                option.BackchannelHttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = delegate { return true; } };\r\n            }\r\n\r\n            option.TokenValidationParameters = new TokenValidationParameters\r\n            {\r\n                ValidateAudience = provider.JwtTokenConfig.ValidateAudience,\r\n                ValidateIssuer = provider.JwtTokenConfig.ValidateIssuer,\r\n                ValidateIssuerSigningKey = provider.JwtTokenConfig.ValidateIssuerSigningKey,\r\n            };\r\n\r\n            if (provider.EndpointsPath is not null)\r\n            {\r\n                option.Configuration = new()\r\n                {\r\n                    AuthorizationEndpoint = provider.EndpointsPath.AuthorizeEndpoint,\r\n                    TokenEndpoint = provider.EndpointsPath.TokenEndpoint,\r\n                    UserInfoEndpoint = provider.EndpointsPath.UserInfoEndpoint,\r\n                    IntrospectionEndpoint = provider.EndpointsPath.IntrospectionEndpoint\r\n                };\r\n            }\r\n\r\n            option.Events = new JwtBearerEvents()\r\n            {\r\n                OnTokenValidated = async (context) =>\r\n                {\r\n                    if (context.Principal is null) throw new ArgumentNullException($\"{provider.Scheme} ({provider.Authority}) , principal is null\");\r\n\r\n                    if (provider.RegisterUserInfoClaims.Enabled && context.Principal.HasSubClaim(provider.UserIdentifierClaimType))\r\n                    {\r\n                        List<Claim> claims = await provider.GetUserInfoClaims(context.HttpContext, httpClientName);\r\n                        context.Principal.AddIdentity(context.Principal.CreateClaimsIdentity(claims));\r\n                    }\r\n\r\n                    if (provider.UserClaimRules.Count != 0 || provider.UserClaimAddons.Count != 0)\r\n                    {\r\n                        context.Principal = context.Principal.ClonePrincipalWithConvertedClaims(provider);\r\n                    }\r\n                },\r\n            };\r\n        });\r\n\r\n        return authenticationBuilder;\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «AddJwtTokenSupoort» در JwtTokenExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- authenticationBuilder (AuthenticationBuilder): ورودی از نوع AuthenticationBuilder.\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n\r\nمقدار بازگشتی: `AuthenticationBuilder`.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException",
+            "en": "Method 'AddJwtTokenSupoort' on JwtTokenExtensions. Registers related services/features into IServiceCollection. Runs asynchronously.\r\nParameters:\r\n- authenticationBuilder (AuthenticationBuilder): Input of type AuthenticationBuilder.\r\n- services (IServiceCollection): DI service collection to extend.\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n\r\nReturns: `AuthenticationBuilder`.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «JwtTokenExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'JwtTokenExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "MessageInboxServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper/Extensions/DependencyInjection/MessageInboxServiceCollectionExtensions.cs;Extentsions/MessageBus/Zamin.Extensions.MessageBus.MessageInbox/Zamin.Extensions.MessageBus.MessageInbox/Extensions/DependencyInjection/MessageInboxServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminMessageInboxDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMessageInboxDalSql(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<MessageInboxDalDapperOptions>(configuration);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMessageInboxDalSql» در MessageInboxServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMessageInboxDalSql' on MessageInboxServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminMessageInboxDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMessageInboxDalSql(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminMessageInboxDalSql(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMessageInboxDalSql» در MessageInboxServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMessageInboxDalSql' on MessageInboxServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminMessageInboxDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMessageInboxDalSql(this IServiceCollection services, Action<MessageInboxDalDapperOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(setupAction);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMessageInboxDalSql» در MessageInboxServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<MessageInboxDalDapperOptions>): ورودی از نوع Action<MessageInboxDalDapperOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMessageInboxDalSql' on MessageInboxServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<MessageInboxDalDapperOptions>): Input of type Action<MessageInboxDalDapperOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminMessageInbox",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMessageInbox(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<MessageInboxOptions>(configuration);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMessageInbox» در MessageInboxServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMessageInbox' on MessageInboxServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminMessageInbox",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMessageInbox(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminMessageInbox(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMessageInbox» در MessageInboxServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMessageInbox' on MessageInboxServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminMessageInbox",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMessageInbox(this IServiceCollection services, Action<MessageInboxOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(setupAction);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMessageInbox» در MessageInboxServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<MessageInboxOptions>): ورودی از نوع Action<MessageInboxOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMessageInbox' on MessageInboxServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<MessageInboxOptions>): Input of type Action<MessageInboxOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MessageInboxServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'MessageInboxServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "MicrosoftSerializerServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.Microsoft/Zamin.Extensions.Serializers.Microsoft/Extensions/DependencyInjection/MicrosoftSerializerServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminMicrosoftSerializer",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminMicrosoftSerializer(this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddSingleton<IJsonSerializer, MicrosoftSerializer>();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminMicrosoftSerializer» در MicrosoftSerializerServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminMicrosoftSerializer' on MicrosoftSerializerServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «MicrosoftSerializerServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'MicrosoftSerializerServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NewtonSoftSerializerServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.NewtonSoft/Zamin.Extensions.Serializers.NewtonSoft/Extensions/DependencyInjection/NewtonSoftSerializerServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminNewtonSoftSerializer",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminNewtonSoftSerializer(this IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddSingleton<IJsonSerializer, NewtonSoftSerializer>();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminNewtonSoftSerializer» در NewtonSoftSerializerServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminNewtonSoftSerializer' on NewtonSoftSerializerServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NewtonSoftSerializerServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'NewtonSoftSerializerServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ParrotTranslatorServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Translations/Zamin.Extensions.Translations.Parrot/Zamin.Extensions.Translations.Parrot/Extensions/DependencyInjection/ParrotTranslatorServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminParrotTranslator",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminParrotTranslator(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddSingleton<ITranslator, ParrotTranslator>();\r\n        services.Configure<ParrotTranslatorOptions>(configuration);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminParrotTranslator» در ParrotTranslatorServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminParrotTranslator' on ParrotTranslatorServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminParrotTranslator",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminParrotTranslator(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminParrotTranslator(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminParrotTranslator» در ParrotTranslatorServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminParrotTranslator' on ParrotTranslatorServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminParrotTranslator",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminParrotTranslator(this IServiceCollection services, Action<ParrotTranslatorOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddSingleton<ITranslator, ParrotTranslator>();\r\n        services.Configure(setupAction);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminParrotTranslator» در ParrotTranslatorServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<ParrotTranslatorOptions>): ورودی از نوع Action<ParrotTranslatorOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminParrotTranslator' on ParrotTranslatorServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<ParrotTranslatorOptions>): Input of type Action<ParrotTranslatorOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ParrotTranslatorServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ParrotTranslatorServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PollingPublisherServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher.Dal.Dapper/Extensions/DependencyInjection/PollingPublisherServiceCollectionExtensions.cs;Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher/Extensions/DependencyInjection/PollingPublisherServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminPollingPublisherDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminPollingPublisherDalSql(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<PollingPublisherDalRedisOptions>(configuration);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminPollingPublisherDalSql» در PollingPublisherServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminPollingPublisherDalSql' on PollingPublisherServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminPollingPublisherDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminPollingPublisherDalSql(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminPollingPublisherDalSql(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminPollingPublisherDalSql» در PollingPublisherServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminPollingPublisherDalSql' on PollingPublisherServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminPollingPublisherDalSql",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminPollingPublisherDalSql(this IServiceCollection services, Action<PollingPublisherDalRedisOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(setupAction);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminPollingPublisherDalSql» در PollingPublisherServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<PollingPublisherDalRedisOptions>): ورودی از نوع Action<PollingPublisherDalRedisOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminPollingPublisherDalSql' on PollingPublisherServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<PollingPublisherDalRedisOptions>): Input of type Action<PollingPublisherDalRedisOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminPollingPublisher",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminPollingPublisher(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<PollingPublisherOptions>(configuration);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminPollingPublisher» در PollingPublisherServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminPollingPublisher' on PollingPublisherServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminPollingPublisher",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminPollingPublisher(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminPollingPublisher(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminPollingPublisher» در PollingPublisherServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminPollingPublisher' on PollingPublisherServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminPollingPublisher",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminPollingPublisher(this IServiceCollection services, Action<PollingPublisherOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(setupAction);\r\n        AddServices(services);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminPollingPublisher» در PollingPublisherServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<PollingPublisherOptions>): ورودی از نوع Action<PollingPublisherOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminPollingPublisher' on PollingPublisherServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<PollingPublisherOptions>): Input of type Action<PollingPublisherOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «PollingPublisherServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'PollingPublisherServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ProviderExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Extensions/ProviderExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddProviderHttpClient",
+          "kind": "method",
+          "signature": "public static string AddProviderHttpClient(this ProviderOption provider, IServiceCollection services)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var httpClientName = string.IsNullOrWhiteSpace(provider.HttpClientFactoryName) ? $\"Provider{provider.Priority}HttpClient\" : provider.HttpClientFactoryName;\r\n\r\n        IHttpClientBuilder httpClientBuilder = services.AddHttpClient(httpClientName, option => { option.BaseAddress = new Uri(provider.Authority); });\r\n        if (provider.IgnoreSSL)\r\n        {\r\n            httpClientBuilder.ConfigurePrimaryHttpMessageHandler(\r\n                () => new HttpClientHandler\r\n                {\r\n                    ServerCertificateCustomValidationCallback = delegate { return true; }\r\n                });\r\n        }\r\n\r\n        return httpClientName;\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «AddProviderHttpClient» در ProviderExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddProviderHttpClient' on ProviderExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetUserInfoClaims",
+          "kind": "method",
+          "signature": "public static async Task<List<Claim>> GetUserInfoClaims(this ProviderOption provider, HttpContext httpContext, string httpClientName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var token = httpContext.Request.Headers.Authorization.ToString().Replace(\"Bearer \", \"\")\r\n            ?? throw new ArgumentNullException($\"{provider.Scheme} ({provider.Authority}) , token is null\");\r\n\r\n        var client = httpContext.RequestServices.GetRequiredService<IHttpClientFactory>().CreateClient(httpClientName);\r\n\r\n        var userInfoClaims = await provider.UserInfoEndpointCaller(httpContext, client, token);\r\n\r\n        return userInfoClaims;\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «GetUserInfoClaims» در ProviderExtensions. داده یا وضعیت مرتبط را بازیابی می‌کند. handler/سرویس را از DI با GetRequiredService برمی‌دارد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n- httpContext (HttpContext): ورودی از نوع HttpContext.\r\n- httpClientName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `Task<List<Claim>>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: سرویس/handler مربوطه باید در DI ثبت شده باشد وگرنه InvalidOperationException رخ می‌دهد",
+            "en": "Method 'GetUserInfoClaims' on ProviderExtensions. Retrieves related data or state. Resolves the handler/service from DI via GetRequiredService. Runs asynchronously.\r\nParameters:\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n- httpContext (HttpContext): Input of type HttpContext.\r\n- httpClientName (string): Input of type string.\r\n\r\nReturns: `Task<List<Claim>>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: the required service/handler must be registered in DI or InvalidOperationException is thrown"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UserInfoEndpointCaller",
+          "kind": "method",
+          "signature": "public static async Task<List<Claim>> UserInfoEndpointCaller(this ProviderOption provider, HttpContext httpContext, HttpClient client, string token)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        List<Claim> claims = [];\r\n        if (provider.RegisterUserInfoClaims.CachingData)\r\n        {\r\n            var cacheAdapter = httpContext.RequestServices.GetRequiredService<ICacheAdapter>()\r\n                ?? throw new ArgumentNullException($\"{provider.Scheme} ({provider.Authority}) , cache adapter is null\");\r\n\r\n            string cacheKey = GenerateCacheKey(provider, token);\r\n\r\n            claims = cacheAdapter.Get<List<ClaimCacheModel>>(cacheKey)?.Select(cacheModel => cacheModel.ToClaim()).ToList() ?? [];\r\n            if (claims is null || claims.Count == 0)\r\n            {\r\n                claims = await provider.CallUserInfoEndpoint(client, token);\r\n                switch (provider.RegisterUserInfoClaims.CacheExpirationType)\r\n                {\r\n                    case CacheExpirationType.Absolute:\r\n                        cacheAdapter.Add(cacheKey,\r\n                                         claims.Select(ClaimCacheModel.FromClaim),\r\n                                         DateTime.Now.AddSeconds(provider.RegisterUserInfoClaims.CacheExpirationInSeconds),\r\n                                         null);\r\n                        break;\r\n                    case CacheExpirationType.Sliding:\r\n                        cacheAdapter.Add(cacheKey,\r\n                                         claims.Select(ClaimCacheModel.FromClaim),\r\n                                         null,\r\n                                         TimeSpan.FromSeconds(provider.RegisterUserInfoClaims.CacheExpirationInSeconds));\r\n                        break;\r\n                    default:\r\n                        throw new InvalidOperationException($\"Invalid cache expiration type for {provider.Scheme} ({provider.Authority})\");\r\n                }\r\n            }\r\n        }\r\n        else\r\n        {\r\n            claims = await provider.CallUserInfoEndpoint(client, token);\r\n        }\r\n\r\n        return claims;\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «UserInfoEndpointCaller» در ProviderExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند. handler/سرویس را از DI با GetRequiredService برمی‌دارد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n- httpContext (HttpContext): ورودی از نوع HttpContext.\r\n- client (HttpClient): ورودی از نوع HttpClient.\r\n- token (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `Task<List<Claim>>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: سرویس/handler مربوطه باید در DI ثبت شده باشد وگرنه InvalidOperationException رخ می‌دهد",
+            "en": "Method 'UserInfoEndpointCaller' on ProviderExtensions. Adds middleware or pipeline configuration to the application. Resolves the handler/service from DI via GetRequiredService. Runs asynchronously.\r\nParameters:\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n- httpContext (HttpContext): Input of type HttpContext.\r\n- client (HttpClient): Input of type HttpClient.\r\n- token (string): Input of type string.\r\n\r\nReturns: `Task<List<Claim>>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- InvalidOperationException (throw new)\r\n- ArgumentNullException\r\n- InvalidOperationException\r\nPreconditions/dependencies: the required service/handler must be registered in DI or InvalidOperationException is thrown"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CallUserInfoEndpoint",
+          "kind": "method",
+          "signature": "public static async Task<List<Claim>> CallUserInfoEndpoint(this ProviderOption provider, HttpClient client, string token)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var response = await client.GetUserInfoAsync(new UserInfoRequest\r\n        {\r\n            Address = provider.EndpointsPath?.UserInfoEndpoint ?? (await client.GetDiscoveryDocumentAsync())?.UserInfoEndpoint?.Replace(provider.Authority, \"\"),\r\n            Token = token\r\n        });\r\n\r\n        if (response.IsError) throw new Exception(response.Error);\r\n\r\n        return [.. response.Claims];\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «CallUserInfoEndpoint» در ProviderExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n- client (HttpClient): ورودی از نوع HttpClient.\r\n- token (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `Task<List<Claim>>` — نتیجه ناهمگام عملیات.\r\nاستثناها (قابل تشخیص از کد):\r\n- Exception (throw new)",
+            "en": "Method 'CallUserInfoEndpoint' on ProviderExtensions. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nParameters:\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n- client (HttpClient): Input of type HttpClient.\r\n- token (string): Input of type string.\r\n\r\nReturns: `Task<List<Claim>>` — asynchronous result of the operation.\r\nExceptions (detectable from code):\r\n- Exception (throw new)"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ProviderExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ProviderExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RabbitMqMessageBusServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/Extensions/DependencyInjection/RabbitMqMessageBusServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminRabbitMqMessageBus",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminRabbitMqMessageBus(this IServiceCollection services, IConfiguration configuration, List<Type>? commands = null, Dictionary<string, List<Type>>? events = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<RabbitMqOptions>(configuration);\r\n        services.AddServices();\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminRabbitMqMessageBus» در RabbitMqMessageBusServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- commands (List<Type>?): ورودی اختیاری از نوع List<Type>? (دارای مقدار پیش‌فرض).\r\n- events (Dictionary<string, List<Type>>?): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminRabbitMqMessageBus' on RabbitMqMessageBusServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- commands (List<Type>?): Optional List<Type>? input (has default).\r\n- events (Dictionary<string, List<Type>>?): Domain/event message to process.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminRabbitMqMessageBus",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminRabbitMqMessageBus(this IServiceCollection services, IConfiguration configuration, string sectionName, List<Type>? commands = null, Dictionary<string, List<Type>>? events = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminRabbitMqMessageBus(configuration.GetSection(sectionName));\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminRabbitMqMessageBus» در RabbitMqMessageBusServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n- commands (List<Type>?): ورودی اختیاری از نوع List<Type>? (دارای مقدار پیش‌فرض).\r\n- events (Dictionary<string, List<Type>>?): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminRabbitMqMessageBus' on RabbitMqMessageBusServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n- commands (List<Type>?): Optional List<Type>? input (has default).\r\n- events (Dictionary<string, List<Type>>?): Domain/event message to process.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminRabbitMqMessageBus",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminRabbitMqMessageBus(this IServiceCollection services, Action<RabbitMqOptions> setupAction, List<Type>? commands = null, Dictionary<string, List<Type>>? events = null)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(setupAction);\r\n        services.AddServices();\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminRabbitMqMessageBus» در RabbitMqMessageBusServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<RabbitMqOptions>): ورودی از نوع Action<RabbitMqOptions>.\r\n- commands (List<Type>?): ورودی اختیاری از نوع List<Type>? (دارای مقدار پیش‌فرض).\r\n- events (Dictionary<string, List<Type>>?): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminRabbitMqMessageBus' on RabbitMqMessageBusServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<RabbitMqOptions>): Input of type Action<RabbitMqOptions>.\r\n- commands (List<Type>?): Optional List<Type>? input (has default).\r\n- events (Dictionary<string, List<Type>>?): Domain/event message to process.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ReceiveCommandFromRabbitMqMessageBus",
+          "kind": "method",
+          "signature": "public static void ReceiveCommandFromRabbitMqMessageBus(this IServiceProvider serviceProvider, params string[] commands)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (commands is null)\r\n        {\r\n            throw new ArgumentNullException(nameof(commands));\r\n        }\r\n        var receiveMessageBus = serviceProvider.GetRequiredService<IReceiveMessageBus>();\r\n        foreach (var command in commands)\r\n        {\r\n            receiveMessageBus.Receive(command);\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ReceiveCommandFromRabbitMqMessageBus» در RabbitMqMessageBusServiceCollectionExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. handler/سرویس را از DI با GetRequiredService برمی‌دارد.\r\nپارامترها:\r\n- serviceProvider (IServiceProvider): ارائه‌دهنده سرویس برای resolve کردن وابستگی‌ها.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: سرویس/handler مربوطه باید در DI ثبت شده باشد وگرنه InvalidOperationException رخ می‌دهد",
+            "en": "Method 'ReceiveCommandFromRabbitMqMessageBus' on RabbitMqMessageBusServiceCollectionExtensions. Performs the operation declared by the signature on this type. Resolves the handler/service from DI via GetRequiredService.\r\nParameters:\r\n- serviceProvider (IServiceProvider): Service provider used to resolve dependencies.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: the required service/handler must be registered in DI or InvalidOperationException is thrown"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ReceiveEventFromRabbitMqMessageBus",
+          "kind": "method",
+          "signature": "public static void ReceiveEventFromRabbitMqMessageBus(this IServiceProvider serviceProvider, params KeyValuePair<string, string>[] events)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (events is null)\r\n        {\r\n            throw new ArgumentNullException(nameof(events));\r\n        }\r\n        var receiveMessageBus = serviceProvider.GetRequiredService<IReceiveMessageBus>();\r\n        foreach (var @event in events)\r\n        {\r\n            receiveMessageBus.Subscribe(@event.Key, @event.Value);\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ReceiveEventFromRabbitMqMessageBus» در RabbitMqMessageBusServiceCollectionExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. handler/سرویس را از DI با GetRequiredService برمی‌دارد.\r\nپارامترها:\r\n- serviceProvider (IServiceProvider): ارائه‌دهنده سرویس برای resolve کردن وابستگی‌ها.\r\n- string>events (KeyValuePair<string,): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: سرویس/handler مربوطه باید در DI ثبت شده باشد وگرنه InvalidOperationException رخ می‌دهد",
+            "en": "Method 'ReceiveEventFromRabbitMqMessageBus' on RabbitMqMessageBusServiceCollectionExtensions. Performs the operation declared by the signature on this type. Resolves the handler/service from DI via GetRequiredService.\r\nParameters:\r\n- serviceProvider (IServiceProvider): Service provider used to resolve dependencies.\r\n- string>events (KeyValuePair<string,): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: the required service/handler must be registered in DI or InvalidOperationException is thrown"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RabbitMqMessageBusServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'RabbitMqMessageBusServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ReferenceTokenExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/Auth/ApiAuthentication/Zamin.Utilities.Auth.ApiAuthentication/Extensions/ReferenceTokenExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddReferenceTokenSupoort",
+          "kind": "method",
+          "signature": "public static AuthenticationBuilder AddReferenceTokenSupoort(this AuthenticationBuilder authenticationBuilder,\r\n                                                                 IServiceCollection services,\r\n                                                                 ProviderOption provider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrWhiteSpace(provider.RefrenceTokenConfig.ClientId) || string.IsNullOrWhiteSpace(provider.RefrenceTokenConfig.ClientSecret))\r\n            throw new ArgumentNullException($\"{provider.Scheme} ({provider.Authority}) , ClientId or ClientSecret is null or white space or empty\");\r\n\r\n        string httpClientName = provider.AddProviderHttpClient(services);\r\n\r\n        authenticationBuilder.AddOAuth2Introspection(provider.Scheme, option =>\r\n        {\r\n            option.Authority = provider.Authority;\r\n\r\n            if (!string.IsNullOrEmpty(provider.EndpointsPath?.IntrospectionEndpoint))\r\n            {\r\n                option.IntrospectionEndpoint = $\"{provider.Authority}{provider.EndpointsPath.IntrospectionEndpoint}\";\r\n            }\r\n\r\n            option.ClientId = provider.RefrenceTokenConfig.ClientId;\r\n            option.ClientSecret = provider.RefrenceTokenConfig.ClientSecret;\r\n\r\n            option.Events = new OAuth2IntrospectionEvents()\r\n            {\r\n                OnTokenValidated = async (context) =>\r\n                {\r\n                    if (context.Principal is null) throw new ArgumentNullException($\"{provider.Scheme} ({provider.Authority}) , principal is null\");\r\n\r\n                    if (provider.RegisterUserInfoClaims.Enabled && context.Principal.HasSubClaim(provider.UserIdentifierClaimType))\r\n                    {\r\n                        List<Claim> claims = await provider.GetUserInfoClaims(context.HttpContext, httpClientName);\r\n                        context.Principal.AddIdentity(context.Principal.CreateClaimsIdentity(claims));\r\n                    }\r\n\r\n                    if (provider.UserClaimRules.Count != 0 || provider.UserClaimAddons.Count != 0)\r\n                    {\r\n                        context.Principal = context.Principal.ClonePrincipalWithConvertedClaims(provider);\r\n                    }\r\n                },\r\n            };\r\n        });\r\n\r\n        return authenticationBuilder;\r\n    }",
+          "attributes": [
+            "Obsolete(\"این متد deprecated شده است. از تنظیمات استاندارد ASP.NET Core برای Authentication استفاده کنید.\")"
+          ],
+          "generated_doc": {
+            "fa": "متد «AddReferenceTokenSupoort» در ReferenceTokenExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- authenticationBuilder (AuthenticationBuilder): ورودی از نوع AuthenticationBuilder.\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- provider (ProviderOption): ورودی از نوع ProviderOption.\r\n\r\nمقدار بازگشتی: `AuthenticationBuilder`.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException",
+            "en": "Method 'AddReferenceTokenSupoort' on ReferenceTokenExtensions. Registers related services/features into IServiceCollection. Runs asynchronously.\r\nParameters:\r\n- authenticationBuilder (AuthenticationBuilder): Input of type AuthenticationBuilder.\r\n- services (IServiceCollection): DI service collection to extend.\r\n- provider (ProviderOption): Input of type ProviderOption.\r\n\r\nReturns: `AuthenticationBuilder`.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ReferenceTokenExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ReferenceTokenExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ScalarServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/ScalarRegistration/Zamin.Utilities.ScalarRegistration/Extensions/DependencyInjection/ScalarServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminScalar",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminScalar(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddZaminScalar(configuration.GetSection(sectionName));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminScalar» در ScalarServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminScalar' on ScalarServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminScalar",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminScalar(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure<ScalarOption>(configuration);\r\n        var option = configuration.Get<ScalarOption>() ?? new();\r\n\r\n        return services.AddService(option);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminScalar» در ScalarServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminScalar' on ScalarServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminScalar",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminScalar(this IServiceCollection services, Action<ScalarOption> action)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.Configure(action);\r\n        var option = new ScalarOption();\r\n        action.Invoke(option);\r\n\r\n        return services.AddService(option);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminScalar» در ScalarServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- action (Action<ScalarOption>): ورودی از نوع Action<ScalarOption>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminScalar' on ScalarServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- action (Action<ScalarOption>): Input of type Action<ScalarOption>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UseZaminScalar",
+          "kind": "method",
+          "signature": "public static void UseZaminScalar(this WebApplication app)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = app.Services.GetRequiredService<IOptions<ScalarOption>>().Value;\r\n        if (option.Enabled)\r\n        {\r\n            app.MapOpenApi();\r\n            app.MapScalarApiReference();\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UseZaminScalar» در ScalarServiceCollectionExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند. handler/سرویس را از DI با GetRequiredService برمی‌دارد.\r\nپارامترها:\r\n- app (WebApplication): ورودی از نوع WebApplication.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: سرویس/handler مربوطه باید در DI ثبت شده باشد وگرنه InvalidOperationException رخ می‌دهد",
+            "en": "Method 'UseZaminScalar' on ScalarServiceCollectionExtensions. Adds middleware or pipeline configuration to the application. Resolves the handler/service from DI via GetRequiredService.\r\nParameters:\r\n- app (WebApplication): Input of type WebApplication.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: the required service/handler must be registered in DI or InvalidOperationException is thrown"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ScalarServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ScalarServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SerilogServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Extensions/DependencyInjection/SerilogServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminSerilog",
+          "kind": "method",
+          "signature": "public static WebApplicationBuilder AddZaminSerilog(this WebApplicationBuilder builder, IConfiguration configuration, params Type[] enrichersType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        builder.Services.Configure<SerilogApplicationEnricherOptions>(configuration);\r\n        return AddServices(builder, enrichersType);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminSerilog» در SerilogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- builder (WebApplicationBuilder): ورودی از نوع WebApplicationBuilder.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `WebApplicationBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminSerilog' on SerilogServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- builder (WebApplicationBuilder): Input of type WebApplicationBuilder.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `WebApplicationBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminSerilog",
+          "kind": "method",
+          "signature": "public static WebApplicationBuilder AddZaminSerilog(this WebApplicationBuilder builder, IConfiguration configuration, string sectionName, params Type[] enrichersType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return builder.AddZaminSerilog(configuration.GetSection(sectionName), enrichersType);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminSerilog» در SerilogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- builder (WebApplicationBuilder): ورودی از نوع WebApplicationBuilder.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `WebApplicationBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminSerilog' on SerilogServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- builder (WebApplicationBuilder): Input of type WebApplicationBuilder.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `WebApplicationBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminSerilog",
+          "kind": "method",
+          "signature": "public static WebApplicationBuilder AddZaminSerilog(this WebApplicationBuilder builder, Action<SerilogApplicationEnricherOptions> setupAction, params Type[] enrichersType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        builder.Services.Configure(setupAction);\r\n        return AddServices(builder, enrichersType);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminSerilog» در SerilogServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- builder (WebApplicationBuilder): ورودی از نوع WebApplicationBuilder.\r\n- setupAction (Action<SerilogApplicationEnricherOptions>): ورودی از نوع Action<SerilogApplicationEnricherOptions>.\r\n\r\nمقدار بازگشتی: `WebApplicationBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminSerilog' on SerilogServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- builder (WebApplicationBuilder): Input of type WebApplicationBuilder.\r\n- setupAction (Action<SerilogApplicationEnricherOptions>): Input of type Action<SerilogApplicationEnricherOptions>.\r\n\r\nReturns: `WebApplicationBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SerilogServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'SerilogServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/ObjectMappers/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Zamin.Extensions.ObjectMappers.Mapster/Extensions/MapsterMapperServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddMapsterMappings",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddMapsterMappings(this IServiceCollection services, params Assembly[] assembliesToScan)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var config = TypeAdapterConfig.GlobalSettings;\r\n\r\n        if (assembliesToScan == null || assembliesToScan.Length == 0)\r\n            assembliesToScan = new[] { Assembly.GetCallingAssembly() };\r\n\r\n        foreach (var assembly in assembliesToScan)\r\n            config.Scan(assembly);\r\n\r\n        services.AddSingleton(config);\r\n        services.AddScoped<IMapper, ServiceMapper>();\r\n        services.AddScoped<IObjectMapper, ObjectMappers.Mapster.Services.Mapster>();\r\n\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddMapsterMappings» در ServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddMapsterMappings' on ServiceCollectionExtensions. Registers related services/features into IServiceCollection. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartDetectorServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Extensions/DependencyInjection/SoftwarePartDetectorServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddSoftwarePartDetector",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddSoftwarePartDetector(this IServiceCollection services, IConfiguration configuration, string sectionName)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddSoftwarePartDetector(configuration.GetSection(sectionName));",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddSoftwarePartDetector» در SoftwarePartDetectorServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddSoftwarePartDetector' on SoftwarePartDetectorServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddSoftwarePartDetector",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddSoftwarePartDetector(this IServiceCollection services, IConfiguration configuration)",
+          "xml_doc": "",
+          "body_summary": "=> services.AddServices(configuration.Get<SoftwarePartDetectorOptions>()).Configure<SoftwarePartDetectorOptions>(configuration);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddSoftwarePartDetector» در SoftwarePartDetectorServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddSoftwarePartDetector' on SoftwarePartDetectorServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddSoftwarePartDetector",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddSoftwarePartDetector(this IServiceCollection services, Action<SoftwarePartDetectorOptions> setupAction)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var option = new SoftwarePartDetectorOptions();\r\n\r\n        setupAction.Invoke(option);\r\n\r\n        return services.AddServices(option).Configure(setupAction);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddSoftwarePartDetector» در SoftwarePartDetectorServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<SoftwarePartDetectorOptions>): ورودی از نوع Action<SoftwarePartDetectorOptions>.\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddSoftwarePartDetector' on SoftwarePartDetectorServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<SoftwarePartDetectorOptions>): Input of type Action<SoftwarePartDetectorOptions>.\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartDetectorServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'SoftwarePartDetectorServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "UserInfoServiceCollectionExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.DependencyInjection",
+      "source_file": "Extentsions/UsersManagement/Zamin.Extensions.UsersManagement/Zamin.Extensions.UsersManagement/Extensions/DependencyInjection/UserInfoServiceCollectionExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddZaminWebUserInfoService",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminWebUserInfoService(this IServiceCollection services, IConfiguration configuration, bool useFake = false)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (useFake)\r\n        {\r\n            services.AddSingleton<IUserInfoService, FakeUserInfoService>();\r\n\r\n        }\r\n        else\r\n        {\r\n            services.Configure<UserManagementOptions>(configuration);\r\n            services.AddSingleton<IUserInfoService, WebUserInfoService>();\r\n\r\n        }\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminWebUserInfoService» در UserInfoServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- useFake (bool): ورودی اختیاری از نوع bool (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminWebUserInfoService' on UserInfoServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- useFake (bool): Optional bool input (has default).\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminWebUserInfoService",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminWebUserInfoService(this IServiceCollection services, IConfiguration configuration, string sectionName, bool useFake = false)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        services.AddZaminWebUserInfoService(configuration.GetSection(sectionName), useFake);\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminWebUserInfoService» در UserInfoServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- configuration (IConfiguration): پیکربندی برنامه برای خواندن تنظیمات.\r\n- sectionName (string): ورودی از نوع string.\r\n- useFake (bool): ورودی اختیاری از نوع bool (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminWebUserInfoService' on UserInfoServiceCollectionExtensions. Registers related services/features into IServiceCollection.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- configuration (IConfiguration): Application configuration used to read settings.\r\n- sectionName (string): Input of type string.\r\n- useFake (bool): Optional bool input (has default).\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "AddZaminWebUserInfoService",
+          "kind": "method",
+          "signature": "public static IServiceCollection AddZaminWebUserInfoService(this IServiceCollection services, Action<UserManagementOptions> setupAction, bool useFake = false)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (useFake)\r\n        {\r\n            services.AddSingleton<IUserInfoService, FakeUserInfoService>();\r\n\r\n        }\r\n        else\r\n        {\r\n            services.Configure(setupAction);\r\n            services.AddSingleton<IUserInfoService, WebUserInfoService>();\r\n\r\n        }\r\n        return services;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «AddZaminWebUserInfoService» در UserInfoServiceCollectionExtensions. سرویس‌ها/قابلیت مرتبط را به IServiceCollection ثبت می‌کند. گزینه‌های تنظیمات را Configure می‌کند. سرویس‌ها را با lifetime مشخص در DI ثبت می‌کند.\r\nپارامترها:\r\n- services (IServiceCollection): مجموعه سرویس‌های DI که باید گسترش یابد.\r\n- setupAction (Action<UserManagementOptions>): ورودی از نوع Action<UserManagementOptions>.\r\n- useFake (bool): ورودی اختیاری از نوع bool (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `IServiceCollection`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'AddZaminWebUserInfoService' on UserInfoServiceCollectionExtensions. Registers related services/features into IServiceCollection. Configures options bindings. Registers services with an explicit DI lifetime.\r\nParameters:\r\n- services (IServiceCollection): DI service collection to extend.\r\n- setupAction (Action<UserManagementOptions>): Input of type Action<UserManagementOptions>.\r\n- useFake (bool): Optional bool input (has default).\r\n\r\nReturns: `IServiceCollection`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «UserInfoServiceCollectionExtensions» در namespace Zamin.Extensions.DependencyInjection. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'UserInfoServiceCollectionExtensions' in namespace Zamin.Extensions.DependencyInjection. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

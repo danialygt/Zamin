@@ -1,0 +1,280 @@
+﻿{
+  "namespace": "Zamin.Core.ApplicationServices.Events",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "EventDispatcher",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcher.cs",
+      "base_types": [
+        "IEventDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<EventDispatcher> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcher(IServiceProvider serviceProvider, ILogger<EventDispatcher> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n        _stopwatch = new Stopwatch();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده EventDispatcher. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- serviceProvider (IServiceProvider): ارائه‌دهنده سرویس برای resolve کردن وابستگی‌ها.\r\n- logger (ILogger<EventDispatcher>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for EventDispatcher. Parameters are expected via dependency injection. Parameters:\r\n- serviceProvider (IServiceProvider): Service provider used to resolve dependencies.\r\n- logger (ILogger<EventDispatcher>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _stopwatch.Start();\r\n        int counter = 0;\r\n        try\r\n        {\r\n            _logger.LogDebug(\"Routing event of type {EventType} With value {Event}  Start at {StartDateTime}\", @event.GetType(), @event, DateTime.Now);\r\n            var handlers = _serviceProvider.GetServices<IDomainEventHandler<TDomainEvent>>();\r\n            List<Task> tasks = new List<Task>();\r\n            foreach (var handler in handlers)\r\n            {\r\n                counter++;\r\n                tasks.Add(handler.Handle(@event));\r\n            }\r\n            await Task.WhenAll(tasks);\r\n        }\r\n        catch (InvalidOperationException ex)\r\n        {\r\n            _logger.LogError(ex, \"There is not suitable handler for {EventType} Routing failed at {StartDateTime}.\", @event.GetType(), DateTime.Now);\r\n            throw;\r\n        }\r\n        finally\r\n        {\r\n            _stopwatch.Stop();\r\n            _logger.LogDebug(\"Total number of handler for {EventType} is {Count} ,EventHandlers tooks {Millisecconds} Millisecconds\", @event.GetType(), counter, _stopwatch.ElapsedMilliseconds);\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishDomainEventAsync» در EventDispatcher. رویداد/پیام را منتشر می‌کند. زمان اجرا را اندازه‌گیری و لاگ می‌کند. جزئیات اجرا را لاگ می‌کند. خطاها را در بلوک try/catch مدیریت می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- event (TDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثناها (قابل تشخیص از کد):\r\n- InvalidOperationException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IEventDispatcher | DI: IServiceProvider serviceProvider, ILogger<EventDispatcher> logger",
+            "en": "Method 'PublishDomainEventAsync' on EventDispatcher. Publishes an event/message. Measures and logs execution time. Logs execution details. Handles failures in a try/catch block. Runs asynchronously.\r\nParameters:\r\n- event (TDomainEvent): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nExceptions (detectable from code):\r\n- InvalidOperationException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IEventDispatcher | DI: IServiceProvider serviceProvider, ILogger<EventDispatcher> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EventDispatcher» در namespace Zamin.Core.ApplicationServices.Events. مسئول یافتن و فراخوانی handler مناسب برای فرمان/کوئری/رویداد. ارث‌بری/پیاده‌سازی: IEventDispatcher. وابستگی‌های سازنده (DI): IServiceProvider serviceProvider, ILogger<EventDispatcher> logger. مرتبط: IEventDispatcher | DI: IServiceProvider serviceProvider, ILogger<EventDispatcher> logger.",
+        "en": "Class 'EventDispatcher' in namespace Zamin.Core.ApplicationServices.Events. Resolves and invokes the appropriate handler for a command/query/event. Base/implemented types: IEventDispatcher. Constructor-injected dependencies: IServiceProvider serviceProvider, ILogger<EventDispatcher> logger. Related: IEventDispatcher | DI: IServiceProvider serviceProvider, ILogger<EventDispatcher> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EventDispatcherDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcherDecorator.cs",
+      "base_types": [
+        "IEventDispatcher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "_eventDispatcher",
+          "kind": "field",
+          "signature": "protected IEventDispatcher _eventDispatcher;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_eventDispatcher» در EventDispatcherDecorator با امضای `protected IEventDispatcher _eventDispatcher;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_eventDispatcher' on EventDispatcherDecorator with signature `protected IEventDispatcher _eventDispatcher;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public abstract int Order { get; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Order» از نوع `int` در EventDispatcherDecorator. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. فقط‌خواندنی است.",
+            "en": "Property 'Order' of type `int` on EventDispatcherDecorator. Exposes related state or configuration for this member. Read-only."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcherDecorator()",
+          "xml_doc": "",
+          "body_summary": "{ }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده EventDispatcherDecorator. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for EventDispatcherDecorator. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public abstract Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishDomainEventAsync» در EventDispatcherDecorator. رویداد/پیام را منتشر می‌کند.\r\nپارامترها:\r\n- event (TDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IEventDispatcher",
+            "en": "Method 'PublishDomainEventAsync' on EventDispatcherDecorator. Publishes an event/message.\r\nParameters:\r\n- event (TDomainEvent): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IEventDispatcher"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "SetEventDispatcher",
+          "kind": "method",
+          "signature": "public void SetEventDispatcher(IEventDispatcher eventDispatcher)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _eventDispatcher = eventDispatcher;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «SetEventDispatcher» در EventDispatcherDecorator. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- eventDispatcher (IEventDispatcher): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: قبل از Publish باید SetEventDispatcher فراخوانی شده باشد\r\nانواع مرتبط: IEventDispatcher",
+            "en": "Method 'SetEventDispatcher' on EventDispatcherDecorator. Updates or persists state.\r\nParameters:\r\n- eventDispatcher (IEventDispatcher): Domain/event message to process.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: SetEventDispatcher must be called before Publish\r\nRelated types: IEventDispatcher"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EventDispatcherDecorator» در namespace Zamin.Core.ApplicationServices.Events. مسئول یافتن و فراخوانی handler مناسب برای فرمان/کوئری/رویداد. ارث‌بری/پیاده‌سازی: IEventDispatcher. مرتبط: IEventDispatcher.",
+        "en": "Class 'EventDispatcherDecorator' in namespace Zamin.Core.ApplicationServices.Events. Resolves and invokes the appropriate handler for a command/query/event. Base/implemented types: IEventDispatcher. Related: IEventDispatcher."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EventDispatcherDomainExceptionHandlerDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcherDomainExceptionHandlerDecorator.cs",
+      "base_types": [
+        "EventDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 2;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Order» از نوع `int` در EventDispatcherDomainExceptionHandlerDecorator. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Order' of type `int` on EventDispatcherDomainExceptionHandlerDecorator. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcherDomainExceptionHandlerDecorator(ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده EventDispatcherDomainExceptionHandlerDecorator. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- logger (ILogger<EventDispatcherDomainExceptionHandlerDecorator>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for EventDispatcherDomainExceptionHandlerDecorator. Parameters are expected via dependency injection. Parameters:\r\n- logger (ILogger<EventDispatcherDomainExceptionHandlerDecorator>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public override async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        try\r\n        {\r\n            await _eventDispatcher.PublishDomainEventAsync(@event);\r\n        }\r\n        catch (DomainStateException ex)\r\n        {\r\n            _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {EventType} With value {Event} failed at {StartDateTime} because there are domain exceptions.\", @event.GetType(), @event, DateTime.Now);\r\n        }\r\n        catch (AggregateException ex)\r\n        {\r\n            if (ex.InnerException is DomainStateException domainStateException)\r\n            {\r\n                _logger.LogError(ZaminEventId.DomainValidationException, ex, \"Processing of {EventType} With value {Event} failed at {StartDateTime} because there are domain exceptions.\", @event.GetType(), @event, DateTime.Now);\r\n            }\r\n            throw ex;\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishDomainEventAsync» در EventDispatcherDomainExceptionHandlerDecorator. رویداد/پیام را منتشر می‌کند. جزئیات اجرا را لاگ می‌کند. خطاها را در بلوک try/catch مدیریت می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- event (TDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثناها (قابل تشخیص از کد):\r\n- ex (rethrow/throw)\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند؛ قبل از Publish باید SetEventDispatcher فراخوانی شده باشد\r\nانواع مرتبط: EventDispatcherDecorator (same namespace) | DI: ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger",
+            "en": "Method 'PublishDomainEventAsync' on EventDispatcherDomainExceptionHandlerDecorator. Publishes an event/message. Logs execution details. Handles failures in a try/catch block. Runs asynchronously.\r\nParameters:\r\n- event (TDomainEvent): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nExceptions (detectable from code):\r\n- ex (rethrow/throw)\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available; SetEventDispatcher must be called before Publish\r\nRelated types: EventDispatcherDecorator (same namespace) | DI: ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EventDispatcherDomainExceptionHandlerDecorator» در namespace Zamin.Core.ApplicationServices.Events. مسئول یافتن و فراخوانی handler مناسب برای فرمان/کوئری/رویداد. ارث‌بری/پیاده‌سازی: EventDispatcherDecorator. وابستگی‌های سازنده (DI): ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger. مرتبط: EventDispatcherDecorator (same namespace) | DI: ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger.",
+        "en": "Class 'EventDispatcherDomainExceptionHandlerDecorator' in namespace Zamin.Core.ApplicationServices.Events. Resolves and invokes the appropriate handler for a command/query/event. Base/implemented types: EventDispatcherDecorator. Constructor-injected dependencies: ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger. Related: EventDispatcherDecorator (same namespace) | DI: ILogger<EventDispatcherDomainExceptionHandlerDecorator> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EventDispatcherValidationDecorator",
+      "kind": "class",
+      "namespace": "Zamin.Core.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.ApplicationServices/Events/EventDispatcherValidationDecorator.cs",
+      "base_types": [
+        "EventDispatcherDecorator"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IServiceProvider serviceProvider",
+        "ILogger<EventDispatcherValidationDecorator> logger"
+      ],
+      "members": [
+        {
+          "name": "Order",
+          "kind": "property",
+          "signature": "public override int Order => ...",
+          "xml_doc": "",
+          "body_summary": "=> 1;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Order» از نوع `int` در EventDispatcherValidationDecorator. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. منطق دسترسی از روی بدنه accessor قابل مشاهده است.",
+            "en": "Property 'Order' of type `int` on EventDispatcherValidationDecorator. Exposes related state or configuration for this member. Accessor logic is visible in the implementation body."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public EventDispatcherValidationDecorator(IServiceProvider serviceProvider,\r\n                                              ILogger<EventDispatcherValidationDecorator> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _serviceProvider = serviceProvider;\r\n        _logger = logger;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده EventDispatcherValidationDecorator. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- serviceProvider (IServiceProvider): ارائه‌دهنده سرویس برای resolve کردن وابستگی‌ها.\r\n- logger (ILogger<EventDispatcherValidationDecorator>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for EventDispatcherValidationDecorator. Parameters are expected via dependency injection. Parameters:\r\n- serviceProvider (IServiceProvider): Service provider used to resolve dependencies.\r\n- logger (ILogger<EventDispatcherValidationDecorator>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "public override async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogDebug(ZaminEventId.EventValidation, \"Validating Event of type {EventType} With value {Event}  start at :{StartDateTime}\", @event.GetType(), @event, DateTime.Now);\r\n\r\n        List<string> errorMessages = Validate(@event);\r\n\r\n        if (errorMessages.Any())\r\n        {\r\n            _logger.LogInformation(ZaminEventId.EventValidation, \"Validating query of type {QueryType} With value {Query}  failed. Validation errors are: {ValidationErrors}\", @event.GetType(), @event, errorMessages);\r\n        }\r\n        else\r\n        {\r\n            _logger.LogDebug(ZaminEventId.EventValidation, \"Validating query of type {QueryType} With value {Query}  finished at :{EndDateTime}\", @event.GetType(), @event, DateTime.Now);\r\n            await _eventDispatcher.PublishDomainEventAsync(@event);\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishDomainEventAsync» در EventDispatcherValidationDecorator. رویداد/پیام را منتشر می‌کند. جزئیات اجرا را لاگ می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- event (TDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند؛ قبل از Publish باید SetEventDispatcher فراخوانی شده باشد\r\nانواع مرتبط: EventDispatcherDecorator (same namespace) | DI: IServiceProvider serviceProvider, ILogger<EventDispatcherValidationDecorator> logger",
+            "en": "Method 'PublishDomainEventAsync' on EventDispatcherValidationDecorator. Publishes an event/message. Logs execution details. Runs asynchronously.\r\nParameters:\r\n- event (TDomainEvent): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available; SetEventDispatcher must be called before Publish\r\nRelated types: EventDispatcherDecorator (same namespace) | DI: IServiceProvider serviceProvider, ILogger<EventDispatcherValidationDecorator> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EventDispatcherValidationDecorator» در namespace Zamin.Core.ApplicationServices.Events. مسئول یافتن و فراخوانی handler مناسب برای فرمان/کوئری/رویداد. ارث‌بری/پیاده‌سازی: EventDispatcherDecorator. وابستگی‌های سازنده (DI): IServiceProvider serviceProvider, ILogger<EventDispatcherValidationDecorator> logger. مرتبط: EventDispatcherDecorator (same namespace) | DI: IServiceProvider serviceProvider, ILogger<EventDispatcherValidationDecorator> logger.",
+        "en": "Class 'EventDispatcherValidationDecorator' in namespace Zamin.Core.ApplicationServices.Events. Resolves and invokes the appropriate handler for a command/query/event. Base/implemented types: EventDispatcherDecorator. Constructor-injected dependencies: IServiceProvider serviceProvider, ILogger<EventDispatcherValidationDecorator> logger. Related: EventDispatcherDecorator (same namespace) | DI: IServiceProvider serviceProvider, ILogger<EventDispatcherValidationDecorator> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,844 @@
+﻿{
+  "namespace": "Zamin.Utilities.Extensions",
+  "type_count": 8,
+  "types": [
+    {
+      "type_name": "DateTimeExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/DateTimeExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long ToUnixTimeMillisecond(this DateTime dateTime, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> TimeZoneInfo.ConvertTime(new DateTimeOffset(dateTime), timeZoneInfo).ToUnixTimeMilliseconds();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUnixTimeMillisecond» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n- timeZoneInfo (TimeZoneInfo): ورودی از نوع TimeZoneInfo.\r\n\r\nمقدار بازگشتی: `long`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUnixTimeMillisecond' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n- timeZoneInfo (TimeZoneInfo): Input of type TimeZoneInfo.\r\n\r\nReturns: `long`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long? ToUnixTimeMillisecond(this DateTime? dateTime, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime is not null ? TimeZoneInfo.ConvertTime(new DateTimeOffset(dateTime.Value), timeZoneInfo).ToUnixTimeMilliseconds() : null;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUnixTimeMillisecond» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dateTime (DateTime?): ورودی از نوع DateTime?.\r\n- timeZoneInfo (TimeZoneInfo): ورودی از نوع TimeZoneInfo.\r\n\r\nمقدار بازگشتی: `long?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUnixTimeMillisecond' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dateTime (DateTime?): Input of type DateTime?.\r\n- timeZoneInfo (TimeZoneInfo): Input of type TimeZoneInfo.\r\n\r\nReturns: `long?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToDateTime(this long unixTimeMilliseconds, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> TimeZoneInfo.ConvertTime(DateTimeOffset.FromUnixTimeMilliseconds(unixTimeMilliseconds), timeZoneInfo).DateTime;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToDateTime» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- unixTimeMilliseconds (long): ورودی از نوع long.\r\n- timeZoneInfo (TimeZoneInfo): ورودی از نوع TimeZoneInfo.\r\n\r\nمقدار بازگشتی: `DateTime`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToDateTime' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- unixTimeMilliseconds (long): Input of type long.\r\n- timeZoneInfo (TimeZoneInfo): Input of type TimeZoneInfo.\r\n\r\nReturns: `DateTime`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToDateTime(this long? unixTimeMilliseconds, TimeZoneInfo timeZoneInfo)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds is not null ? TimeZoneInfo.ConvertTime(DateTimeOffset.FromUnixTimeMilliseconds(unixTimeMilliseconds.Value), timeZoneInfo).DateTime : null;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToDateTime» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- unixTimeMilliseconds (long?): ورودی از نوع long?.\r\n- timeZoneInfo (TimeZoneInfo): ورودی از نوع TimeZoneInfo.\r\n\r\nمقدار بازگشتی: `DateTime?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToDateTime' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- unixTimeMilliseconds (long?): Input of type long?.\r\n- timeZoneInfo (TimeZoneInfo): Input of type TimeZoneInfo.\r\n\r\nReturns: `DateTime?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLocalUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long ToLocalUnixTimeMillisecond(this DateTime dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Local);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToLocalUnixTimeMillisecond» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `long`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToLocalUnixTimeMillisecond' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n\r\nReturns: `long`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLocalUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long? ToLocalUnixTimeMillisecond(this DateTime? dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Local);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToLocalUnixTimeMillisecond» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dateTime (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `long?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToLocalUnixTimeMillisecond' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dateTime (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `long?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLocalDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToLocalDateTime(this long unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Local);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToLocalDateTime» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- unixTimeMilliseconds (long): ورودی از نوع long.\r\n\r\nمقدار بازگشتی: `DateTime`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToLocalDateTime' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- unixTimeMilliseconds (long): Input of type long.\r\n\r\nReturns: `DateTime`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLocalDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToLocalDateTime(this long? unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Local);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToLocalDateTime» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- unixTimeMilliseconds (long?): ورودی از نوع long?.\r\n\r\nمقدار بازگشتی: `DateTime?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToLocalDateTime' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- unixTimeMilliseconds (long?): Input of type long?.\r\n\r\nReturns: `DateTime?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToUtcUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long ToUtcUnixTimeMillisecond(this DateTime dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Utc);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUtcUnixTimeMillisecond» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `long`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUtcUnixTimeMillisecond' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n\r\nReturns: `long`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToUtcUnixTimeMillisecond",
+          "kind": "method",
+          "signature": "public static long? ToUtcUnixTimeMillisecond(this DateTime? dateTime)",
+          "xml_doc": "",
+          "body_summary": "=> dateTime.ToUnixTimeMillisecond(TimeZoneInfo.Utc);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUtcUnixTimeMillisecond» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dateTime (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `long?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUtcUnixTimeMillisecond' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dateTime (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `long?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToUtcDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToUtcDateTime(this long unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Utc);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUtcDateTime» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- unixTimeMilliseconds (long): ورودی از نوع long.\r\n\r\nمقدار بازگشتی: `DateTime`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUtcDateTime' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- unixTimeMilliseconds (long): Input of type long.\r\n\r\nReturns: `DateTime`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToUtcDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToUtcDateTime(this long? unixTimeMilliseconds)",
+          "xml_doc": "",
+          "body_summary": "=> unixTimeMilliseconds.ToDateTime(TimeZoneInfo.Utc);",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUtcDateTime» در DateTimeExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- unixTimeMilliseconds (long?): ورودی از نوع long?.\r\n\r\nمقدار بازگشتی: `DateTime?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUtcDateTime' on DateTimeExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- unixTimeMilliseconds (long?): Input of type long?.\r\n\r\nReturns: `DateTime?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DateTimeExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'DateTimeExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "EnumExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/EnumExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "GetEnumDescription",
+          "kind": "method",
+          "signature": "public static string GetEnumDescription(this Enum enumValue)",
+          "xml_doc": "/// <summary>\n    /// برای دریافت توضیحات یک ویژگی از enum اگر [Description] داشته باشد از این متد استفاده می‌شود.\n    /// </summary>\n    /// <param name=\"enumValue\">مقداری که قرار است توضحیات آن دریافت شود</param>\n    /// <returns>متن داخل [Description] در صورتی که وجود داشته باشد و در غیراین صورت عنوان enums ارسال شده</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "برای دریافت توضیحات یک ویژگی از enum اگر [Description] داشته باشد از این متد استفاده می‌شود.\r\nپارامترها:\r\n- enumValue: مقداری که قرار است توضحیات آن دریافت شود\r\nمقدار بازگشتی: متن داخل [Description] در صورتی که وجود داشته باشد و در غیراین صورت عنوان enums ارسال شده",
+            "en": "Author XML for method 'GetEnumDescription': برای دریافت توضیحات یک ویژگی از enum اگر [Description] داشته باشد از این متد استفاده می‌شود.\r\nParameters:\r\n- enumValue: Parameter 'enumValue' as documented by author: مقداری که قرار است توضحیات آن دریافت شود\r\nReturns: Return value as documented by author: متن داخل [Description] در صورتی که وجود داشته باشد و در غیراین صورت عنوان enums ارسال شده"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «EnumExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'EnumExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "GuidExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/GuidExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsNullOrEmpty",
+          "kind": "method",
+          "signature": "public static bool IsNullOrEmpty(this Guid? guid)",
+          "xml_doc": "",
+          "body_summary": "=> guid == null || guid == default;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsNullOrEmpty» در GuidExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- guid (Guid?): ورودی از نوع Guid?.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsNullOrEmpty' on GuidExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- guid (Guid?): Input of type Guid?.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsEmpty",
+          "kind": "method",
+          "signature": "public static bool IsEmpty(this Guid guid)",
+          "xml_doc": "",
+          "body_summary": "=> guid == default;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsEmpty» در GuidExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- guid (Guid): ورودی از نوع Guid.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsEmpty' on GuidExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- guid (Guid): Input of type Guid.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «GuidExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'GuidExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "LinqExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/LinqExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OrderByField",
+          "kind": "method",
+          "signature": "public static IQueryable<T> OrderByField<T>(this IQueryable<T> q, string SortField, bool Ascending)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var param = Expression.Parameter(typeof(T), \"p\");\r\n        var prop = Expression.Property(param, SortField);\r\n        var exp = Expression.Lambda(prop, param);\r\n        string method = Ascending ? \"OrderBy\" : \"OrderByDescending\";\r\n        Type[] types = new Type[] { q.ElementType, exp.Body.Type };\r\n        var mce = Expression.Call(typeof(Queryable), method, types, q.Expression, exp);\r\n        return q.Provider.CreateQuery<T>(mce);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OrderByField» در LinqExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- q (IQueryable<T>): کوئری ورودی برای اجرا.\r\n- SortField (string): ورودی از نوع string.\r\n- Ascending (bool): ورودی از نوع bool.\r\n\r\nمقدار بازگشتی: `IQueryable<T>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'OrderByField' on LinqExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- q (IQueryable<T>): Incoming query to execute.\r\n- SortField (string): Input of type string.\r\n- Ascending (bool): Input of type bool.\r\n\r\nReturns: `IQueryable<T>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToDataTable",
+          "kind": "method",
+          "signature": "public static DataTable ToDataTable<T>(this List<T> list)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        DataTable dataTable = new(typeof(T).Name);\r\n\r\n        PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);\r\n\r\n        foreach (PropertyInfo prop in Props)\r\n        {\r\n            dataTable.Columns.Add(prop.Name);\r\n        }\r\n\r\n        foreach (T item in list)\r\n        {\r\n            var values = new object[Props.Length];\r\n            for (int i = 0; i < Props.Length; i++)\r\n            {\r\n                values[i] = Props[i].GetValue(item, null);\r\n            }\r\n            dataTable.Rows.Add(values);\r\n        }\r\n        return dataTable;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToDataTable» در LinqExtensions. تبدیل/نرمال‌سازی داده را طبق نام متد انجام می‌دهد.\r\nپارامترها:\r\n- list (List<T>): ورودی از نوع List<T>.\r\n\r\nمقدار بازگشتی: `DataTable`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToDataTable' on LinqExtensions. Performs the data conversion/normalization implied by the method name.\r\nParameters:\r\n- list (List<T>): Input of type List<T>.\r\n\r\nReturns: `DataTable`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToList",
+          "kind": "method",
+          "signature": "public static List<T> ToList<T>(this DataTable dt)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        List<T> data = new();\r\n        foreach (DataRow row in dt.Rows)\r\n        {\r\n            T item = GetItem<T>(row);\r\n            data.Add(item);\r\n        }\r\n        return data;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToList» در LinqExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- dt (DataTable): ورودی از نوع DataTable.\r\n\r\nمقدار بازگشتی: `List<T>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToList' on LinqExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- dt (DataTable): Input of type DataTable.\r\n\r\nReturns: `List<T>`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "WhereIf",
+          "kind": "method",
+          "signature": "public static IQueryable<T> WhereIf<T>(this IQueryable<T> query, bool condition, Expression<Func<T, bool>> predicate)",
+          "xml_doc": "/// <summary>\n    /// Filters a <see cref=\"IQueryable{T}\"/> by given predicate if given condition is true.\n    /// </summary>\n    /// <param name=\"query\">Queryable to apply filtering</param>\n    /// <param name=\"condition\">A boolean value</param>\n    /// <param name=\"predicate\">Predicate to filter the query</param>\n    /// <returns>Filtered or not filtered query based on <paramref name=\"condition\"/></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Filters a IQueryable{T} by given predicate if given condition is true.\r\nپارامترها:\r\n- query: Queryable to apply filtering\r\n- condition: A boolean value\r\n- predicate: Predicate to filter the query\r\nمقدار بازگشتی: Filtered or not filtered query based on <paramref name=\"condition",
+            "en": "Filters a IQueryable{T} by given predicate if given condition is true.\r\nParameters:\r\n- query: Queryable to apply filtering\r\n- condition: A boolean value\r\n- predicate: Predicate to filter the query\r\nReturns: Filtered or not filtered query based on <paramref name=\"condition"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "WhereIf",
+          "kind": "method",
+          "signature": "public static IQueryable<T> WhereIf<T>(this IQueryable<T> query, bool condition, Expression<Func<T, int, bool>> predicate)",
+          "xml_doc": "/// <summary>\n    /// Filters a <see cref=\"IQueryable{T}\"/> by given predicate if given condition is true.\n    /// </summary>\n    /// <param name=\"query\">Queryable to apply filtering</param>\n    /// <param name=\"condition\">A boolean value</param>\n    /// <param name=\"predicate\">Predicate to filter the query</param>\n    /// <returns>Filtered or not filtered query based on <paramref name=\"condition\"/></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Filters a IQueryable{T} by given predicate if given condition is true.\r\nپارامترها:\r\n- query: Queryable to apply filtering\r\n- condition: A boolean value\r\n- predicate: Predicate to filter the query\r\nمقدار بازگشتی: Filtered or not filtered query based on <paramref name=\"condition",
+            "en": "Filters a IQueryable{T} by given predicate if given condition is true.\r\nParameters:\r\n- query: Queryable to apply filtering\r\n- condition: A boolean value\r\n- predicate: Predicate to filter the query\r\nReturns: Filtered or not filtered query based on <paramref name=\"condition"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LinqExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'LinqExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ObjectExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/ObjectExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToQueryString",
+          "kind": "method",
+          "signature": "public static string ToQueryString(this object obj)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (obj is null) throw new ArgumentNullException(\"Object\");\r\n\r\n        var properties = obj.GetType().GetProperties()\r\n            .Where(x => x.CanWrite)\r\n            .Where(x => x.GetValue(obj, null) is not null)\r\n            .Select(x => KeyValuePair.Create(x.Name, x.GetValue(obj, null))).ToList();\r\n\r\n        var propertyNames = properties\r\n            .Where(x => x.Value is not string && x.Value is IEnumerable)\r\n            .Select(x => x.Key)\r\n            .ToList();\r\n\r\n        foreach (var key in propertyNames)\r\n        {\r\n            var valueType = properties.FirstOrDefault(x => x.Key == key).Value.GetType();\r\n\r\n            var valueElemType = valueType.IsGenericType\r\n                ? valueType.GetGenericArguments()[0]\r\n                : valueType.GetElementType();\r\n\r\n            if (valueElemType.IsPrimitive || valueElemType == typeof(string) || valueElemType == typeof(Guid))\r\n            {\r\n                var enumerable = properties.FirstOrDefault(c => c.Key == key).Value as IEnumerable;\r\n\r\n                properties.RemoveAll(x => x.Key == key);\r\n\r\n                foreach (var item in enumerable)\r\n                {\r\n                    properties.Add(KeyValuePair.Create(key, item));\r\n                }\r\n            }\r\n        }\r\n\r\n        return string.Join(\"&\", properties.Where(x => x.Value is not null)\r\n            .Select(x => string.Concat(\r\n                Uri.EscapeDataString(x.Key), \"=\",\r\n                Uri.EscapeDataString(x.Value.ToString()))));\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToQueryString» در ObjectExtensions. تبدیل/نرمال‌سازی داده را طبق نام متد انجام می‌دهد.\r\nپارامترها:\r\n- obj (object): ورودی از نوع object.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException",
+            "en": "Method 'ToQueryString' on ObjectExtensions. Performs the data conversion/normalization implied by the method name.\r\nParameters:\r\n- obj (object): Input of type object.\r\n\r\nReturns: `string`.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ObjectExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ObjectExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "StringExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/StringExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ArabicYeChar",
+          "kind": "field",
+          "signature": "public const char ArabicYeChar = (char)1610;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «ArabicYeChar» در StringExtensions با امضای `public const char ArabicYeChar = (char)1610;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'ArabicYeChar' on StringExtensions with signature `public const char ArabicYeChar = (char)1610;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PersianYeChar",
+          "kind": "field",
+          "signature": "public const char PersianYeChar = (char)1740;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «PersianYeChar» در StringExtensions با امضای `public const char PersianYeChar = (char)1740;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'PersianYeChar' on StringExtensions with signature `public const char PersianYeChar = (char)1740;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ArabicKeChar",
+          "kind": "field",
+          "signature": "public const char ArabicKeChar = (char)1603;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «ArabicKeChar» در StringExtensions با امضای `public const char ArabicKeChar = (char)1603;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'ArabicKeChar' on StringExtensions with signature `public const char ArabicKeChar = (char)1603;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PersianKeChar",
+          "kind": "field",
+          "signature": "public const char PersianKeChar = (char)1705;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «PersianKeChar» در StringExtensions با امضای `public const char PersianKeChar = (char)1705;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field 'PersianKeChar' on StringExtensions with signature `public const char PersianKeChar = (char)1705;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ApplyCorrectYeKe",
+          "kind": "method",
+          "signature": "public static string ApplyCorrectYeKe(this object data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return data == null ? null : ApplyCorrectYeKe(data.ToString());\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ApplyCorrectYeKe» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- data (object): ورودی از نوع object.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ApplyCorrectYeKe' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- data (object): Input of type object.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ApplyCorrectYeKe",
+          "kind": "method",
+          "signature": "public static string ApplyCorrectYeKe(this string data)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return string.IsNullOrWhiteSpace(data) ?\r\n                    string.Empty :\r\n                    data.Replace(ArabicYeChar, PersianYeChar).Replace(ArabicKeChar, PersianKeChar).Trim()\r\n                        .Fa2En();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ApplyCorrectYeKe» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- data (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ApplyCorrectYeKe' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- data (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToSafeLong",
+          "kind": "method",
+          "signature": "public static long ToSafeLong(this string input, long replacement = long.MinValue)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n         long.TryParse(input, out long result) ? result : replacement;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToSafeLong» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- replacement (long): ورودی اختیاری از نوع long (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `long`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToSafeLong' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- replacement (long): Optional long input (has default).\r\n\r\nReturns: `long`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToSafeNullableLong",
+          "kind": "method",
+          "signature": "public static long? ToSafeNullableLong(this string input)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        long.TryParse(input, out long result) ? result : null;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToSafeNullableLong» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `long?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToSafeNullableLong' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n\r\nReturns: `long?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToSafeInt",
+          "kind": "method",
+          "signature": "public static int ToSafeInt(this string input, int replacement = int.MinValue)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n     int.TryParse(input, out int result) ? result : replacement;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToSafeInt» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- replacement (int): ورودی اختیاری از نوع int (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToSafeInt' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- replacement (int): Optional int input (has default).\r\n\r\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToSafeNullableInt",
+          "kind": "method",
+          "signature": "public static int? ToSafeNullableInt(this string input)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        int.TryParse(input, out int result) ? result : null;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToSafeNullableInt» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `int?`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToSafeNullableInt' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n\r\nReturns: `int?`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToStringOrEmpty",
+          "kind": "method",
+          "signature": "public static string ToStringOrEmpty(this string? input)",
+          "xml_doc": "",
+          "body_summary": "=> input ?? string.Empty;",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToStringOrEmpty» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string?): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToStringOrEmpty' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string?): Value under validation or input.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToUnderscoreCase",
+          "kind": "method",
+          "signature": "public static string ToUnderscoreCase(this string input)",
+          "xml_doc": "",
+          "body_summary": "=>\r\n        string.Concat(input.Select((x, i) => i > 0 && char.IsUpper(x) ? \"_\" + x.ToString() : x.ToString())).ToLower();",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToUnderscoreCase» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToUnderscoreCase' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToByteArray",
+          "kind": "method",
+          "signature": "public static byte[] ToByteArray(this string input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return System.Text.Encoding.UTF8.GetBytes(input);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToByteArray» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `byte[]`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToByteArray' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n\r\nReturns: `byte[]`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FromByteArray",
+          "kind": "method",
+          "signature": "public static string FromByteArray(this byte[] input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return System.Text.Encoding.UTF8.GetString(input);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «FromByteArray» در StringExtensions. نمونه یا نتیجه جدیدی می‌سازد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'FromByteArray' on StringExtensions. Creates a new instance or result.\r\nNo input parameters.\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToNumeric",
+          "kind": "method",
+          "signature": "public static string ToNumeric(this int value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return value.ToString(\"N0\"); //\"123,456\"\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToNumeric» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (int): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToNumeric' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (int): Value under validation or input.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ToCurrency",
+          "kind": "method",
+          "signature": "public static string ToCurrency(this int value)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        //fa-IR => current culture currency symbol => ریال\r\n        //123456 => \"123,123ریال\"\r\n        return value.ToString(\"C0\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ToCurrency» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- value (int): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'ToCurrency' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- value (int): Value under validation or input.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "En2Fa",
+          "kind": "method",
+          "signature": "public static string En2Fa(this string str)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return str.Replace(\"0\", \"۰\")\r\n            .Replace(\"1\", \"۱\")\r\n            .Replace(\"2\", \"۲\")\r\n            .Replace(\"3\", \"۳\")\r\n            .Replace(\"4\", \"۴\")\r\n            .Replace(\"5\", \"۵\")\r\n            .Replace(\"6\", \"۶\")\r\n            .Replace(\"7\", \"۷\")\r\n            .Replace(\"8\", \"۸\")\r\n            .Replace(\"9\", \"۹\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «En2Fa» در StringExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- str (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'En2Fa' on StringExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- str (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Fa2En",
+          "kind": "method",
+          "signature": "public static string Fa2En(this string str)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return str.Replace(\"۰\", \"0\")\r\n            .Replace(\"۱\", \"1\")\r\n            .Replace(\"۲\", \"2\")\r\n            .Replace(\"۳\", \"3\")\r\n            .Replace(\"۴\", \"4\")\r\n            .Replace(\"۵\", \"5\")\r\n            .Replace(\"۶\", \"6\")\r\n            .Replace(\"۷\", \"7\")\r\n            .Replace(\"۸\", \"8\")\r\n            .Replace(\"۹\", \"9\")\r\n            //iphone numeric\r\n            .Replace(\"٠\", \"0\")\r\n            .Replace(\"١\", \"1\")\r\n            .Replace(\"٢\", \"2\")\r\n            .Replace(\"٣\", \"3\")\r\n            .Replace(\"٤\", \"4\")\r\n            .Replace(\"٥\", \"5\")\r\n            .Replace(\"٦\", \"6\")\r\n            .Replace(\"٧\", \"7\")\r\n            .Replace(\"٨\", \"8\")\r\n            .Replace(\"٩\", \"9\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Fa2En» در StringExtensions. تبدیل/نرمال‌سازی داده را طبق نام متد انجام می‌دهد.\r\nپارامترها:\r\n- str (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Fa2En' on StringExtensions. Performs the data conversion/normalization implied by the method name.\r\nParameters:\r\n- str (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «StringExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'StringExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "StringValidatorExtensions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/StringValidatorExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsNationalCode",
+          "kind": "method",
+          "signature": "public static bool IsNationalCode(this string nationalCode)",
+          "xml_doc": "/// <summary>\n    /// صحت سنجی کد ملی\n    /// </summary>\n    /// <param name=\"input\">کد ملی</param>\n    /// <returns>درست یا غلط</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "صحت سنجی کد ملی\r\nپارامترها:\r\n- input: کد ملی\r\nمقدار بازگشتی: درست یا غلط",
+            "en": "Author XML for method 'IsNationalCode': صحت سنجی کد ملی\r\nParameters:\r\n- input: Parameter 'input' as documented by author: کد ملی\r\nReturns: Return value as documented by author: درست یا غلط"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLegalNationalIdValid",
+          "kind": "method",
+          "signature": "public static bool IsLegalNationalIdValid(this string nationalId)",
+          "xml_doc": "/// <summary>\n    /// صحت سنجی شناسه ملی شرکت‌ها\n    /// </summary>\n    /// <param name=\"nationalId\"></param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "صحت سنجی شناسه ملی شرکت‌ها\r\nپارامترها:\r\n- nationalId: (بدون توضیح)\n\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'IsLegalNationalIdValid': صحت سنجی شناسه ملی شرکت‌ها\r\nParameters:\r\n- nationalId: See signature.\n\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "IsNumeric",
+          "kind": "method",
+          "signature": "public static bool IsNumeric(this string nationalCode)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var regex = new Regex(@\"\\d+\");\r\n        if (regex.IsMatch(nationalCode))\r\n            return true;\r\n        return false;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsNumeric» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- nationalCode (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsNumeric' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- nationalCode (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLengthBetween",
+          "kind": "method",
+          "signature": "public static bool IsLengthBetween(this string input, int minLength, int maxLenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (input.Length <= maxLenght && input.Length >= minLength)\r\n            return true;\r\n        return false;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsLengthBetween» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- minLength (int): ورودی از نوع int.\r\n- maxLenght (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsLengthBetween' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- minLength (int): Input of type int.\r\n- maxLenght (int): Input of type int.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLengthLessThan",
+          "kind": "method",
+          "signature": "public static bool IsLengthLessThan(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length < lenght;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsLengthLessThan» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- lenght (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsLengthLessThan' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- lenght (int): Input of type int.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLengthLessThanOrEqual",
+          "kind": "method",
+          "signature": "public static bool IsLengthLessThanOrEqual(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length <= lenght;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsLengthLessThanOrEqual» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- lenght (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsLengthLessThanOrEqual' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- lenght (int): Input of type int.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLengthGreaterThan",
+          "kind": "method",
+          "signature": "public static bool IsLengthGreaterThan(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length > lenght;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsLengthGreaterThan» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- lenght (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsLengthGreaterThan' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- lenght (int): Input of type int.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLengthGreaterThanOrEqual",
+          "kind": "method",
+          "signature": "public static bool IsLengthGreaterThanOrEqual(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length >= lenght;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsLengthGreaterThanOrEqual» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- lenght (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsLengthGreaterThanOrEqual' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- lenght (int): Input of type int.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsLengthEqual",
+          "kind": "method",
+          "signature": "public static bool IsLengthEqual(this string input, int lenght)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return input.Length == lenght;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsLengthEqual» در StringValidatorExtensions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- input (string): مقدار مورد بررسی/ورود.\r\n- lenght (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsLengthEqual' on StringValidatorExtensions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- input (string): Value under validation or input.\r\n- lenght (int): Input of type int.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «StringValidatorExtensions» در namespace Zamin.Utilities.Extensions. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'StringValidatorExtensions' in namespace Zamin.Utilities.Extensions. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "TypeExtentsions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Extensions",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Extensions/TypeExtentsions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsSubclassOfRawGeneric",
+          "kind": "method",
+          "signature": "public static bool IsSubclassOfRawGeneric(this Type toCheck, Type generic)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            while (toCheck != null && toCheck != typeof(object))\r\n            {\r\n                var cur = toCheck.IsGenericType ? toCheck.GetGenericTypeDefinition() : toCheck;\r\n                if (generic == cur)\r\n                {\r\n                    return true;\r\n                }\r\n                toCheck = toCheck.BaseType;\r\n            }\r\n            return false;\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «IsSubclassOfRawGeneric» در TypeExtentsions. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- toCheck (Type): ورودی از نوع Type.\r\n- generic (Type): ورودی از نوع Type.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'IsSubclassOfRawGeneric' on TypeExtentsions. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- toCheck (Type): Input of type Type.\r\n- generic (Type): Input of type Type.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «TypeExtentsions» در namespace Zamin.Utilities.Extensions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'TypeExtentsions' in namespace Zamin.Utilities.Extensions. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

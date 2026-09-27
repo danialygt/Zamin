@@ -1,0 +1,72 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IDomainEventHandler<TDomainEvent>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Events/IDomainEventHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TDomainEvent : IDomainEvent",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task Handle(TDomainEvent Event)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Handle» در IDomainEventHandler<TDomainEvent>. منطق اصلی پردازش درخواست/رویداد را اجرا می‌کند.\r\nپارامترها:\r\n- Event (TDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'Handle' on IDomainEventHandler<TDomainEvent>. Runs the core handling logic for the request/event.\r\nParameters:\r\n- Event (TDomainEvent): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IDomainEventHandler<TDomainEvent>» در namespace Zamin.Core.Contracts.ApplicationServices.Events. قرارداد پردازش یک درخواست/رویداد در لایه اپلیکیشن. قیود جنریک: where TDomainEvent : IDomainEvent.",
+        "en": "Interface contract 'IDomainEventHandler<TDomainEvent>' in namespace Zamin.Core.Contracts.ApplicationServices.Events. Contract for handling an application request or event. Generic constraints: where TDomainEvent : IDomainEvent."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "IEventDispatcher",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Events/IEventDispatcher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishDomainEventAsync» در IEventDispatcher. رویداد/پیام را منتشر می‌کند.\r\nپارامترها:\r\n- event (TDomainEvent): رویداد دامنه/پیام برای پردازش.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'PublishDomainEventAsync' on IEventDispatcher. Publishes an event/message.\r\nParameters:\r\n- event (TDomainEvent): Domain/event message to process.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «IEventDispatcher» در namespace Zamin.Core.Contracts.ApplicationServices.Events. قرارداد مسیریابی و ارسال فرمان/کوئری/رویداد به handler مناسب.",
+        "en": "Interface contract 'IEventDispatcher' in namespace Zamin.Core.Contracts.ApplicationServices.Events. Contract for routing commands/queries/events to the matching handler."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

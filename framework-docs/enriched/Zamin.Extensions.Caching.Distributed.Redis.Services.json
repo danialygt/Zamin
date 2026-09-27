@@ -1,0 +1,87 @@
+﻿{
+  "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "DistributedRedisCacheAdapter",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Caching.Distributed.Redis.Services",
+      "source_file": "Extentsions/Caching/Zamin.Extensions.Caching.Distributed.Redis/Zamin.Extensions.Caching.Distributed.Redis/Services/DistributedRedisCacheAdapter.cs",
+      "base_types": [
+        "ICacheAdapter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IDistributedCache cache",
+        "IJsonSerializer serializer",
+        "ILogger<DistributedRedisCacheAdapter> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public DistributedRedisCacheAdapter(IDistributedCache cache,\r\n                                        IJsonSerializer serializer,\r\n                                        ILogger<DistributedRedisCacheAdapter> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _cache = cache;\r\n        _serializer = serializer;\r\n        _logger = logger;\r\n\r\n        _logger.LogInformation(\"DistributedCache Redis Adapter Start working\");\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده DistributedRedisCacheAdapter. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- cache (IDistributedCache): ورودی از نوع IDistributedCache.\r\n- serializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\n- logger (ILogger<DistributedRedisCacheAdapter>): لاگر برای ثبت رویدادها و خطاها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for DistributedRedisCacheAdapter. Parameters are expected via dependency injection. Parameters:\r\n- cache (IDistributedCache): Input of type IDistributedCache.\r\n- serializer (IJsonSerializer): Input of type IJsonSerializer.\r\n- logger (ILogger<DistributedRedisCacheAdapter>): Logger for diagnostics and error reporting.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Add",
+          "kind": "method",
+          "signature": "public void Add<TInput>(string key, TInput obj, DateTime? absoluteExpiration, TimeSpan? slidingExpiration)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"DistributedCache Redis Adapter Cache {obj} with key : {key} \" +\r\n                         \", with data : {data} \" +\r\n                         \", with absoluteExpiration : {absoluteExpiration} \" +\r\n                         \", with slidingExpiration : {slidingExpiration}\",\r\n                         typeof(TInput),\r\n                         key,\r\n                         _serializer.Serialize(obj),\r\n                         absoluteExpiration.ToString(),\r\n                         slidingExpiration.ToString());\r\n\r\n        var option = new DistributedCacheEntryOptions\r\n        {\r\n            AbsoluteExpiration = absoluteExpiration,\r\n            SlidingExpiration = slidingExpiration\r\n        };\r\n\r\n        _cache.Set(key, Encoding.UTF8.GetBytes(_serializer.Serialize(obj)), option);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Add» در DistributedRedisCacheAdapter. وضعیت را به‌روز یا ذخیره می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n- obj (TInput): ورودی از نوع TInput.\r\n- absoluteExpiration (DateTime?): ورودی از نوع DateTime?.\r\n- slidingExpiration (TimeSpan?): ورودی از نوع TimeSpan?.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger",
+            "en": "Method 'Add' on DistributedRedisCacheAdapter. Updates or persists state.\r\nParameters:\r\n- key (string): Input of type string.\r\n- obj (TInput): Input of type TInput.\r\n- absoluteExpiration (DateTime?): Input of type DateTime?.\r\n- slidingExpiration (TimeSpan?): Input of type TimeSpan?.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TOutput Get<TOutput>(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = _cache.GetString(key);\r\n\r\n        if (!string.IsNullOrWhiteSpace(result))\r\n        {\r\n            _logger.LogTrace(\"DistributedCache Redis Adapter Successful Get Cache with key : {key} and data : {data}\",\r\n                             key,\r\n                             _serializer.Serialize(result));\r\n\r\n            return _serializer.Deserialize<TOutput>(result);\r\n        }\r\n        else\r\n        {\r\n            _logger.LogTrace(\"DistributedCache Redis Adapter Failed Get Cache with key : {key}\", key);\r\n\r\n            return default;\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در DistributedRedisCacheAdapter. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `TOutput`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger",
+            "en": "Method 'Get' on DistributedRedisCacheAdapter. Retrieves related data or state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: `TOutput`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RemoveCache",
+          "kind": "method",
+          "signature": "public void RemoveCache(string key)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"DistributedCache Redis Adapter Remove Cache with key : {key}\", key);\r\n\r\n        _cache.Remove(key);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RemoveCache» در DistributedRedisCacheAdapter. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- key (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger",
+            "en": "Method 'RemoveCache' on DistributedRedisCacheAdapter. Removes or clears the item/state.\r\nParameters:\r\n- key (string): Input of type string.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DistributedRedisCacheAdapter» در namespace Zamin.Extensions.Caching.Distributed.Redis.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ICacheAdapter. وابستگی‌های سازنده (DI): IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger. مرتبط: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger.",
+        "en": "Class 'DistributedRedisCacheAdapter' in namespace Zamin.Extensions.Caching.Distributed.Redis.Services. Public/protected class definition in the Zamin framework layer. Base/implemented types: ICacheAdapter. Constructor-injected dependencies: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger. Related: ICacheAdapter | DI: IDistributedCache cache, IJsonSerializer serializer, ILogger<DistributedRedisCacheAdapter> logger."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

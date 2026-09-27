@@ -1,0 +1,95 @@
+﻿{
+  "namespace": "Zamin.Extensions.MessageBus.RabbitMQ.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "RabbitMqOptions",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.MessageBus.RabbitMQ.Options",
+      "source_file": "Extentsions/MessageBus/Zamin.Extensions.MessageBus.RabbitMQ/Zamin.Extensions.MessageBus.RabbitMQ/Options/RabbitMqOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Url",
+          "kind": "property",
+          "signature": "public string Url { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Url» از نوع `string` در RabbitMqOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Url' of type `string` on RabbitMqOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PerssistMessage",
+          "kind": "property",
+          "signature": "public bool PerssistMessage { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «PerssistMessage» از نوع `bool` در RabbitMqOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'PerssistMessage' of type `bool` on RabbitMqOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExchangeName",
+          "kind": "property",
+          "signature": "public string ExchangeName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ExchangeName» از نوع `string` در RabbitMqOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ExchangeName' of type `string` on RabbitMqOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ServiceName",
+          "kind": "property",
+          "signature": "public string ServiceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ServiceName» از نوع `string` در RabbitMqOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ServiceName' of type `string` on RabbitMqOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "IsMessageMandatory",
+          "kind": "property",
+          "signature": "public bool IsMessageMandatory { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «IsMessageMandatory» از نوع `bool` در RabbitMqOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'IsMessageMandatory' of type `bool` on RabbitMqOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «RabbitMqOptions» در namespace Zamin.Extensions.MessageBus.RabbitMQ.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'RabbitMqOptions' in namespace Zamin.Extensions.MessageBus.RabbitMQ.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

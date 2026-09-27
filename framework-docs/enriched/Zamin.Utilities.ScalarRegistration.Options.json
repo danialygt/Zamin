@@ -1,0 +1,95 @@
+﻿{
+  "namespace": "Zamin.Utilities.ScalarRegistration.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "ScalarOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.ScalarRegistration.Options",
+      "source_file": "Utilities/ScalarRegistration/Zamin.Utilities.ScalarRegistration/Options/ScalarOption.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Enabled» از نوع `bool` در ScalarOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Enabled' of type `bool` on ScalarOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Name",
+          "kind": "property",
+          "signature": "public string Name { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Name» از نوع `string` در ScalarOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Name' of type `string` on ScalarOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Title",
+          "kind": "property",
+          "signature": "public string Title { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Title» از نوع `string` در ScalarOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Title' of type `string` on ScalarOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Version",
+          "kind": "property",
+          "signature": "public string Version { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Version» از نوع `string` در ScalarOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Version' of type `string` on ScalarOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Description",
+          "kind": "property",
+          "signature": "public string Description { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Description» از نوع `string` در ScalarOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Description' of type `string` on ScalarOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ScalarOption» در namespace Zamin.Utilities.ScalarRegistration.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'ScalarOption' in namespace Zamin.Utilities.ScalarRegistration.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

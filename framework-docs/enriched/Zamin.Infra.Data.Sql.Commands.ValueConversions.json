@@ -1,0 +1,181 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "BusinessIdConversion",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/ValueConversions/BusinessIdConversion.cs",
+      "base_types": [
+        "ValueConverter<BusinessId, Guid>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BusinessIdConversion()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BusinessIdConversion. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for BusinessIdConversion. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BusinessIdConversion» در namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ValueConverter<BusinessId, Guid>. مرتبط: ValueConverter<BusinessId, Guid>.",
+        "en": "Class 'BusinessIdConversion' in namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. Public/protected class definition in the Zamin framework layer. Base/implemented types: ValueConverter<BusinessId, Guid>. Related: ValueConverter<BusinessId, Guid>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "DescriptionConversion",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/ValueConversions/DescriptionConversion.cs",
+      "base_types": [
+        "ValueConverter<Description, string>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public DescriptionConversion()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده DescriptionConversion. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for DescriptionConversion. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «DescriptionConversion» در namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ValueConverter<Description, string>. مرتبط: ValueConverter<Description, string>.",
+        "en": "Class 'DescriptionConversion' in namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. Public/protected class definition in the Zamin framework layer. Base/implemented types: ValueConverter<Description, string>. Related: ValueConverter<Description, string>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "LegalNationalIdConversion",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/ValueConversions/LegalNationalIdConversion.cs",
+      "base_types": [
+        "ValueConverter<LegalNationalId, string>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public LegalNationalIdConversion()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده LegalNationalIdConversion. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for LegalNationalIdConversion. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «LegalNationalIdConversion» در namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ValueConverter<LegalNationalId, string>. مرتبط: ValueConverter<LegalNationalId, string>.",
+        "en": "Class 'LegalNationalIdConversion' in namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. Public/protected class definition in the Zamin framework layer. Base/implemented types: ValueConverter<LegalNationalId, string>. Related: ValueConverter<LegalNationalId, string>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "NationalCodeConversion",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/ValueConversions/NationalCodeConversion.cs",
+      "base_types": [
+        "ValueConverter<NationalCode, string>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public NationalCodeConversion()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده NationalCodeConversion. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for NationalCodeConversion. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «NationalCodeConversion» در namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ValueConverter<NationalCode, string>. مرتبط: ValueConverter<NationalCode, string>.",
+        "en": "Class 'NationalCodeConversion' in namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. Public/protected class definition in the Zamin framework layer. Base/implemented types: ValueConverter<NationalCode, string>. Related: ValueConverter<NationalCode, string>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "TitleConversion",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/ValueConversions/TitleConversion.cs",
+      "base_types": [
+        "ValueConverter<Title, string>"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public TitleConversion()",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده TitleConversion. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for TitleConversion. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «TitleConversion» در namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ValueConverter<Title, string>. مرتبط: ValueConverter<Title, string>.",
+        "en": "Class 'TitleConversion' in namespace Zamin.Infra.Data.Sql.Commands.ValueConversions. Public/protected class definition in the Zamin framework layer. Base/implemented types: ValueConverter<Title, string>. Related: ValueConverter<Title, string>."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

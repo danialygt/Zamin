@@ -1,0 +1,93 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "ISoftwarePartPublisher",
+      "kind": "interface",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Publishers/ISoftwarePartWebPublisher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PublishAsync",
+          "kind": "method",
+          "signature": "Task PublishAsync(SoftwarePart softwarePart)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishAsync» در ISoftwarePartPublisher. رویداد/پیام را منتشر می‌کند.\r\nپارامترها:\r\n- softwarePart (SoftwarePart): ورودی از نوع SoftwarePart.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'PublishAsync' on ISoftwarePartPublisher. Publishes an event/message.\r\nParameters:\r\n- softwarePart (SoftwarePart): Input of type SoftwarePart.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "قرارداد (اینترفیس) «ISoftwarePartPublisher» در namespace Zamin.Utilities.SoftwarePartDetector.Publishers. قرارداد رفتار برای مصرف‌کنندگان و پیاده‌سازی‌های جایگزین.",
+        "en": "Interface contract 'ISoftwarePartPublisher' in namespace Zamin.Utilities.SoftwarePartDetector.Publishers. Behavioral contract for consumers and alternate implementations."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartWebPublisher",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Publishers",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Publishers/SoftwarePartWebPublisher.cs",
+      "base_types": [
+        "ISoftwarePartPublisher"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "HttpClient httpClient",
+        "IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption",
+        "ISoftwarePartAuthentication softwarePartLogin",
+        "IJsonSerializer jsonSerializer"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartWebPublisher(HttpClient httpClient,\r\n                                    IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption,\r\n                                    ISoftwarePartAuthentication softwarePartLogin,\r\n                                    IJsonSerializer jsonSerializer)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _httpClient = httpClient;\r\n        _softwarePartDetectorOptions = softwarePartDetectorOption.Value;\r\n        _softwarePartLogin = softwarePartLogin;\r\n        _jsonSerializer = jsonSerializer;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SoftwarePartWebPublisher. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- httpClient (HttpClient): ورودی از نوع HttpClient.\r\n- softwarePartDetectorOption (IOptions<SoftwarePartDetectorOptions>): گزینه‌های typed تنظیمات.\r\n- softwarePartLogin (ISoftwarePartAuthentication): ورودی از نوع ISoftwarePartAuthentication.\r\n- jsonSerializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SoftwarePartWebPublisher. Parameters are expected via dependency injection. Parameters:\r\n- httpClient (HttpClient): Input of type HttpClient.\r\n- softwarePartDetectorOption (IOptions<SoftwarePartDetectorOptions>): Typed options snapshot/wrapper.\r\n- softwarePartLogin (ISoftwarePartAuthentication): Input of type ISoftwarePartAuthentication.\r\n- jsonSerializer (IJsonSerializer): Input of type IJsonSerializer.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "PublishAsync",
+          "kind": "method",
+          "signature": "public async Task PublishAsync(SoftwarePart softwarePart)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _httpClient.BaseAddress = new Uri(_softwarePartDetectorOptions.DestinationServiceBaseAddress);\r\n\r\n        if (_softwarePartDetectorOptions.OAuth.Enabled)\r\n        {\r\n            var token = await _softwarePartLogin.LoginAsync();\r\n\r\n            _httpClient.SetBearerToken(token.AccessToken);\r\n        }\r\n\r\n        HttpContent httpContent = new StringContent(_jsonSerializer.Serialize(softwarePart),\r\n                                                    Encoding.UTF8,\r\n                                                    \"application/json\");\r\n\r\n        await _httpClient.PostAsync(_softwarePartDetectorOptions.DestinationServicePath, httpContent);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «PublishAsync» در SoftwarePartWebPublisher. رویداد/پیام را منتشر می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- softwarePart (SoftwarePart): ورودی از نوع SoftwarePart.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ISoftwarePartPublisher (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption, ISoftwarePartAuthentication softwarePartLogin, IJsonSerializer jsonSerializer",
+            "en": "Method 'PublishAsync' on SoftwarePartWebPublisher. Publishes an event/message. Runs asynchronously.\r\nParameters:\r\n- softwarePart (SoftwarePart): Input of type SoftwarePart.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ISoftwarePartPublisher (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption, ISoftwarePartAuthentication softwarePartLogin, IJsonSerializer jsonSerializer"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartWebPublisher» در namespace Zamin.Utilities.SoftwarePartDetector.Publishers. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ISoftwarePartPublisher. وابستگی‌های سازنده (DI): HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption, ISoftwarePartAuthentication softwarePartLogin, IJsonSerializer jsonSerializer. مرتبط: ISoftwarePartPublisher (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption, ISoftwarePartAuthentication softwarePartLogin, IJsonSerializer jsonSerializer.",
+        "en": "Class 'SoftwarePartWebPublisher' in namespace Zamin.Utilities.SoftwarePartDetector.Publishers. Public/protected class definition in the Zamin framework layer. Base/implemented types: ISoftwarePartPublisher. Constructor-injected dependencies: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption, ISoftwarePartAuthentication softwarePartLogin, IJsonSerializer jsonSerializer. Related: ISoftwarePartPublisher (same namespace) | DI: HttpClient httpClient, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption, ISoftwarePartAuthentication softwarePartLogin, IJsonSerializer jsonSerializer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

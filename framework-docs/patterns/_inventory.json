@@ -1,0 +1,1394 @@
+﻿{
+    "used_namespaces":  [
+                            {
+                                "namespace":  "Zamin.Core.ApplicationServices.Commands",
+                                "types":  [
+                                              "CommandDispatcher",
+                                              "CommandDispatcherDecorator",
+                                              "CommandHandler\u003cTCommand, TData\u003e",
+                                              "CommandHandler\u003cTCommand\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.ApplicationServices.Queries",
+                                "types":  [
+                                              "QueryDispatcher",
+                                              "QueryDispatcherDecorator",
+                                              "QueryHandler\u003cTQuery, TData\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Contracts.ApplicationServices.Commands",
+                                "types":  [
+                                              "ICommandDispatcher"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Contracts.ApplicationServices.Queries",
+                                "types":  [
+                                              "IQueryDispatcher"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Contracts.Data.Commands",
+                                "types":  [
+                                              "ICommandRepository\u003cTEntity,TId\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Contracts.Data.Queries",
+                                "types":  [
+                                              "IQueryRepository"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Domain.Entities",
+                                "types":  [
+                                              "AggregateRoot",
+                                              "AggregateRoot\u003cTId\u003e",
+                                              "Entity",
+                                              "Entity\u003cTId\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Domain.Exceptions",
+                                "types":  [
+                                              "InvalidEntityStateException",
+                                              "InvalidValueObjectStateException"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Domain.Toolkits.ValueObjects",
+                                "types":  [
+                                              "Description",
+                                              "NationalCode",
+                                              "Priority",
+                                              "Title"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.Domain.ValueObjects",
+                                "types":  [
+                                              "BaseValueObject\u003cTValueObject\u003e",
+                                              "BusinessId"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.RequestResponse.Commands",
+                                "types":  [
+                                              "CommandResult",
+                                              "CommandResult\u003cTData\u003e",
+                                              "ICommand",
+                                              "ICommand\u003cTData\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.RequestResponse.Common",
+                                "types":  [
+                                              "ApplicationServiceStatus"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Core.RequestResponse.Queries",
+                                "types":  [
+                                              "IQuery\u003cTData\u003e",
+                                              "PageQuery\u003cTData\u003e",
+                                              "PagedData\u003cT\u003e",
+                                              "QueryResult\u003cTData\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.EndPoints.Web.Controllers",
+                                "types":  [
+                                              "BaseController"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.EndPoints.Web.Extensions",
+                                "types":  [
+                                              "HttpContextExtensions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Caching.Abstractions",
+                                "types":  [
+                                              "ICacheAdapter"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Caching.Distributed.Redis.Options",
+                                "types":  [
+                                              "DistributedRedisCacheOptions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Caching.Distributed.Sql.Options",
+                                "types":  [
+                                              "DistributedSqlCacheOptions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.DependencyInjection",
+                                "types":  [
+                                              "Extensions",
+                                              "ServiceCollectionExtensions",
+                                              "UserInfoServiceCollectionExtensions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.DependencyInjection.Abstractions",
+                                "types":  [
+                                              "IScopeLifetime",
+                                              "ISingletoneLifetime",
+                                              "ITransientLifetime"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Events.Outbox.Dal.EF",
+                                "types":  [
+                                              "BaseOutboxCommandDbContext"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Serializers.Abstractions",
+                                "types":  [
+                                              "IJsonSerializer"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Translations.Abstractions",
+                                "types":  [
+                                              "ITranslator"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Translations.Parrot.Options",
+                                "types":  [
+                                              "ParrotTranslatorOptions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.Translations.Parrot.Services",
+                                "types":  [
+                                              "ParrotTranslator"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.UsersManagement.Abstractions",
+                                "types":  [
+                                              "FakeUserInfoService",
+                                              "IUserInfoService"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Extensions.UsersManagement.Options",
+                                "types":  [
+                                              "UserManagementOptions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Infra.Data.Sql.Commands",
+                                "types":  [
+                                              "BaseCommandRepository\u003cTEntity, TDbContext, TId\u003e",
+                                              "BaseCommandRepository\u003cTEntity, TDbContext\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Infra.Data.Sql.Commands.Interceptors",
+                                "types":  [
+                                              "AddAuditDataInterceptor",
+                                              "SetPersianYeKeInterceptor"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Infra.Data.Sql.Queries",
+                                "types":  [
+                                              "BaseQueryDbContext",
+                                              "BaseQueryRepository\u003cTDbContext\u003e"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities",
+                                "types":  [
+                                              "ZaminServices"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                                "types":  [
+                                              "ApiAuthenticationOption",
+                                              "ProviderOption",
+                                              "TokenType"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.Guards",
+                                "types":  [
+                                              "Guard"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.Resources.Translators",
+                                "types":  [
+                                              "TranslatorKeys",
+                                              "TranslatorValues"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.SerilogRegistration.Extensions",
+                                "types":  [
+                                              "SerilogExtensions"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.SoftwarePartDetector",
+                                "types":  [
+                                              "SoftwarePartDetector"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.SoftwarePartDetector.DataModel",
+                                "types":  [
+                                              "SoftwarePart",
+                                              "SoftwarePartController",
+                                              "SoftwarePartType"
+                                          ]
+                            },
+                            {
+                                "namespace":  "Zamin.Utilities.SoftwarePartDetector.Services",
+                                "types":  [
+                                              "SoftwarePartDetectorService"
+                                          ]
+                            }
+                        ],
+    "unused_types":  [
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Commands",
+                             "Type":  "CommandDispatcherDomainExceptionHandlerDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Commands",
+                             "Type":  "CommandDispatcherValidationDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Events",
+                             "Type":  "EventDispatcher",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Events",
+                             "Type":  "EventDispatcherDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Events",
+                             "Type":  "EventDispatcherDomainExceptionHandlerDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Events",
+                             "Type":  "EventDispatcherValidationDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Queries",
+                             "Type":  "QueryDispatcherDomainExceptionHandlerDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.ApplicationServices.Queries",
+                             "Type":  "QueryDispatcherValidationDecorator",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.ApplicationServices.Commands",
+                             "Type":  "ICommandHandler\u003cTCommand, TData\u003e",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.ApplicationServices.Commands",
+                             "Type":  "ICommandHandler\u003cTCommand\u003e",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.ApplicationServices.Events",
+                             "Type":  "IDomainEventHandler\u003cTDomainEvent\u003e",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.ApplicationServices.Events",
+                             "Type":  "IEventDispatcher",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.ApplicationServices.Queries",
+                             "Type":  "IQueryHandler\u003cTQuery, TData\u003e",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.Data.Commands",
+                             "Type":  "IDomainEventStore",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Contracts.Data.Commands",
+                             "Type":  "IUnitOfWork",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Domain.Entities",
+                             "Type":  "IAggregateRoot",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Domain.Entities",
+                             "Type":  "IAuditableEntity",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Domain.Events",
+                             "Type":  "IDomainEvent",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Domain.Exceptions",
+                             "Type":  "DomainStateException",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.Domain.Toolkits.ValueObjects",
+                             "Type":  "LegalNationalId",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.RequestResponse.Common",
+                             "Type":  "ApplicationServiceResult",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.RequestResponse.Common",
+                             "Type":  "IApplicationServiceResult",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.RequestResponse.Endpoints",
+                             "Type":  "IWebRequest",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Core.RequestResponse.Queries",
+                             "Type":  "IPageQuery\u003cTData\u003e",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Core.RequestResponse.Queries",
+                             "Type":  "PageQueryRecord\u003cTData\u003e",
+                             "Kind":  "record",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Extensions",
+                             "Type":  "ClaimExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Extensions.ModelBinding",
+                             "Type":  "NonValidatingValidatorExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Filters",
+                             "Type":  "CamelCaseJsonAttribute",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Filters",
+                             "Type":  "CamelCaseJsonFilter",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Filters",
+                             "Type":  "PascalCaseJsonAttribute",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Filters",
+                             "Type":  "PascalCaseJsonFilter",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Filters",
+                             "Type":  "ValidateModelStateAttribute",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+                             "Type":  "ApiError",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+                             "Type":  "ApiExceptionMiddleware",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+                             "Type":  "ApiExceptionMiddlewareExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+                             "Type":  "ApiExceptionOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.EndPoints.Web.ModelBinding",
+                             "Type":  "NonValidatingValidator",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Caching.Abstractions",
+                             "Type":  "FakeCacheAdapter",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Caching.Distributed.Redis.Services",
+                             "Type":  "DistributedRedisCacheAdapter",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Caching.Distributed.Sql.Services",
+                             "Type":  "DistributedSqlCacheAdapter",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Caching.InMemory.Services",
+                             "Type":  "InMemoryCacheAdapter",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Abstractions",
+                             "Type":  "DatabaseChangeType",
+                             "Kind":  "enum",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Abstractions",
+                             "Type":  "EntityChageInterceptorItem",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Abstractions",
+                             "Type":  "IEntityChageInterceptorItemRepository",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Abstractions",
+                             "Type":  "PropertyChangeLogItem",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Sql",
+                             "Type":  "DapperEntityChangeInterceptorItemRepository",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Sql.Options",
+                             "Type":  "ChangeDataLogHamsterOptions",
+                             "Kind":  "record",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ChangeDataLog.Sql.Options",
+                             "Type":  "ChangeDataLogSqlOptions",
+                             "Kind":  "record",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "AddApiConfigurationExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "AddApplicationServicesExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "AddDataAccessExtentsions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "AddZaminServicesExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "ApiAuthenticationServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "AutoMapperServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "ChageDatalogServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "DistributedRedisCacheServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "DistributedSqlCacheServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "EPPlusExcelSerializerServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "InMemoryCachingServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "JwtTokenExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "MessageInboxServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "MicrosoftSerializerServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "NewtonSoftSerializerServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "ParrotTranslatorServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "PollingPublisherServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "ProviderExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "RabbitMqMessageBusServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "ReferenceTokenExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "ScalarServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "SerilogServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection",
+                             "Type":  "SoftwarePartDetectorServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection.Extensions.DependencyInjection",
+                             "Type":  "DependencyInjectionServiceCollectionExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.DependencyInjection.Options",
+                             "Type":  "DependencyInjectionOption",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.Abstractions",
+                             "Type":  "IOutBoxEventItemRepository",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.Abstractions",
+                             "Type":  "OutBoxEventItem",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.Outbox.Dal.EF.Configs",
+                             "Type":  "OutBoxEventItemConfig",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.Outbox.Dal.EF.Interceptors",
+                             "Type":  "AddOutBoxEventItemInterceptor",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.PollingPublisher",
+                             "Type":  "PoolingPublisherBackgroundService",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess",
+                             "Type":  "SqlOutBoxEventItemRepository",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.Options",
+                             "Type":  "PollingPublisherDalRedisOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Events.PollingPublisher.Options",
+                             "Type":  "PollingPublisherOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Logger.Abstractions",
+                             "Type":  "ZaminEventId",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions",
+                             "Type":  "IMessageConsumer",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions",
+                             "Type":  "IMessageInboxItemRepository",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions",
+                             "Type":  "IReceiveMessageBus",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions",
+                             "Type":  "ISendMessageBus",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions",
+                             "Type":  "Parcel",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+                             "Type":  "FakeMessageConsumer",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+                             "Type":  "FakeReceiveMessageBus",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.Abstractions.Fakes",
+                             "Type":  "FakeSendMessageBus",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.MessageInbox",
+                             "Type":  "InboxMessageConsumer",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper",
+                             "Type":  "SqlMessageInboxItemRepository",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.MessageInbox.Dal.Dapper.Options",
+                             "Type":  "MessageInboxDalDapperOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.MessageInbox.Options",
+                             "Type":  "MessageInboxOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.RabbitMQ",
+                             "Type":  "RabbitMqReceiveMessageBus",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.RabbitMQ",
+                             "Type":  "RabbitMqSendMessageBus",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.RabbitMQ",
+                             "Type":  "RabbitMqSendMessageBusConstants",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.MessageBus.RabbitMQ.Options",
+                             "Type":  "RabbitMqOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ObjectMappers.Abstractions",
+                             "Type":  "IMapperAdapter",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ObjectMappers.AutoMapper.Options",
+                             "Type":  "AutoMapperOption",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ObjectMappers.AutoMapper.Services",
+                             "Type":  "AutoMapperAdapter",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ObjectMappers.Mapster.Services",
+                             "Type":  "IObjectMapper",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.ObjectMappers.Mapster.Services",
+                             "Type":  "Mapster",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Serializers.Abstractions",
+                             "Type":  "IExcelSerializer",
+                             "Kind":  "interface",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Serializers.EPPlus.Extensions",
+                             "Type":  "ExcelExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Serializers.EPPlus.Extensions",
+                             "Type":  "LinqExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Serializers.EPPlus.Services",
+                             "Type":  "EPPlusExcelSerializer",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Serializers.Microsoft.Services",
+                             "Type":  "MicrosoftSerializer",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Serializers.NewtonSoft.Services",
+                             "Type":  "NewtonSoftSerializer",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Translations.Parrot.Database",
+                             "Type":  "ParrotSqlRepository",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Translations.Parrot.DataModel",
+                             "Type":  "LocalizationRecord",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.Translations.Parrot.Options",
+                             "Type":  "DefaultTranslationOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.UsersManagement.Extensions",
+                             "Type":  "ClaimExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Extensions.UsersManagement.Services",
+                             "Type":  "WebUserInfoService",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands",
+                             "Type":  "BaseCommandDbContext",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands",
+                             "Type":  "BaseEntityFrameworkUnitOfWork\u003cTDbContext\u003e",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.Extensions",
+                             "Type":  "AuditableShadowProperties",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.Extensions",
+                             "Type":  "ChangeTrackerExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.Extensions",
+                             "Type":  "DbCommandExtension",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.Extensions",
+                             "Type":  "ModelBuilderExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.Extensions",
+                             "Type":  "RowVersionShadowProperty",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.Interceptors",
+                             "Type":  "AddChangeDataLogInterceptor",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+                             "Type":  "BusinessIdConversion",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+                             "Type":  "DescriptionConversion",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+                             "Type":  "LegalNationalIdConversion",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+                             "Type":  "NationalCodeConversion",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Commands.ValueConversions",
+                             "Type":  "TitleConversion",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Infra.Data.Sql.Queries",
+                             "Type":  "QueryRepositoryExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Extensions",
+                             "Type":  "ClaimsPrincipalExtentions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Models",
+                             "Type":  "ClaimCacheModel",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "CacheExpirationType",
+                             "Kind":  "enum",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "CacheKeyFormat",
+                             "Kind":  "enum",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "EndpointsPathOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "JwtTokenConfigOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "RefrenceTokenConfigOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "RegisterUserInfoClaimsOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "UserClaimAddonOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Auth.ApiAuthentication.Options",
+                             "Type":  "UserClaimRuleOption",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "DateTimeOffsetPart",
+                             "Kind":  "enum",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "DateTimeUtils",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "FriendlyPersianDateUtils",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "PersianCulture",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "PersianDateTimeUtils",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "PersianDay",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "PersianMonth",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "PersianNumbersUtils",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "PersianYear",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "RegexUtils",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "TimeConstants",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.DateTimes",
+                             "Type":  "UnicodeConstants",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "DateTimeExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "EnumExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "GuidExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "LinqExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "ObjectExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "StringExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "StringValidatorExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Extensions",
+                             "Type":  "TypeExtentsions",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "EmptyGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "EqualGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "ExclusiveBetweenGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "GreaterThanGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "GreaterThanOrEqualGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "InclusiveBetweenGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "LengthGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "LessThanGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "LessThanOrEqualGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "MatchGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "MaximumLengthGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "MinimumLengthGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "NotEmptyGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "NotEqualGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "NotNullGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Guards.GuardClauses",
+                             "Type":  "NullGuardClause",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.ScalarRegistration.Options",
+                             "Type":  "ScalarOption",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SerilogRegistration.Enrichers",
+                             "Type":  "ZaminApplicaitonEnricher",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SerilogRegistration.Enrichers",
+                             "Type":  "ZaminUserInfoEnricher",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SerilogRegistration.Options",
+                             "Type":  "SerilogApplicationEnricherOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.Sinks.Elasticsearch",
+                             "Type":  "LoggerConfigurationZaminElasticsearchExtensions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector",
+                             "Type":  "ControllersAndActionDetector",
+                             "Kind":  "class",
+                             "UsingOnly":  true
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Attributes",
+                             "Type":  "SoftwarePartControllerOptionAttribute",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Authentications",
+                             "Type":  "ISoftwarePartAuthentication",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Authentications",
+                             "Type":  "SoftwarePartAuthentication",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.DataModel",
+                             "Type":  "SoftwarePartAction",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Options",
+                             "Type":  "OAuthOption",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Options",
+                             "Type":  "SoftwarePartDetectorOptions",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Publishers",
+                             "Type":  "ISoftwarePartPublisher",
+                             "Kind":  "interface",
+                             "UsingOnly":  false
+                         },
+                         {
+                             "Ns":  "Zamin.Utilities.SoftwarePartDetector.Publishers",
+                             "Type":  "SoftwarePartWebPublisher",
+                             "Kind":  "class",
+                             "UsingOnly":  false
+                         }
+                     ]
+}

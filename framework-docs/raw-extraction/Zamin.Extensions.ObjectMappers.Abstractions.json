@@ -1,0 +1,27 @@
+﻿{
+  "namespace": "Zamin.Extensions.ObjectMappers.Abstractions",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "IMapperAdapter",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.ObjectMappers.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.ObjectMappers.Abstractions/IMapperAdapter.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Map",
+          "kind": "method",
+          "signature": "TDestination Map<TSource, TDestination>(TSource source)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "ApiError",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Middlewares/ApiExceptionHandler/ApiError.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "property",
+          "signature": "public string Id { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Id» از نوع `string` در ApiError. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Id' of type `string` on ApiError. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Status",
+          "kind": "property",
+          "signature": "public short Status { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Status» از نوع `short` در ApiError. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Status' of type `short` on ApiError. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Code",
+          "kind": "property",
+          "signature": "public string Code { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Code» از نوع `string` در ApiError. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Code' of type `string` on ApiError. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Links",
+          "kind": "property",
+          "signature": "public string Links { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Links» از نوع `string` در ApiError. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Links' of type `string` on ApiError. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Title",
+          "kind": "property",
+          "signature": "public string Title { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Title» از نوع `string` در ApiError. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Title' of type `string` on ApiError. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Detail",
+          "kind": "property",
+          "signature": "public string Detail { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Detail» از نوع `string` در ApiError. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Detail' of type `string` on ApiError. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ApiError» در namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین.",
+        "en": "Class 'ApiError' in namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. Public/protected class definition in the Zamin framework layer."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ApiExceptionMiddleware",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Middlewares/ApiExceptionHandler/ApiExceptionMiddleware.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ApiExceptionOptions options",
+        "RequestDelegate next",
+        "ILogger<ApiExceptionMiddleware> logger",
+        "IJsonSerializer serializer",
+        "ITranslator translator"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public ApiExceptionMiddleware(ApiExceptionOptions options, RequestDelegate next,\r\n            ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer,ITranslator translator\r\n            )",
+          "xml_doc": "",
+          "body_summary": "{\r\n            _next = next;\r\n            _logger = logger;\r\n            _options = options;\r\n            _serializer = serializer;\r\n            _translator = translator;\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده ApiExceptionMiddleware. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- options (ApiExceptionOptions): ورودی از نوع ApiExceptionOptions.\r\n- next (RequestDelegate): ورودی از نوع RequestDelegate.\r\n- logger (ILogger<ApiExceptionMiddleware>): لاگر برای ثبت رویدادها و خطاها.\r\n- serializer (IJsonSerializer): ورودی از نوع IJsonSerializer.\r\n- translator (ITranslator): ورودی از نوع ITranslator.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for ApiExceptionMiddleware. Parameters are expected via dependency injection. Parameters:\r\n- options (ApiExceptionOptions): Input of type ApiExceptionOptions.\r\n- next (RequestDelegate): Input of type RequestDelegate.\r\n- logger (ILogger<ApiExceptionMiddleware>): Logger for diagnostics and error reporting.\r\n- serializer (IJsonSerializer): Input of type IJsonSerializer.\r\n- translator (ITranslator): Input of type ITranslator.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Invoke",
+          "kind": "method",
+          "signature": "public async Task Invoke(HttpContext context)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            try\r\n            {\r\n                await _next(context);\r\n            }\r\n            catch (Exception ex)\r\n            {\r\n                await HandleExceptionAsync(context, ex);\r\n            }\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Invoke» در ApiExceptionMiddleware. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. خطاها را در بلوک try/catch مدیریت می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- context (HttpContext): ورودی از نوع HttpContext.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: ApiExceptionOptions options, RequestDelegate next, ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer, ITranslator translator",
+            "en": "Method 'Invoke' on ApiExceptionMiddleware. Performs the operation declared by the signature on this type. Handles failures in a try/catch block. Runs asynchronously.\r\nParameters:\r\n- context (HttpContext): Input of type HttpContext.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: ApiExceptionOptions options, RequestDelegate next, ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer, ITranslator translator"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ApiExceptionMiddleware» در namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. استثنای دامنه/چارچوب برای اعلام نقض قاعده یا خطای قابل‌کنترل. وابستگی‌های سازنده (DI): ApiExceptionOptions options, RequestDelegate next, ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer, ITranslator translator. مرتبط: DI: ApiExceptionOptions options, RequestDelegate next, ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer, ITranslator translator.",
+        "en": "Class 'ApiExceptionMiddleware' in namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. Domain/framework exception signaling a rule violation or controlled failure. Constructor-injected dependencies: ApiExceptionOptions options, RequestDelegate next, ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer, ITranslator translator. Related: DI: ApiExceptionOptions options, RequestDelegate next, ILogger<ApiExceptionMiddleware> logger, IJsonSerializer serializer, ITranslator translator."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ApiExceptionMiddlewareExtensions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Middlewares/ApiExceptionHandler/ApiExceptionMiddlewareExtensions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "UseApiExceptionHandler",
+          "kind": "method",
+          "signature": "public static IApplicationBuilder UseApiExceptionHandler(this IApplicationBuilder builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var options = new ApiExceptionOptions();\r\n            return builder.UseMiddleware<ApiExceptionMiddleware>(options);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UseApiExceptionHandler» در ApiExceptionMiddlewareExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند.\r\nپارامترها:\r\n- builder (IApplicationBuilder): ورودی از نوع IApplicationBuilder.\r\n\r\nمقدار بازگشتی: `IApplicationBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UseApiExceptionHandler' on ApiExceptionMiddlewareExtensions. Adds middleware or pipeline configuration to the application.\r\nParameters:\r\n- builder (IApplicationBuilder): Input of type IApplicationBuilder.\r\n\r\nReturns: `IApplicationBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "UseApiExceptionHandler",
+          "kind": "method",
+          "signature": "public static IApplicationBuilder UseApiExceptionHandler(this IApplicationBuilder builder,\r\n            Action<ApiExceptionOptions> configureOptions)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var options = new ApiExceptionOptions();\r\n            configureOptions(options);\r\n\r\n            return builder.UseMiddleware<ApiExceptionMiddleware>(options);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «UseApiExceptionHandler» در ApiExceptionMiddlewareExtensions. میان‌افزار یا پیکربندی pipeline را به اپلیکیشن اضافه می‌کند.\r\nپارامترها:\r\n- builder (IApplicationBuilder): ورودی از نوع IApplicationBuilder.\r\n- configureOptions (Action<ApiExceptionOptions>): ورودی از نوع Action<ApiExceptionOptions>.\r\n\r\nمقدار بازگشتی: `IApplicationBuilder`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Method 'UseApiExceptionHandler' on ApiExceptionMiddlewareExtensions. Adds middleware or pipeline configuration to the application.\r\nParameters:\r\n- builder (IApplicationBuilder): Input of type IApplicationBuilder.\r\n- configureOptions (Action<ApiExceptionOptions>): Input of type Action<ApiExceptionOptions>.\r\n\r\nReturns: `IApplicationBuilder`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ApiExceptionMiddlewareExtensions» در namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. متدهای الحاقی برای ثبت سرویس‌ها یا تسهیل استفاده از API.",
+        "en": "Class 'ApiExceptionMiddlewareExtensions' in namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. Extension methods for service registration or API convenience."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ApiExceptionOptions",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Middlewares/ApiExceptionHandler/ApiExceptionOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "AddResponseDetails",
+          "kind": "property",
+          "signature": "public Action<HttpContext, Exception, ApiError> AddResponseDetails { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «AddResponseDetails» از نوع `Action<HttpContext, Exception, ApiError>` در ApiExceptionOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'AddResponseDetails' of type `Action<HttpContext, Exception, ApiError>` on ApiExceptionOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DetermineLogLevel",
+          "kind": "property",
+          "signature": "public Func<Exception, LogLevel> DetermineLogLevel { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «DetermineLogLevel» از نوع `Func<Exception, LogLevel>` در ApiExceptionOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'DetermineLogLevel' of type `Func<Exception, LogLevel>` on ApiExceptionOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ApiExceptionOptions» در namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'ApiExceptionOptions' in namespace Zamin.EndPoints.Web.Middlewares.ApiExceptionHandler. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

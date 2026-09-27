@@ -1,0 +1,1834 @@
+﻿{
+  "namespace": "Zamin.Utilities.DateTimes",
+  "type_count": 12,
+  "types": [
+    {
+      "type_name": "DateTimeOffsetPart",
+      "kind": "enum",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/DateTimeOffsetPart.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// DateTimeOffset Part\n/// سورس این بخش در ابتدا از مجموعه کارهای آقای وحید نصیری برداشته شده است. پس از تکمیل و اصلاحات نهایی آدرس دهی و ... اصلاح می‌شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "DateTime",
+          "kind": "enum_member",
+          "signature": "DateTime",
+          "xml_doc": "/// <summary>\n    /// قسمت زمان مقدار را بدون توجه به آفست باز می‌گرداند و به زمان محلی سرور تبدیل نخواهد شد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "قسمت زمان مقدار را بدون توجه به آفست باز می‌گرداند و به زمان محلی سرور تبدیل نخواهد شد",
+            "en": "Author XML for enum_member 'DateTime': قسمت زمان مقدار را بدون توجه به آفست باز می‌گرداند و به زمان محلی سرور تبدیل نخواهد شد"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "LocalDateTime",
+          "kind": "enum_member",
+          "signature": "LocalDateTime",
+          "xml_doc": "/// <summary>\n    /// قسمت زمان را با توجه به منطقه زمانی سروری که برنامه بر روی آن اجرا می‌شود، بر می‌گرداند\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "قسمت زمان را با توجه به منطقه زمانی سروری که برنامه بر روی آن اجرا می‌شود، بر می‌گرداند",
+            "en": "Author XML for enum_member 'LocalDateTime': قسمت زمان را با توجه به منطقه زمانی سروری که برنامه بر روی آن اجرا می‌شود، بر می‌گرداند"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "UtcDateTime",
+          "kind": "enum_member",
+          "signature": "UtcDateTime",
+          "xml_doc": "/// <summary>\n    /// The Coordinated Universal Time (UTC) date and time of the current System.DateTimeOffset\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "The Coordinated Universal Time (UTC) date and time of the current System.DateTimeOffset",
+            "en": "The Coordinated Universal Time (UTC) date and time of the current System.DateTimeOffset"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "IranLocalDateTime",
+          "kind": "enum_member",
+          "signature": "IranLocalDateTime",
+          "xml_doc": "/// <summary>\n    /// این وهله را به منطقه‌ی زمانی ایران تبدیل و مقدار را بر می‌گرداند\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "این وهله را به منطقه‌ی زمانی ایران تبدیل و مقدار را بر می‌گرداند",
+            "en": "Author XML for enum_member 'IranLocalDateTime': این وهله را به منطقه‌ی زمانی ایران تبدیل و مقدار را بر می‌گرداند"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "DateTimeOffset Part سورس این بخش در ابتدا از مجموعه کارهای آقای وحید نصیری برداشته شده است. پس از تکمیل و اصلاحات نهایی آدرس دهی و ... اصلاح می‌شود",
+        "en": "Author XML for enum 'DateTimeOffsetPart': DateTimeOffset Part سورس این بخش در ابتدا از مجموعه کارهای آقای وحید نصیری برداشته شده است. پس از تکمیل و اصلاحات نهایی آدرس دهی و ... اصلاح می‌شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "DateTimeUtils",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/DateTimeUtils.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// متدهای کمکی جهت کار با تاریخ میلادی\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IranStandardTime",
+          "kind": "field",
+          "signature": "public static readonly TimeZoneInfo IranStandardTime;",
+          "xml_doc": "/// <summary>\n    /// Iran Standard Time\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Iran Standard Time",
+            "en": "Iran Standard Time"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Epoch",
+          "kind": "field",
+          "signature": "public static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);",
+          "xml_doc": "/// <summary>\n    /// Epoch represented as DateTime\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Epoch represented as DateTime",
+            "en": "Epoch represented as DateTime"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAge",
+          "kind": "method",
+          "signature": "public static int GetAge(this DateTimeOffset birthday, DateTime comparisonBase, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// محاسبه سن\n    /// </summary>\n    /// <param name=\"birthday\">تاریخ تولد</param>\n    /// <param name=\"comparisonBase\">مبنای محاسبه مانند هم اکنون</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <returns>سن</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "محاسبه سن\r\nپارامترها:\r\n- birthday: تاریخ تولد\r\n- comparisonBase: مبنای محاسبه مانند هم اکنون\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: سن",
+            "en": "Author XML for method 'GetAge': محاسبه سن\r\nParameters:\r\n- birthday: Parameter 'birthday' as documented by author: تاریخ تولد\r\n- comparisonBase: Parameter 'comparisonBase' as documented by author: مبنای محاسبه مانند هم اکنون\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: سن"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAge",
+          "kind": "method",
+          "signature": "public static int GetAge(this DateTimeOffset birthday)",
+          "xml_doc": "/// <summary>\n    /// محاسبه سن\n    /// مبنای محاسبه هم اکنون\n    /// </summary>\n    /// <param name=\"birthday\">تاریخ تولد</param>\n    /// <returns>سن</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "محاسبه سن مبنای محاسبه هم اکنون\r\nپارامترها:\r\n- birthday: تاریخ تولد\r\nمقدار بازگشتی: سن",
+            "en": "Author XML for method 'GetAge': محاسبه سن مبنای محاسبه هم اکنون\r\nParameters:\r\n- birthday: Parameter 'birthday' as documented by author: تاریخ تولد\r\nReturns: Return value as documented by author: سن"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAge",
+          "kind": "method",
+          "signature": "public static int GetAge(this DateTime birthday, DateTime comparisonBase)",
+          "xml_doc": "/// <summary>\n    /// محاسبه سن\n    /// </summary>\n    /// <param name=\"birthday\">تاریخ تولد</param>\n    /// <param name=\"comparisonBase\">مبنای محاسبه مانند هم اکنون</param>\n    /// <returns>سن</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "محاسبه سن\r\nپارامترها:\r\n- birthday: تاریخ تولد\r\n- comparisonBase: مبنای محاسبه مانند هم اکنون\r\nمقدار بازگشتی: سن",
+            "en": "Author XML for method 'GetAge': محاسبه سن\r\nParameters:\r\n- birthday: Parameter 'birthday' as documented by author: تاریخ تولد\r\n- comparisonBase: Parameter 'comparisonBase' as documented by author: مبنای محاسبه مانند هم اکنون\r\nReturns: Return value as documented by author: سن"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAge",
+          "kind": "method",
+          "signature": "public static int GetAge(this DateTime birthday)",
+          "xml_doc": "/// <summary>\n    /// محاسبه سن\n    /// مبنای محاسبه هم اکنون\n    /// </summary>\n    /// <param name=\"birthday\">تاریخ تولد</param>\n    /// <returns>سن</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "محاسبه سن مبنای محاسبه هم اکنون\r\nپارامترها:\r\n- birthday: تاریخ تولد\r\nمقدار بازگشتی: سن",
+            "en": "Author XML for method 'GetAge': محاسبه سن مبنای محاسبه هم اکنون\r\nParameters:\r\n- birthday: Parameter 'birthday' as documented by author: تاریخ تولد\r\nReturns: Return value as documented by author: سن"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetDateTimeOffsetPart",
+          "kind": "method",
+          "signature": "public static DateTime GetDateTimeOffsetPart(\r\n        this DateTimeOffset dateTimeOffset,\r\n        DateTimeOffsetPart dataDateTimeOffsetPart)",
+          "xml_doc": "/// <summary>\n    /// دریافت جزء زمانی ویژه‌ی این وهله\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "دریافت جزء زمانی ویژه‌ی این وهله\n\nپارامترها:\r\n- dateTimeOffset (DateTimeOffset): ورودی از نوع DateTimeOffset.\r\n- dataDateTimeOffsetPart (DateTimeOffsetPart): ورودی از نوع DateTimeOffsetPart.\r\n\r\nمقدار بازگشتی: `DateTime`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetDateTimeOffsetPart': دریافت جزء زمانی ویژه‌ی این وهله\n\nParameters:\r\n- dateTimeOffset (DateTimeOffset): Input of type DateTimeOffset.\r\n- dataDateTimeOffsetPart (DateTimeOffsetPart): Input of type DateTimeOffsetPart.\r\n\r\nReturns: `DateTime`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetNow",
+          "kind": "method",
+          "signature": "public static DateTime GetNow(this DateTimeKind dataDateTimeKind)",
+          "xml_doc": "/// <summary>\n    /// بازگشت زمان جاری با توجه به نوع زمان\n    /// </summary>\n    /// <param name=\"dataDateTimeKind\">نوع زمان ورودی</param>\n    /// <returns>هم اکنون</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "بازگشت زمان جاری با توجه به نوع زمان\r\nپارامترها:\r\n- dataDateTimeKind: نوع زمان ورودی\r\nمقدار بازگشتی: هم اکنون",
+            "en": "Author XML for method 'GetNow': بازگشت زمان جاری با توجه به نوع زمان\r\nParameters:\r\n- dataDateTimeKind: Parameter 'dataDateTimeKind' as documented by author: نوع زمان ورودی\r\nReturns: Return value as documented by author: هم اکنون"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToIranTimeZoneDateTimeOffset",
+          "kind": "method",
+          "signature": "public static DateTimeOffset ToIranTimeZoneDateTimeOffset(this DateTimeOffset dateTimeOffset)",
+          "xml_doc": "/// <summary>\n    /// تبدیل منطقه زمانی این وهله به منطقه زمانی ایران\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل منطقه زمانی این وهله به منطقه زمانی ایران\n\nپارامترها:\r\n- dateTimeOffset (DateTimeOffset): ورودی از نوع DateTimeOffset.\r\n\r\nمقدار بازگشتی: `DateTimeOffset`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToIranTimeZoneDateTimeOffset': تبدیل منطقه زمانی این وهله به منطقه زمانی ایران\n\nParameters:\r\n- dateTimeOffset (DateTimeOffset): Input of type DateTimeOffset.\r\n\r\nReturns: `DateTimeOffset`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToIranTimeZoneDateTime",
+          "kind": "method",
+          "signature": "public static DateTime ToIranTimeZoneDateTime(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل منطقه زمانی این وهله به منطقه زمانی ایران\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل منطقه زمانی این وهله به منطقه زمانی ایران\n\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `DateTime`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToIranTimeZoneDateTime': تبدیل منطقه زمانی این وهله به منطقه زمانی ایران\n\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n\r\nReturns: `DateTime`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToEpochMilliseconds",
+          "kind": "method",
+          "signature": "public static long ToEpochMilliseconds(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// Converts a given <see cref=\"DateTime\"/> to milliseconds from Epoch.\n    /// </summary>\n    /// <param name=\"dateTime\">A given <see cref=\"DateTime\"/></param>\n    /// <returns>Milliseconds since Epoch</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts a given DateTime to milliseconds from Epoch.\r\nپارامترها:\r\n- dateTime: A given DateTime\r\nمقدار بازگشتی: Milliseconds since Epoch",
+            "en": "Converts a given DateTime to milliseconds from Epoch.\r\nParameters:\r\n- dateTime: A given DateTime\r\nReturns: Milliseconds since Epoch"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToEpochSeconds",
+          "kind": "method",
+          "signature": "public static long ToEpochSeconds(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// Converts a given <see cref=\"DateTime\"/> to seconds from Epoch.\n    /// </summary>\n    /// <param name=\"dateTime\">A given <see cref=\"DateTime\"/></param>\n    /// <returns>The Unix time stamp</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts a given DateTime to seconds from Epoch.\r\nپارامترها:\r\n- dateTime: A given DateTime\r\nمقدار بازگشتی: The Unix time stamp",
+            "en": "Converts a given DateTime to seconds from Epoch.\r\nParameters:\r\n- dateTime: A given DateTime\r\nReturns: The Unix time stamp"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "IsBetween",
+          "kind": "method",
+          "signature": "public static bool IsBetween(this DateTime date, DateTime startDate, DateTime endDate, bool compareTime = false)",
+          "xml_doc": "/// <summary>\n    /// Checks the given date is between the two provided dates\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Checks the given date is between the two provided dates\n\nپارامترها:\r\n- date (DateTime): ورودی از نوع DateTime.\r\n- startDate (DateTime): ورودی از نوع DateTime.\r\n- endDate (DateTime): ورودی از نوع DateTime.\r\n- compareTime (bool): ورودی اختیاری از نوع bool (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Checks the given date is between the two provided dates\n\nParameters:\r\n- date (DateTime): Input of type DateTime.\r\n- startDate (DateTime): Input of type DateTime.\r\n- endDate (DateTime): Input of type DateTime.\r\n- compareTime (bool): Optional bool input (has default).\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "IsLastDayOfTheMonth",
+          "kind": "method",
+          "signature": "public static bool IsLastDayOfTheMonth(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// Returns whether the given date is the last day of the month\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Returns whether the given date is the last day of the month\n\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Returns whether the given date is the last day of the month\n\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "IsWeekend",
+          "kind": "method",
+          "signature": "public static bool IsWeekend(this DateTime value)",
+          "xml_doc": "/// <summary>\n    /// Returns whether the given date falls in a weekend\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Returns whether the given date falls in a weekend\n\nپارامترها:\r\n- value (DateTime): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Returns whether the given date falls in a weekend\n\nParameters:\r\n- value (DateTime): Value under validation or input.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "IsLeapYear",
+          "kind": "method",
+          "signature": "public static bool IsLeapYear(this DateTime value)",
+          "xml_doc": "/// <summary>\n    /// Determines if a given year is a LeapYear or not.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Determines if a given year is a LeapYear or not.\n\nپارامترها:\r\n- value (DateTime): مقدار مورد بررسی/ورود.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Determines if a given year is a LeapYear or not.\n\nParameters:\r\n- value (DateTime): Value under validation or input.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToDateTimeOffset",
+          "kind": "method",
+          "signature": "public static DateTimeOffset ToDateTimeOffset(this DateTime dt, TimeSpan offset)",
+          "xml_doc": "/// <summary>\n    /// Converts a DateTime to a DateTimeOffset\n    /// </summary>\n    /// <param name=\"dt\">Source DateTime.</param>\n    /// <param name=\"offset\">Offset</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts a DateTime to a DateTimeOffset\r\nپارامترها:\r\n- dt: Source DateTime.\r\n- offset: Offset\n\nمقدار بازگشتی: `DateTimeOffset`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts a DateTime to a DateTimeOffset\r\nParameters:\r\n- dt: Source DateTime.\r\n- offset: Offset\n\nReturns: `DateTimeOffset`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToDateTimeOffset",
+          "kind": "method",
+          "signature": "public static DateTimeOffset ToDateTimeOffset(this DateTime dt, double offsetInHours = 0)",
+          "xml_doc": "/// <summary>\n    /// Converts a DateTime to a DateTimeOffset\n    /// </summary>\n    /// <param name=\"dt\">Source DateTime.</param>\n    /// <param name=\"offsetInHours\">Offset</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts a DateTime to a DateTimeOffset\r\nپارامترها:\r\n- dt: Source DateTime.\r\n- offsetInHours: Offset\n\nمقدار بازگشتی: `DateTimeOffset`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts a DateTime to a DateTimeOffset\r\nParameters:\r\n- dt: Source DateTime.\r\n- offsetInHours: Offset\n\nReturns: `DateTimeOffset`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "متدهای کمکی جهت کار با تاریخ میلادی",
+        "en": "Author XML for class 'DateTimeUtils': متدهای کمکی جهت کار با تاریخ میلادی"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "FriendlyPersianDateUtils",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/FriendlyPersianDateUtils.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToPersianDateTextify(int persianYear, int persianMonth, int persianDay)",
+          "xml_doc": "/// <summary>\n    /// نمایش فارسی روز دریافتی شمسی\n    /// مانند سه شنبه ۲۱ دی ۱۳۹۵\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش فارسی روز دریافتی شمسی مانند سه شنبه ۲۱ دی ۱۳۹۵\n\nپارامترها:\r\n- persianYear (int): ورودی از نوع int.\r\n- persianMonth (int): ورودی از نوع int.\r\n- persianDay (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianDateTextify': نمایش فارسی روز دریافتی شمسی مانند سه شنبه ۲۱ دی ۱۳۹۵\n\nParameters:\r\n- persianYear (int): Input of type int.\r\n- persianMonth (int): Input of type int.\r\n- persianDay (int): Input of type int.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToPersianDateTextify(this DateTime dt)",
+          "xml_doc": "/// <summary>\n    /// نمایش فارسی روز دریافتی\n    /// مانند سه شنبه ۲۱ دی ۱۳۹۵\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\n\nپارامترها:\r\n- dt (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianDateTextify': نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\n\nParameters:\r\n- dt (DateTime): Input of type DateTime.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToPersianDateTextify(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// نمایش فارسی روز دریافتی\n    /// مانند سه شنبه ۲۱ دی ۱۳۹۵\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\n\nپارامترها:\r\n- dt (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianDateTextify': نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\n\nParameters:\r\n- dt (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToPersianDateTextify(this DateTimeOffset dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// نمایش فارسی روز دریافتی\n    /// مانند سه شنبه ۲۱ دی ۱۳۹۵\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianDateTextify': نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToPersianDateTextify(this DateTimeOffset? dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// نمایش فارسی روز دریافتی\n    /// مانند سه شنبه ۲۱ دی ۱۳۹۵\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianDateTextify': نمایش فارسی روز دریافتی مانند سه شنبه ۲۱ دی ۱۳۹۵\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTime dt, DateTime comparisonBase, bool appendHhMm = true)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <param name=\"comparisonBase\">مبنای مقایسه مانند هم اکنون</param>\n    /// <param name=\"appendHhMm\">آیا ساعت نیز به نتیجه‌اضافه شود؟</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\n- comparisonBase: مبنای مقایسه مانند هم اکنون\r\n- appendHhMm: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\n- comparisonBase: Parameter 'comparisonBase' as documented by author: مبنای مقایسه مانند هم اکنون\r\n- appendHhMm: Parameter 'appendHhMm' as documented by author: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTime dt, bool appendHhMm = true)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مبنای محاسبه هم اکنون\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <param name=\"appendHhMm\">آیا ساعت نیز به نتیجه‌اضافه شود؟</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\n- appendHhMm: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\n- appendHhMm: Parameter 'appendHhMm' as documented by author: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTimeOffset dt, DateTime comparisonBase, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime, bool appendHhMm = true)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <param name=\"comparisonBase\">مبنای مقایسه مانند هم اکنون</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <param name=\"appendHhMm\">آیا ساعت نیز به نتیجه‌اضافه شود؟</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\n- comparisonBase: مبنای مقایسه مانند هم اکنون\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\n- appendHhMm: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\n- comparisonBase: Parameter 'comparisonBase' as documented by author: مبنای مقایسه مانند هم اکنون\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\n- appendHhMm: Parameter 'appendHhMm' as documented by author: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTimeOffset dt, bool appendHhMm = true)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مبنای محاسبه هم اکنون\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <param name=\"appendHhMm\">آیا ساعت نیز به نتیجه‌اضافه شود؟</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\n- appendHhMm: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\n- appendHhMm: Parameter 'appendHhMm' as documented by author: آیا ساعت نیز به نتیجه‌اضافه شود؟\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTime? dt, DateTime comparisonBase)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <param name=\"comparisonBase\">مبنای مقایسه مانند هم اکنون</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\n- comparisonBase: مبنای مقایسه مانند هم اکنون\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\n- comparisonBase: Parameter 'comparisonBase' as documented by author: مبنای مقایسه مانند هم اکنون\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مبنای محاسبه هم اکنون\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTimeOffset? dt, DateTime comparisonBase, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <param name=\"comparisonBase\">مبنای مقایسه مانند هم اکنون</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\n- comparisonBase: مبنای مقایسه مانند هم اکنون\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\n- comparisonBase: Parameter 'comparisonBase' as documented by author: مبنای مقایسه مانند هم اکنون\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToFriendlyPersianDateTextify",
+          "kind": "method",
+          "signature": "public static string ToFriendlyPersianDateTextify(this DateTimeOffset? dt)",
+          "xml_doc": "/// <summary>\n    /// نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی\n    /// مبنای محاسبه هم اکنون\n    /// مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\n    /// </summary>\n    /// <param name=\"dt\">تاریخ ورودی</param>\n    /// <returns>نمایش دوستانه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nپارامترها:\r\n- dt: تاریخ ورودی\r\nمقدار بازگشتی: نمایش دوستانه",
+            "en": "Author XML for method 'ToFriendlyPersianDateTextify': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی مبنای محاسبه هم اکنون مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ ورودی\r\nReturns: Return value as documented by author: نمایش دوستانه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی",
+        "en": "Author XML for class 'FriendlyPersianDateUtils': نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PersianCulture",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/PersianCulture.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// فرهنگ فارسی سفارشی سازی شده\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PersianDayWeekNames",
+          "kind": "field",
+          "signature": "public static readonly IDictionary<DayOfWeek, string> PersianDayWeekNames = new Dictionary<DayOfWeek, string>\r\n          {\r\n            {DayOfWeek.Saturday, \"شنبه\"},\r\n            {DayOfWeek.Sunday,  \"یک شنبه\"},\r\n            {DayOfWeek.Monday,  \"دو شنبه\"},\r\n            {DayOfWeek.Tuesday, \"سه شنبه\"},\r\n            {DayOfWeek.Wednesday, \"چهار شنبه\"},\r\n            {DayOfWeek.Thursday, \"پنج شنبه\"},\r\n            {DayOfWeek.Friday, \"جمعه\"}\r\n          };",
+          "xml_doc": "/// <summary>\n    /// معادل فارسی روزهای هفته میلادی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "معادل فارسی روزهای هفته میلادی",
+            "en": "Author XML for field 'PersianDayWeekNames': معادل فارسی روزهای هفته میلادی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "PersianMonthDayNumberNames",
+          "kind": "field",
+          "signature": "public static readonly IDictionary<int, string> PersianMonthDayNumberNames = new Dictionary<int, string>\r\n           {\r\n             { 1, \"یکم\" },\r\n             { 2, \"دوم\" },\r\n             { 3, \"سوم\" },\r\n             { 4, \"چهارم\" },\r\n             { 5, \"پنجم\" },\r\n             { 6, \"ششم\" },\r\n             { 7, \"هفتم\" },\r\n             { 8, \"هشتم\" },\r\n             { 9, \"نهم\" },\r\n             { 10, \"دهم\" },\r\n             { 11, \"یازدهم\" },\r\n             { 12, \"دوازدهم\" },\r\n             { 13, \"سیزدهم\" },\r\n             { 14, \"چهاردهم\" },\r\n             { 15, \"پانزدهم\" },\r\n             { 16, \"شانزدهم\" },\r\n             { 17, \"هفدهم\" },\r\n             { 18, \"هجدهم\" },\r\n             { 19, \"نوزدهم\" },\r\n             { 20, \"بیستم\" },\r\n             { 21, \"بیست یکم\" },\r\n             { 22, \"بیست دوم\" },\r\n             { 23, \"بیست سوم\" },\r\n             { 24, \"بیست چهارم\" },\r\n             { 25, \"بیست پنجم\" },\r\n             { 26, \"بیست ششم\" },\r\n             { 27, \"بیست هفتم\" },\r\n             { 28, \"بیست هشتم\" },\r\n             { 29, \"بیست نهم\" },\r\n             { 30, \"سی‌ام\" },\r\n             { 31, \"سی یکم\" }\r\n           };",
+          "xml_doc": "/// <summary>\n    /// عدد به حروف روزهای شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عدد به حروف روزهای شمسی",
+            "en": "Author XML for field 'PersianMonthDayNumberNames': عدد به حروف روزهای شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "PersianMonthNames",
+          "kind": "field",
+          "signature": "public static readonly IDictionary<int, string> PersianMonthNames = new Dictionary<int, string>\r\n           {\r\n            {1, \"فروردین\"},\r\n            {2, \"اردیبهشت\"},\r\n            {3, \"خرداد\"},\r\n            {4, \"تیر\"},\r\n            {5, \"مرداد\"},\r\n            {6, \"شهریور\"},\r\n            {7, \"مهر\"},\r\n            {8, \"آبان\"},\r\n            {9, \"آذر\"},\r\n            {10, \"دی\"},\r\n            {11, \"بهمن\"},\r\n            {12, \"اسفند\"}\r\n           };",
+          "xml_doc": "/// <summary>\n    /// نام فارسی ماه‌های شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نام فارسی ماه‌های شمسی",
+            "en": "Author XML for field 'PersianMonthNames': نام فارسی ماه‌های شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Instance",
+          "kind": "property",
+          "signature": "public static CultureInfo Instance { get; }",
+          "xml_doc": "/// <summary>\n    /// وهله‌ی یکتای فرهنگ فارسی سفارشی سازی شده\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "وهله‌ی یکتای فرهنگ فارسی سفارشی سازی شده",
+            "en": "Author XML for property 'Instance': وهله‌ی یکتای فرهنگ فارسی سفارشی سازی شده"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetPersianDayOfMonth",
+          "kind": "method",
+          "signature": "public static int GetPersianDayOfMonth(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// Returns the day-of-month part of this <see cref=\"DateTime\"/> localized in Persian calendar.\n    /// </summary>\n    /// <param name=\"dateTime\">The <see cref=\"DateTime\"/> to extend.</param>\n    /// <returns>An integer between 1 and 31 representing the day-of-month part of this <see cref=\"DateTime\"/>.</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Returns the day-of-month part of this DateTime localized in Persian calendar.\r\nپارامترها:\r\n- dateTime: The DateTime to extend.\r\nمقدار بازگشتی: An integer between 1 and 31 representing the day-of-month part of this DateTime.",
+            "en": "Returns the day-of-month part of this DateTime localized in Persian calendar.\r\nParameters:\r\n- dateTime: The DateTime to extend.\r\nReturns: An integer between 1 and 31 representing the day-of-month part of this DateTime."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetPersianMonth",
+          "kind": "method",
+          "signature": "public static int GetPersianMonth(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// Returns the month part of this <see cref=\"DateTime\"/> localized in Persian calendar.\n    /// </summary>\n    /// <param name=\"dateTime\">The <see cref=\"DateTime\"/> to extend.</param>\n    /// <returns>An integer between 1 and 12 representing the month part of this <see cref=\"DateTime\"/>.</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Returns the month part of this DateTime localized in Persian calendar.\r\nپارامترها:\r\n- dateTime: The DateTime to extend.\r\nمقدار بازگشتی: An integer between 1 and 12 representing the month part of this DateTime.",
+            "en": "Returns the month part of this DateTime localized in Persian calendar.\r\nParameters:\r\n- dateTime: The DateTime to extend.\r\nReturns: An integer between 1 and 12 representing the month part of this DateTime."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetPersianMonthDayNumberName",
+          "kind": "method",
+          "signature": "public static string GetPersianMonthDayNumberName(this int dayNumber)",
+          "xml_doc": "/// <summary>\n    /// عدد به حروف روزهای شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "عدد به حروف روزهای شمسی\n\nپارامترها:\r\n- dayNumber (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianMonthDayNumberName': عدد به حروف روزهای شمسی\n\nParameters:\r\n- dayNumber (int): Input of type int.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianMonthName",
+          "kind": "method",
+          "signature": "public static string GetPersianMonthName(this int monthNumber)",
+          "xml_doc": "/// <summary>\n    /// نام فارسی ماه‌های شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "نام فارسی ماه‌های شمسی\n\nپارامترها:\r\n- monthNumber (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianMonthName': نام فارسی ماه‌های شمسی\n\nParameters:\r\n- monthNumber (int): Input of type int.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianWeekDayName",
+          "kind": "method",
+          "signature": "public static string GetPersianWeekDayName(this DayOfWeek dayOfWeek)",
+          "xml_doc": "/// <summary>\n    /// دریافت معادل فارسی نام روز هفته‌ی میلادی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "دریافت معادل فارسی نام روز هفته‌ی میلادی\n\nپارامترها:\r\n- dayOfWeek (DayOfWeek): ورودی از نوع DayOfWeek.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianWeekDayName': دریافت معادل فارسی نام روز هفته‌ی میلادی\n\nParameters:\r\n- dayOfWeek (DayOfWeek): Input of type DayOfWeek.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianWeekDayName",
+          "kind": "method",
+          "signature": "public static string GetPersianWeekDayName(int persianYear, int persianMonth, int persianDay)",
+          "xml_doc": "/// <summary>\n    /// گرفتن نام فارسی روزهای هفته\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "گرفتن نام فارسی روزهای هفته\n\nپارامترها:\r\n- persianYear (int): ورودی از نوع int.\r\n- persianMonth (int): ورودی از نوع int.\r\n- persianDay (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianWeekDayName': گرفتن نام فارسی روزهای هفته\n\nParameters:\r\n- persianYear (int): Input of type int.\r\n- persianMonth (int): Input of type int.\r\n- persianDay (int): Input of type int.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianWeekDayName",
+          "kind": "method",
+          "signature": "public static string GetPersianWeekDayName(this DateTime dt)",
+          "xml_doc": "/// <summary>\n    /// گرفتن نام فارسی روزهای هفته\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "گرفتن نام فارسی روزهای هفته\n\nپارامترها:\r\n- dt (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianWeekDayName': گرفتن نام فارسی روزهای هفته\n\nParameters:\r\n- dt (DateTime): Input of type DateTime.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianWeekDayName",
+          "kind": "method",
+          "signature": "public static string GetPersianWeekDayName(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// گرفتن نام فارسی روزهای هفته\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "گرفتن نام فارسی روزهای هفته\n\nپارامترها:\r\n- dt (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianWeekDayName': گرفتن نام فارسی روزهای هفته\n\nParameters:\r\n- dt (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianWeekDayName",
+          "kind": "method",
+          "signature": "public static string GetPersianWeekDayName(this DateTimeOffset? dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// گرفتن نام فارسی روزهای هفته\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "گرفتن نام فارسی روزهای هفته\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianWeekDayName': گرفتن نام فارسی روزهای هفته\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianWeekDayName",
+          "kind": "method",
+          "signature": "public static string GetPersianWeekDayName(this DateTimeOffset dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// گرفتن نام فارسی روزهای هفته\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "گرفتن نام فارسی روزهای هفته\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianWeekDayName': گرفتن نام فارسی روزهای هفته\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianYear",
+          "kind": "method",
+          "signature": "public static int GetPersianYear(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// Returns the year part of this <see cref=\"DateTime\"/> localized in Persian calendar.\n    /// </summary>\n    /// <param name=\"dateTime\">The <see cref=\"DateTime\"/> to extend.</param>\n    /// <returns>An integer between 1 and 9999 representing the year part of this <see cref=\"DateTime\"/>.</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Returns the year part of this DateTime localized in Persian calendar.\r\nپارامترها:\r\n- dateTime: The DateTime to extend.\r\nمقدار بازگشتی: An integer between 1 and 9999 representing the year part of this DateTime.",
+            "en": "Returns the year part of this DateTime localized in Persian calendar.\r\nParameters:\r\n- dateTime: The DateTime to extend.\r\nReturns: An integer between 1 and 9999 representing the year part of this DateTime."
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "GetPersianYearStartAndEndDates",
+          "kind": "method",
+          "signature": "public static PersianYear GetPersianYearStartAndEndDates(this int persianYear)",
+          "xml_doc": "/// <summary>\n    /// تاریخ روزهای ابتدا و انتهای سال شمسی را بازگشت می‌دهد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تاریخ روزهای ابتدا و انتهای سال شمسی را بازگشت می‌دهد\n\nپارامترها:\r\n- persianYear (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `PersianYear`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianYearStartAndEndDates': تاریخ روزهای ابتدا و انتهای سال شمسی را بازگشت می‌دهد\n\nParameters:\r\n- persianYear (int): Input of type int.\r\n\r\nReturns: `PersianYear`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianYearStartAndEndDates",
+          "kind": "method",
+          "signature": "public static PersianYear GetPersianYearStartAndEndDates(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// سال شمسی معادل را محاسبه کرده و سپس\n    /// تاریخ روزهای ابتدا و انتهای آن سال شمسی را بازگشت می‌دهد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سال شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن سال شمسی را بازگشت می‌دهد\n\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `PersianYear`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianYearStartAndEndDates': سال شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن سال شمسی را بازگشت می‌دهد\n\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n\r\nReturns: `PersianYear`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianYearStartAndEndDates",
+          "kind": "method",
+          "signature": "public static PersianYear GetPersianYearStartAndEndDates(this DateTimeOffset dateTimeOffset, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// سال شمسی معادل را محاسبه کرده و سپس\n    /// تاریخ روزهای ابتدا و انتهای آن سال شمسی را بازگشت می‌دهد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سال شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن سال شمسی را بازگشت می‌دهد\n\nپارامترها:\r\n- dateTimeOffset (DateTimeOffset): ورودی از نوع DateTimeOffset.\r\n- dateTimeOffsetPart (DateTimeOffsetPart): ورودی اختیاری از نوع DateTimeOffsetPart (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `PersianYear`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianYearStartAndEndDates': سال شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن سال شمسی را بازگشت می‌دهد\n\nParameters:\r\n- dateTimeOffset (DateTimeOffset): Input of type DateTimeOffset.\r\n- dateTimeOffsetPart (DateTimeOffsetPart): Optional DateTimeOffsetPart input (has default).\r\n\r\nReturns: `PersianYear`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianMonthStartAndEndDates",
+          "kind": "method",
+          "signature": "public static PersianMonth GetPersianMonthStartAndEndDates(this int persianYear, int persianMonth)",
+          "xml_doc": "/// <summary>\n    /// تاریخ روزهای ابتدا و انتهای ماه شمسی را بازگشت می‌دهد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تاریخ روزهای ابتدا و انتهای ماه شمسی را بازگشت می‌دهد\n\nپارامترها:\r\n- persianYear (int): ورودی از نوع int.\r\n- persianMonth (int): ورودی از نوع int.\r\n\r\nمقدار بازگشتی: `PersianMonth`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianMonthStartAndEndDates': تاریخ روزهای ابتدا و انتهای ماه شمسی را بازگشت می‌دهد\n\nParameters:\r\n- persianYear (int): Input of type int.\r\n- persianMonth (int): Input of type int.\r\n\r\nReturns: `PersianMonth`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianMonthStartAndEndDates",
+          "kind": "method",
+          "signature": "public static PersianMonth GetPersianMonthStartAndEndDates(this DateTime dateTime)",
+          "xml_doc": "/// <summary>\n    /// ماه شمسی معادل را محاسبه کرده و سپس\n    /// تاریخ روزهای ابتدا و انتهای آن ماه شمسی را بازگشت می‌دهد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ماه شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن ماه شمسی را بازگشت می‌دهد\n\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `PersianMonth`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianMonthStartAndEndDates': ماه شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن ماه شمسی را بازگشت می‌دهد\n\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n\r\nReturns: `PersianMonth`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianMonthStartAndEndDates",
+          "kind": "method",
+          "signature": "public static PersianMonth GetPersianMonthStartAndEndDates(this DateTimeOffset dateTimeOffset, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// ماه شمسی معادل را محاسبه کرده و سپس\n    /// تاریخ روزهای ابتدا و انتهای آن ماه شمسی را بازگشت می‌دهد\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ماه شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن ماه شمسی را بازگشت می‌دهد\n\nپارامترها:\r\n- dateTimeOffset (DateTimeOffset): ورودی از نوع DateTimeOffset.\r\n- dateTimeOffsetPart (DateTimeOffsetPart): ورودی اختیاری از نوع DateTimeOffsetPart (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `PersianMonth`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'GetPersianMonthStartAndEndDates': ماه شمسی معادل را محاسبه کرده و سپس تاریخ روزهای ابتدا و انتهای آن ماه شمسی را بازگشت می‌دهد\n\nParameters:\r\n- dateTimeOffset (DateTimeOffset): Input of type DateTimeOffset.\r\n- dateTimeOffsetPart (DateTimeOffsetPart): Optional DateTimeOffsetPart input (has default).\r\n\r\nReturns: `PersianMonth`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetPersianMonthLastDay",
+          "kind": "method",
+          "signature": "public static int GetPersianMonthLastDay(this int persianYear, int persianMonth)",
+          "xml_doc": "/// <summary>\n    /// شماره آخرین روز ماه شمسی را بر می‌گرداند\n    /// </summary>\n    /// <param name=\"persianYear\">سال شمسی</param>\n    /// <param name=\"persianMonth\">ماه شمسی</param>\n    /// <returns>شماره آخرین روز ماه</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "شماره آخرین روز ماه شمسی را بر می‌گرداند\r\nپارامترها:\r\n- persianYear: سال شمسی\r\n- persianMonth: ماه شمسی\r\nمقدار بازگشتی: شماره آخرین روز ماه",
+            "en": "Author XML for method 'GetPersianMonthLastDay': شماره آخرین روز ماه شمسی را بر می‌گرداند\r\nParameters:\r\n- persianYear: Parameter 'persianYear' as documented by author: سال شمسی\r\n- persianMonth: Parameter 'persianMonth' as documented by author: ماه شمسی\r\nReturns: Return value as documented by author: شماره آخرین روز ماه"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "فرهنگ فارسی سفارشی سازی شده",
+        "en": "Author XML for class 'PersianCulture': فرهنگ فارسی سفارشی سازی شده"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PersianDateTimeUtils",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/PersianDateTimeUtils.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// Represents PersianDateTime utils.\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "IsValidPersianDate",
+          "kind": "method",
+          "signature": "public static bool IsValidPersianDate(int persianYear, int persianMonth, int persianDay)",
+          "xml_doc": "/// <summary>\n    /// تعیین اعتبار تاریخ شمسی\n    /// </summary>\n    /// <param name=\"persianYear\">سال شمسی</param>\n    /// <param name=\"persianMonth\">ماه شمسی</param>\n    /// <param name=\"persianDay\">روز شمسی</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین اعتبار تاریخ شمسی\r\nپارامترها:\r\n- persianYear: سال شمسی\r\n- persianMonth: ماه شمسی\r\n- persianDay: روز شمسی\n\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'IsValidPersianDate': تعیین اعتبار تاریخ شمسی\r\nParameters:\r\n- persianYear: Parameter 'persianYear' as documented by author: سال شمسی\r\n- persianMonth: Parameter 'persianMonth' as documented by author: ماه شمسی\r\n- persianDay: Parameter 'persianDay' as documented by author: روز شمسی\n\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "IsValidPersianDateTime",
+          "kind": "method",
+          "signature": "public static bool IsValidPersianDateTime(this string persianDateTime)",
+          "xml_doc": "/// <summary>\n    /// تعیین اعتبار تاریخ و زمان رشته‌ای شمسی\n    /// با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴\n    /// </summary>\n    /// <param name=\"persianDateTime\">تاریخ و زمان شمسی</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تعیین اعتبار تاریخ و زمان رشته‌ای شمسی با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴\r\nپارامترها:\r\n- persianDateTime: تاریخ و زمان شمسی\n\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'IsValidPersianDateTime': تعیین اعتبار تاریخ و زمان رشته‌ای شمسی با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴\r\nParameters:\r\n- persianDateTime: Parameter 'persianDateTime' as documented by author: تاریخ و زمان شمسی\n\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToGregorianDateTime",
+          "kind": "method",
+          "signature": "public static DateTime? ToGregorianDateTime(this string persianDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی\n    /// با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴\n    /// در اینجا اگر رشته‌ی مدنظر قابل تبدیل نباشد، مقدار نال را دریافت خواهید کرد\n    /// </summary>\n    /// <param name=\"persianDateTime\">تاریخ و زمان شمسی</param>\n    /// <returns>تاریخ و زمان میلادی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴ در اینجا اگر رشته‌ی مدنظر قابل تبدیل نباشد، مقدار نال را دریافت خواهید کرد\r\nپارامترها:\r\n- persianDateTime: تاریخ و زمان شمسی\r\nمقدار بازگشتی: تاریخ و زمان میلادی",
+            "en": "Author XML for method 'ToGregorianDateTime': تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴ در اینجا اگر رشته‌ی مدنظر قابل تبدیل نباشد، مقدار نال را دریافت خواهید کرد\r\nParameters:\r\n- persianDateTime: Parameter 'persianDateTime' as documented by author: تاریخ و زمان شمسی\r\nReturns: Return value as documented by author: تاریخ و زمان میلادی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToGregorianDateTimeOffset",
+          "kind": "method",
+          "signature": "public static DateTimeOffset? ToGregorianDateTimeOffset(this string persianDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی\n    /// با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴\n    /// در اینجا اگر رشته‌ی مدنظر قابل تبدیل نباشد، مقدار نال را دریافت خواهید کرد\n    /// </summary>\n    /// <param name=\"persianDateTime\">تاریخ و زمان شمسی</param>\n    /// <returns>تاریخ و زمان میلادی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴ در اینجا اگر رشته‌ی مدنظر قابل تبدیل نباشد، مقدار نال را دریافت خواهید کرد\r\nپارامترها:\r\n- persianDateTime: تاریخ و زمان شمسی\r\nمقدار بازگشتی: تاریخ و زمان میلادی",
+            "en": "Author XML for method 'ToGregorianDateTimeOffset': تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴ در اینجا اگر رشته‌ی مدنظر قابل تبدیل نباشد، مقدار نال را دریافت خواهید کرد\r\nParameters:\r\n- persianDateTime: Parameter 'persianDateTime' as documented by author: تاریخ و زمان شمسی\r\nReturns: Return value as documented by author: تاریخ و زمان میلادی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLongPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateString(this DateTime dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToLongPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime): Input of type DateTime.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToLongPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateString(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToLongPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToLongPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateString(this DateTimeOffset? dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToLongPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLongPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateString(this DateTimeOffset dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToLongPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLongPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateTimeString(this DateTime dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToLongPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime): Input of type DateTime.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToLongPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateTimeString(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToLongPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToLongPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateTimeString(this DateTimeOffset? dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToLongPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToLongPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToLongPersianDateTimeString(this DateTimeOffset dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToLongPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToPersianDateTimeString(this DateTime dateTime, string format)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dateTime (DateTime): ورودی از نوع DateTime.\r\n- format (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianDateTimeString': تبدیل تاریخ میلادی به شمسی\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dateTime (DateTime): Input of type DateTime.\r\n- format (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianYearMonthDay",
+          "kind": "method",
+          "signature": "public static PersianDay ToPersianYearMonthDay(this DateTimeOffset? gregorianDate, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n    /// </summary>\n    /// <param name=\"gregorianDate\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\r\nپارامترها:\r\n- gregorianDate: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nمقدار بازگشتی: `PersianDay`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianYearMonthDay': تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\r\nParameters:\r\n- gregorianDate: Parameter 'gregorianDate' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nReturns: `PersianDay`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianYearMonthDay",
+          "kind": "method",
+          "signature": "public static PersianDay ToPersianYearMonthDay(this DateTime? gregorianDate)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n\nپارامترها:\r\n- gregorianDate (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `PersianDay`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianYearMonthDay': تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n\nParameters:\r\n- gregorianDate (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `PersianDay`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianYearMonthDay",
+          "kind": "method",
+          "signature": "public static PersianDay ToPersianYearMonthDay(this DateTimeOffset gregorianDate, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n    /// </summary>\n    /// <param name=\"gregorianDate\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\r\nپارامترها:\r\n- gregorianDate: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nمقدار بازگشتی: `PersianDay`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianYearMonthDay': تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\r\nParameters:\r\n- gregorianDate: Parameter 'gregorianDate' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\n\nReturns: `PersianDay`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianYearMonthDay",
+          "kind": "method",
+          "signature": "public static PersianDay ToPersianYearMonthDay(this DateTime gregorianDate)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n\nپارامترها:\r\n- gregorianDate (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `PersianDay`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToPersianYearMonthDay': تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌\n\nParameters:\r\n- gregorianDate (DateTime): Input of type DateTime.\r\n\r\nReturns: `PersianDay`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToShortPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateString(this DateTimeOffset? dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToShortPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToShortPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateString(this DateTimeOffset dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToShortPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToShortPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateString(this DateTime dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToShortPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime): Input of type DateTime.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToShortPersianDateString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateString(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToShortPersianDateString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToShortPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateTimeString(this DateTime dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21 10:20\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime): ورودی از نوع DateTime.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToShortPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime): Input of type DateTime.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToShortPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateTimeString(this DateTime? dt)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21 10:20\n    /// </summary>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nمقدار بازگشتی: تاریخ شمسی\n\nپارامترها:\r\n- dt (DateTime?): ورودی از نوع DateTime?.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ToShortPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nReturns: Return value as documented by author: تاریخ شمسی\n\nParameters:\r\n- dt (DateTime?): Input of type DateTime?.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToShortPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateTimeString(this DateTimeOffset? dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21 10:20\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToShortPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ToShortPersianDateTimeString",
+          "kind": "method",
+          "signature": "public static string ToShortPersianDateTimeString(this DateTimeOffset dt, DateTimeOffsetPart dateTimeOffsetPart = DateTimeOffsetPart.IranLocalDateTime)",
+          "xml_doc": "/// <summary>\n    /// تبدیل تاریخ میلادی به شمسی\n    /// با قالبی مانند 1395/10/21 10:20\n    /// </summary>\n    /// <param name=\"dt\">تاریخ و زمان</param>\n    /// <param name=\"dateTimeOffsetPart\">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>\n    /// <returns>تاریخ شمسی</returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nپارامترها:\r\n- dt: تاریخ و زمان\r\n- dateTimeOffsetPart: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nمقدار بازگشتی: تاریخ شمسی",
+            "en": "Author XML for method 'ToShortPersianDateTimeString': تبدیل تاریخ میلادی به شمسی با قالبی مانند 1395/10/21 10:20\r\nParameters:\r\n- dt: Parameter 'dt' as documented by author: تاریخ و زمان\r\n- dateTimeOffsetPart: Parameter 'dateTimeOffsetPart' as documented by author: کدام جزء این وهله مورد استفاده قرار گیرد؟\r\nReturns: Return value as documented by author: تاریخ شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "CorrectReverseDate",
+          "kind": "method",
+          "signature": "public static string CorrectReverseDate(string reverseDate)",
+          "xml_doc": "/// <summary>\n    /// رشته شامل تاریخ شمسی به صورت سال/ماه/روز را به روز/ماه/سال تبدیل می‌کند\n    /// </summary>\n    /// <param name=\"reverseDate\">رشته تاریخ شمسی معکوس</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "رشته شامل تاریخ شمسی به صورت سال/ماه/روز را به روز/ماه/سال تبدیل می‌کند\r\nپارامترها:\r\n- reverseDate: رشته تاریخ شمسی معکوس\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'CorrectReverseDate': رشته شامل تاریخ شمسی به صورت سال/ماه/روز را به روز/ماه/سال تبدیل می‌کند\r\nParameters:\r\n- reverseDate: Parameter 'reverseDate' as documented by author: رشته تاریخ شمسی معکوس\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "Represents PersianDateTime utils.",
+        "en": "Represents PersianDateTime utils."
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PersianDay",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/PersianDay.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// اجزای روز شمسی\n/// </summary>",
+      "injected_dependencies": [
+        "int year",
+        "int month",
+        "int day"
+      ],
+      "members": [
+        {
+          "name": "Year",
+          "kind": "property",
+          "signature": "public int Year { set; get; }",
+          "xml_doc": "/// <summary>\n    /// سال شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سال شمسی",
+            "en": "Author XML for property 'Year': سال شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Month",
+          "kind": "property",
+          "signature": "public int Month { set; get; }",
+          "xml_doc": "/// <summary>\n    /// ماه شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ماه شمسی",
+            "en": "Author XML for property 'Month': ماه شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Day",
+          "kind": "property",
+          "signature": "public int Day { set; get; }",
+          "xml_doc": "/// <summary>\n    /// روز شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "روز شمسی",
+            "en": "Author XML for property 'Day': روز شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public PersianDay()",
+          "xml_doc": "/// <summary>\n    /// اجزای روز شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "اجزای روز شمسی",
+            "en": "Author XML for constructor '.ctor': اجزای روز شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public PersianDay(int year, int month, int day)",
+          "xml_doc": "/// <summary>\n    /// اجزای روز شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "اجزای روز شمسی\n\nپارامترها:\r\n- year (int): ورودی از نوع int.\r\n- month (int): ورودی از نوع int.\r\n- day (int): ورودی از نوع int.",
+            "en": "Author XML for constructor '.ctor': اجزای روز شمسی\n\nParameters:\r\n- year (int): Input of type int.\r\n- month (int): Input of type int.\r\n- day (int): Input of type int."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToString",
+          "kind": "method",
+          "signature": "public override string ToString()",
+          "xml_doc": "/// <summary>\n    /// ToString()\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "ToString()\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: int year, int month, int day",
+            "en": "ToString()\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: int year, int month, int day"
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "Equals",
+          "kind": "method",
+          "signature": "public override bool Equals(object obj)",
+          "xml_doc": "/// <summary>\n    /// Equals\n    /// </summary>\n    /// <param name=\"obj\"></param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Equals\r\nپارامترها:\r\n- obj: (بدون توضیح)\n\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: int year, int month, int day",
+            "en": "Equals\r\nParameters:\r\n- obj: See signature.\n\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: int year, int month, int day"
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "GetHashCode",
+          "kind": "method",
+          "signature": "public override int GetHashCode()",
+          "xml_doc": "/// <summary>\n    /// GetHashCode\n    /// </summary>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetHashCode» در PersianDay. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: int year, int month, int day",
+            "en": "Method 'GetHashCode' on PersianDay. Retrieves related data or state.\r\nNo input parameters.\r\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: int year, int month, int day"
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "اجزای روز شمسی",
+        "en": "Author XML for class 'PersianDay': اجزای روز شمسی"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PersianMonth",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/PersianMonth.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// اجزای ماه شمسی\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "StartDate",
+          "kind": "property",
+          "signature": "public DateTime StartDate { set; get; }",
+          "xml_doc": "/// <summary>\n    /// اولین روز ماه شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "اولین روز ماه شمسی",
+            "en": "Author XML for property 'StartDate': اولین روز ماه شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "EndDate",
+          "kind": "property",
+          "signature": "public DateTime EndDate { set; get; }",
+          "xml_doc": "/// <summary>\n    /// آخرین روز ماه شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "آخرین روز ماه شمسی",
+            "en": "Author XML for property 'EndDate': آخرین روز ماه شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "اجزای ماه شمسی",
+        "en": "Author XML for class 'PersianMonth': اجزای ماه شمسی"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PersianNumbersUtils",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/PersianNumbersUtils.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// Converts English digits of a given number to their equivalent Persian digits.\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ToPersianNumbers",
+          "kind": "method",
+          "signature": "public static string ToPersianNumbers(this int number, string format = \"\")",
+          "xml_doc": "/// <summary>\n    /// Converts English digits of a given number to their equivalent Persian digits.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts English digits of a given number to their equivalent Persian digits.\n\nپارامترها:\r\n- number (int): ورودی از نوع int.\r\n- format (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts English digits of a given number to their equivalent Persian digits.\n\nParameters:\r\n- number (int): Input of type int.\r\n- format (string): Optional string input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianNumbers",
+          "kind": "method",
+          "signature": "public static string ToPersianNumbers(this long number, string format = \"\")",
+          "xml_doc": "/// <summary>\n    /// Converts English digits of a given number to their equivalent Persian digits.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts English digits of a given number to their equivalent Persian digits.\n\nپارامترها:\r\n- number (long): ورودی از نوع long.\r\n- format (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts English digits of a given number to their equivalent Persian digits.\n\nParameters:\r\n- number (long): Input of type long.\r\n- format (string): Optional string input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianNumbers",
+          "kind": "method",
+          "signature": "public static string ToPersianNumbers(this int? number, string format = \"\")",
+          "xml_doc": "/// <summary>\n    /// Converts English digits of a given number to their equivalent Persian digits.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts English digits of a given number to their equivalent Persian digits.\n\nپارامترها:\r\n- number (int?): ورودی از نوع int?.\r\n- format (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts English digits of a given number to their equivalent Persian digits.\n\nParameters:\r\n- number (int?): Input of type int?.\r\n- format (string): Optional string input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianNumbers",
+          "kind": "method",
+          "signature": "public static string ToPersianNumbers(this long? number, string format = \"\")",
+          "xml_doc": "/// <summary>\n    /// Converts English digits of a given number to their equivalent Persian digits.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts English digits of a given number to their equivalent Persian digits.\n\nپارامترها:\r\n- number (long?): ورودی از نوع long?.\r\n- format (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts English digits of a given number to their equivalent Persian digits.\n\nParameters:\r\n- number (long?): Input of type long?.\r\n- format (string): Optional string input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToPersianNumbers",
+          "kind": "method",
+          "signature": "public static string ToPersianNumbers(this string data)",
+          "xml_doc": "/// <summary>\n    /// Converts English digits of a given string to their equivalent Persian digits.\n    /// </summary>\n    /// <param name=\"data\">English number</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts English digits of a given string to their equivalent Persian digits.\r\nپارامترها:\r\n- data: English number\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts English digits of a given string to their equivalent Persian digits.\r\nParameters:\r\n- data: English number\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ToEnglishNumbers",
+          "kind": "method",
+          "signature": "public static string ToEnglishNumbers(this string data)",
+          "xml_doc": "/// <summary>\n    /// Converts Persian and Arabic digits of a given string to their equivalent English digits.\n    /// </summary>\n    /// <param name=\"data\">Persian number</param>\n    /// <returns></returns>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Converts Persian and Arabic digits of a given string to their equivalent English digits.\r\nپارامترها:\r\n- data: Persian number\n\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Converts Persian and Arabic digits of a given string to their equivalent English digits.\r\nParameters:\r\n- data: Persian number\n\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "Converts English digits of a given number to their equivalent Persian digits.",
+        "en": "Converts English digits of a given number to their equivalent Persian digits."
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PersianYear",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/PersianYear.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// اجزای سال شمسی\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "StartDate",
+          "kind": "property",
+          "signature": "public DateTime StartDate { set; get; }",
+          "xml_doc": "/// <summary>\n    /// اولین روز سال شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "اولین روز سال شمسی",
+            "en": "Author XML for property 'StartDate': اولین روز سال شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "EndDate",
+          "kind": "property",
+          "signature": "public DateTime EndDate { set; get; }",
+          "xml_doc": "/// <summary>\n    /// آخرین روز سال شمسی\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "آخرین روز سال شمسی",
+            "en": "Author XML for property 'EndDate': آخرین روز سال شمسی"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "اجزای سال شمسی",
+        "en": "Author XML for class 'PersianYear': اجزای سال شمسی"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "RegexUtils",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/RegexUtils.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// متدهای کمکی مبتنی بر عبارات باقاعده\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "MatchTimeout",
+          "kind": "field",
+          "signature": "public static readonly TimeSpan MatchTimeout = TimeSpan.FromSeconds(3);",
+          "xml_doc": "/// <summary>\n    /// زمان انقضای پردازش عبارت باقاعده\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "زمان انقضای پردازش عبارت باقاعده",
+            "en": "Author XML for field 'MatchTimeout': زمان انقضای پردازش عبارت باقاعده"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "ContainsFarsi",
+          "kind": "method",
+          "signature": "public static bool ContainsFarsi(this string txt)",
+          "xml_doc": "/// <summary>\n    /// آیا عبارت مدنظر حاوی حروف و اعداد فارسی است؟\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "آیا عبارت مدنظر حاوی حروف و اعداد فارسی است؟\n\nپارامترها:\r\n- txt (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ContainsFarsi': آیا عبارت مدنظر حاوی حروف و اعداد فارسی است؟\n\nParameters:\r\n- txt (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ContainsOnlyFarsiLetters",
+          "kind": "method",
+          "signature": "public static bool ContainsOnlyFarsiLetters(this string txt)",
+          "xml_doc": "/// <summary>\n    /// آیا عبارت مدنظر فقط حاوی حروف فارسی است؟\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "آیا عبارت مدنظر فقط حاوی حروف فارسی است؟\n\nپارامترها:\r\n- txt (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ContainsOnlyFarsiLetters': آیا عبارت مدنظر فقط حاوی حروف فارسی است؟\n\nParameters:\r\n- txt (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "StripHtmlTags",
+          "kind": "method",
+          "signature": "public static string StripHtmlTags(this string text)",
+          "xml_doc": "/// <summary>\n    /// حذف تگ‌های یک عبارت\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "حذف تگ‌های یک عبارت\n\nپارامترها:\r\n- text (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'StripHtmlTags': حذف تگ‌های یک عبارت\n\nParameters:\r\n- text (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "WrapInDirectionalDiv",
+          "kind": "method",
+          "signature": "public static string WrapInDirectionalDiv(this string body, string fontFamily = \"tahoma\", string fontSize = \"9pt\")",
+          "xml_doc": "/// <summary>\n    /// اگر متن شما حاوی یک عبارت فارسی باشد آن‌را داخل یک بلاک اچ تی ام ال راست به چپ محصور می‌کند\n    /// <div style='text-align: right; font-family:{fontFamily}; font-size:{fontSize};' dir='rtl'>{body}</div>\n    /// در غیراینصورت در\n    /// <div style='text-align: left; font-family:{fontFamily}; font-size:{fontSize};' dir='ltr'>{body}</div>\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "اگر متن شما حاوی یک عبارت فارسی باشد آن‌را داخل یک بلاک اچ تی ام ال راست به چپ محصور می‌کند <div style=\"text-align: right; font-family:{fontFamily}; font-size:{fontSize};\" dir=\"rtl\">{body}</div> در غیراینصورت در <div style=\"text-align: left; font-family:{fontFamily}; font-size:{fontSize};\" dir=\"ltr\">{body}</div>\n\nپارامترها:\r\n- body (string): ورودی از نوع string.\r\n- fontFamily (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n- fontSize (string): ورودی اختیاری از نوع string (دارای مقدار پیش‌فرض).\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'WrapInDirectionalDiv': اگر متن شما حاوی یک عبارت فارسی باشد آن‌را داخل یک بلاک اچ تی ام ال راست به چپ محصور می‌کند <div style=\"text-align: right; font-family:{fontFamily}; font-size:{fontSize};\" dir=\"rtl\">{body}</div> در غیراینصورت در <div style=\"text-align: left; font-family:{fontFamily}; font-size:{f…\n\nParameters:\r\n- body (string): Input of type string.\r\n- fontFamily (string): Optional string input (has default).\r\n- fontSize (string): Optional string input (has default).\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ContainsOnlyPersianNumbers",
+          "kind": "method",
+          "signature": "public static bool ContainsOnlyPersianNumbers(this string text)",
+          "xml_doc": "/// <summary>\n    /// آیا عبارت مدنظر فقط حاوی اعداد فارسی است؟\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "آیا عبارت مدنظر فقط حاوی اعداد فارسی است؟\n\nپارامترها:\r\n- text (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Author XML for method 'ContainsOnlyPersianNumbers': آیا عبارت مدنظر فقط حاوی اعداد فارسی است؟\n\nParameters:\r\n- text (string): Input of type string.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "متدهای کمکی مبتنی بر عبارات باقاعده",
+        "en": "Author XML for class 'RegexUtils': متدهای کمکی مبتنی بر عبارات باقاعده"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "TimeConstants",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/TimeConstants.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// Time Constants\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Day",
+          "kind": "field",
+          "signature": "public const int Day = 24 * Hour;",
+          "xml_doc": "/// <summary>\n    /// Day = 24 * Hour\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Day = 24 * Hour",
+            "en": "Day = 24 * Hour"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Hour",
+          "kind": "field",
+          "signature": "public const int Hour = 60 * Minute;",
+          "xml_doc": "/// <summary>\n    /// Hour = 60 * Minute\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Hour = 60 * Minute",
+            "en": "Hour = 60 * Minute"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Minute",
+          "kind": "field",
+          "signature": "public const int Minute = 60 * Second;",
+          "xml_doc": "/// <summary>\n    /// Minute = 60 * Second\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Minute = 60 * Second",
+            "en": "Minute = 60 * Second"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Month",
+          "kind": "field",
+          "signature": "public const int Month = 30 * Day;",
+          "xml_doc": "/// <summary>\n    /// Month = 30 * Day\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Month = 30 * Day",
+            "en": "Month = 30 * Day"
+          },
+          "source": "existing",
+          "doc_completed": false
+        },
+        {
+          "name": "Second",
+          "kind": "field",
+          "signature": "public const int Second = 1;",
+          "xml_doc": "/// <summary>\n    /// Second = 1\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Second = 1",
+            "en": "Second = 1"
+          },
+          "source": "existing",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "Time Constants",
+        "en": "Time Constants"
+      },
+      "source": "existing",
+      "doc_completed": false
+    },
+    {
+      "type_name": "UnicodeConstants",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.DateTimes",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/DateTimes/UnicodeConstants.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// Unicode Constants\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "RleChar",
+          "kind": "field",
+          "signature": "public const char RleChar = (char)0x202B;",
+          "xml_doc": "/// <summary>\n    ///\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "<summary>\r\n\r\n </summary>",
+            "en": "Description of field 'RleChar'."
+          },
+          "source": "existing",
+          "doc_completed": true
+        },
+        {
+          "name": "ApplyRle",
+          "kind": "method",
+          "signature": "public static string ApplyRle(this string text)",
+          "xml_doc": "/// <summary>\n    ///  Applies RLE to the text if it contains Persian words.\n    /// </summary>",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "Applies RLE to the text if it contains Persian words.\n\nپارامترها:\r\n- text (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `string`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).",
+            "en": "Applies RLE to the text if it contains Persian words.\n\nParameters:\r\n- text (string): Input of type string.\r\n\r\nReturns: `string`.\r\nNo explicit throw in the body (callees may still throw)."
+          },
+          "source": "existing",
+          "doc_completed": true
+        }
+      ],
+      "generated_doc": {
+        "fa": "Unicode Constants",
+        "en": "Unicode Constants"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.Abstractions",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IExcelSerializer",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Serializers.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Serializers.Abstractions/IExcelSerializer.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ListToExcelByteArray",
+          "kind": "method",
+          "signature": "byte[] ListToExcelByteArray<T>(List<T> list, string sheetName = \"Result\")",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ExcelToDataTable",
+          "kind": "method",
+          "signature": "DataTable ExcelToDataTable(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "ExcelToList",
+          "kind": "method",
+          "signature": "List<T> ExcelToList<T>(byte[] bytes)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IJsonSerializer",
+      "kind": "interface",
+      "namespace": "Zamin.Extensions.Serializers.Abstractions",
+      "source_file": "Extentsions/Zamin.Extensions.Abstractions/Zamin.Extensions.Serializers.Abstractions/IJsonSerializer.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Serialize",
+          "kind": "method",
+          "signature": "string Serialize<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "TOutput Deserialize<TOutput>(string input)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "object Deserialize(string input, Type type)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

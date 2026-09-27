@@ -1,0 +1,212 @@
+﻿{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "OAuthOption",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Options/SoftwarePartDetectorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Enabled",
+          "kind": "property",
+          "signature": "public bool Enabled { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Enabled» از نوع `bool` در OAuthOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Enabled' of type `bool` on OAuthOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ClientId",
+          "kind": "property",
+          "signature": "public string ClientId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ClientId» از نوع `string` در OAuthOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ClientId' of type `string` on OAuthOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ClientSecret",
+          "kind": "property",
+          "signature": "public string ClientSecret { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ClientSecret» از نوع `string` در OAuthOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ClientSecret' of type `string` on OAuthOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Authority",
+          "kind": "property",
+          "signature": "public string Authority { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Authority» از نوع `string` در OAuthOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Authority' of type `string` on OAuthOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Scopes",
+          "kind": "property",
+          "signature": "public string[] Scopes { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «Scopes» از نوع `string[]` در OAuthOption. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'Scopes' of type `string[]` on OAuthOption. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «OAuthOption» در namespace Zamin.Utilities.SoftwarePartDetector.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'OAuthOption' in namespace Zamin.Utilities.SoftwarePartDetector.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "SoftwarePartDetectorOptions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Options",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Options/SoftwarePartDetectorOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ApplicationName» از نوع `string` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ApplicationName' of type `string` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ModuleName",
+          "kind": "property",
+          "signature": "public string ModuleName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ModuleName» از نوع `string` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ModuleName' of type `string` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ServiceName",
+          "kind": "property",
+          "signature": "public string ServiceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ServiceName» از نوع `string` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ServiceName' of type `string` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DestinationServiceBaseAddress",
+          "kind": "property",
+          "signature": "public string DestinationServiceBaseAddress { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «DestinationServiceBaseAddress» از نوع `string` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'DestinationServiceBaseAddress' of type `string` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DestinationServicePath",
+          "kind": "property",
+          "signature": "public string DestinationServicePath { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «DestinationServicePath» از نوع `string` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'DestinationServicePath' of type `string` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "FakeSSL",
+          "kind": "property",
+          "signature": "public bool FakeSSL { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «FakeSSL» از نوع `bool` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'FakeSSL' of type `bool` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OAuth",
+          "kind": "property",
+          "signature": "public OAuthOption OAuth { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «OAuth» از نوع `OAuthOption` در SoftwarePartDetectorOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'OAuth' of type `OAuthOption` on SoftwarePartDetectorOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartDetectorOptions» در namespace Zamin.Utilities.SoftwarePartDetector.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'SoftwarePartDetectorOptions' in namespace Zamin.Utilities.SoftwarePartDetector.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

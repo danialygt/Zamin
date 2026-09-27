@@ -1,0 +1,60 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.PollingPublisher",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "PoolingPublisherBackgroundService",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.PollingPublisher",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher/PoolingPublisherBackgroundService.cs",
+      "base_types": [
+        "BackgroundService"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOutBoxEventItemRepository outBoxEventItemRepository",
+        "IOptions<PollingPublisherOptions> options",
+        "ILogger<PoolingPublisherBackgroundService> logger",
+        "IServiceProvider serviceProvider"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public PoolingPublisherBackgroundService( IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger,IServiceProvider serviceProvider)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var scope = serviceProvider.CreateScope();\r\n\r\n            _options = options.Value;\r\n            _sendMessageBus = scope.ServiceProvider.GetRequiredService<ISendMessageBus>();\r\n            _outBoxEventItemRepository = outBoxEventItemRepository;\r\n            _logger = logger;\r\n            _logger.LogInformation(\"PoolingPublisherBackgroundService start working for {ApplicationName} at {DateTime}\", _options.ApplicationName, DateTime.Now);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده PoolingPublisherBackgroundService. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- outBoxEventItemRepository (IOutBoxEventItemRepository): رویداد دامنه/پیام برای پردازش.\r\n- options (IOptions<PollingPublisherOptions>): گزینه‌های typed تنظیمات.\r\n- logger (ILogger<PoolingPublisherBackgroundService>): لاگر برای ثبت رویدادها و خطاها.\r\n- serviceProvider (IServiceProvider): ارائه‌دهنده سرویس برای resolve کردن وابستگی‌ها.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for PoolingPublisherBackgroundService. Parameters are expected via dependency injection. Parameters:\r\n- outBoxEventItemRepository (IOutBoxEventItemRepository): Domain/event message to process.\r\n- options (IOptions<PollingPublisherOptions>): Typed options snapshot/wrapper.\r\n- logger (ILogger<PoolingPublisherBackgroundService>): Logger for diagnostics and error reporting.\r\n- serviceProvider (IServiceProvider): Service provider used to resolve dependencies.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExecuteAsync",
+          "kind": "method",
+          "signature": "protected override async Task ExecuteAsync(CancellationToken stoppingToken)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            while (!stoppingToken.IsCancellationRequested)\r\n            {\r\n                try\r\n                {\r\n                    var outboxItems = _outBoxEventItemRepository.GetOutBoxEventItemsForPublishe(_options.SendCount);\r\n                    foreach (var item in outboxItems)\r\n                    {\r\n                        using Activity trace = StartChildActivity(item);\r\n                        _sendMessageBus.Send(new Parcel\r\n                        {\r\n                            CorrelationId = item.AggregateId,\r\n                            MessageBody = item.EventPayload,\r\n                            MessageId = item.EventId.ToString(),\r\n                            MessageName = item.EventName,\r\n                            Route = $\"{_options.ApplicationName}.event.{item.EventName}\",\r\n                            Headers = new Dictionary<string, object>\r\n                            {\r\n                                [\"AccuredByUserId\"] = item.AccuredByUserId,\r\n                                [\"AccuredOn\"] = item.AccuredOn.ToString(),\r\n                                [\"AggregateName\"] = item.AggregateName,\r\n                                [\"AggregateTypeName\"] = item.AggregateTypeName,\r\n                                [\"EventTypeName\"] = item.EventTypeName,\r\n                            }\r\n                        });\r\n                        item.IsProcessed = true;\r\n                        _logger.LogDebug(\"event {eventName} with {EventId} sent from {ApplicaotinName} at {DateTime}\", item.EventName, item.EventId, _options.ApplicationName, DateTime.Now);\r\n                    }\r\n                    _outBoxEventItemRepository.MarkAsRead(outboxItems);\r\n                    if (outboxItems.Any())\r\n                    {\r\n                        _logger.LogInformation(\"{Count} events {ApplicaotinName} at {DateTime} with id {Ids}\", outboxItems.Count, _options.ApplicationName, DateTime.Now, string.Join(',', outboxItems.Select(c => c.EventId)));\r\n                    }\r\n                    await Task.Delay(_options.SendInterval, stoppingToken);\r\n                }\r\n                catch (Exception ex)\r\n                {\r\n                    _logger.LogError(ex, \"Exception acquired in PoolingPublisherBackgroundService for application {ApplicaitonName}\", _options.ApplicationName);\r\n                    await Task.Delay(_options.ExceptionInterval, stoppingToken);\r\n\r\n                }\r\n\r\n            }\r\n            _logger.LogInformation(\"PoolingPublisherBackgroundService stop working for {ApplicationName} at {DateTime}\", _options.ApplicationName, DateTime.Now);\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExecuteAsync» در PoolingPublisherBackgroundService. کوئری/عملیات را به handler مناسب مسیریابی و اجرا می‌کند. جزئیات اجرا را لاگ می‌کند. خطاها را در بلوک try/catch مدیریت می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- stoppingToken (CancellationToken): توکن لغو عملیات ناهمگام.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: BackgroundService | DI: IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger, IServiceProvider serviceProvider",
+            "en": "Method 'ExecuteAsync' on PoolingPublisherBackgroundService. Routes the query/operation to the matching handler and executes it. Logs execution details. Handles failures in a try/catch block. Runs asynchronously.\r\nParameters:\r\n- stoppingToken (CancellationToken): Token used to cancel the asynchronous operation.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: BackgroundService | DI: IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger, IServiceProvider serviceProvider"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «PoolingPublisherBackgroundService» در namespace Zamin.Extensions.Events.PollingPublisher. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: BackgroundService. وابستگی‌های سازنده (DI): IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger, IServiceProvider serviceProvider. مرتبط: BackgroundService | DI: IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger, IServiceProvider serviceProvider.",
+        "en": "Class 'PoolingPublisherBackgroundService' in namespace Zamin.Extensions.Events.PollingPublisher. Public/protected class definition in the Zamin framework layer. Base/implemented types: BackgroundService. Constructor-injected dependencies: IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger, IServiceProvider serviceProvider. Related: BackgroundService | DI: IOutBoxEventItemRepository outBoxEventItemRepository, IOptions<PollingPublisherOptions> options, ILogger<PoolingPublisherBackgroundService> logger, IServiceProvider serviceProvider."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

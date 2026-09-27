@@ -1,0 +1,673 @@
+﻿{
+  "namespace": "Zamin.Infra.Data.Sql.Commands",
+  "type_count": 4,
+  "types": [
+    {
+      "type_name": "BaseCommandDbContext",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseCommandDbContext.cs",
+      "base_types": [
+        "DbContext"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "DbContextOptions options"
+      ],
+      "members": [
+        {
+          "name": "_transaction",
+          "kind": "field",
+          "signature": "protected IDbContextTransaction _transaction;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_transaction» در BaseCommandDbContext با امضای `protected IDbContextTransaction _transaction;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_transaction' on BaseCommandDbContext with signature `protected IDbContextTransaction _transaction;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseCommandDbContext(DbContextOptions options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseCommandDbContext. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- options (DbContextOptions): ورودی از نوع DbContextOptions.",
+            "en": "Constructor for BaseCommandDbContext. Creates an instance with the provided initial values. Parameters:\r\n- options (DbContextOptions): Input of type DbContextOptions."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected BaseCommandDbContext()",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseCommandDbContext. بدون پارامتر؛ معمولاً برای ORM، serialization یا مقداردهی اولیه محافظت‌شده استفاده می‌شود.",
+            "en": "Constructor for BaseCommandDbContext. Parameterless; typically used for ORM/serialization or protected initialization."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "public void BeginTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _transaction = Database.BeginTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «BeginTransaction» در BaseCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'BeginTransaction' on BaseCommandDbContext. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "public void RollbackTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (_transaction == null)\r\n        {\r\n            throw new NullReferenceException(\"Please call `BeginTransaction()` method first.\");\r\n        }\r\n        _transaction.Rollback();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RollbackTransaction» در BaseCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NullReferenceException (throw new)\r\n- NullReferenceException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'RollbackTransaction' on BaseCommandDbContext. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NullReferenceException (throw new)\r\n- NullReferenceException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "public void CommitTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (_transaction == null)\r\n        {\r\n            throw new NullReferenceException(\"Please call `BeginTransaction()` method first.\");\r\n        }\r\n        _transaction.Commit();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CommitTransaction» در BaseCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثناها (قابل تشخیص از کد):\r\n- NullReferenceException (throw new)\r\n- NullReferenceException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'CommitTransaction' on BaseCommandDbContext. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nExceptions (detectable from code):\r\n- NullReferenceException (throw new)\r\n- NullReferenceException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetShadowPropertyValue",
+          "kind": "method",
+          "signature": "public T GetShadowPropertyValue<T>(object entity, string propertyName) where T : IConvertible",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var value = Entry(entity).Property(propertyName).CurrentValue;\r\n        return value != null\r\n            ? (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture)\r\n            : default;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetShadowPropertyValue» در BaseCommandDbContext. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- entity (object): ورودی از نوع object.\r\n- propertyName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `T`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'GetShadowPropertyValue' on BaseCommandDbContext. Retrieves related data or state.\r\nParameters:\r\n- entity (object): Input of type object.\r\n- propertyName (string): Input of type string.\r\n\r\nReturns: `T`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetShadowPropertyValue",
+          "kind": "method",
+          "signature": "public object GetShadowPropertyValue(object entity, string propertyName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return Entry(entity).Property(propertyName).CurrentValue;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetShadowPropertyValue» در BaseCommandDbContext. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- entity (object): ورودی از نوع object.\r\n- propertyName (string): ورودی از نوع string.\r\n\r\nمقدار بازگشتی: `object`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'GetShadowPropertyValue' on BaseCommandDbContext. Retrieves related data or state.\r\nParameters:\r\n- entity (object): Input of type object.\r\n- propertyName (string): Input of type string.\r\n\r\nReturns: `object`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "OnModelCreating",
+          "kind": "method",
+          "signature": "protected override void OnModelCreating(ModelBuilder builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.OnModelCreating(builder);\r\n        builder.AddAuditableShadowProperties();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnModelCreating» در BaseCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- builder (ModelBuilder): ورودی از نوع ModelBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'OnModelCreating' on BaseCommandDbContext. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- builder (ModelBuilder): Input of type ModelBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ConfigureConventions",
+          "kind": "method",
+          "signature": "protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.ConfigureConventions(configurationBuilder);\r\n        configurationBuilder.Properties<Description>().HaveConversion<DescriptionConversion>();\r\n        configurationBuilder.Properties<Title>().HaveConversion<TitleConversion>();\r\n        configurationBuilder.Properties<BusinessId>().HaveConversion<BusinessIdConversion>();\r\n        configurationBuilder.Properties<LegalNationalId>().HaveConversion<LegalNationalId>();\r\n        configurationBuilder.Properties<NationalCode>().HaveConversion<NationalCodeConversion>();\r\n\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ConfigureConventions» در BaseCommandDbContext. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- configurationBuilder (ModelConfigurationBuilder): ورودی از نوع ModelConfigurationBuilder.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'ConfigureConventions' on BaseCommandDbContext. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- configurationBuilder (ModelConfigurationBuilder): Input of type ModelConfigurationBuilder.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetIncludePaths",
+          "kind": "method",
+          "signature": "public IEnumerable<string> GetIncludePaths(Type clrEntityType)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var entityType = Model.FindEntityType(clrEntityType);\r\n        var includedNavigations = new HashSet<INavigation>();\r\n        var stack = new Stack<IEnumerator<INavigation>>();\r\n        while (true)\r\n        {\r\n            var entityNavigations = new List<INavigation>();\r\n            foreach (var navigation in entityType.GetNavigations())\r\n            {\r\n                if (includedNavigations.Add(navigation))\r\n                    entityNavigations.Add(navigation);\r\n            }\r\n            if (entityNavigations.Count == 0)\r\n            {\r\n                if (stack.Count > 0)\r\n                    yield return string.Join(\".\", stack.Reverse().Select(e => e.Current.Name));\r\n            }\r\n            else\r\n            {\r\n                foreach (var navigation in entityNavigations)\r\n                {\r\n                    var inverseNavigation = navigation.Inverse;\r\n                    if (inverseNavigation != null)\r\n                        includedNavigations.Add(inverseNavigation);\r\n                }\r\n                stack.Push(entityNavigations.GetEnumerator());\r\n            }\r\n            while (stack.Count > 0 && !stack.Peek().MoveNext())\r\n                stack.Pop();\r\n            if (stack.Count == 0) break;\r\n            entityType = stack.Peek().Current.TargetEntityType;\r\n        }\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetIncludePaths» در BaseCommandDbContext. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- clrEntityType (Type): ورودی از نوع Type.\r\n\r\nمقدار بازگشتی: `IEnumerable<string>`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DbContext | DI: DbContextOptions options",
+            "en": "Method 'GetIncludePaths' on BaseCommandDbContext. Retrieves related data or state.\r\nParameters:\r\n- clrEntityType (Type): Input of type Type.\r\n\r\nReturns: `IEnumerable<string>`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DbContext | DI: DbContextOptions options"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseCommandDbContext» در namespace Zamin.Infra.Data.Sql.Commands. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: DbContext. وابستگی‌های سازنده (DI): DbContextOptions options. مرتبط: DbContext | DI: DbContextOptions options.",
+        "en": "Class 'BaseCommandDbContext' in namespace Zamin.Infra.Data.Sql.Commands. Public/protected class definition in the Zamin framework layer. Base/implemented types: DbContext. Constructor-injected dependencies: DbContextOptions options. Related: DbContext | DI: DbContextOptions options."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "BaseCommandRepository<TEntity, TDbContext, TId>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseCommandRepository.cs",
+      "base_types": [
+        "ICommandRepository<TEntity, TId>",
+        "IUnitOfWork"
+      ],
+      "generic_constraints": "where TEntity : AggregateRoot<TId> where TDbContext : BaseCommandDbContext where TId : struct,\r\n          IComparable,\r\n          IComparable<TId>,\r\n          IConvertible,\r\n          IEquatable<TId>,\r\n          IFormattable",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": "_dbContext",
+          "kind": "field",
+          "signature": "protected readonly TDbContext _dbContext;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_dbContext» در BaseCommandRepository<TEntity, TDbContext, TId> با امضای `protected readonly TDbContext _dbContext;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_dbContext' on BaseCommandRepository<TEntity, TDbContext, TId> with signature `protected readonly TDbContext _dbContext;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseCommandRepository(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext = dbContext;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseCommandRepository<TEntity, TDbContext, TId>. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- dbContext (TDbContext): ورودی از نوع TDbContext.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for BaseCommandRepository<TEntity, TDbContext, TId>. Creates an instance with the provided initial values. Parameters:\r\n- dbContext (TDbContext): Input of type TDbContext.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "public void Delete(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var entity = _dbContext.Set<TEntity>().Find(id);\r\n        _dbContext.Set<TEntity>().Remove(entity);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Delete» در BaseCommandRepository<TEntity, TDbContext, TId>. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Delete' on BaseCommandRepository<TEntity, TDbContext, TId>. Removes or clears the item/state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "public void Delete(TEntity entity)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.Set<TEntity>().Remove(entity);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Delete» در BaseCommandRepository<TEntity, TDbContext, TId>. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- entity (TEntity): ورودی از نوع TEntity.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Delete' on BaseCommandRepository<TEntity, TDbContext, TId>. Removes or clears the item/state.\r\nParameters:\r\n- entity (TEntity): Input of type TEntity.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "DeleteGraph",
+          "kind": "method",
+          "signature": "public void DeleteGraph(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var entity = GetGraph(id);\r\n        if (entity is not null && !entity.Id.Equals(default))\r\n            _dbContext.Set<TEntity>().Remove(entity);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «DeleteGraph» در BaseCommandRepository<TEntity, TDbContext, TId>. مورد یا وضعیت را حذف/پاک می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'DeleteGraph' on BaseCommandRepository<TEntity, TDbContext, TId>. Removes or clears the item/state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Insert",
+          "kind": "method",
+          "signature": "public void Insert(TEntity entity)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.Set<TEntity>().Add(entity);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Insert» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- entity (TEntity): ورودی از نوع TEntity.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Insert' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- entity (TEntity): Input of type TEntity.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "InsertAsync",
+          "kind": "method",
+          "signature": "public async Task InsertAsync(TEntity entity)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        await _dbContext.Set<TEntity>().AddAsync(entity);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «InsertAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- entity (TEntity): ورودی از نوع TEntity.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'InsertAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nParameters:\r\n- entity (TEntity): Input of type TEntity.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TEntity Get(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.Set<TEntity>().Find(id);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Get' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Get",
+          "kind": "method",
+          "signature": "public TEntity Get(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.Set<TEntity>().FirstOrDefault(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Get» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Get' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return await _dbContext.Set<TEntity>().FindAsync(id);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'GetAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state. Runs asynchronously.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'GetAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state. Runs asynchronously.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "public TEntity GetGraph(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        var temp = graphPath.ToList();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return query.FirstOrDefault(c => c.Id.Equals(id));\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraph» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'GetGraph' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraph",
+          "kind": "method",
+          "signature": "public TEntity GetGraph(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        var temp = graphPath.ToList();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return query.FirstOrDefault(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraph» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `TEntity`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'GetGraph' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `TEntity`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetGraphAsync(TId id)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return await query.FirstOrDefaultAsync(c => c.Id.Equals(id));\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraphAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- id (TId): ورودی از نوع TId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'GetGraphAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state. Runs asynchronously.\r\nParameters:\r\n- id (TId): Input of type TId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "GetGraphAsync",
+          "kind": "method",
+          "signature": "public async Task<TEntity> GetGraphAsync(BusinessId businessId)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));\r\n        IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();\r\n        foreach (var item in graphPath)\r\n        {\r\n            query = query.Include(item);\r\n        }\r\n        return await query.FirstOrDefaultAsync(c => c.BusinessId == businessId);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «GetGraphAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. داده یا وضعیت مرتبط را بازیابی می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- businessId (BusinessId): ورودی از نوع BusinessId.\r\n\r\nمقدار بازگشتی: `Task<TEntity>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'GetGraphAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Retrieves related data or state. Runs asynchronously.\r\nParameters:\r\n- businessId (BusinessId): Input of type BusinessId.\r\n\r\nReturns: `Task<TEntity>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Exists",
+          "kind": "method",
+          "signature": "public bool Exists(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.Set<TEntity>().Any(expression);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Exists» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nپارامترها:\r\n- expression (Expression<Func<TEntity, bool>>): ورودی از نوع Expression<Func<TEntity, bool>>.\r\n\r\nمقدار بازگشتی: `bool`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Exists' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nParameters:\r\n- expression (Expression<Func<TEntity, bool>>): Input of type Expression<Func<TEntity, bool>>.\r\n\r\nReturns: `bool`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ExistsAsync",
+          "kind": "method",
+          "signature": "public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return await _dbContext.Set<TEntity>().AnyAsync(expression);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «ExistsAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- expression (Expression<Func<TEntity, bool>>): ورودی از نوع Expression<Func<TEntity, bool>>.\r\n\r\nمقدار بازگشتی: `Task<bool>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'ExistsAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nParameters:\r\n- expression (Expression<Func<TEntity, bool>>): Input of type Expression<Func<TEntity, bool>>.\r\n\r\nReturns: `Task<bool>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Commit",
+          "kind": "method",
+          "signature": "public int Commit()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.SaveChanges();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Commit» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Commit' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CommitAsync",
+          "kind": "method",
+          "signature": "public Task<int> CommitAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        return _dbContext.SaveChangesAsync();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CommitAsync» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Task<int>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'CommitAsync' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `Task<int>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "public void BeginTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.BeginTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «BeginTransaction» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'BeginTransaction' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "public void CommitTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.CommitTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CommitTransaction» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'CommitTransaction' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "public void RollbackTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.RollbackTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RollbackTransaction» در BaseCommandRepository<TEntity, TDbContext, TId>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'RollbackTransaction' on BaseCommandRepository<TEntity, TDbContext, TId>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseCommandRepository<TEntity, TDbContext, TId>» در namespace Zamin.Infra.Data.Sql.Commands. موجودیت دامنه با هویت و قابلیت auditable. ارث‌بری/پیاده‌سازی: ICommandRepository<TEntity, TId>, IUnitOfWork. قیود جنریک: where TEntity : AggregateRoot<TId> where TDbContext : BaseCommandDbContext where TId : struct, IComparable, IComparable<TId>, IConvertible, IEquatable<TId>, IFormattable. وابستگی‌های سازنده (DI): TDbContext dbContext. مرتبط: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext.",
+        "en": "Class 'BaseCommandRepository<TEntity, TDbContext, TId>' in namespace Zamin.Infra.Data.Sql.Commands. Domain entity with identity and auditing support. Base/implemented types: ICommandRepository<TEntity, TId>, IUnitOfWork. Generic constraints: where TEntity : AggregateRoot<TId> where TDbContext : BaseCommandDbContext where TId : struct, IComparable, IComparable<TId>, IConvertible, IEquatable<TId>, IFormattable. Constructor-injected dependencies: TDbContext dbContext. Related: ICommandRepository<TEntity, TId> | IUnitOfWork | DI: TDbContext dbContext."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "BaseCommandRepository<TEntity, TDbContext>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseCommandRepository.cs",
+      "base_types": [
+        "BaseCommandRepository<TEntity, TDbContext, long>"
+      ],
+      "generic_constraints": "where TEntity : AggregateRoot where TDbContext : BaseCommandDbContext",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseCommandRepository(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseCommandRepository<TEntity, TDbContext>. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- dbContext (TDbContext): ورودی از نوع TDbContext.",
+            "en": "Constructor for BaseCommandRepository<TEntity, TDbContext>. Creates an instance with the provided initial values. Parameters:\r\n- dbContext (TDbContext): Input of type TDbContext."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseCommandRepository<TEntity, TDbContext>» در namespace Zamin.Infra.Data.Sql.Commands. موجودیت دامنه با هویت و قابلیت auditable. ارث‌بری/پیاده‌سازی: BaseCommandRepository<TEntity, TDbContext, long>. قیود جنریک: where TEntity : AggregateRoot where TDbContext : BaseCommandDbContext. وابستگی‌های سازنده (DI): TDbContext dbContext. مرتبط: BaseCommandRepository<TEntity, TDbContext, long> (same namespace) | DI: TDbContext dbContext.",
+        "en": "Class 'BaseCommandRepository<TEntity, TDbContext>' in namespace Zamin.Infra.Data.Sql.Commands. Domain entity with identity and auditing support. Base/implemented types: BaseCommandRepository<TEntity, TDbContext, long>. Generic constraints: where TEntity : AggregateRoot where TDbContext : BaseCommandDbContext. Constructor-injected dependencies: TDbContext dbContext. Related: BaseCommandRepository<TEntity, TDbContext, long> (same namespace) | DI: TDbContext dbContext."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "BaseEntityFrameworkUnitOfWork<TDbContext>",
+      "kind": "class",
+      "namespace": "Zamin.Infra.Data.Sql.Commands",
+      "source_file": "Onion/src/3.Infra/Data/Zamin.Infra.Data.Sql.Commands/BaseEntityFrameworkUnitOfWork.cs",
+      "base_types": [
+        "IUnitOfWork"
+      ],
+      "generic_constraints": "where TDbContext : BaseCommandDbContext",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "TDbContext dbContext"
+      ],
+      "members": [
+        {
+          "name": "_dbContext",
+          "kind": "field",
+          "signature": "protected readonly TDbContext _dbContext;",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "فیلد «_dbContext» در BaseEntityFrameworkUnitOfWork<TDbContext> با امضای `protected readonly TDbContext _dbContext;`. برای نگهداری وضعیت داخلی/قابل‌دسترس نوع استفاده می‌شود.",
+            "en": "Field '_dbContext' on BaseEntityFrameworkUnitOfWork<TDbContext> with signature `protected readonly TDbContext _dbContext;`. Holds type state exposed at this accessibility level."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseEntityFrameworkUnitOfWork(TDbContext dbContext)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext = dbContext;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده BaseEntityFrameworkUnitOfWork<TDbContext>. برای ایجاد نمونه با مقادیر اولیه‌ی مشخص. پارامترها:\r\n- dbContext (TDbContext): ورودی از نوع TDbContext.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for BaseEntityFrameworkUnitOfWork<TDbContext>. Creates an instance with the provided initial values. Parameters:\r\n- dbContext (TDbContext): Input of type TDbContext.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "BeginTransaction",
+          "kind": "method",
+          "signature": "public void BeginTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.BeginTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «BeginTransaction» در BaseEntityFrameworkUnitOfWork<TDbContext>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'BeginTransaction' on BaseEntityFrameworkUnitOfWork<TDbContext>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Commit",
+          "kind": "method",
+          "signature": "public int Commit()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = _dbContext.SaveChanges();\r\n        return result;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Commit» در BaseEntityFrameworkUnitOfWork<TDbContext>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `int`.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'Commit' on BaseEntityFrameworkUnitOfWork<TDbContext>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: `int`.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CommitAsync",
+          "kind": "method",
+          "signature": "public async Task<int> CommitAsync()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        var result = await _dbContext.SaveChangesAsync();\r\n        return result;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CommitAsync» در BaseEntityFrameworkUnitOfWork<TDbContext>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Task<int>` — نتیجه ناهمگام عملیات.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'CommitAsync' on BaseEntityFrameworkUnitOfWork<TDbContext>. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nNo input parameters.\r\nReturns: `Task<int>` — asynchronous result of the operation.\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "CommitTransaction",
+          "kind": "method",
+          "signature": "public void CommitTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.CommitTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «CommitTransaction» در BaseEntityFrameworkUnitOfWork<TDbContext>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'CommitTransaction' on BaseEntityFrameworkUnitOfWork<TDbContext>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "RollbackTransaction",
+          "kind": "method",
+          "signature": "public void RollbackTransaction()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _dbContext.RollbackTransaction();\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «RollbackTransaction» در BaseEntityFrameworkUnitOfWork<TDbContext>. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: IUnitOfWork | DI: TDbContext dbContext",
+            "en": "Method 'RollbackTransaction' on BaseEntityFrameworkUnitOfWork<TDbContext>. Performs the operation declared by the signature on this type.\r\nNo input parameters.\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: IUnitOfWork | DI: TDbContext dbContext"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «BaseEntityFrameworkUnitOfWork<TDbContext>» در namespace Zamin.Infra.Data.Sql.Commands. موجودیت دامنه با هویت و قابلیت auditable. ارث‌بری/پیاده‌سازی: IUnitOfWork. قیود جنریک: where TDbContext : BaseCommandDbContext. وابستگی‌های سازنده (DI): TDbContext dbContext. مرتبط: IUnitOfWork | DI: TDbContext dbContext.",
+        "en": "Class 'BaseEntityFrameworkUnitOfWork<TDbContext>' in namespace Zamin.Infra.Data.Sql.Commands. Domain entity with identity and auditing support. Base/implemented types: IUnitOfWork. Generic constraints: where TDbContext : BaseCommandDbContext. Constructor-injected dependencies: TDbContext dbContext. Related: IUnitOfWork | DI: TDbContext dbContext."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

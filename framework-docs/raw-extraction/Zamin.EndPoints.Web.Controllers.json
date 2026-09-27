@@ -1,0 +1,125 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Controllers",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "BaseController",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Controllers",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Controllers/BaseController.cs",
+      "base_types": [
+        "Controller"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "CommandDispatcher",
+          "kind": "property",
+          "signature": "protected ICommandDispatcher CommandDispatcher => ...",
+          "xml_doc": "",
+          "body_summary": "=> HttpContext.CommandDispatcher();",
+          "attributes": []
+        },
+        {
+          "name": "QueryDispatcher",
+          "kind": "property",
+          "signature": "protected IQueryDispatcher QueryDispatcher => ...",
+          "xml_doc": "",
+          "body_summary": "=> HttpContext.QueryDispatcher();",
+          "attributes": []
+        },
+        {
+          "name": "EventDispatcher",
+          "kind": "property",
+          "signature": "protected IEventDispatcher EventDispatcher => ...",
+          "xml_doc": "",
+          "body_summary": "=> HttpContext.EventDispatcher();",
+          "attributes": []
+        },
+        {
+          "name": "ZaminApplicationContext",
+          "kind": "property",
+          "signature": "protected ZaminServices ZaminApplicationContext => ...",
+          "xml_doc": "",
+          "body_summary": "=> HttpContext.ZaminApplicationContext();",
+          "attributes": []
+        },
+        {
+          "name": "Excel",
+          "kind": "method",
+          "signature": "public IActionResult Excel<T>(List<T> list)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var serializer = (IExcelSerializer)HttpContext.RequestServices.GetRequiredService(typeof(IExcelSerializer));\r\n            var bytes = serializer.ListToExcelByteArray(list);\r\n            return File(bytes, \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\");\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Excel",
+          "kind": "method",
+          "signature": "public IActionResult Excel<T>(List<T> list, string fileName)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var serializer = (IExcelSerializer)HttpContext.RequestServices.GetRequiredService(typeof(IExcelSerializer));\r\n            var bytes = serializer.ListToExcelByteArray(list);\r\n            return File(bytes, \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", $\"{fileName}.xlsx\");\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Create",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Create<TCommand, TCommandResult>(TCommand command) where TCommand : class, ICommand<TCommandResult>",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await CommandDispatcher.Send<TCommand, TCommandResult>(command);\r\n            if (result.Status == ApplicationServiceStatus.Ok)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.Created, result.Data);\r\n            }\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Create",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Create<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await CommandDispatcher.Send(command);\r\n            if (result.Status == ApplicationServiceStatus.Ok)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.Created);\r\n            }\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Edit",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Edit<TCommand, TCommandResult>(TCommand command) where TCommand : class, ICommand<TCommandResult>",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await CommandDispatcher.Send<TCommand, TCommandResult>(command);\r\n            if (result.Status == ApplicationServiceStatus.Ok)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.OK, result.Data);\r\n            }\r\n            else if (result.Status == ApplicationServiceStatus.NotFound)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.NotFound, command);\r\n            }\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Edit",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Edit<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await CommandDispatcher.Send(command);\r\n            if (result.Status == ApplicationServiceStatus.Ok)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.OK);\r\n            }\r\n            else if (result.Status == ApplicationServiceStatus.NotFound)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.NotFound, command);\r\n            }\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Delete<TCommand, TCommandResult>(TCommand command) where TCommand : class, ICommand<TCommandResult>",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await CommandDispatcher.Send<TCommand, TCommandResult>(command);\r\n            if (result.Status == ApplicationServiceStatus.Ok)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.OK, result.Data);\r\n            }\r\n            else if (result.Status == ApplicationServiceStatus.NotFound)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.NotFound, command);\r\n            }\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Delete",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Delete<TCommand>(TCommand command) where TCommand : class, ICommand",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await CommandDispatcher.Send(command);\r\n            if (result.Status == ApplicationServiceStatus.Ok)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.OK);\r\n            }\r\n            else if (result.Status == ApplicationServiceStatus.NotFound)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.NotFound, command);\r\n            }\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "Query",
+          "kind": "method",
+          "signature": "protected async Task<IActionResult> Query<TQuery, TQueryResult>(TQuery query) where TQuery : class, IQuery<TQueryResult>",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var result = await QueryDispatcher.Execute<TQuery, TQueryResult>(query);\r\n\r\n            if (result.Status.Equals(ApplicationServiceStatus.InvalidDomainState) || result.Status.Equals(ApplicationServiceStatus.ValidationError))\r\n            {\r\n                return BadRequest(result.Messages);\r\n            }\r\n            else if (result.Status.Equals(ApplicationServiceStatus.NotFound) || result.Data == null)\r\n            {\r\n                return StatusCode((int)HttpStatusCode.NoContent);\r\n            }\r\n            else if (result.Status.Equals(ApplicationServiceStatus.Ok))\r\n            {\r\n                return Ok(result.Data);\r\n            }\r\n\r\n            return BadRequest(result.Messages);\r\n        }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

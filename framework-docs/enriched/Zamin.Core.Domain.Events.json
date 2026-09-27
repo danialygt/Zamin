@@ -1,0 +1,24 @@
+﻿{
+  "namespace": "Zamin.Core.Domain.Events",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "IDomainEvent",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Domain.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Domain/Events/IDomainEvent.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "/// <summary>\n/// در این مجموعه از eventها برای تغییر وضعیت و نگهداری تغییرات استفاده می‌شود\n/// به منظور انجام اتوماتیک امور مختلف از این اینترفیس به عنوان marker استفاده می شود\n/// </summary>",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "در این مجموعه از eventها برای تغییر وضعیت و نگهداری تغییرات استفاده می‌شود به منظور انجام اتوماتیک امور مختلف از این اینترفیس به عنوان marker استفاده می شود",
+        "en": "Author XML for interface 'IDomainEvent': در این مجموعه از eventها برای تغییر وضعیت و نگهداری تغییرات استفاده می‌شود به منظور انجام اتوماتیک امور مختلف از این اینترفیس به عنوان marker استفاده می شود"
+      },
+      "source": "existing",
+      "doc_completed": false
+    }
+  ]
+}

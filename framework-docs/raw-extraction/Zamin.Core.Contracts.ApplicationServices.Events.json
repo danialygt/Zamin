@@ -1,0 +1,48 @@
+﻿{
+  "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "IDomainEventHandler<TDomainEvent>",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Events/IDomainEventHandler.cs",
+      "base_types": [],
+      "generic_constraints": "where TDomainEvent : IDomainEvent",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "Handle",
+          "kind": "method",
+          "signature": "Task Handle(TDomainEvent Event)",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "IEventDispatcher",
+      "kind": "interface",
+      "namespace": "Zamin.Core.Contracts.ApplicationServices.Events",
+      "source_file": "Onion/src/2.Core/Zamin.Core.Contracts/ApplicationServices/Events/IEventDispatcher.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "PublishDomainEventAsync",
+          "kind": "method",
+          "signature": "Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

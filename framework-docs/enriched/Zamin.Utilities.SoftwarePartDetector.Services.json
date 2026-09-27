@@ -1,0 +1,57 @@
+{
+  "namespace": "Zamin.Utilities.SoftwarePartDetector.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SoftwarePartDetectorService",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SoftwarePartDetector.Services",
+      "source_file": "Utilities/SoftwarePartDetector/Zamin.Utilities.SoftwarepartDetector/Services/SoftwarePartDetectorService.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "SoftwarePartDetector softwarePartDetector",
+        "ISoftwarePartPublisher partWebPublisher",
+        "IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SoftwarePartDetectorService(SoftwarePartDetector softwarePartDetector,\r\n                                       ISoftwarePartPublisher partWebPublisher,\r\n                                       IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _softwarePartDetector = softwarePartDetector;\r\n        _partWebPublisher = partWebPublisher;\r\n        _softwarePartDetectorOption = softwarePartDetectorOption.Value;\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "سازنده SoftwarePartDetectorService. پارامترها از طریق تزریق وابستگی تأمین می‌شوند. پارامترها:\r\n- softwarePartDetector (SoftwarePartDetector): ورودی از نوع SoftwarePartDetector.\r\n- partWebPublisher (ISoftwarePartPublisher): ورودی از نوع ISoftwarePartPublisher.\r\n- softwarePartDetectorOption (IOptions<SoftwarePartDetectorOptions>): گزینه‌های typed تنظیمات.\r\nپیش‌شرط: وابستگی‌ها/مقادیر ورودی باید معتبر باشند تا فیلدهای داخلی به‌درستی مقداردهی شوند.",
+            "en": "Constructor for SoftwarePartDetectorService. Parameters are expected via dependency injection. Parameters:\r\n- softwarePartDetector (SoftwarePartDetector): Input of type SoftwarePartDetector.\r\n- partWebPublisher (ISoftwarePartPublisher): Input of type ISoftwarePartPublisher.\r\n- softwarePartDetectorOption (IOptions<SoftwarePartDetectorOptions>): Typed options snapshot/wrapper.\r\n Preconditions/dependencies: injected/input values must be valid so internal fields can be assigned correctly."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "Run",
+          "kind": "method",
+          "signature": "public async Task Run()",
+          "xml_doc": "",
+          "body_summary": "{\r\n        if (string.IsNullOrEmpty(_softwarePartDetectorOption.ApplicationName))\r\n            throw new ArgumentNullException(\"SampleName in SoftwarePartDetectorOption is null\");\r\n\r\n        var softwareParts = await _softwarePartDetector.Detect(_softwarePartDetectorOption.ApplicationName,\r\n                                                               _softwarePartDetectorOption.ModuleName,\r\n                                                               _softwarePartDetectorOption.ServiceName);\r\n        if (softwareParts != null)\r\n            await _partWebPublisher.PublishAsync(softwareParts);\r\n    }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «Run» در SoftwarePartDetectorService. عملیات تعریف‌شده در امضا را روی این نوع انجام می‌دهد. به‌صورت ناهمگام اجرا می‌شود.\r\nبدون پارامتر ورودی.\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثناها (قابل تشخیص از کد):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nپیش‌شرط/وابستگی: نمونه باید از DI ساخته شده باشد تا وابستگی‌های سازنده در دسترس باشند\r\nانواع مرتبط: DI: SoftwarePartDetector softwarePartDetector, ISoftwarePartPublisher partWebPublisher, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption",
+            "en": "Method 'Run' on SoftwarePartDetectorService. Performs the operation declared by the signature on this type. Runs asynchronously.\r\nNo input parameters.\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nExceptions (detectable from code):\r\n- ArgumentNullException (throw new)\r\n- ArgumentNullException\r\nPreconditions/dependencies: instance should be resolved via DI so constructor dependencies are available\r\nRelated types: DI: SoftwarePartDetector softwarePartDetector, ISoftwarePartPublisher partWebPublisher, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SoftwarePartDetectorService» در namespace Zamin.Utilities.SoftwarePartDetector.Services. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. وابستگی‌های سازنده (DI): SoftwarePartDetector softwarePartDetector, ISoftwarePartPublisher partWebPublisher, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption. مرتبط: DI: SoftwarePartDetector softwarePartDetector, ISoftwarePartPublisher partWebPublisher, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption.",
+        "en": "Class 'SoftwarePartDetectorService' in namespace Zamin.Utilities.SoftwarePartDetector.Services. Public/protected class definition in the Zamin framework layer. Constructor-injected dependencies: SoftwarePartDetector softwarePartDetector, ISoftwarePartPublisher partWebPublisher, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption. Related: DI: SoftwarePartDetector softwarePartDetector, ISoftwarePartPublisher partWebPublisher, IOptions<SoftwarePartDetectorOptions> softwarePartDetectorOption."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

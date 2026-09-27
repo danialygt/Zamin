@@ -1,0 +1,64 @@
+﻿{
+  "namespace": "Zamin.Extensions.Serializers.Microsoft.Services",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "MicrosoftSerializer",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Serializers.Microsoft.Services",
+      "source_file": "Extentsions/Serializers/Zamin.Extensions.Serializers.Microsoft/Zamin.Extensions.Serializers.Microsoft/Services/MicrosoftSerializer.cs",
+      "base_types": [
+        "IJsonSerializer",
+        "IDisposable"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "ILogger<MicrosoftSerializer> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public MicrosoftSerializer(ILogger<MicrosoftSerializer> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger = logger;\r\n        _logger.LogInformation(\"Microsoft Serializer Start working\");\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "public TOutput Deserialize<TOutput>(string input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Microsoft Serializer Deserialize with name {input}\", input);\r\n        return string.IsNullOrWhiteSpace(input) ?\r\n            default : JsonSerializer.Deserialize<TOutput>(input, options);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Deserialize",
+          "kind": "method",
+          "signature": "public object Deserialize(string input, Type type)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Microsoft Serializer Deserialize with name {input} and type {type}\", input, type);\r\n\r\n        return string.IsNullOrWhiteSpace(input) ?\r\n            default : JsonSerializer.Deserialize(input, type, options);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Serialize",
+          "kind": "method",
+          "signature": "public string Serialize<TInput>(TInput input)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        _logger.LogTrace(\"Microsoft Serializer Serilize with name {input}\", input);\r\n\r\n        return input == null ? string.Empty : JsonSerializer.Serialize(input, options);\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "Dispose",
+          "kind": "method",
+          "signature": "public void Dispose()",
+          "xml_doc": "",
+          "body_summary": "=> _logger.LogInformation(\"Microsoft Serializer Stop working\");",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

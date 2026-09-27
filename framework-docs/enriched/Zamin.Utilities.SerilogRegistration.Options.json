@@ -1,0 +1,81 @@
+﻿{
+  "namespace": "Zamin.Utilities.SerilogRegistration.Options",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SerilogApplicationEnricherOptions",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.SerilogRegistration.Options",
+      "source_file": "Utilities/SerilogRegistration/Zamin.Utilities.SerilogRegistration/Options/SerilogApplicationEnricherOptions.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "ApplicationName",
+          "kind": "property",
+          "signature": "public string ApplicationName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ApplicationName» از نوع `string` در SerilogApplicationEnricherOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ApplicationName' of type `string` on SerilogApplicationEnricherOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ServiceName",
+          "kind": "property",
+          "signature": "public string ServiceName { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ServiceName» از نوع `string` در SerilogApplicationEnricherOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ServiceName' of type `string` on SerilogApplicationEnricherOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ServiceVersion",
+          "kind": "property",
+          "signature": "public string ServiceVersion { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ServiceVersion» از نوع `string` در SerilogApplicationEnricherOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ServiceVersion' of type `string` on SerilogApplicationEnricherOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        },
+        {
+          "name": "ServiceId",
+          "kind": "property",
+          "signature": "public string ServiceId { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "پراپرتی «ServiceId» از نوع `string` در SerilogApplicationEnricherOptions. وضعیت یا تنظیم مرتبط با این عضو را در اختیار می‌گذارد. قابل خواندن و نوشتن است.",
+            "en": "Property 'ServiceId' of type `string` on SerilogApplicationEnricherOptions. Exposes related state or configuration for this member. Readable and writable."
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «SerilogApplicationEnricherOptions» در namespace Zamin.Utilities.SerilogRegistration.Options. مدل تنظیمات قابل بایند شدن از configuration.",
+        "en": "Class 'SerilogApplicationEnricherOptions' in namespace Zamin.Utilities.SerilogRegistration.Options. Options model bindable from configuration."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

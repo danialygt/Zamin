@@ -1,0 +1,155 @@
+﻿{
+  "namespace": "Zamin.EndPoints.Web.Filters",
+  "type_count": 5,
+  "types": [
+    {
+      "type_name": "CamelCaseJsonAttribute",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/CamelCaseJsonAttribute.cs",
+      "base_types": [
+        "Attribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [
+        "AttributeUsage(AttributeTargets.Method)"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "کلاس «CamelCaseJsonAttribute» در namespace Zamin.EndPoints.Web.Filters. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: Attribute. اتریبیوت‌ها: AttributeUsage(AttributeTargets.Method). مرتبط: Attribute.",
+        "en": "Class 'CamelCaseJsonAttribute' in namespace Zamin.EndPoints.Web.Filters. Public/protected class definition in the Zamin framework layer. Base/implemented types: Attribute. Attributes: AttributeUsage(AttributeTargets.Method). Related: Attribute."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "CamelCaseJsonFilter",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/CamelCaseJsonAttribute.cs",
+      "base_types": [
+        "IAsyncResultFilter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OnResultExecutionAsync",
+          "kind": "method",
+          "signature": "public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var hasCamelCaseAttr = context.ActionDescriptor.EndpointMetadata\r\n                .OfType<CamelCaseJsonAttribute>()\r\n                .Any();\r\n\r\n            if (hasCamelCaseAttr && context.Result is ObjectResult objectResult)\r\n            {\r\n                var options = new JsonSerializerOptions\r\n                {\r\n                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,\r\n                    TypeInfoResolver = new DefaultJsonTypeInfoResolver()\r\n                };\r\n\r\n                objectResult.Formatters.Clear();\r\n                objectResult.Formatters.Add(new SystemTextJsonOutputFormatter(options));\r\n            }\r\n\r\n            await next();\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnResultExecutionAsync» در CamelCaseJsonFilter. در چرخه فیلتر MVC/Minimal API اجرا می‌شود و خروجی/درخواست را تنظیم می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- context (ResultExecutingContext): ورودی از نوع ResultExecutingContext.\r\n- next (ResultExecutionDelegate): ورودی از نوع ResultExecutionDelegate.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAsyncResultFilter",
+            "en": "Method 'OnResultExecutionAsync' on CamelCaseJsonFilter. Runs in the MVC/endpoint filter pipeline and adjusts the request/result. Runs asynchronously.\r\nParameters:\r\n- context (ResultExecutingContext): Input of type ResultExecutingContext.\r\n- next (ResultExecutionDelegate): Input of type ResultExecutionDelegate.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAsyncResultFilter"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «CamelCaseJsonFilter» در namespace Zamin.EndPoints.Web.Filters. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IAsyncResultFilter. مرتبط: IAsyncResultFilter.",
+        "en": "Class 'CamelCaseJsonFilter' in namespace Zamin.EndPoints.Web.Filters. Public/protected class definition in the Zamin framework layer. Base/implemented types: IAsyncResultFilter. Related: IAsyncResultFilter."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PascalCaseJsonAttribute",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/PascalCaseJsonAttribute.cs",
+      "base_types": [
+        "Attribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [
+        "AttributeUsage(AttributeTargets.Method)"
+      ],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [],
+      "generated_doc": {
+        "fa": "کلاس «PascalCaseJsonAttribute» در namespace Zamin.EndPoints.Web.Filters. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: Attribute. اتریبیوت‌ها: AttributeUsage(AttributeTargets.Method). مرتبط: Attribute.",
+        "en": "Class 'PascalCaseJsonAttribute' in namespace Zamin.EndPoints.Web.Filters. Public/protected class definition in the Zamin framework layer. Base/implemented types: Attribute. Attributes: AttributeUsage(AttributeTargets.Method). Related: Attribute."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "PascalCaseJsonFilter",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/PascalCaseJsonAttribute.cs",
+      "base_types": [
+        "IAsyncResultFilter"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OnResultExecutionAsync",
+          "kind": "method",
+          "signature": "public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            var hasPascalCaseAttr = context.ActionDescriptor.EndpointMetadata\r\n                .OfType<PascalCaseJsonAttribute>()\r\n                .Any();\r\n\r\n            if (hasPascalCaseAttr && context.Result is ObjectResult objectResult)\r\n            {\r\n                var options = new JsonSerializerOptions\r\n                {\r\n                    PropertyNamingPolicy = null,\r\n                    TypeInfoResolver = new DefaultJsonTypeInfoResolver()\r\n                };\r\n\r\n                objectResult.Formatters.Clear();\r\n                objectResult.Formatters.Add(new SystemTextJsonOutputFormatter(options));\r\n            }\r\n\r\n            await next();\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnResultExecutionAsync» در PascalCaseJsonFilter. در چرخه فیلتر MVC/Minimal API اجرا می‌شود و خروجی/درخواست را تنظیم می‌کند. به‌صورت ناهمگام اجرا می‌شود.\r\nپارامترها:\r\n- context (ResultExecutingContext): ورودی از نوع ResultExecutingContext.\r\n- next (ResultExecutionDelegate): ورودی از نوع ResultExecutionDelegate.\r\n\r\nمقدار بازگشتی: `Task` — عملیات ناهمگام بدون نتیجه داده‌ای.\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: IAsyncResultFilter",
+            "en": "Method 'OnResultExecutionAsync' on PascalCaseJsonFilter. Runs in the MVC/endpoint filter pipeline and adjusts the request/result. Runs asynchronously.\r\nParameters:\r\n- context (ResultExecutingContext): Input of type ResultExecutingContext.\r\n- next (ResultExecutionDelegate): Input of type ResultExecutionDelegate.\r\n\r\nReturns: `Task` — asynchronous operation with no data payload.\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: IAsyncResultFilter"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «PascalCaseJsonFilter» در namespace Zamin.EndPoints.Web.Filters. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: IAsyncResultFilter. مرتبط: IAsyncResultFilter.",
+        "en": "Class 'PascalCaseJsonFilter' in namespace Zamin.EndPoints.Web.Filters. Public/protected class definition in the Zamin framework layer. Base/implemented types: IAsyncResultFilter. Related: IAsyncResultFilter."
+      },
+      "source": "generated",
+      "doc_completed": false
+    },
+    {
+      "type_name": "ValidateModelStateAttribute",
+      "kind": "class",
+      "namespace": "Zamin.EndPoints.Web.Filters",
+      "source_file": "Onion/src/4.EndPoints/Zamin.EndPoints.Web/Filters/ValidateModelStateAttribute.cs",
+      "base_types": [
+        "ActionFilterAttribute"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "OnActionExecuting",
+          "kind": "method",
+          "signature": "public override void OnActionExecuting(ActionExecutingContext context)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            if (!context.ModelState.IsValid)\r\n            {\r\n                var errors = context.ModelState.Where(x => x.Value.Errors.Any()).Select(kvp => string.Join(\", \", kvp.Value.Errors.Select(p => p.ErrorMessage))).ToList();\r\n                context.Result = new BadRequestObjectResult(errors);\r\n            }\r\n        }",
+          "attributes": [],
+          "generated_doc": {
+            "fa": "متد «OnActionExecuting» در ValidateModelStateAttribute. در چرخه فیلتر MVC/Minimal API اجرا می‌شود و خروجی/درخواست را تنظیم می‌کند.\r\nپارامترها:\r\n- context (ActionExecutingContext): ورودی از نوع ActionExecutingContext.\r\n\r\nمقدار بازگشتی: ندارد (void).\r\nاستثنای صریحی در بدنه دیده نشد (ممکن است از وابستگی‌های داخلی پرتاب شود).\r\nانواع مرتبط: ActionFilterAttribute",
+            "en": "Method 'OnActionExecuting' on ValidateModelStateAttribute. Runs in the MVC/endpoint filter pipeline and adjusts the request/result.\r\nParameters:\r\n- context (ActionExecutingContext): Input of type ActionExecutingContext.\r\n\r\nReturns: nothing (void).\r\nNo explicit throw in the body (callees may still throw).\r\nRelated types: ActionFilterAttribute"
+          },
+          "source": "generated",
+          "doc_completed": false
+        }
+      ],
+      "generated_doc": {
+        "fa": "کلاس «ValidateModelStateAttribute» در namespace Zamin.EndPoints.Web.Filters. تعریف class عمومی/محافظت‌شده در لایه مربوطه فریم‌ورک زمین. ارث‌بری/پیاده‌سازی: ActionFilterAttribute. مرتبط: ActionFilterAttribute.",
+        "en": "Class 'ValidateModelStateAttribute' in namespace Zamin.EndPoints.Web.Filters. Public/protected class definition in the Zamin framework layer. Base/implemented types: ActionFilterAttribute. Related: ActionFilterAttribute."
+      },
+      "source": "generated",
+      "doc_completed": false
+    }
+  ]
+}

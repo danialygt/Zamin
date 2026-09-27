@@ -1,0 +1,63 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "BaseOutboxCommandDbContext",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.Outbox.Dal.EF",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.Outbox/Zamin.Extensions.Events.Outbox.Dal.EF/BaseOutboxCommandDbContext.cs",
+      "base_types": [
+        "BaseCommandDbContext"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "DbContextOptions options"
+      ],
+      "members": [
+        {
+          "name": "OutBoxEventItems",
+          "kind": "property",
+          "signature": "public DbSet<OutBoxEventItem> OutBoxEventItems { get; set; }",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public BaseOutboxCommandDbContext(DbContextOptions options)",
+          "xml_doc": "",
+          "body_summary": "{\r\n\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "protected BaseOutboxCommandDbContext()",
+          "xml_doc": "",
+          "body_summary": "{\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "OnConfiguring",
+          "kind": "method",
+          "signature": "protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.OnConfiguring(optionsBuilder);\r\n        optionsBuilder.AddInterceptors(new AddOutBoxEventItemInterceptor());\r\n    }",
+          "attributes": []
+        },
+        {
+          "name": "OnModelCreating",
+          "kind": "method",
+          "signature": "protected override void OnModelCreating(ModelBuilder builder)",
+          "xml_doc": "",
+          "body_summary": "{\r\n        base.OnModelCreating(builder);\r\n        builder.ApplyConfiguration(new OutBoxEventItemConfig());\r\n    }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

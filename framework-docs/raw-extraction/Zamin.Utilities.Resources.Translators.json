@@ -1,0 +1,576 @@
+﻿{
+  "namespace": "Zamin.Utilities.Resources.Translators",
+  "type_count": 2,
+  "types": [
+    {
+      "type_name": "TranslatorKeys",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Resources.Translators",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Resources/Translators/TranslatorKeys.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "VALIDATION_ERROR_NOT_EMPTY",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_EMPTY = nameof(VALIDATION_ERROR_NOT_EMPTY);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_NULL",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_NULL = nameof(VALIDATION_ERROR_NOT_NULL);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_IS_REQUIRED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_IS_REQUIRED = nameof(VALIDATION_ERROR_IS_REQUIRED);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_IS_DUPLICATED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_IS_DUPLICATED = nameof(VALIDATION_ERROR_IS_DUPLICATED);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_FOUND",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_FOUND = nameof(VALIDATION_ERROR_NOT_FOUND);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_BE_UNIQUE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_BE_UNIQUE = nameof(VALIDATION_ERROR_MUST_BE_UNIQUE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_EXIST",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_EXIST = nameof(VALIDATION_ERROR_NOT_EXIST);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_STRING_MAX_LENGTH",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_STRING_MAX_LENGTH = nameof(VALIDATION_ERROR_STRING_MAX_LENGTH);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_STRING_MIN_LENGTH",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_STRING_MIN_LENGTH = nameof(VALIDATION_ERROR_STRING_MIN_LENGTH);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_STRING_LENGTH_BETWEEN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_STRING_LENGTH_BETWEEN = nameof(VALIDATION_ERROR_STRING_LENGTH_BETWEEN);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MAX_VALUE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MAX_VALUE = nameof(VALIDATION_ERROR_MAX_VALUE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MIN_VALUE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MIN_VALUE = nameof(VALIDATION_ERROR_MIN_VALUE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_VALUE_BETWEEN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_VALUE_BETWEEN = nameof(VALIDATION_ERROR_VALUE_BETWEEN);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_EQUAL",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_EQUAL = nameof(VALIDATION_ERROR_NOT_EQUAL);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_EQUAL",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_EQUAL = nameof(VALIDATION_ERROR_EQUAL);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_GREATER_THAN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_GREATER_THAN = nameof(VALIDATION_ERROR_GREATER_THAN);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_LESS_THAN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_LESS_THAN = nameof(VALIDATION_ERROR_LESS_THAN);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_ACCESS",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_ACCESS = nameof(VALIDATION_ERROR_NOT_ACCESS);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_AUTHENTICATED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_AUTHENTICATED = nameof(VALIDATION_ERROR_NOT_AUTHENTICATED);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_AUTHORIZED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_AUTHORIZED = nameof(VALIDATION_ERROR_NOT_AUTHORIZED);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_VALID",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_VALID = nameof(VALIDATION_ERROR_NOT_VALID);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_BE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_BE = nameof(VALIDATION_ERROR_MUST_BE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_NOT_BE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_NOT_BE = nameof(VALIDATION_ERROR_MUST_NOT_BE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_HAVE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_HAVE = nameof(VALIDATION_ERROR_MUST_HAVE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_HAVE_NOT",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_HAVE_NOT = nameof(VALIDATION_ERROR_MUST_HAVE_NOT);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_FORMAT_INCORRECT",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_FORMAT_INCORRECT = nameof(VALIDATION_ERROR_FORMAT_INCORRECT);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "NAME",
+          "kind": "field",
+          "signature": "public const string NAME = nameof(NAME);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DISPLAY_NAME",
+          "kind": "field",
+          "signature": "public const string DISPLAY_NAME = nameof(DISPLAY_NAME);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TITLE",
+          "kind": "field",
+          "signature": "public const string TITLE = nameof(TITLE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PRIMARY_KEY",
+          "kind": "field",
+          "signature": "public const string PRIMARY_KEY = nameof(PRIMARY_KEY);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MESSAGE",
+          "kind": "field",
+          "signature": "public const string MESSAGE = nameof(MESSAGE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CHILD",
+          "kind": "field",
+          "signature": "public const string CHILD = nameof(CHILD);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PARENT",
+          "kind": "field",
+          "signature": "public const string PARENT = nameof(PARENT);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALUE",
+          "kind": "field",
+          "signature": "public const string VALUE = nameof(VALUE);",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "type_name": "TranslatorValues",
+      "kind": "class",
+      "namespace": "Zamin.Utilities.Resources.Translators",
+      "source_file": "Onion/src/1.Utilities/Zamin.Utilities/Resources/Translators/TranslatorValues.cs",
+      "base_types": [],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [],
+      "members": [
+        {
+          "name": "VALIDATION_ERROR_NOT_EMPTY",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_EMPTY = \"{0} باید مقدار داشته باشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_NULL",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_NULL = \"{0} نباید نال باشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_IS_REQUIRED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_IS_REQUIRED = \"{0} اجباری است.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_IS_DUPLICATED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_IS_DUPLICATED = \"{0} تکراری است.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_FOUND",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_FOUND = \"{0} یافت نشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_BE_UNIQUE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_BE_UNIQUE = \"{0} باید یکتا باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_EXIST",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_EXIST = \"{0} وجود ندارد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_STRING_MAX_LENGTH",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_STRING_MAX_LENGTH = \"{0} باید حداکثر {1} کاراکتر باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MIN_STRING_LENGTH",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MIN_STRING_LENGTH = \"{0} باید حداقل {1} کاراکتر باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_STRING_LENGTH_BETWEEN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_STRING_LENGTH_BETWEEN = \"{0} باید بین {2} و {1} کاراکتر باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MAX_VALUE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MAX_VALUE = \"مقدار {0} باید کوچکتر {1} باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MIN_VALUE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MIN_VALUE = \"مقدار {0} باید بزرگتر {1} باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_EQUAL",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_EQUAL = \"{0} برابر  {1} نیست \";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_EQUAL",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_EQUAL = \"{0}باید برابر {1} باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_GREATER_THAN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_GREATER_THAN = \"{0}باید برابر {1} باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_LESS_THAN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_LESS_THAN = \"{0}باید برابر {1} باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_VALUE_BETWEEN",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_VALUE_BETWEEN = \"{0} باید بین {2} و {1} باشد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_ACCESS",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_ACCESS = \"شما به {0} دسترسی ندارید\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_AUTHENTICATED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_AUTHENTICATED = \"شما احراظ هویت نشده اید.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_AUTHORIZED",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_AUTHORIZED = \"دسترسی شما احراظ نشده است\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_NOT_VALID",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_NOT_VALID = \"مقدار {0} نامعتبر است.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_BE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_BE = \"{0} باید {1} باشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_NOT_BE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_NOT_BE = \"{0} نباید {1} باشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_HAVE",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_HAVE = \"{0} باید {1} داشته باشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_MUST_HAVE_NOT",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_MUST_HAVE_NOT = \"{0} نباید {1} داشته باشد.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALIDATION_ERROR_FORMAT_INCORRECT",
+          "kind": "field",
+          "signature": "public const string VALIDATION_ERROR_FORMAT_INCORRECT = \"فرمت {0} نا معتبر است.\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "NAME",
+          "kind": "field",
+          "signature": "public const string NAME = \"نام\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "DISPLAY_NAME",
+          "kind": "field",
+          "signature": "public const string DISPLAY_NAME = \"نام نمایشی\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "TITLE",
+          "kind": "field",
+          "signature": "public const string TITLE = \"عنوان\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PRIMARY_KEY",
+          "kind": "field",
+          "signature": "public const string PRIMARY_KEY = \"کلید اصلی\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "MESSAGE",
+          "kind": "field",
+          "signature": "public const string MESSAGE = \"متن پیام\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "CHILD",
+          "kind": "field",
+          "signature": "public const string CHILD = \"فرزند\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "PARENT",
+          "kind": "field",
+          "signature": "public const string PARENT = \"والد\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        },
+        {
+          "name": "VALUE",
+          "kind": "field",
+          "signature": "public const string VALUE = \"مقداز\";",
+          "xml_doc": "",
+          "body_summary": "",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

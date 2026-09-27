@@ -1,0 +1,48 @@
+﻿{
+  "namespace": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess",
+  "type_count": 1,
+  "types": [
+    {
+      "type_name": "SqlOutBoxEventItemRepository",
+      "kind": "class",
+      "namespace": "Zamin.Extensions.Events.PollingPublisher.Dal.Dapper.DataAccess",
+      "source_file": "Extentsions/Events/Zamin.Extensions.Events.PollingPublisher/Zamin.Extensions.Events.PollingPublisher.Dal.Dapper/DataAccess/SqlOutBoxEventItemRepository.cs",
+      "base_types": [
+        "IOutBoxEventItemRepository"
+      ],
+      "generic_constraints": "",
+      "attributes": [],
+      "xml_doc": "",
+      "injected_dependencies": [
+        "IOptions<PollingPublisherDalRedisOptions> options",
+        "ILogger<SqlOutBoxEventItemRepository> logger"
+      ],
+      "members": [
+        {
+          "name": ".ctor",
+          "kind": "constructor",
+          "signature": "public SqlOutBoxEventItemRepository(IOptions<PollingPublisherDalRedisOptions> options, ILogger<SqlOutBoxEventItemRepository> logger)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            _options = options.Value;\r\n            _dbConnection = new SqlConnection(_options.ConnectionString);\r\n            _logger = logger;\r\n            _logger.LogInformation(\"New Instance of SqlOutBoxEventItemRepository Created\");\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "GetOutBoxEventItemsForPublishe",
+          "kind": "method",
+          "signature": "public List<OutBoxEventItem> GetOutBoxEventItemsForPublishe(int maxCount = 100)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            try\r\n            {\r\n                var result = _dbConnection.Query<OutBoxEventItem>(_options.SelectCommand, new { Count = maxCount }).ToList();\r\n                _logger.LogDebug(\"{Count} of event fetched for sending from service {ApplicaitonName} at {DateTime}\", result.Count, _options.ApplicationName, DateTime.Now);\r\n                return result;\r\n            }\r\n            catch (Exception ex)\r\n            {\r\n                _logger.LogError(ex, \"fetching events failed in applicaiton {ApplicaitonName}\", _options.ApplicationName);\r\n                throw;\r\n            }\r\n\r\n        }",
+          "attributes": []
+        },
+        {
+          "name": "MarkAsRead",
+          "kind": "method",
+          "signature": "public void MarkAsRead(List<OutBoxEventItem> outBoxEventItems)",
+          "xml_doc": "",
+          "body_summary": "{\r\n            try\r\n            {\r\n                var idForMark = outBoxEventItems.Where(c => c.IsProcessed).Select(c => c.OutBoxEventItemId).ToList();\r\n                if (idForMark != null && idForMark.Any())\r\n                {\r\n                    _dbConnection.Execute(_options.UpdateCommand, new\r\n                    {\r\n                        Ids = idForMark\r\n                    });\r\n                    _logger.LogInformation(\"{Count} of event marked as processed in service {ApplicaitonName} at {DateTime}. marked ids are {Ids}\", outBoxEventItems.Count, _options.ApplicationName, DateTime.Now, idForMark);\r\n                }\r\n            }\r\n            catch (Exception ex)\r\n            {\r\n                _logger.LogError(ex, \"Marking events as processed failed in applicaiton {ApplicaitonName}\", _options.ApplicationName);\r\n                throw;\r\n            }\r\n\r\n        }",
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}
